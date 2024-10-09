@@ -1,16 +1,25 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SandboxWorldManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Title("Configuration")]
+    [SerializeField] 
+    private InputActionAsset _actionAsset = null;
+    
+    [Title("Player Components")]
+    [SerializeField]
+    private PlayerBehaviour _playerBehaviour = null;
+    
+    private void Awake()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        ControlInput controlInput = new ControlInput(_actionAsset);
+        _playerBehaviour.Initialize(controlInput);
     }
 }

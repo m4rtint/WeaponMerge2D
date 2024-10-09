@@ -1,16 +1,17 @@
+using _WeaponMerge.Scripts.Players;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private PlayerMovementBehaviour _playerMovementBehaviour = null;
+    
+    private void Awake()
     {
-        
+        _playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Initialize(ControlInput controlInput)
     {
-        
+        _playerMovementBehaviour.Initialize(controlInput);
     }
 }
