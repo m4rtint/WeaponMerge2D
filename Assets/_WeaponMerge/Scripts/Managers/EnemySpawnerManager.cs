@@ -13,6 +13,9 @@ namespace _WeaponMerge.Scripts.Managers
     public class EnemySpawnerManager: MonoBehaviour
     {
         [SerializeField] private EnemyBehaviour _enemyPrefab;
+
+        [Header("Spawn Settings")] 
+        [SerializeField] private Transform[] _spawnLocations;
         [SerializeField] private Vector2 _spawnArea;
         [SerializeField] private float _spawnRate;
         [SerializeField] private int _spawnAmount;
@@ -41,20 +44,24 @@ namespace _WeaponMerge.Scripts.Managers
             for (int i = 0; i < _spawnAmount; i++)
             {
                 var enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
+                var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
                 enemy.transform.position = new Vector3(
-                    transform.position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
-                    transform.position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
+                    position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
+                    position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
                     0);
                 enemy.Initialize(_playerPositionProvider);
             }
         }
 
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
             Gizmos.color = new Color(0, 1, 1, 0.5f);
-            Gizmos.DrawCube(transform.position, new Vector3(_spawnArea.x, _spawnArea.y, 0));
+            foreach (var spawnLocation in _spawnLocations)
+            {
+                Gizmos.DrawCube(spawnLocation.position, new Vector3(_spawnArea.x, _spawnArea.y, 0));
+            }
         }
-
+        
         public void Restart()
         {
             ObjectPooler.Instance.CreatePool(EnemyType.Simple, _enemyPrefab);

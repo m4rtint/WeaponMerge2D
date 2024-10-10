@@ -25007,54 +25007,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &525266807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 525266809}
-  - component: {fileID: 525266808}
-  m_Layer: 0
-  m_Name: MonsterSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &525266808
+--- !u!114 &525266808 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+  m_PrefabInstance: {fileID: 1706952517583381333}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525266807}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8fe77f78c67451a94646a0671e884ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPrefab: {fileID: 526929213370670330, guid: 7986c78a99c10e34db77a13e8cb91d96, type: 3}
-  _spawnArea: {x: 10.5, y: 14.86}
-  _spawnRate: 3
-  _spawnAmount: 5
---- !u!4 &525266809
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525266807}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.07, y: 0.6, z: -0.062098097}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &564587675
 GameObject:
   m_ObjectHideFlags: 0
@@ -25396,6 +25359,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &1706952517583381333
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.062098097
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5418254783370038972, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987944219182023659, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: m_Name
+      value: MonsterSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
 --- !u!20 &1789459236470997282
 Camera:
   m_ObjectHideFlags: 0
@@ -25536,7 +25556,7 @@ SceneRoots:
   - {fileID: 1951703767}
   - {fileID: 1567048300}
   - {fileID: 564587676}
-  - {fileID: 525266809}
+  - {fileID: 1706952517583381333}
   - {fileID: 1758012839}
   - {fileID: 191770925}
   - {fileID: 1794919130}
