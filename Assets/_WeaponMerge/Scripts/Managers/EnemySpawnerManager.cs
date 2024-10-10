@@ -29,11 +29,6 @@ namespace _WeaponMerge.Scripts.Managers
         {
             _playerPositionProvider = playerPositionProvider;
         }
-        
-        private void Start()
-        {
-            ObjectPooler.Instance.CreatePool(EnemyType.Simple, _enemyPrefab);
-        }
 
         private void Update()
         {
@@ -62,6 +57,17 @@ namespace _WeaponMerge.Scripts.Managers
         {
             Gizmos.color = new Color(0, 1, 1, 0.5f);
             Gizmos.DrawCube(transform.position, new Vector3(_spawnArea.x, _spawnArea.y, 0));
+        }
+
+        public void Restart()
+        {
+            ObjectPooler.Instance.CreatePool(EnemyType.Simple, _enemyPrefab);
+            _elapsedSpawnTime = 0f;
+        }
+
+        public void CleanUp()
+        {
+            _elapsedSpawnTime = 0f;
         }
     }
 }

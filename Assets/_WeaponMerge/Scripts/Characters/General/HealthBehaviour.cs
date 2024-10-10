@@ -10,7 +10,7 @@ namespace _WeaponMerge.Scripts.Characters.General
         protected int MaxHealth { get; set; }
         private int _health;
 
-        private int Health
+        protected int Health
         {
             get => _health;
             set

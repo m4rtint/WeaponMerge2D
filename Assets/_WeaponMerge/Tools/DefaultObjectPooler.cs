@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -23,6 +24,7 @@ namespace _WeaponMerge.Tools
         }
 
         private readonly Dictionary<Enum, ObjectPool<GameObject>> _poolDictionary = new();
+        private readonly List<GameObject> _allCreatedObjects = new();
 
         public void CreatePool<T>(Enum poolKey, T prefab) where T : MonoBehaviour
         {
@@ -33,10 +35,11 @@ namespace _WeaponMerge.Tools
                 poolParent.transform.SetParent(transform);
 
                 ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
-                    createFunc: () => 
+                    createFunc: () =>
                     {
                         GameObject obj = Instantiate(prefab.gameObject);
                         obj.transform.SetParent(poolParent.transform);
+                        _allCreatedObjects.Add(obj);
                         return obj;
                     },
                     actionOnGet: (obj) => obj.SetActive(true),
@@ -72,6 +75,16 @@ namespace _WeaponMerge.Tools
             {
                 Destroy(obj);
             }
+        }
+
+        public void CleanUp()
+        {
+            foreach (var obj in _allCreatedObjects)
+            {
+                Destroy(obj);
+            }
+            _allCreatedObjects.Clear();
+            _poolDictionary.Clear();
         }
     }
 }

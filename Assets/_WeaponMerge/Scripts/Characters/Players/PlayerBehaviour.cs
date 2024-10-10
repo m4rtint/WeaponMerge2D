@@ -22,8 +22,19 @@ namespace _WeaponMerge.Scripts.Characters.Players
             _playerWeaponBehaviour.Initialize(controlInput);
             _playerHealthBehaviour.Initialize(100, onDeath: () =>
             {
-                Debug.Log("Player died");
+                GameStateManager.Instance.ChangeState(GameState.Restarting);
             });
+        }
+
+        public void Restart()
+        {
+            _playerHealthBehaviour.Restart();
+            _playerWeaponBehaviour.Restart();
+        }
+
+        public void CleanUp()
+        {
+            _playerHealthBehaviour.CleanUp();
         }
     }
 }

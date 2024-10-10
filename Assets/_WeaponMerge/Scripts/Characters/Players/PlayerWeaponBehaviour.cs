@@ -14,7 +14,6 @@ namespace _WeaponMerge.Scripts.Characters.Players
         
         public void Initialize(ControlInput controlInput)
         {
-            ObjectPooler.Instance.CreatePool(AmmoType.Simple, _bulletPrefab);
             controlInput.OnShootAction += Shoot;
         }
         
@@ -40,6 +39,11 @@ namespace _WeaponMerge.Scripts.Characters.Players
                 // Spawn the bullet at the weapon tip, moving towards the mouse
                 bullet.SpawnAt(_weaponTip.position, properties, direction);
             }
+        }
+        
+        public void Restart()
+        {
+            ObjectPooler.Instance.CreatePool(AmmoType.Simple, _bulletPrefab);
         }
     }
 }

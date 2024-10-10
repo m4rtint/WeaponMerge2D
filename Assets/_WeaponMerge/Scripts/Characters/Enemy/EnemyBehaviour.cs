@@ -9,11 +9,13 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         private EnemyPathFindingBehaviour _pathFindingBehaviour = null;
         private EnemyHealthBehaviour _enemyHealthBehaviour = null;
+        private SimpleEnemyAttackBehaviour _simpleEnemyAttackBehaviour = null;
 
         private void Awake()
         {
             _pathFindingBehaviour = GetComponent<EnemyPathFindingBehaviour>();
             _enemyHealthBehaviour = GetComponent<EnemyHealthBehaviour>();
+            _simpleEnemyAttackBehaviour = GetComponent<SimpleEnemyAttackBehaviour>();
         }
         
         public void Initialize(PlayerPositionProvider playerPositionProvider)

@@ -1,9 +1,11 @@
 using System;
+using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Managers
 {
     public enum GameState
     {
+        InitialState,
         Loading,
         InGame,
         Paused,
@@ -19,20 +21,10 @@ namespace _WeaponMerge.Scripts.Managers
 
         private GameStateManager()
         {
-            _currentState = GameState.Loading;
+            _currentState = GameState.InitialState;
         }
 
-        public static GameStateManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new GameStateManager();
-                }
-                return _instance;
-            }
-        }
+        public static GameStateManager Instance => _instance ??= new GameStateManager();
 
         public GameState GetState()
         {
@@ -43,6 +35,7 @@ namespace _WeaponMerge.Scripts.Managers
         {
             if (_currentState != newState)
             {
+                Debug.Log("Game State Changed: " + newState);
                 _currentState = newState;
                 OnGameStateChanged?.Invoke(_currentState);
             }
