@@ -1,17 +1,20 @@
-using _WeaponMerge.Scripts.Players;
+using _WeaponMerge.Scripts.Managers;
 using UnityEngine;
 
-public class PlayerBehaviour : MonoBehaviour
+namespace _WeaponMerge.Scripts.Players
 {
-    private PlayerMovementBehaviour _playerMovementBehaviour = null;
-    
-    private void Awake()
+    public class PlayerBehaviour : MonoBehaviour
     {
-        _playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
-    }
+        private PlayerMovementBehaviour _playerMovementBehaviour = null;
     
-    public void Initialize(ControlInput controlInput)
-    {
-        _playerMovementBehaviour.Initialize(controlInput);
+        private void Awake()
+        {
+            _playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
+        }
+    
+        public void Initialize(ControlInput controlInput)
+        {
+            _playerMovementBehaviour.Initialize(controlInput);
+        }
     }
 }

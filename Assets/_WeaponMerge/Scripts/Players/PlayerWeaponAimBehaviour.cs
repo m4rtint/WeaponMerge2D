@@ -1,29 +1,32 @@
 using UnityEngine;
 
-public class PlayerWeaponAimBehaviour : MonoBehaviour
+namespace _WeaponMerge.Scripts.Players
 {
-    [SerializeField] private Transform _weaponPivot = null;
-    private SpriteRenderer _weaponSpriteRenderer = null;
-
-    private void Awake()
+    public class PlayerWeaponAimBehaviour : MonoBehaviour
     {
-        _weaponSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-    }
+        [SerializeField] private Transform _weaponPivot = null;
+        private SpriteRenderer _weaponSpriteRenderer = null;
 
-    private void Update()
-    {
-        // Get the mouse position in world space and ensure it's 2D
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
+        private void Awake()
+        {
+            _weaponSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        }
 
-        // Calculate the direction and angle to the mouse position
-        Vector2 aimDirection = (mousePosition - _weaponPivot.position).normalized;
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        private void Update()
+        {
+            // Get the mouse position in world space and ensure it's 2D
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0;
 
-        // Rotate the weapon around the pivot point
-        _weaponPivot.rotation = Quaternion.Euler(0, 0, angle);
+            // Calculate the direction and angle to the mouse position
+            Vector2 aimDirection = (mousePosition - _weaponPivot.position).normalized;
+            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
 
-        // Flip the weapon sprite when aiming to the left
-        _weaponSpriteRenderer.flipY = aimDirection.x < 0;
+            // Rotate the weapon around the pivot point
+            _weaponPivot.rotation = Quaternion.Euler(0, 0, angle);
+
+            // Flip the weapon sprite when aiming to the left
+            _weaponSpriteRenderer.flipY = aimDirection.x < 0;
+        }
     }
 }

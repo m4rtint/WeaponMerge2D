@@ -1,7 +1,7 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
-namespace Tools
+namespace _WeaponMerge.Tools
 {
     /// <summary>
     /// Hierarchy Window Group Header

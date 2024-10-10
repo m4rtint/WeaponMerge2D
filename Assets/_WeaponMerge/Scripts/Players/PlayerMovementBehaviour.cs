@@ -1,3 +1,4 @@
+using _WeaponMerge.Scripts.Managers;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Players
