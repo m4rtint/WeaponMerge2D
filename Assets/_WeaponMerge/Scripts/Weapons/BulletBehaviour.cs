@@ -1,3 +1,4 @@
+using _WeaponMerge.Scripts.Characters.General;
 using _WeaponMerge.Tools;
 using UnityEngine;
 
@@ -27,18 +28,27 @@ namespace _WeaponMerge.Scripts.Weapons
         }
         
         private void FixedUpdate()
-        {
-            //TODO - check if time to live is over, return to to pool when over
+        {   
             if (_bullet.TimeToLive > 0)
             {
                 _elapsedTimeToLive -= Time.fixedDeltaTime;
-                if (_bullet.TimeToLive <= 0)
+                if (_elapsedTimeToLive <= 0)
                 {
                     ObjectPooler.Instance.ReturnToPool(AmmoType.Simple, gameObject);
                 }
             }
-            if (Physics2D.Raycast(transform.position, _moveTowards.normalized, _bullet.Speed * Time.fixedDeltaTime).collider != null)
+
+            // Raycast and check if it hit something
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, _moveTowards.normalized, _bullet.Speed * Time.fixedDeltaTime);
+            if (hit.collider != null)
             {
+                // Check if the hit object has a HealthBehaviour component and apply damage
+                if (hit.collider.TryGetComponent<HealthBehaviour>(out var enemyHealth))
+                {
+                    enemyHealth.TakeDamage(_bullet.Damage);
+                }
+                
+                // Return the bullet to the pool
                 ObjectPooler.Instance.ReturnToPool(AmmoType.Simple, gameObject);
             }
         }

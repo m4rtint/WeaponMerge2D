@@ -8,10 +8,10 @@ namespace _WeaponMerge.Scripts.Weapons
     public class Bullet
     {
         public float Speed { get; }
-        public float Damage { get; }
+        public int Damage { get; }
         public float TimeToLive { get; }
 
-        public Bullet(float speed, float damage, float timeToLive)
+        public Bullet(float speed, int damage, float timeToLive)
         {
             Speed = speed;
             Damage = damage;

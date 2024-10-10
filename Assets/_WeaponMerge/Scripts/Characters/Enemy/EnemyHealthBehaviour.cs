@@ -1,4 +1,5 @@
 using _WeaponMerge.Scripts.Characters.General;
+using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Enemy
 {
@@ -6,12 +7,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         protected override void OnHealthChanged(int health)
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void OnDeath()
-        {
-            throw new System.NotImplementedException();
+            Debug.Log("Enemy health changed to: " + health);
         }
     }
 }

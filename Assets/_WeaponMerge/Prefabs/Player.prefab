@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 6325823491769363913}
   - component: {fileID: 2464000517597706077}
   - component: {fileID: 2101358034054743615}
-  - component: {fileID: 1855035642154994819}
+  - component: {fileID: 3472274675633377344}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 893231321749751592, guid: da42b9af37fe3f4458cdf4674b54fa4b, type: 3}
   _weaponTip: {fileID: 8266895919562714782}
---- !u!114 &1855035642154994819
+--- !u!114 &3472274675633377344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7915159141590259325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 692111f63bfed32499f6074d5166bb5f, type: 3}
+  m_Script: {fileID: 11500000, guid: e37e5347dd230434f9205894c57beeb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8000204312224395168
