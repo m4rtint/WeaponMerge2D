@@ -5,9 +5,9 @@ namespace _WeaponMerge.Scripts.Characters.Players
 {
     public class PlayerHealthBehaviour : HealthBehaviour
     {
-        protected override void OnHealthChanged(int health)
+        protected override void OnHealthChanged()
         {
-            Debug.Log("Player health changed to: " + health);
+            Debug.Log("Player health changed to: " + Health);
         }
 
         public void Restart()

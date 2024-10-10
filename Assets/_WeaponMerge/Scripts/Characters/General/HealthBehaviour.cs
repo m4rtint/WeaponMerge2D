@@ -16,7 +16,7 @@ namespace _WeaponMerge.Scripts.Characters.General
             set
             {
                 _health = value;
-                OnHealthChanged(_health);
+                OnHealthChanged();
             }
         }
         
@@ -41,7 +41,7 @@ namespace _WeaponMerge.Scripts.Characters.General
             Health += health;
         }
 
-        protected abstract void OnHealthChanged(int health);
+        protected abstract void OnHealthChanged();
 
         protected virtual void OnDeath()
         {

@@ -12,14 +12,10 @@ namespace _WeaponMerge.Scripts.Managers
     
     public class EnemySpawnerManager: MonoBehaviour
     {
-        [SerializeField]
-        private EnemyBehaviour _enemyPrefab;
-        [SerializeField]
-        private Vector2 _spawnArea;
-        [SerializeField]
-        private float _spawnRate;
-        [SerializeField] 
-        private int _spawnAmount;
+        [SerializeField] private EnemyBehaviour _enemyPrefab;
+        [SerializeField] private Vector2 _spawnArea;
+        [SerializeField] private float _spawnRate;
+        [SerializeField] private int _spawnAmount;
         
         private float _elapsedSpawnTime = 0f;
         

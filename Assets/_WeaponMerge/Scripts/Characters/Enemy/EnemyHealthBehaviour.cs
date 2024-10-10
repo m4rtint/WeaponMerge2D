@@ -4,8 +4,12 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
 {
     public class EnemyHealthBehaviour: HealthBehaviour
     {
-        protected override void OnHealthChanged(int health)
+        protected override void OnHealthChanged()
         {
+            if (Health < MaxHealth)
+            {
+                // Do something
+            }
             // Nothing here
         }
     }
