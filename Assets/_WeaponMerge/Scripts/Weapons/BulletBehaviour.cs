@@ -11,14 +11,16 @@ namespace _WeaponMerge.Scripts.Weapons
         private Bullet _bullet = null;
         private Vector2 _moveTowards = Vector2.zero;
         private float _elapsedTimeToLive = 0;
+        private int _ownerInstanceId = 0;
         
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
         }
         
-        public void SpawnAt(Vector2 position, Bullet bullet, Vector2 moveTowards)
+        public void SpawnAt(int ownerId, Vector2 position, Bullet bullet, Vector2 moveTowards)
         {
+            _ownerInstanceId = ownerId;
             _bullet = bullet;
             transform.position = position;
             _moveTowards = moveTowards;
@@ -40,8 +42,10 @@ namespace _WeaponMerge.Scripts.Weapons
 
             // Raycast and check if it hit something
             RaycastHit2D hit = Physics2D.Raycast(transform.position, _moveTowards.normalized, _bullet.Speed * Time.fixedDeltaTime);
-            if (hit.collider != null)
+            if (hit.collider != null &&
+                hit.collider.gameObject.GetInstanceID() != _ownerInstanceId)
             {
+                
                 // Check if the hit object has a HealthBehaviour component and apply damage
                 if (hit.collider.TryGetComponent<HealthBehaviour>(out var enemyHealth))
                 {

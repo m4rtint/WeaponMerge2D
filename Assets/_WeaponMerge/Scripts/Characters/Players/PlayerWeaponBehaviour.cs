@@ -37,7 +37,11 @@ namespace _WeaponMerge.Scripts.Characters.Players
                 var properties = new Bullet(10, 10, 3f);
 
                 // Spawn the bullet at the weapon tip, moving towards the mouse
-                bullet.SpawnAt(_weaponTip.position, properties, direction);
+                bullet.SpawnAt(
+                    ownerId: gameObject.GetInstanceID(),
+                    _weaponTip.position,
+                    properties,
+                    direction);
             }
         }
         
