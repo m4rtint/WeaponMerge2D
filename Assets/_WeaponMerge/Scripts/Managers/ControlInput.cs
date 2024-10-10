@@ -14,6 +14,7 @@ namespace _WeaponMerge.Scripts.Managers
     
         // Actions
         public event Action<Vector2> OnMoveAction;
+        public event Action<bool> OnShootAction;
     
         public ControlInput(InputActionAsset asset)
         {
@@ -33,12 +34,22 @@ namespace _WeaponMerge.Scripts.Managers
             var moveAction = _playerActionMap.FindAction("Move");
             moveAction.performed += OnMove;
             moveAction.canceled += OnMove;
+            
+            var shootAction = _playerActionMap.FindAction("Shoot");
+            shootAction.performed += OnShoot;
+            shootAction.canceled += OnShoot;
         }
     
         private void OnMove(InputAction.CallbackContext context)
         {
             Vector2 move = context.ReadValue<Vector2>();
             OnMoveAction?.Invoke(move);
+        }
+        
+        private void OnShoot(InputAction.CallbackContext context)
+        {
+            bool isShoot = context.ReadValueAsButton();
+            OnShootAction?.Invoke(isShoot);
         }
     }
 }

@@ -22,21 +22,20 @@ namespace _WeaponMerge.Tools
             }
         }
 
-        private readonly Dictionary<Enum, ObjectPool<GameObject>> _poolDictionary = new Dictionary<Enum, ObjectPool<GameObject>>();
-        private readonly Dictionary<Enum, Transform> _poolParents = new Dictionary<Enum, Transform>();
+        private readonly Dictionary<Enum, ObjectPool<GameObject>> _poolDictionary = new();
 
-        public void CreatePool<T>(Enum poolKey, GameObject prefab) where T : MonoBehaviour
+        public void CreatePool<T>(Enum poolKey, T prefab) where T : MonoBehaviour
         {
             if (!_poolDictionary.ContainsKey(poolKey))
             {
-                GameObject poolParent = new GameObject(poolKey.ToString() + " Pool");
+                var poolName = typeof(T).Name + " Pool";
+                GameObject poolParent = new GameObject(poolName);
                 poolParent.transform.SetParent(transform);
-                _poolParents[poolKey] = poolParent.transform;
 
                 ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
                     createFunc: () => 
                     {
-                        GameObject obj = Instantiate(prefab);
+                        GameObject obj = Instantiate(prefab.gameObject);
                         obj.transform.SetParent(poolParent.transform);
                         return obj;
                     },
@@ -54,9 +53,9 @@ namespace _WeaponMerge.Tools
 
         public T Get<T>(Enum poolKey) where T : MonoBehaviour
         {
-            if (_poolDictionary.ContainsKey(poolKey))
+            if (_poolDictionary.TryGetValue(poolKey, out var value))
             {
-                var pooledObject = _poolDictionary[poolKey].Get();
+                var pooledObject = value.Get();
                 return pooledObject.GetComponent<T>();
             }
 
@@ -65,9 +64,9 @@ namespace _WeaponMerge.Tools
 
         public void ReturnToPool(Enum poolKey, GameObject obj)
         {
-            if (_poolDictionary.ContainsKey(poolKey))
+            if (_poolDictionary.TryGetValue(poolKey, out var value))
             {
-                _poolDictionary[poolKey].Release(obj);
+                value.Release(obj);
             }
             else
             {
