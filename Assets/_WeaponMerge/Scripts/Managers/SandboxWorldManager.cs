@@ -16,12 +16,12 @@ namespace _WeaponMerge.Scripts.Managers
         private PlayerBehaviour _playerBehaviour = null;
         [SerializeField]
         private EnemySpawnerManager _enemySpawnerManager = null;
-        
+        private GameStateManager _gameStateManager = GameStateManager.Instance;
+
         private void Awake()
         {
-        
         }
-
+        
         private void Start()
         {
             var controlInput = new ControlInput(_actionAsset);
