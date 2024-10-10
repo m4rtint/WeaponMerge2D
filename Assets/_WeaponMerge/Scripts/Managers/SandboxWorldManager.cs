@@ -1,3 +1,4 @@
+using _WeaponMerge.Scripts.Enemy;
 using _WeaponMerge.Scripts.Players;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -14,7 +15,11 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Player Components")]
         [SerializeField]
         private PlayerBehaviour _playerBehaviour = null;
-    
+        
+        [Title("Enemy Components")]
+        [SerializeField]
+        private EnemyBehaviour _enemyBehaviour = null;
+        
         private void Awake()
         {
         
@@ -22,8 +27,10 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Start()
         {
-            ControlInput controlInput = new ControlInput(_actionAsset);
+            var controlInput = new ControlInput(_actionAsset);
             _playerBehaviour.Initialize(controlInput);
+            var playerPositionProvider = new PlayerPositionProvider(_playerBehaviour.transform);
+            _enemyBehaviour.Initialize(playerPositionProvider);
         }
     }
 }
