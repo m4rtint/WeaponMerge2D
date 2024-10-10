@@ -15,10 +15,8 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Player Components")]
         [SerializeField]
         private PlayerBehaviour _playerBehaviour = null;
-        
-        [Title("Enemy Components")]
         [SerializeField]
-        private EnemyBehaviour _enemyBehaviour = null;
+        private EnemySpawnerManager _enemySpawnerManager = null;
         
         private void Awake()
         {
@@ -30,7 +28,7 @@ namespace _WeaponMerge.Scripts.Managers
             var controlInput = new ControlInput(_actionAsset);
             _playerBehaviour.Initialize(controlInput);
             var playerPositionProvider = new PlayerPositionProvider(_playerBehaviour.transform);
-            _enemyBehaviour.Initialize(playerPositionProvider);
+            _enemySpawnerManager.Initialize(playerPositionProvider);
         }
     }
 }
