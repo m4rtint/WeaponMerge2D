@@ -1,33 +1,44 @@
-using System;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.General
 {
     public abstract class HealthBehaviour : MonoBehaviour
     {
+        protected int MaxHealth { get; set; }
         private int _health;
+
+        private int Health
+        {
+            get => _health;
+            set
+            {
+                _health = value;
+                OnHealthChanged(_health);
+            }
+        }
         
         public void Initialize(int health)
         {
-            _health = health;
+            MaxHealth = health;
+            Health = health;
         }
         
         public void TakeDamage(int damage)
         {
-            _health -= damage;
+            Health -= damage;
             if (_health <= 0)
             {
-                Die();
+                OnDeath();
             }
         }
         
         public void GainHealth(int health)
         {
-            _health += health;
+            Health += health;
         }
 
-        public virtual void Die()
-        {
-        }
+        protected abstract void OnHealthChanged(int health);
+
+        protected abstract void OnDeath();
     }
 }

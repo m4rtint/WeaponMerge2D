@@ -3,7 +3,7 @@ using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using UnityEngine;
 
-namespace _WeaponMerge.Scripts.Players
+namespace _WeaponMerge.Scripts.Characters.Players
 {
     public class PlayerWeaponBehaviour : MonoBehaviour
     {

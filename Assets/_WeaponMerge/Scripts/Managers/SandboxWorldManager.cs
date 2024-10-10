@@ -1,5 +1,4 @@
-using _WeaponMerge.Scripts.Enemy;
-using _WeaponMerge.Scripts.Players;
+using _WeaponMerge.Scripts.Characters.Players;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;

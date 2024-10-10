@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _WeaponMerge.Scripts.Players
+namespace _WeaponMerge.Scripts.Characters.Players
 {
     public class PlayerWeaponAimBehaviour : MonoBehaviour
     {

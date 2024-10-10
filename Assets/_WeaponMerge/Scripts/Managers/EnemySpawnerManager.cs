@@ -1,5 +1,5 @@
-using _WeaponMerge.Scripts.Enemy;
-using _WeaponMerge.Scripts.Players;
+using _WeaponMerge.Scripts.Characters.Enemy;
+using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
 using UnityEngine;
 

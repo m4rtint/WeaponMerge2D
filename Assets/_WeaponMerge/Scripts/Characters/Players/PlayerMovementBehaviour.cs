@@ -1,7 +1,7 @@
 using _WeaponMerge.Scripts.Managers;
 using UnityEngine;
 
-namespace _WeaponMerge.Scripts.Players
+namespace _WeaponMerge.Scripts.Characters.Players
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMovementBehaviour : MonoBehaviour

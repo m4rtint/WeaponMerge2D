@@ -1,7 +1,7 @@
-using _WeaponMerge.Scripts.Players;
+using _WeaponMerge.Scripts.Characters.Players;
 using UnityEngine;
 
-namespace _WeaponMerge.Scripts.Enemy
+namespace _WeaponMerge.Scripts.Characters.Enemy
 {
     public class EnemyPathFindingBehaviour : MonoBehaviour
     {
