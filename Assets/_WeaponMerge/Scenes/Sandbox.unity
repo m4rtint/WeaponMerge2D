@@ -25108,7 +25108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _actionAsset: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
-  _prefabPoolCoordinator: {fileID: 0}
+  _prefabPoolCoordinator: {fileID: 1758012840}
   _playerBehaviour: {fileID: 621995264}
   _enemySpawnerManager: {fileID: 525266808}
 --- !u!114 &621995264 stripped
