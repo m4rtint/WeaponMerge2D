@@ -5,13 +5,15 @@ using UnityEngine;
 namespace _WeaponMerge.Scripts.Weapons
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BulletBehaviour: MonoBehaviour
+    public abstract class BulletBehaviour: MonoBehaviour
     {
         private Rigidbody2D _rigidbody = null;
         private Bullet _bullet = null;
         private Vector2 _moveTowards = Vector2.zero;
         private float _elapsedTimeToLive = 0;
         private int _ownerInstanceId = 0;
+        
+        protected abstract AmmoType AmmoType { get; }
         
         private void Awake()
         {
@@ -36,7 +38,7 @@ namespace _WeaponMerge.Scripts.Weapons
                 _elapsedTimeToLive -= Time.fixedDeltaTime;
                 if (_elapsedTimeToLive <= 0)
                 {
-                    ObjectPooler.Instance.ReturnToPool(AmmoType.Simple, gameObject);
+                    ObjectPooler.Instance.ReturnToPool(AmmoType, gameObject);
                 }
             }
 
@@ -53,7 +55,7 @@ namespace _WeaponMerge.Scripts.Weapons
                 }
                 
                 // Return the bullet to the pool
-                ObjectPooler.Instance.ReturnToPool(AmmoType.Simple, gameObject);
+                ObjectPooler.Instance.ReturnToPool(AmmoType, gameObject);
             }
         }
     }

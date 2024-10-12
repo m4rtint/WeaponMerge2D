@@ -1,5 +1,12 @@
 namespace _WeaponMerge.Scripts.Weapons
 {
+    public enum WeaponType
+    {
+        Pistol,
+        Rifle,
+        Shotgun
+    }
+    
     public class Weapon
     {
         public float ShootRate;
@@ -7,7 +14,7 @@ namespace _WeaponMerge.Scripts.Weapons
         public float BulletSpeed;
         public int BulletsPerShot;
         public float BulletTimeToLive;
-        public float Damage;
+        public int Damage;
         public float PenetrateDamageFalloff;
         
         public AmmoType AmmoType;

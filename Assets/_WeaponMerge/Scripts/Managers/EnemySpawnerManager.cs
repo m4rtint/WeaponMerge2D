@@ -14,8 +14,6 @@ namespace _WeaponMerge.Scripts.Managers
     
     public class EnemySpawnerManager: MonoBehaviour
     {
-        [SerializeField] private EnemyBehaviour _enemyPrefab;
-
         [Header("Spawn Settings")] 
         [SerializeField] private Transform[] _spawnLocations;
         [SerializeField] private Vector2 _spawnArea;
@@ -33,7 +31,6 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Awake()
         {
-            PanicHelper.CheckAndPanicIfNull(_enemyPrefab);
             PanicHelper.CheckAndPanicIfNullOrEmpty(_spawnLocations);
         }
 
@@ -72,7 +69,6 @@ namespace _WeaponMerge.Scripts.Managers
         
         public void Restart()
         {
-            ObjectPooler.Instance.CreatePool(EnemyType.Simple, _enemyPrefab);
             _elapsedSpawnTime = 0f;
         }
 

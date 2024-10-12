@@ -7,15 +7,9 @@ namespace _WeaponMerge.Scripts.Characters.Players
 {
     public class PlayerWeaponBehaviour : MonoBehaviour
     {
-        [SerializeField] 
-        private BulletBehaviour _bulletPrefab = null;
         [SerializeField]
         private Transform _weaponTip = null;
-
-        private void Awake()
-        {
-            PanicHelper.CheckAndPanicIfNull(_bulletPrefab);
-        }
+        private Weapon _equipedWeapon = null;
 
         public void Initialize(ControlInput controlInput)
         {
@@ -27,7 +21,8 @@ namespace _WeaponMerge.Scripts.Characters.Players
             if (onShoot)
             {
                 // Get the bullet from the object pool
-                BulletBehaviour bullet = ObjectPooler.Instance.Get<BulletBehaviour>(AmmoType.Simple);
+                //TODO - shouldn't be pistol bullets
+                var bullet = ObjectPooler.Instance.Get<BulletBehaviour>(_equipedWeapon.AmmoType);
 
                 // Get the mouse position in world space
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -39,20 +34,30 @@ namespace _WeaponMerge.Scripts.Characters.Players
                 Vector2 direction = (mousePosition - _weaponTip.position).normalized;
 
                 // Set up the bullet properties
-                var properties = new Bullet(10, 10, 3f);
+                var bulletProperties = new Bullet(
+                    _equipedWeapon.BulletSpeed,
+                    _equipedWeapon.Damage,
+                    _equipedWeapon.BulletTimeToLive
+                );
 
                 // Spawn the bullet at the weapon tip, moving towards the mouse
                 bullet.SpawnAt(
                     ownerId: gameObject.GetInstanceID(),
                     _weaponTip.position,
-                    properties,
+                    bulletProperties,
                     direction);
             }
         }
         
         public void Restart()
         {
-            ObjectPooler.Instance.CreatePool(AmmoType.Simple, _bulletPrefab);
+            var weaponsFactory = new WeaponsFactory();
+            _equipedWeapon = weaponsFactory.CreateWeapon(WeaponType.Pistol);
+        }
+        
+        public void CleanUp()
+        {
+            _equipedWeapon = null;
         }
     }
 }

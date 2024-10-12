@@ -2,7 +2,9 @@ namespace _WeaponMerge.Scripts.Weapons
 {
     public enum AmmoType
     {
-        Simple
+        Pistol,
+        Rifle,
+        Shotgun
     }
     
     public class Bullet

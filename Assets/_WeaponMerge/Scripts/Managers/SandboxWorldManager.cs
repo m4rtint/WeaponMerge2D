@@ -11,8 +11,10 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Configuration")]
         [SerializeField] 
         private InputActionAsset _actionAsset = null;
-    
-        [Title("Player Components")]
+        [SerializeField]
+        private PrefabPoolCoordinator _prefabPoolCoordinator = null;
+        
+        [Title("Components")]
         [SerializeField]
         private PlayerBehaviour _playerBehaviour = null;
         [SerializeField]
@@ -31,6 +33,7 @@ namespace _WeaponMerge.Scripts.Managers
             PanicHelper.CheckAndPanicIfNull(_actionAsset);
             PanicHelper.CheckAndPanicIfNull(_playerBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemySpawnerManager);
+            PanicHelper.CheckAndPanicIfNull(_prefabPoolCoordinator);
         }
 
         private void OnGameStateChanged(GameState state)
@@ -82,6 +85,7 @@ namespace _WeaponMerge.Scripts.Managers
             _playerBehaviour.transform.position = Vector3.zero;
             _playerBehaviour.Restart();
             _enemySpawnerManager.Restart();
+            _prefabPoolCoordinator.Restart();
             _gameStateManager.ChangeState(GameState.InGame);
         }
 

@@ -97,9 +97,9 @@ GameObject:
   m_Component:
   - component: {fileID: 991129619656262847}
   - component: {fileID: 7673102638018795304}
-  - component: {fileID: 893231321749751592}
+  - component: {fileID: 7705907259105981658}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: PistolBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &893231321749751592
+--- !u!114 &7705907259105981658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,6 +157,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2977264786590309182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282897d56f31435f9ae6f7d3108c912b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be40a4cd79d4ff397e156bba87a048b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

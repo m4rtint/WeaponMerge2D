@@ -39,6 +39,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
         public void CleanUp()
         {
             _playerHealthBehaviour.CleanUp();
+            _playerWeaponBehaviour.CleanUp();
         }
     }
 }
