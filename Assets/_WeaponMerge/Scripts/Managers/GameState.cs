@@ -1,5 +1,5 @@
 using System;
-using UnityEngine;
+using _WeaponMerge.Tools;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -30,12 +30,12 @@ namespace _WeaponMerge.Scripts.Managers
         {
             return _currentState;
         }
-
+        
         public void ChangeState(GameState newState)
         {
             if (_currentState != newState)
             {
-                Debug.Log("Game State Changed: " + newState);
+                Logger.Log($"Changing state from {_currentState} to {newState}", LogKey.State, color: LogColor.Red);
                 _currentState = newState;
                 OnGameStateChanged?.Invoke(_currentState);
             }

@@ -150,6 +150,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &215715543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 215715545}
+  - component: {fileID: 215715544}
+  m_Layer: 0
+  m_Name: DebugLogger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &215715544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215715543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7f5347b35845cfbf96736b8567bf2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 1
+--- !u!4 &215715545
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215715543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357947855
 GameObject:
   m_ObjectHideFlags: 0
@@ -25007,6 +25052,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &525266808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+  m_PrefabInstance: {fileID: 1706952517583381333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fe77f78c67451a94646a0671e884ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &564587675
 GameObject:
   m_ObjectHideFlags: 0
@@ -25053,7 +25109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionAsset: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   _playerBehaviour: {fileID: 621995264}
-  _enemySpawnerManager: {fileID: 0}
+  _enemySpawnerManager: {fileID: 525266808}
 --- !u!114 &621995264 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6325823491769363913, guid: 60543bb17bf101e4ab8a73b9005a82c9, type: 3}
@@ -25836,6 +25892,7 @@ SceneRoots:
   - {fileID: 1951703767}
   - {fileID: 1567048300}
   - {fileID: 564587676}
+  - {fileID: 215715545}
   - {fileID: 1706952517583381333}
   - {fileID: 1758012839}
   - {fileID: 191770925}
