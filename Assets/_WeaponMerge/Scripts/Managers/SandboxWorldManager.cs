@@ -28,6 +28,9 @@ namespace _WeaponMerge.Scripts.Managers
         private void Awake()
         {
             _gameStateManager.OnGameStateChanged += OnGameStateChanged;
+            PanicHelper.CheckAndPanicIfNull(_actionAsset);
+            PanicHelper.CheckAndPanicIfNull(_playerBehaviour);
+            PanicHelper.CheckAndPanicIfNull(_enemySpawnerManager);
         }
 
         private void OnGameStateChanged(GameState state)

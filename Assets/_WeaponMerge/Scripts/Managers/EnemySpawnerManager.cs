@@ -1,7 +1,9 @@
+using System;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -27,6 +29,12 @@ namespace _WeaponMerge.Scripts.Managers
         public void Initialize(PlayerPositionProvider playerPositionProvider)
         {
             _playerPositionProvider = playerPositionProvider;
+        }
+
+        private void Awake()
+        {
+            PanicHelper.CheckAndPanicIfNull(_enemyPrefab);
+            PanicHelper.CheckAndPanicIfNullOrEmpty(_spawnLocations);
         }
 
         private void Update()

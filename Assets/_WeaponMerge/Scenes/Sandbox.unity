@@ -25007,17 +25007,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &525266808 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
-  m_PrefabInstance: {fileID: 1706952517583381333}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8fe77f78c67451a94646a0671e884ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &564587675
 GameObject:
   m_ObjectHideFlags: 0
@@ -25064,7 +25053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionAsset: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   _playerBehaviour: {fileID: 621995264}
-  _enemySpawnerManager: {fileID: 525266808}
+  _enemySpawnerManager: {fileID: 0}
 --- !u!114 &621995264 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6325823491769363913, guid: 60543bb17bf101e4ab8a73b9005a82c9, type: 3}

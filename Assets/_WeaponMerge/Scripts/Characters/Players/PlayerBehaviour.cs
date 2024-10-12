@@ -1,4 +1,5 @@
 using _WeaponMerge.Scripts.Managers;
+using _WeaponMerge.Tools;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Players
@@ -14,6 +15,9 @@ namespace _WeaponMerge.Scripts.Characters.Players
             _playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
             _playerWeaponBehaviour = GetComponent<PlayerWeaponBehaviour>();
             _playerHealthBehaviour = GetComponent<PlayerHealthBehaviour>();
+            PanicHelper.CheckAndPanicIfNull(_playerMovementBehaviour);
+            PanicHelper.CheckAndPanicIfNull(_playerWeaponBehaviour);
+            PanicHelper.CheckAndPanicIfNull(_playerHealthBehaviour);
         }
     
         public void Initialize(ControlInput controlInput)

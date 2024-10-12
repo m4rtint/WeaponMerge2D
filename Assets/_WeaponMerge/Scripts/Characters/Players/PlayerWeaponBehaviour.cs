@@ -11,7 +11,12 @@ namespace _WeaponMerge.Scripts.Characters.Players
         private BulletBehaviour _bulletPrefab = null;
         [SerializeField]
         private Transform _weaponTip = null;
-        
+
+        private void Awake()
+        {
+            PanicHelper.CheckAndPanicIfNull(_bulletPrefab);
+        }
+
         public void Initialize(ControlInput controlInput)
         {
             controlInput.OnShootAction += Shoot;
