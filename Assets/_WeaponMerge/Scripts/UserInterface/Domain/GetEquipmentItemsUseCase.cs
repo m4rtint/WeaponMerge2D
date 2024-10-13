@@ -3,18 +3,18 @@ using _WeaponMerge.Scripts.UserInterface.Data;
 
 namespace _WeaponMerge.Scripts.UserInterface.Domain
 {
-    public class GetInventoryItemsUseCase
+    public class GetEquipmentItemsUseCase
     {
         private readonly InventoryRepository _inventoryRepository;
         
-        public GetInventoryItemsUseCase(InventoryRepository inventoryRepository)
+        public GetEquipmentItemsUseCase(InventoryRepository inventoryRepository)
         {
             _inventoryRepository = inventoryRepository;
         }
         
         public Item[] Execute()
         {
-            return _inventoryRepository.GetInventoryItems();
+            return _inventoryRepository.GetEquipmentItems();
         }
     }
 }

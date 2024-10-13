@@ -7,11 +7,14 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
 {
     public class InventoryRepository
     {
+        private const int MAX_INVENTORY_ITEMS = 16;
+        private const int MAX_EQUIPPED_ITEMS = 4;
+
         private static Item[] _items;
         
-        public InventoryRepository(int maxInventorySpace)
+        public InventoryRepository()
         {
-            _items = new Item[maxInventorySpace];
+            _items = new Item[MAX_INVENTORY_ITEMS];
             _items[1] = new Weapon(
                 1,
                 "Pistol",
@@ -24,7 +27,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 0.5f,
                 AmmoType.Pistol);
             //TODO Create anoher pistol
-            _items[maxInventorySpace -2] = new Weapon(
+            _items[MAX_INVENTORY_ITEMS -2] = new Weapon(
                 2,
                 "Rifle",
                 0.1f,
@@ -38,11 +41,11 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
 
         }
         
-        public Item[] MoveItem(int itemId, int toSlotIndex)
+        public void MoveItem(int itemId, int toSlotIndex)
         {
             if (itemId == -1)
             {
-                return _items;
+                return;
             }
             
             var item = _items.FirstOrDefault(x => x?.Id == itemId);
@@ -50,26 +53,29 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             if (isMoveValid)
             {
                 // If item is not found or toSlotIndex is invalid, return the current items
-                return _items;
+                return;
             }
 
             var fromSlotIndex = Array.IndexOf(_items, item);
             if (fromSlotIndex == -1)
             {
                 // If the item is not found in the inventory, return the current items
-                return _items;
+                return;
             }
 
             var toSlotItem = _items[toSlotIndex];
             _items[fromSlotIndex] = toSlotItem;
             _items[toSlotIndex] = item;
-
-            return _items;
         }
         
-        public Item[] GetItems()
+        public Item[] GetInventoryItems()
         {
-            return _items;
+            return _items.Take(MAX_INVENTORY_ITEMS).ToArray();
+        }
+        
+        public Item[] GetEquipmentItems()
+        {
+            return _items.Skip(MAX_INVENTORY_ITEMS).Take(MAX_EQUIPPED_ITEMS).ToArray();
         }
     }
 }

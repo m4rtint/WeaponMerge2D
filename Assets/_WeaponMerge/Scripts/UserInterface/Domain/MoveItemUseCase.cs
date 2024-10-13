@@ -1,3 +1,4 @@
+using System.Linq;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.Data;
 
@@ -12,9 +13,9 @@ namespace _WeaponMerge.Scripts.UserInterface.Domain
             _inventoryRepository = inventoryRepository;
         }
         
-        public Item[] Execute(int itemId, int toSlotIndex)
-        {
-            return _inventoryRepository.MoveItem(itemId, toSlotIndex);
+        public void Execute(int itemId, int toSlotIndex)
+        { 
+            _inventoryRepository.MoveItem(itemId, toSlotIndex);
         }
     }
 }

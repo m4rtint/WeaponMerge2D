@@ -10,17 +10,13 @@ namespace _WeaponMerge.Scripts.UserInterface
         private int _slotIndex;
         private int _itemId;
         private Action<int, int> _onMoveItem;
-
-        public void Initialize(int slotIndex, int itemId, Action<int, int> onMoveItem)
-        {
-            _slotIndex = slotIndex;
-            _itemId = itemId;
-            _onMoveItem = onMoveItem;
-        }
         
-        public void SetItem(InventorySlotState item)
+        public void SetState(InventorySlotState state)
         {
-            _itemId = item.Id;
+            _slotIndex = state.SlotIndex;
+            _itemId = state.ItemId;
+            _onMoveItem = state.OnMoveItem;
+            //Placeholder
             GetComponent<Image>().color = _itemId == -1 ? Color.grey : Color.green;
         }
 

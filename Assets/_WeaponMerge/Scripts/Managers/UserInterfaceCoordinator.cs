@@ -1,4 +1,3 @@
-using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Scripts.UserInterface.Data;
 using _WeaponMerge.Scripts.UserInterface.Domain;
@@ -9,9 +8,7 @@ namespace _WeaponMerge.Scripts.Managers
 {
     public class UserInterfaceCoordinator: MonoBehaviour
     {
-        private const int MAX_INVENTORY_ITEMS = 16;
-        private const int MAX_EQUIPPED_ITEMS = 4;
-        
+
         [SerializeField] private InventoryView _inventoryView;
         [SerializeField] private EquipmentView _equipmentView;
         
@@ -23,17 +20,16 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Start()
         {
-            var inventoryRepository = new InventoryRepository(MAX_EQUIPPED_ITEMS + MAX_INVENTORY_ITEMS);
+            var inventoryRepository = new InventoryRepository();
             var moveItemUseCase = new MoveItemUseCase(inventoryRepository);
             var getInventoryItemsUseCase = new GetInventoryItemsUseCase(inventoryRepository);
+            var getEquipmentItemsUseCase = new GetEquipmentItemsUseCase(inventoryRepository);
             var inventoryViewModel = new InventoryViewModel(
                 moveItemUseCase: moveItemUseCase, 
-                getInventoryItemsUseCase: getInventoryItemsUseCase,
-                maxInventorySpace: MAX_INVENTORY_ITEMS,
-                maxEquipmentSpace: MAX_EQUIPPED_ITEMS);
+                getInventoryItemsUseCase: getInventoryItemsUseCase, 
+                getEquipmentItemsUseCase: getEquipmentItemsUseCase);
             _inventoryView.Initialize(inventoryViewModel);
-            
-            _equipmentView.Initialize(inventoryViewModel, maxInventorySpace: MAX_INVENTORY_ITEMS);
+            _equipmentView.Initialize(inventoryViewModel);
         }
     }
 }
