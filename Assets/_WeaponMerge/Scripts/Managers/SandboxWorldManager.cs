@@ -9,16 +9,16 @@ namespace _WeaponMerge.Scripts.Managers
     public class SandboxWorldManager : MonoBehaviour
     {
         [Title("Configuration")]
-        [SerializeField] 
-        private InputActionAsset _actionAsset = null;
-        [SerializeField]
-        private PrefabPoolCoordinator _prefabPoolCoordinator = null;
+        [SerializeField] private InputActionAsset _actionAsset = null;
+        [SerializeField] private PrefabPoolCoordinator _prefabPoolCoordinator = null;
         
         [Title("Components")]
-        [SerializeField]
-        private PlayerBehaviour _playerBehaviour = null;
-        [SerializeField]
-        private EnemySpawnerManager _enemySpawnerManager = null;
+        [SerializeField] private PlayerBehaviour _playerBehaviour = null;
+        [SerializeField] private EnemySpawnerManager _enemySpawnerManager = null;
+        
+        [Title("User Interface / HUD")]
+        [SerializeField] private UserInterfaceCoordinator _userInterfaceCoordinator = null;
+       
         private readonly GameStateManager _gameStateManager = GameStateManager.Instance;
 
         [Button]
@@ -34,6 +34,7 @@ namespace _WeaponMerge.Scripts.Managers
             PanicHelper.CheckAndPanicIfNull(_playerBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemySpawnerManager);
             PanicHelper.CheckAndPanicIfNull(_prefabPoolCoordinator);
+            PanicHelper.CheckAndPanicIfNull(_userInterfaceCoordinator);
         }
 
         private void OnGameStateChanged(GameState state)
@@ -65,6 +66,8 @@ namespace _WeaponMerge.Scripts.Managers
             _playerBehaviour.Initialize(controlInput);
             var playerPositionProvider = new PlayerPositionProvider(_playerBehaviour.transform);
             _enemySpawnerManager.Initialize(playerPositionProvider);
+            _userInterfaceCoordinator.Initialize(controlInput);
+            
             _gameStateManager.ChangeState(GameState.Loading);
         }
 
@@ -87,6 +90,7 @@ namespace _WeaponMerge.Scripts.Managers
             _enemySpawnerManager.Restart();
             _prefabPoolCoordinator.Restart();
             _gameStateManager.ChangeState(GameState.InGame);
+            _userInterfaceCoordinator.Restart();
         }
 
         private void CleanUp()
@@ -96,6 +100,7 @@ namespace _WeaponMerge.Scripts.Managers
             _playerBehaviour.CleanUp();
             _enemySpawnerManager.CleanUp();
             ObjectPooler.Instance.CleanUp();
+            _userInterfaceCoordinator.CleanUp();
             _gameStateManager.ChangeState(GameState.Loading);
         }
     }

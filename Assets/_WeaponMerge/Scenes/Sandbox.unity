@@ -25271,6 +25271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccfb6f0dcd7b4f0991623b88e7fe441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventoryCanvas: {fileID: 402034095}
   _inventoryView: {fileID: 1052536574}
   _equipmentView: {fileID: 1160083280}
 --- !u!4 &562766282
@@ -25336,6 +25337,7 @@ MonoBehaviour:
   _prefabPoolCoordinator: {fileID: 1758012840}
   _playerBehaviour: {fileID: 621995264}
   _enemySpawnerManager: {fileID: 525266808}
+  _userInterfaceCoordinator: {fileID: 562766281}
 --- !u!114 &621995264 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6325823491769363913, guid: 60543bb17bf101e4ab8a73b9005a82c9, type: 3}
