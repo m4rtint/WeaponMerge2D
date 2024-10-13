@@ -1,12 +1,10 @@
-using _WeaponMerge.Scripts.Inventory;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace _WeaponMerge.Scripts.UserInterface
 {
-    public class InventorySlotBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class InventoryItemHoverBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        private Item _item;
         private bool _isHovering;
         private float _hoverTime;
         private const float HoverThreshold = 1.0f; // Time in seconds to consider as hover
@@ -38,7 +36,6 @@ namespace _WeaponMerge.Scripts.UserInterface
         private void OnHover()
         {
             // Handle hover logic here
-            Debug.Log("Hovered over item slot for 1 second.");
         }
     }
 }
