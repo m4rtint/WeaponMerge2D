@@ -27,17 +27,6 @@ namespace _WeaponMerge.Scripts.UserInterface
             Name = name;
             OnMoveItem = onMoveItem;
         }
-
-        public InventorySlotState InitialState()
-        {
-            return new InventorySlotState(
-                slotIndex: -1,
-                itemId: -1,
-                itemImage: null,
-                name: null,
-                onMoveItem: null
-            );
-        }
     }
     
     public class InventoryViewModel
@@ -45,16 +34,10 @@ namespace _WeaponMerge.Scripts.UserInterface
         private readonly MoveItemUseCase _moveItemUseCase;
         private readonly GetInventoryItemsUseCase _getInventoryItemsUseCase;
         private readonly GetEquipmentItemsUseCase _getEquipmentItemsUseCase;
-        private InventoryState _state;
 
         private InventoryState State
         {
-            get => _state;
-            set
-            {
-                _state = value;
-                OnStateChanged?.Invoke(value);
-            }
+            set => OnStateChanged?.Invoke(value);
         }
         
         public event Action<InventoryState> OnStateChanged;
