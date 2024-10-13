@@ -9,6 +9,7 @@ namespace _WeaponMerge.Scripts.Managers
     public class UserInterfaceCoordinator: MonoBehaviour
     {
         [SerializeField] private Canvas _inventoryCanvas;
+        [SerializeField] private Canvas _hudCanvas;
         [SerializeField] private InventoryView _inventoryView;
         [SerializeField] private EquipmentView _equipmentView;
         private bool _isInventoryOpen = false;
@@ -27,12 +28,13 @@ namespace _WeaponMerge.Scripts.Managers
 
         public void CleanUp()
         {
-            
+            _hudCanvas.gameObject.SetActive(false);
         }
 
         public void Restart()
         {
             _inventoryCanvas.gameObject.SetActive(false);
+            _hudCanvas.gameObject.SetActive(true);
         }
 
         private void Start()
@@ -53,6 +55,7 @@ namespace _WeaponMerge.Scripts.Managers
         {
             _isInventoryOpen = !_isInventoryOpen;
             _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
+            _hudCanvas.gameObject.SetActive(_isInventoryOpen);
         }
     }
 }
