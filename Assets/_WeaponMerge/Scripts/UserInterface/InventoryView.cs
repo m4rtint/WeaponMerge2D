@@ -45,7 +45,7 @@ namespace _WeaponMerge.Scripts.UserInterface
         
         private void OnStateChanged(InventoryState state)
         {
-            for (int i = 0; i < state.InventoryItems.Length; i++)
+            for (var i = 0; i < state.InventoryItems.Length; i++)
             {
                 _inventorySlots[i].SetItem(state.InventoryItems[i]);
             }

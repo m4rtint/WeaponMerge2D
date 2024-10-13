@@ -62,9 +62,9 @@ namespace _WeaponMerge.Scripts.UserInterface
             {
                 inventoryItems[i] = new InventorySlotState
                 {
-                    Id = i,
+                    Id = items[i]?.Id ?? -1,
                     ItemImage = null, //TODO - Set Image when available
-                    Name = items[i].Name
+                    Name = items[i]?.Name
                 };
             }
 
