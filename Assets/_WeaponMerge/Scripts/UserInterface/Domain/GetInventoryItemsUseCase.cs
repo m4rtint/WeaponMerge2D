@@ -1,4 +1,6 @@
-namespace _WeaponMerge.Scripts.Inventory
+using _WeaponMerge.Scripts.Inventory;
+
+namespace _WeaponMerge.Scripts.UserInterface.Domain
 {
     public class GetInventoryItemsUseCase
     {

@@ -2,13 +2,13 @@ namespace _WeaponMerge.Scripts.Inventory
 {
     public abstract class Item
     {
-        private readonly int _id;
-        private readonly string _name;
+        public readonly int Id;
+        public readonly string Name;
 
         protected Item(int id, string name)
         {
-            _id = id;
-            _name = name;
+            Id = id;
+            Name = name;
         }
     }
 }
