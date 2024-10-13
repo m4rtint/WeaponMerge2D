@@ -87,17 +87,19 @@ namespace _WeaponMerge.Scripts.UserInterface
             return new InventoryState
             {
                 InventoryItems = MapToSlotsState(inventoryItems),
-                EquipmentItems = MapToSlotsState(equipmentItems)
+                EquipmentItems = MapToSlotsState(
+                    equipmentItems, 
+                    startingSlotIndex: inventoryItems.Length)
             };
         }
         
-        private InventorySlotState[] MapToSlotsState(Item[] items)
+        private InventorySlotState[] MapToSlotsState(Item[] items, int startingSlotIndex = 0)
         {
             var state = new InventorySlotState[items.Length];
             for (var i = 0; i < items.Length; i++)
             {
                 state[i] = new InventorySlotState(
-                    slotIndex: i,
+                    slotIndex: startingSlotIndex + i,
                     itemId: items[i]?.Id ?? -1,
                     itemImage: items[i]?.Image,
                     name: items[i]?.Name,

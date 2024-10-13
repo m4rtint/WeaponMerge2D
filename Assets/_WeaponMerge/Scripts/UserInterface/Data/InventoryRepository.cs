@@ -14,7 +14,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         
         public InventoryRepository()
         {
-            _items = new Item[MAX_INVENTORY_ITEMS];
+            _items = new Item[MAX_INVENTORY_ITEMS + MAX_EQUIPPED_ITEMS];
             _items[1] = new Weapon(
                 1,
                 "Pistol",
@@ -26,8 +26,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 10,
                 0.5f,
                 AmmoType.Pistol);
-            //TODO Create anoher pistol
-            _items[MAX_INVENTORY_ITEMS -2] = new Weapon(
+            _items[MAX_INVENTORY_ITEMS + 2] = new Weapon(
                 2,
                 "Rifle",
                 0.1f,
