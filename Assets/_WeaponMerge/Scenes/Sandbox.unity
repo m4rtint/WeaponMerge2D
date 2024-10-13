@@ -25272,6 +25272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventoryView: {fileID: 1052536574}
+  _equipmentView: {fileID: 1160083280}
 --- !u!4 &562766282
 Transform:
   m_ObjectHideFlags: 0
@@ -25372,6 +25373,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7594136807862005110, guid: 958eb49f7ac90df46acebc4358793126, type: 3}
   m_PrefabInstance: {fileID: 5980949748860075110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1160083280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2457773592086882991, guid: 958eb49f7ac90df46acebc4358793126, type: 3}
+  m_PrefabInstance: {fileID: 5980949748860075110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949b7cf0e75e80a4098a993816647970, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1308404689
 GameObject:
   m_ObjectHideFlags: 0

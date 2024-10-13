@@ -1,19 +1,17 @@
 using System;
 using System.Linq;
+using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.Weapons;
 
-namespace _WeaponMerge.Scripts.Inventory
+namespace _WeaponMerge.Scripts.UserInterface.Data
 {
     public class InventoryRepository
     {
-        private const int MAX_ITEMS = 16;
-        private const int MAX_EQUIPPED_ITEMS = 4;
-
         private static Item[] _items;
         
-        public InventoryRepository()
+        public InventoryRepository(int maxInventorySpace)
         {
-            _items = new Item[MAX_ITEMS];
+            _items = new Item[maxInventorySpace];
             _items[1] = new Weapon(
                 1,
                 "Pistol",
@@ -25,6 +23,18 @@ namespace _WeaponMerge.Scripts.Inventory
                 10,
                 0.5f,
                 AmmoType.Pistol);
+            //TODO Create anoher pistol
+            _items[maxInventorySpace -2] = new Weapon(
+                2,
+                "Rifle",
+                0.1f,
+                1f,
+                20f,
+                1,
+                2f,
+                20,
+                0.5f,
+                AmmoType.Rifle);
 
         }
         

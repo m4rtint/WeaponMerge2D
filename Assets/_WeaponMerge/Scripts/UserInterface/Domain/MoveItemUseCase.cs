@@ -1,4 +1,5 @@
 using _WeaponMerge.Scripts.Inventory;
+using _WeaponMerge.Scripts.UserInterface.Data;
 
 namespace _WeaponMerge.Scripts.UserInterface.Domain
 {

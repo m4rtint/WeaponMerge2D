@@ -8,6 +8,7 @@ namespace _WeaponMerge.Scripts.UserInterface
     public struct InventoryState
     {
         public InventorySlotState[] InventoryItems;
+        public InventorySlotState[] EquipmentItems;
     }
 
     public struct InventorySlotState
@@ -19,6 +20,8 @@ namespace _WeaponMerge.Scripts.UserInterface
     
     public class InventoryViewModel
     {
+        private readonly int _maxInventorySpace;
+        private readonly int _maxEquipmentSpace;
         private readonly MoveItemUseCase _moveItemUseCase;
         private readonly GetInventoryItemsUseCase _getInventoryItemsUseCase;
         private InventoryState _state;
@@ -37,10 +40,14 @@ namespace _WeaponMerge.Scripts.UserInterface
         
         public InventoryViewModel(
             MoveItemUseCase moveItemUseCase, 
-            GetInventoryItemsUseCase getInventoryItemsUseCase)
+            GetInventoryItemsUseCase getInventoryItemsUseCase,
+            int maxInventorySpace, 
+            int maxEquipmentSpace)
         {
             _moveItemUseCase = moveItemUseCase;
             _getInventoryItemsUseCase = getInventoryItemsUseCase;
+            _maxInventorySpace = maxInventorySpace;
+            _maxEquipmentSpace = maxEquipmentSpace;
         }
         
         public void MoveItem(int itemId, int toSlotIndex)
@@ -57,20 +64,23 @@ namespace _WeaponMerge.Scripts.UserInterface
 
         private InventoryState MapToState(Item[] items)
         {
-            var inventoryItems = new InventorySlotState[items.Length];
+            var allItems = new InventorySlotState[items.Length];
             for (int i = 0; i < items.Length; i++)
             {
-                inventoryItems[i] = new InventorySlotState
+                allItems[i] = new InventorySlotState
                 {
                     Id = items[i]?.Id ?? -1,
                     ItemImage = null, //TODO - Set Image when available
                     Name = items[i]?.Name
                 };
             }
-
+            
+            var inventoryItems = allItems[.._maxInventorySpace];
+            var equipmentItems = allItems[_maxInventorySpace..];
             return new InventoryState
             {
-                InventoryItems = inventoryItems
+                InventoryItems = inventoryItems,
+                EquipmentItems = equipmentItems
             };
         }
     }

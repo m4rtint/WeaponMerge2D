@@ -20,11 +20,12 @@ namespace _WeaponMerge.Scripts.UserInterface
         public void Initialize(InventoryViewModel viewModel)
         {
             _viewModel = viewModel;
+            _viewModel.OnStateChanged += OnStateChanged;
+
         }
 
         private void Start()
         {
-            _viewModel.OnStateChanged += OnStateChanged;
             SetupSlots();
             _viewModel.FetchItems();
         }

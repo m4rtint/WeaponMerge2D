@@ -21,16 +21,7 @@ namespace _WeaponMerge.Scripts.UserInterface
         public void SetItem(InventorySlotState item)
         {
             _itemId = item.Id;
-            if (_itemId == -1)
-            {
-                Debug.Log(gameObject.name + " - Slot " + _slotIndex + " is empty");
-                GetComponent<Image>().color = Color.grey;
-            }
-            else
-            {
-                Debug.Log(gameObject.name + " - Slot " + _slotIndex + " has item " + item.Name);
-                GetComponent<Image>().color = Color.green;
-            }
+            GetComponent<Image>().color = _itemId == -1 ? Color.grey : Color.green;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
