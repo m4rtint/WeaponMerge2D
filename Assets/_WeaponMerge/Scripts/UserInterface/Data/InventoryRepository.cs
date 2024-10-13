@@ -11,6 +11,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         private const int MAX_EQUIPPED_ITEMS = 4;
 
         private static Item[] _items;
+        private static int _equippedSlotIndex;
         
         public InventoryRepository()
         {
@@ -65,6 +66,11 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             var toSlotItem = _items[toSlotIndex];
             _items[fromSlotIndex] = toSlotItem;
             _items[toSlotIndex] = item;
+        }
+
+        public Item GetEquippedItem()
+        {
+            return GetEquipmentItems()[_equippedSlotIndex];
         }
         
         public Item[] GetInventoryItems()

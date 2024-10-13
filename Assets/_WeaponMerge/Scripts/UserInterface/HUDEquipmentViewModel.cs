@@ -46,7 +46,7 @@ namespace _WeaponMerge.Scripts.UserInterface
                 var item = items[i];
                 var slotState = new HUDEquipmentSlotState
                 {
-                    Icon = item.Image,
+                    Icon = item?.Image,
                     IsSelected = false
                 };
                 slotStates[i] = slotState;

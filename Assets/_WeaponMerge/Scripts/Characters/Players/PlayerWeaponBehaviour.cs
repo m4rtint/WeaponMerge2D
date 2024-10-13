@@ -1,4 +1,6 @@
+using System;
 using _WeaponMerge.Scripts.Managers;
+using _WeaponMerge.Scripts.UserInterface.Domain;
 using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using UnityEngine;
@@ -11,11 +13,24 @@ namespace _WeaponMerge.Scripts.Characters.Players
         private Transform _weaponTip = null;
         private Weapon _equippedWeapon = null;
 
+        private void Awake()
+        {
+        }
+
         public void Initialize(ControlInput controlInput)
         {
             controlInput.OnShootAction += Shoot;
+            controlInput.OnScrollWeaponAction += ScrollWeapon;
         }
-        
+
+        private void ScrollWeapon(Vector2 direction)
+        {
+            if (direction != Vector2.zero)
+            {
+                
+            }
+        }
+
         private void Shoot(bool onShoot)
         {
             if (onShoot)

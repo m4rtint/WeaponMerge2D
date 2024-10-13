@@ -16,6 +16,7 @@ namespace _WeaponMerge.Scripts.Managers
         public event Action<Vector2> OnMoveAction;
         public event Action<bool> OnShootAction;
         public event Action OnInventoryAction;
+        public event Action<Vector2> OnScrollWeaponAction;
     
         public ControlInput(InputActionAsset asset)
         {
@@ -42,6 +43,9 @@ namespace _WeaponMerge.Scripts.Managers
             
             var inventoryAction = _playerActionMap.FindAction("Inventory");
             inventoryAction.performed += OnInventory;
+            
+            var scrollWeaponAction = _playerActionMap.FindAction("SwapWeapon");
+            scrollWeaponAction.performed += OnScrollWeapon;
         }
     
         private void OnMove(InputAction.CallbackContext context)
@@ -59,6 +63,12 @@ namespace _WeaponMerge.Scripts.Managers
         private void OnInventory(InputAction.CallbackContext context)
         {
             OnInventoryAction?.Invoke();
+        }
+        
+        private void OnScrollWeapon(InputAction.CallbackContext context)
+        {
+            Vector2 scroll = context.ReadValue<Vector2>();
+            OnScrollWeaponAction?.Invoke(scroll);
         }
     }
 }
