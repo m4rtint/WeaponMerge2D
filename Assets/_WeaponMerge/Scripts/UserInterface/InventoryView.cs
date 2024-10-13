@@ -4,11 +4,6 @@ namespace _WeaponMerge.Scripts.UserInterface
 {
     public class InventoryView : MonoBehaviour
     {
-        private static class Constants
-        {
-            public const int EmptyItemId = -1;
-        }
-        
         private InventorySlotView[] _inventorySlots;
         private InventoryViewModel _viewModel;
 

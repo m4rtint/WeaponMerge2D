@@ -2,14 +2,21 @@ using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Scripts.UserInterface.Data;
 using _WeaponMerge.Scripts.UserInterface.Domain;
 using _WeaponMerge.Tools;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Managers
 {
     public class UserInterfaceCoordinator: MonoBehaviour
     {
+        [Title("Canvas")]
         [SerializeField] private Canvas _inventoryCanvas;
         [SerializeField] private Canvas _hudCanvas;
+
+        [Title("HUD")] 
+        [SerializeField] private HUDEquipmentView _hudEquipmentView;
+        
+        [Title("Views")]
         [SerializeField] private InventoryView _inventoryView;
         [SerializeField] private EquipmentView _equipmentView;
         private bool _isInventoryOpen = false;
@@ -19,6 +26,7 @@ namespace _WeaponMerge.Scripts.Managers
             PanicHelper.CheckAndPanicIfNull(_inventoryCanvas);
             PanicHelper.CheckAndPanicIfNull(_inventoryView);
             PanicHelper.CheckAndPanicIfNull(_equipmentView);
+            PanicHelper.CheckAndPanicIfNull(_hudCanvas);
         }
 
         public void Initialize(ControlInput controlInput)
@@ -49,6 +57,9 @@ namespace _WeaponMerge.Scripts.Managers
                 getEquipmentItemsUseCase: getEquipmentItemsUseCase);
             _inventoryView.Initialize(inventoryViewModel);
             _equipmentView.Initialize(inventoryViewModel);
+            
+            var hudEquipmentViewModel = new HUDEquipmentViewModel(getEquipmentItemsUseCase);
+            _hudEquipmentView.Initialize(hudEquipmentViewModel);
         }
         
         private void ToggleInventory()
