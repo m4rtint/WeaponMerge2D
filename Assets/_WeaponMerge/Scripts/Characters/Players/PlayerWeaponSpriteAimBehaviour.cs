@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Players
 {
-    public class PlayerWeaponAimBehaviour : MonoBehaviour
+    public class PlayerWeaponSpriteAimBehaviour : MonoBehaviour
     {
         [SerializeField] private Transform _weaponPivot = null;
         private SpriteRenderer _weaponSpriteRenderer = null;

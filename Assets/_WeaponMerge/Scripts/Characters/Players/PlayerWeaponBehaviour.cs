@@ -9,7 +9,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
     {
         [SerializeField]
         private Transform _weaponTip = null;
-        private Weapon _equipedWeapon = null;
+        private Weapon _equippedWeapon = null;
 
         public void Initialize(ControlInput controlInput)
         {
@@ -21,8 +21,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
             if (onShoot)
             {
                 // Get the bullet from the object pool
-                //TODO - shouldn't be pistol bullets
-                var bullet = ObjectPooler.Instance.Get<BulletBehaviour>(_equipedWeapon.AmmoType);
+                var bullet = ObjectPooler.Instance.Get<BulletBehaviour>(_equippedWeapon.AmmoType);
 
                 // Get the mouse position in world space
                 Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -35,9 +34,9 @@ namespace _WeaponMerge.Scripts.Characters.Players
 
                 // Set up the bullet properties
                 var bulletProperties = new Bullet(
-                    _equipedWeapon.BulletSpeed,
-                    _equipedWeapon.Damage,
-                    _equipedWeapon.BulletTimeToLive
+                    _equippedWeapon.BulletSpeed,
+                    _equippedWeapon.Damage,
+                    _equippedWeapon.BulletTimeToLive
                 );
 
                 // Spawn the bullet at the weapon tip, moving towards the mouse
@@ -52,12 +51,12 @@ namespace _WeaponMerge.Scripts.Characters.Players
         public void Restart()
         {
             var weaponsFactory = new WeaponsFactory();
-            _equipedWeapon = weaponsFactory.CreateWeapon(WeaponType.Pistol);
+            _equippedWeapon = weaponsFactory.CreateWeapon(WeaponType.Pistol);
         }
         
         public void CleanUp()
         {
-            _equipedWeapon = null;
+            _equippedWeapon = null;
         }
     }
 }
