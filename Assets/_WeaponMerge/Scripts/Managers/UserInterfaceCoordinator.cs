@@ -73,7 +73,14 @@ namespace _WeaponMerge.Scripts.Managers
         
         private void ToggleInventory()
         {
-            _isInventoryOpen = !_isInventoryOpen;
+            bool isOpeningInventory = !_isInventoryOpen;
+            GameStateManager.Instance.ChangeState(isOpeningInventory ? GameState.OpenInventory : GameState.InGame);
+            if (GameStateManager.Instance.GetState() == GameState.InGame)
+            {
+                _hudEquipmentViewModel.FetchItems();
+            }
+
+            _isInventoryOpen = isOpeningInventory;
             _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
             _hudCanvas.gameObject.SetActive(!_isInventoryOpen);
         }

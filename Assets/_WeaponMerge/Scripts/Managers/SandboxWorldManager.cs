@@ -49,6 +49,9 @@ namespace _WeaponMerge.Scripts.Managers
                 case GameState.InGame:
                     Resume();
                     break;
+                case GameState.OpenInventory:
+                    OpenInventory();
+                    break;
                 case GameState.Paused:
                     Pause();
                     break;
@@ -80,6 +83,11 @@ namespace _WeaponMerge.Scripts.Managers
         private void Resume()
         {
             Time.timeScale = 1;
+        }
+
+        private void OpenInventory()
+        {
+            Time.timeScale = 0;
         }
         
         private void Restart()
