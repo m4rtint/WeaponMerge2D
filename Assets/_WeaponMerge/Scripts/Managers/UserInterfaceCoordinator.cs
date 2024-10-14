@@ -36,10 +36,6 @@ namespace _WeaponMerge.Scripts.Managers
         public void Initialize(ControlInput controlInput)
         {
             controlInput.OnInventoryAction += ToggleInventory;
-            controlInput.OnScrollWeaponAction += (_) =>
-            {
-                _hudEquipmentViewModel.FetchItems();
-            };
         }
 
         public void CleanUp()
@@ -75,11 +71,6 @@ namespace _WeaponMerge.Scripts.Managers
         {
             bool isOpeningInventory = !_isInventoryOpen;
             GameStateManager.Instance.ChangeState(isOpeningInventory ? GameState.OpenInventory : GameState.InGame);
-            if (GameStateManager.Instance.GetState() == GameState.InGame)
-            {
-                _hudEquipmentViewModel.FetchItems();
-            }
-
             _isInventoryOpen = isOpeningInventory;
             _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
             _hudCanvas.gameObject.SetActive(!_isInventoryOpen);

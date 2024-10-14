@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.UserInterface
@@ -11,7 +12,12 @@ namespace _WeaponMerge.Scripts.UserInterface
         {
             _inventorySlots = GetComponentsInChildren<InventorySlotView>();
         }
-        
+
+        private void OnEnable()
+        {
+            _viewModel?.FetchItems();
+        }
+
         public void Initialize(InventoryViewModel viewModel)
         {
             _viewModel = viewModel;

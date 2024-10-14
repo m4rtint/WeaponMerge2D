@@ -13,7 +13,7 @@ namespace _WeaponMerge.Scripts.Environment
         private void Awake()
         {
             _item = new Weapon(
-                10,
+                GetInstanceID(),
                 "Pistol",
                 1f,
                 5f,

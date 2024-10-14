@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.UserInterface
@@ -16,9 +17,13 @@ namespace _WeaponMerge.Scripts.UserInterface
         {
             _viewModel = viewModel;
             _viewModel.OnStateChanged += OnStateChanged;
-            _viewModel.FetchItems();
         }
-        
+
+        private void Update()
+        {
+            _viewModel?.FetchItems();
+        }
+
         private void OnStateChanged(HUDEquipmentState state)
         {
             for (var i = 0; i < state.Slots.Length; i++)
