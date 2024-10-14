@@ -1,4 +1,5 @@
 using _WeaponMerge.Scripts.Characters.General;
+using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Tools;
 using UnityEngine;
 
@@ -53,6 +54,7 @@ namespace _WeaponMerge.Scripts.Weapons
                 {
                     enemyHealth.TakeDamage(_bullet.Damage);
                     ObjectPooler.Instance.ReturnToPool(AmmoType, gameObject);
+                    DamageNumbersObjectPool.Instance.ShowDamageNumber(_bullet.Damage, enemyHealth.transform.position);
                 }
             }
         }

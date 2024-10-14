@@ -11,7 +11,7 @@ namespace _WeaponMerge.Scripts.Weapons
     
     public class Weapon : Item
     {
-        public float ShootRate { get; private set; }
+        public float FireRate { get; private set; }
         public float SpreadAngle { get; private set; }
         public float BulletSpeed { get; private set; }
         public int BulletsPerShot { get; private set; }
@@ -23,7 +23,7 @@ namespace _WeaponMerge.Scripts.Weapons
         public Weapon(
             int id,
             string name,
-            float shootRate,
+            float fireRate,
             float spreadAngle,
             float bulletSpeed,
             int bulletsPerShot,
@@ -32,7 +32,7 @@ namespace _WeaponMerge.Scripts.Weapons
             float penetrateDamageFalloff,
             AmmoType ammoType) : base(id, name)
         {
-            ShootRate = shootRate;
+            FireRate = fireRate;
             SpreadAngle = spreadAngle;
             BulletSpeed = bulletSpeed;
             BulletsPerShot = bulletsPerShot;
