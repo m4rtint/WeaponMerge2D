@@ -29,11 +29,11 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             _items[1] = new Weapon(
                 1,
                 "Pistol",
-                1f,
-                5f,
+                0.1f,
+                30f,
                 10f,
                 1,
-                2f,
+                0.5f,
                 10,
                 0.5f,
                 AmmoType.Pistol);

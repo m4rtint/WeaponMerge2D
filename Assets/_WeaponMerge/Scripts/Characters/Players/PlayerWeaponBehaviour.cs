@@ -95,6 +95,12 @@ namespace _WeaponMerge.Scripts.Characters.Players
             // Calculate the direction from the weapon tip to the mouse position
             Vector2 direction = (mousePosition - _weaponTip.position).normalized;
 
+            // Calculate a random spread angle
+            float spreadAngle = Random.Range(-_equippedWeapon.SpreadAngle / 2, _equippedWeapon.SpreadAngle / 2);
+
+            // Rotate the direction by the spread angle
+            direction = Quaternion.Euler(0, 0, spreadAngle) * direction;
+            
             // Set up the bullet properties
             var bulletProperties = new Bullet(
                 _equippedWeapon.BulletSpeed,
