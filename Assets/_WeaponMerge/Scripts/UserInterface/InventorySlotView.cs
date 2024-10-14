@@ -1,5 +1,6 @@
 using System;
 using _WeaponMerge.Tools;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ namespace _WeaponMerge.Scripts.UserInterface
     public class InventorySlotView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
         private int _slotIndex;
+        [SerializeField, ReadOnly]
         private int _itemId;
         private Action<int, int> _onMoveItem;
         
