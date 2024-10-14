@@ -14,6 +14,8 @@ namespace _WeaponMerge.Scripts.Characters.Players
         private Weapon _equippedWeapon = null;
         private GetEquippedWeaponUseCase _getEquippedItemUseCase;
         private SwitchEquippedWeaponUseCase _switchEquippedWeaponUseCase;
+        private bool _isShootActionPressed = false;
+        private float _elapsedCoolDownTime = 0f;
 
         private void Awake()
         {
@@ -23,7 +25,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
 
         public void Initialize(ControlInput controlInput)
         {
-            controlInput.OnShootAction += Shoot;
+            controlInput.OnShootAction += HandleShootAction;
             controlInput.OnScrollWeaponAction += ScrollWeapon;
             GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
         }
@@ -46,38 +48,68 @@ namespace _WeaponMerge.Scripts.Characters.Players
             }
         }
 
-        private void Shoot(bool onShoot)
+        private void HandleShootAction(bool onShoot)
         {
-            if (onShoot && _equippedWeapon != null)
+            _isShootActionPressed = onShoot;
+        }
+
+        private void Update()
+        {
+            if (_equippedWeapon == null)
             {
-                // Get the bullet from the object pool
-                var bullet = ObjectPooler.Instance.Get<BulletBehaviour>(_equippedWeapon.AmmoType);
+                return;
+            }
 
-                // Get the mouse position in world space
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            UpdateCooldownTime();
+            HandleShooting();
+        }
 
-                // Remove the Z axis (since we're in 2D space)
-                mousePosition.z = 0f;
-
-                // Calculate the direction from the weapon tip to the mouse position
-                Vector2 direction = (mousePosition - _weaponTip.position).normalized;
-
-                // Set up the bullet properties
-                var bulletProperties = new Bullet(
-                    _equippedWeapon.BulletSpeed,
-                    _equippedWeapon.Damage,
-                    _equippedWeapon.BulletTimeToLive
-                );
-
-                // Spawn the bullet at the weapon tip, moving towards the mouse
-                bullet.SpawnAt(
-                    ownerId: gameObject.GetInstanceID(),
-                    _weaponTip.position,
-                    bulletProperties,
-                    direction);
+        private void UpdateCooldownTime()
+        {
+            if (_elapsedCoolDownTime > 0f)
+            {
+                _elapsedCoolDownTime -= Time.deltaTime;
             }
         }
-        
+
+        private void HandleShooting()
+        {
+            if (_isShootActionPressed && _elapsedCoolDownTime <= 0f)
+            {
+                Shoot();
+                _elapsedCoolDownTime = _equippedWeapon.ShootRate;
+            }
+        }
+
+        private void Shoot()
+        {
+            // Get the bullet from the object pool
+            var bullet = ObjectPooler.Instance.Get<BulletBehaviour>(_equippedWeapon.AmmoType);
+
+            // Get the mouse position in world space
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // Remove the Z axis (since we're in 2D space)
+            mousePosition.z = 0f;
+
+            // Calculate the direction from the weapon tip to the mouse position
+            Vector2 direction = (mousePosition - _weaponTip.position).normalized;
+
+            // Set up the bullet properties
+            var bulletProperties = new Bullet(
+                _equippedWeapon.BulletSpeed,
+                _equippedWeapon.Damage,
+                _equippedWeapon.BulletTimeToLive
+            );
+
+            // Spawn the bullet at the weapon tip, moving towards the mouse
+            bullet.SpawnAt(
+                ownerId: gameObject.GetInstanceID(),
+                _weaponTip.position,
+                bulletProperties,
+                direction);
+        }
+
         public void Restart()
         {
             var item = _getEquippedItemUseCase.Execute();
