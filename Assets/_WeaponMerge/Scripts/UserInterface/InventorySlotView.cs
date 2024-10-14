@@ -23,7 +23,6 @@ namespace _WeaponMerge.Scripts.UserInterface
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            Tools.Logger.Log("Begin drag item from slot " + _slotIndex, LogKey.Inventory, color: LogColor.Green);
         }
         
         public void OnDrag(PointerEventData eventData)
@@ -32,7 +31,6 @@ namespace _WeaponMerge.Scripts.UserInterface
         
         public void OnEndDrag(PointerEventData eventData)
         {
-            Tools.Logger.Log("End drag item on slot " + _slotIndex, LogKey.Inventory,  color: LogColor.Green);
         }
         
         public void OnDrop(PointerEventData eventData)
