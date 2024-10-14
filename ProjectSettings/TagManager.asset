@@ -47,6 +47,9 @@ TagManager:
   - name: Characters
     uniqueID: 3917101721
     locked: 0
+  - name: Environment
+    uniqueID: 2846393587
+    locked: 0
   - name: Equipment
     uniqueID: 1188045139
     locked: 0

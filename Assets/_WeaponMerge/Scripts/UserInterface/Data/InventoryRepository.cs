@@ -8,6 +8,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
     public interface IInventoryRepository
     {
         void MoveItem(int itemId, int toSlotIndex);
+        void AddItem(Item item);
         Item GetEquippedItem();
         Item SwitchEquippedWeapon(bool isIncrement);
         Item[] GetInventoryItems();
@@ -47,7 +48,28 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 20,
                 0.5f,
                 AmmoType.Rifle);
+        }
+        
+        public void AddItem(Item item)
+        {
+            if (TryAddToSlots(MAX_INVENTORY_ITEMS, _items.Length, item))
+            {
+                return;
+            }
+            TryAddToSlots(0, MAX_INVENTORY_ITEMS, item);
+        }
 
+        private bool TryAddToSlots(int start, int end, Item item)
+        {
+            for (int i = start; i < end; i++)
+            {
+                if (_items[i] == null)
+                {
+                    _items[i] = item;
+                    return true;
+                }
+            }
+            return false;
         }
         
         public void MoveItem(int itemId, int toSlotIndex)
