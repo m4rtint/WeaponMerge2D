@@ -32,7 +32,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 0.1f,
                 30f,
                 10f,
-                1,
+                4,
                 0.5f,
                 10,
                 0.5f,

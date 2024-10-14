@@ -76,8 +76,11 @@ namespace _WeaponMerge.Scripts.Characters.Players
         {
             if (_isShootActionPressed && _elapsedCoolDownTime <= 0f)
             {
-                Shoot();
-                _elapsedCoolDownTime = _equippedWeapon.ShootRate;
+                for (var i = 0; i < _equippedWeapon.BulletsPerShot; i++)
+                {
+                    Shoot();
+                    _elapsedCoolDownTime = _equippedWeapon.ShootRate;
+                }
             }
         }
 
