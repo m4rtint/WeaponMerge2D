@@ -26,7 +26,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         public InventoryRepository()
         {
             _items = new Item[MAX_INVENTORY_ITEMS + MAX_EQUIPPED_ITEMS];
-            _items[1] = new Weapon(
+            _items[MAX_INVENTORY_ITEMS] = new Weapon(
                 1,
                 "Pistol",
                 1f,
