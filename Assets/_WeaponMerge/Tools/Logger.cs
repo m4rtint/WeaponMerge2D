@@ -7,7 +7,8 @@ namespace _WeaponMerge.Tools
     // Add in ENUM and Dictionary
     public enum LogKey
     {
-        State
+        State,
+        Inventory,
     }
 
     public enum LogColor
@@ -27,6 +28,9 @@ namespace _WeaponMerge.Tools
         {
             {
                 LogKey.State, false
+            },
+            {
+                LogKey.Inventory, false
             }
         };
 

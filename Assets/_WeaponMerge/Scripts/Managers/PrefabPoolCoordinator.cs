@@ -22,6 +22,7 @@ namespace _WeaponMerge.Scripts.Managers
 
         public void Restart()
         {
+            ObjectPooler.Instance.CreatePool(AmmoType.Rifle, _pistolBulletBehaviour);
             ObjectPooler.Instance.CreatePool(AmmoType.Pistol, _pistolBulletBehaviour);
             ObjectPooler.Instance.CreatePool(EnemyType.Simple, _enemyPrefab);
         }

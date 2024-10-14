@@ -1,13 +1,21 @@
 using System;
+using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.Domain;
 using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.UserInterface
 {
+    public enum HUDEquipmentSlotType
+    {
+        Empty,
+        Filled,
+        Equipped
+    }
+    
     public struct HUDEquipmentSlotState
     {
-        public bool IsSelected;
+        public HUDEquipmentSlotType Type;
         public Image Icon;
     }
     
@@ -19,6 +27,7 @@ namespace _WeaponMerge.Scripts.UserInterface
     public class HUDEquipmentViewModel
     {
         private readonly GetEquipmentItemsUseCase _getEquipmentItemsUseCase;
+        private readonly GetEquippedWeaponUseCase _getEquippedWeaponUseCase;
         
         private HUDEquipmentState State
         {
@@ -27,18 +36,22 @@ namespace _WeaponMerge.Scripts.UserInterface
         
         public event Action<HUDEquipmentState> OnStateChanged;
         
-        public HUDEquipmentViewModel(GetEquipmentItemsUseCase getEquipmentItemsUseCase)
+        public HUDEquipmentViewModel(
+            GetEquipmentItemsUseCase getEquipmentItemsUseCase, 
+            GetEquippedWeaponUseCase getEquippedWeaponUseCase)
         {
             _getEquipmentItemsUseCase = getEquipmentItemsUseCase;
+            _getEquippedWeaponUseCase = getEquippedWeaponUseCase;
         }
         
         public void FetchItems()
         {
             var equipmentItems = _getEquipmentItemsUseCase.Execute();
-            State = MapToSlotStates(equipmentItems);
+            var equippedItem = _getEquippedWeaponUseCase.Execute();
+            State = MapToSlotStates(equipmentItems, equippedItem);
         }
 
-        private HUDEquipmentState MapToSlotStates(Item[] items)
+        private HUDEquipmentState MapToSlotStates(Item[] items, Item equippedItem)
         {
             HUDEquipmentSlotState[] slotStates = new HUDEquipmentSlotState[items.Length];
             for (var i = 0; i < items.Length; i++)
@@ -47,7 +60,7 @@ namespace _WeaponMerge.Scripts.UserInterface
                 var slotState = new HUDEquipmentSlotState
                 {
                     Icon = item?.Image,
-                    IsSelected = false
+                    Type = GetSlotType(item, equippedItem)
                 };
                 slotStates[i] = slotState;
             }
@@ -57,6 +70,21 @@ namespace _WeaponMerge.Scripts.UserInterface
             };
 
             return state;
+        }
+        
+        private HUDEquipmentSlotType GetSlotType(Item item, Item equippedItem)
+        {
+            if (item == null)
+            {
+                return HUDEquipmentSlotType.Empty;
+            }
+
+            if (equippedItem != null && item.Id == equippedItem.Id)
+            {
+                return HUDEquipmentSlotType.Equipped;
+            }
+
+            return HUDEquipmentSlotType.Filled;
         }
     }
 }

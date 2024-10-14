@@ -16,7 +16,13 @@ namespace _WeaponMerge.Scripts.UserInterface
         public void SetState(HUDEquipmentSlotState state)
         {
             _icon.sprite = state.Icon?.sprite;
-            _icon.color = state.IsSelected ? Color.red : Color.blue;
+            _icon.color = state.Type switch
+            {
+                HUDEquipmentSlotType.Filled => Color.red,
+                HUDEquipmentSlotType.Empty => Color.white,
+                HUDEquipmentSlotType.Equipped => Color.green,
+                _ => Color.clear
+            };
         }
     }
 }

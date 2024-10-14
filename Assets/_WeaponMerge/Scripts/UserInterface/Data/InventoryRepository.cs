@@ -5,7 +5,16 @@ using _WeaponMerge.Scripts.Weapons;
 
 namespace _WeaponMerge.Scripts.UserInterface.Data
 {
-    public class InventoryRepository
+    public interface IInventoryRepository
+    {
+        void MoveItem(int itemId, int toSlotIndex);
+        Item GetEquippedItem();
+        Item SwitchEquippedWeapon(bool isIncrement);
+        Item[] GetInventoryItems();
+        Item[] GetEquipmentItems();
+    }
+    
+    public class InventoryRepository: IInventoryRepository
     {
         private const int MAX_INVENTORY_ITEMS = 16;
         private const int MAX_EQUIPPED_ITEMS = 4;
@@ -19,7 +28,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             _items[1] = new Weapon(
                 1,
                 "Pistol",
-                0.5f,
+                1f,
                 5f,
                 10f,
                 1,
@@ -72,7 +81,21 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         {
             return GetEquipmentItems()[_equippedSlotIndex];
         }
-        
+
+        public Item SwitchEquippedWeapon(bool isIncrement)
+        {
+            if (isIncrement)
+            {
+                _equippedSlotIndex = (_equippedSlotIndex + 1) % MAX_EQUIPPED_ITEMS;
+            }
+            else
+            {
+                _equippedSlotIndex = (_equippedSlotIndex - 1 + MAX_EQUIPPED_ITEMS) % MAX_EQUIPPED_ITEMS;
+            }
+
+            return GetEquipmentItems()[_equippedSlotIndex];
+        }
+
         public Item[] GetInventoryItems()
         {
             return _items.Take(MAX_INVENTORY_ITEMS).ToArray();

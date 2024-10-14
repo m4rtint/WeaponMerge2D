@@ -3,18 +3,18 @@ using _WeaponMerge.Scripts.UserInterface.Data;
 
 namespace _WeaponMerge.Scripts.Characters.Players.Domain.UseCases
 {
-    public class GetEquippedWeaponUseCase
+    public class SwitchEquippedWeaponUseCase
     {
         private readonly InventoryRepository _inventoryRepository;
         
-        public GetEquippedWeaponUseCase(InventoryRepository inventoryRepository)
+        public SwitchEquippedWeaponUseCase(InventoryRepository inventoryRepository)
         {
             _inventoryRepository = inventoryRepository;
         }
         
-        public Item Execute()
+        public Item Execute(bool isIncrement)
         {
-            return _inventoryRepository.GetEquippedItem();
+            return _inventoryRepository.SwitchEquippedWeapon(isIncrement);
         }
     }
 }

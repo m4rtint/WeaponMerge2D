@@ -1,6 +1,6 @@
-using System;
+using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.Managers;
-using _WeaponMerge.Scripts.UserInterface.Domain;
+using _WeaponMerge.Scripts.UserInterface.Data;
 using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using UnityEngine;
@@ -12,28 +12,43 @@ namespace _WeaponMerge.Scripts.Characters.Players
         [SerializeField]
         private Transform _weaponTip = null;
         private Weapon _equippedWeapon = null;
+        private GetEquippedWeaponUseCase _getEquippedItemUseCase;
+        private SwitchEquippedWeaponUseCase _switchEquippedWeaponUseCase;
 
         private void Awake()
         {
+            _getEquippedItemUseCase = new GetEquippedWeaponUseCase(new InventoryRepository());
+            _switchEquippedWeaponUseCase = new SwitchEquippedWeaponUseCase(new InventoryRepository());
         }
 
         public void Initialize(ControlInput controlInput)
         {
             controlInput.OnShootAction += Shoot;
             controlInput.OnScrollWeaponAction += ScrollWeapon;
+            GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+        }
+
+        private void OnGameStateChanged(GameState state)
+        {
+            if (state == GameState.InGame)
+            {
+                var item = _getEquippedItemUseCase.Execute();
+                _equippedWeapon = (Weapon)item;
+            }
         }
 
         private void ScrollWeapon(Vector2 direction)
         {
             if (direction != Vector2.zero)
             {
-                
+                var equippedItem = _switchEquippedWeaponUseCase.Execute(direction.y > 0);
+                _equippedWeapon = (Weapon)equippedItem;
             }
         }
 
         private void Shoot(bool onShoot)
         {
-            if (onShoot)
+            if (onShoot && _equippedWeapon != null)
             {
                 // Get the bullet from the object pool
                 var bullet = ObjectPooler.Instance.Get<BulletBehaviour>(_equippedWeapon.AmmoType);
@@ -65,8 +80,8 @@ namespace _WeaponMerge.Scripts.Characters.Players
         
         public void Restart()
         {
-            var weaponsFactory = new WeaponsFactory();
-            _equippedWeapon = weaponsFactory.CreateWeapon(WeaponType.Pistol);
+            var item = _getEquippedItemUseCase.Execute();
+            _equippedWeapon = (Weapon)item;
         }
         
         public void CleanUp()

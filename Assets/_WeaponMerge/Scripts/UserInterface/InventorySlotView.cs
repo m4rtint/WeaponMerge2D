@@ -1,4 +1,5 @@
 using System;
+using _WeaponMerge.Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ namespace _WeaponMerge.Scripts.UserInterface
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log("Begin drag item from slot " + _slotIndex);
+            Tools.Logger.Log("Begin drag item from slot " + _slotIndex, LogKey.Inventory, color: LogColor.Green);
         }
         
         public void OnDrag(PointerEventData eventData)
@@ -31,13 +32,13 @@ namespace _WeaponMerge.Scripts.UserInterface
         
         public void OnEndDrag(PointerEventData eventData)
         {
-            Debug.Log("End drag item on slot " + _slotIndex);
+            Tools.Logger.Log("End drag item on slot " + _slotIndex, LogKey.Inventory,  color: LogColor.Green);
         }
         
         public void OnDrop(PointerEventData eventData)
         {
             var fromSlot = eventData.pointerDrag.GetComponent<InventorySlotView>();
-            Debug.Log("Drag Item from Slot " + fromSlot._slotIndex + " to Slot " + _slotIndex);
+            Tools.Logger.Log("Drag Item from Slot " + fromSlot._slotIndex + " to Slot " + _slotIndex, LogKey.Inventory, color: LogColor.Green);
             _onMoveItem?.Invoke(fromSlot._itemId, _slotIndex);
         }
     }

@@ -1,3 +1,4 @@
+using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Scripts.UserInterface.Data;
 using _WeaponMerge.Scripts.UserInterface.Domain;
@@ -19,7 +20,10 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Views")]
         [SerializeField] private InventoryView _inventoryView;
         [SerializeField] private EquipmentView _equipmentView;
+        
+        
         private bool _isInventoryOpen = false;
+        private HUDEquipmentViewModel _hudEquipmentViewModel;
         
         private void Awake()
         {
@@ -32,6 +36,10 @@ namespace _WeaponMerge.Scripts.Managers
         public void Initialize(ControlInput controlInput)
         {
             controlInput.OnInventoryAction += ToggleInventory;
+            controlInput.OnScrollWeaponAction += (_) =>
+            {
+                _hudEquipmentViewModel.FetchItems();
+            };
         }
 
         public void CleanUp()
@@ -51,6 +59,7 @@ namespace _WeaponMerge.Scripts.Managers
             var moveItemUseCase = new MoveItemUseCase(inventoryRepository);
             var getInventoryItemsUseCase = new GetInventoryItemsUseCase(inventoryRepository);
             var getEquipmentItemsUseCase = new GetEquipmentItemsUseCase(inventoryRepository);
+            var getEquippedItemsUseCase = new GetEquippedWeaponUseCase(inventoryRepository);
             var inventoryViewModel = new InventoryViewModel(
                 moveItemUseCase: moveItemUseCase, 
                 getInventoryItemsUseCase: getInventoryItemsUseCase, 
@@ -58,15 +67,15 @@ namespace _WeaponMerge.Scripts.Managers
             _inventoryView.Initialize(inventoryViewModel);
             _equipmentView.Initialize(inventoryViewModel);
             
-            var hudEquipmentViewModel = new HUDEquipmentViewModel(getEquipmentItemsUseCase);
-            _hudEquipmentView.Initialize(hudEquipmentViewModel);
+            _hudEquipmentViewModel = new HUDEquipmentViewModel(getEquipmentItemsUseCase, getEquippedItemsUseCase);
+            _hudEquipmentView.Initialize(_hudEquipmentViewModel);
         }
         
         private void ToggleInventory()
         {
             _isInventoryOpen = !_isInventoryOpen;
             _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
-            _hudCanvas.gameObject.SetActive(_isInventoryOpen);
+            _hudCanvas.gameObject.SetActive(!_isInventoryOpen);
         }
     }
 }
