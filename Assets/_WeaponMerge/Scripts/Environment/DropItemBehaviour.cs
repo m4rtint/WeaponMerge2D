@@ -1,19 +1,21 @@
+using System;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _WeaponMerge.Scripts.Environment
 {
     public class DropItemBehaviour : MonoBehaviour
     {
         private Item _item;
-
-        private void Awake()
+        
+        private void OnEnable()
         {
             _item = new Weapon(
-                GetInstanceID(),
+                Random.Range(1000, 99999),
                 "Pistol",
                 1f,
                 5f,

@@ -52,10 +52,8 @@ namespace _WeaponMerge.Scripts.Weapons
                 if (hit.collider.TryGetComponent<HealthBehaviour>(out var enemyHealth))
                 {
                     enemyHealth.TakeDamage(_bullet.Damage);
+                    ObjectPooler.Instance.ReturnToPool(AmmoType, gameObject);
                 }
-                
-                // Return the bullet to the pool
-                ObjectPooler.Instance.ReturnToPool(AmmoType, gameObject);
             }
         }
     }

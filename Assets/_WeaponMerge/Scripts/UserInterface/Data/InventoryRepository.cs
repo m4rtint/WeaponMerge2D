@@ -37,17 +37,6 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 10,
                 0.5f,
                 AmmoType.Pistol);
-            _items[MAX_INVENTORY_ITEMS + 2] = new Weapon(
-                2,
-                "Rifle",
-                0.1f,
-                1f,
-                20f,
-                1,
-                2f,
-                20,
-                0.5f,
-                AmmoType.Rifle);
         }
         
         public void AddItem(Item item)

@@ -36,7 +36,7 @@ namespace _WeaponMerge.Scripts.UserInterface
         public void OnDrop(PointerEventData eventData)
         {
             var fromSlot = eventData.pointerDrag.GetComponent<InventorySlotView>();
-            Tools.Logger.Log("Drag Item from Slot " + fromSlot._slotIndex + " to Slot " + _slotIndex, LogKey.Inventory, color: LogColor.Green);
+            Tools.Logger.Log("Drag Item from Slot " + fromSlot._slotIndex + " (Item ID: " + fromSlot._itemId + ") to Slot " + _slotIndex, LogKey.Inventory, color: LogColor.Green);
             _onMoveItem?.Invoke(fromSlot._itemId, _slotIndex);
         }
     }

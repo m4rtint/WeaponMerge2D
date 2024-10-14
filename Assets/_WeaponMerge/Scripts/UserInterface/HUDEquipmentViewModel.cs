@@ -28,12 +28,17 @@ namespace _WeaponMerge.Scripts.UserInterface
     {
         private readonly GetEquipmentItemsUseCase _getEquipmentItemsUseCase;
         private readonly GetEquippedWeaponUseCase _getEquippedWeaponUseCase;
-        
+        private HUDEquipmentState _state;
         private HUDEquipmentState State
         {
-            set => OnStateChanged?.Invoke(value);
+            get => _state;
+            set
+            {
+                _state = value;
+                OnStateChanged?.Invoke(value);
+            }
         }
-        
+
         public event Action<HUDEquipmentState> OnStateChanged;
         
         public HUDEquipmentViewModel(
@@ -48,6 +53,11 @@ namespace _WeaponMerge.Scripts.UserInterface
         {
             var equipmentItems = _getEquipmentItemsUseCase.Execute();
             var equippedItem = _getEquippedWeaponUseCase.Execute();
+            var newState = MapToSlotStates(equipmentItems, equippedItem);
+            if (State.Equals(newState))
+            {
+                State = newState;
+            }
             State = MapToSlotStates(equipmentItems, equippedItem);
         }
 
