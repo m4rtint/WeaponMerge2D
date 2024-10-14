@@ -1,6 +1,7 @@
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.Weapons;
+using _WeaponMerge.Tools;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Environment
@@ -29,7 +30,7 @@ namespace _WeaponMerge.Scripts.Environment
             if (other.gameObject.TryGetComponent(out PlayerPickUpBehaviour player))
             {
                 player.PickUpItem(_item);
-                Destroy(gameObject);
+                ObjectPooler.Instance.ReturnToPool(DropType.Weapon, gameObject);
             }
         }
     }

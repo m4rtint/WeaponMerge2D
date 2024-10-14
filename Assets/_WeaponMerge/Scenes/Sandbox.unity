@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &4042348 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5383865879885553872, guid: 28f745de5bc949d44989a4b60d869679, type: 3}
+  m_PrefabInstance: {fileID: 1942666197900943633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c74af159e47174fbb6f34310c4ecf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &191770924
 GameObject:
   m_ObjectHideFlags: 0
@@ -25567,8 +25578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1434f267153c1c843acbe227128e2c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pistolBulletBehaviour: {fileID: 7705907259105981658, guid: da42b9af37fe3f4458cdf4674b54fa4b, type: 3}
+  _pistolBulletPrefab: {fileID: 7705907259105981658, guid: da42b9af37fe3f4458cdf4674b54fa4b, type: 3}
   _enemyPrefab: {fileID: 526929213370670330, guid: 7986c78a99c10e34db77a13e8cb91d96, type: 3}
+  _weaponDropPrefab: {fileID: 4042348}
 --- !u!1 &1794919128
 GameObject:
   m_ObjectHideFlags: 0
