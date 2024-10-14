@@ -5,16 +5,16 @@ namespace _WeaponMerge.Scripts.Characters.Players.Domain.UseCases
 {
     public class SwitchEquippedWeaponUseCase
     {
-        private readonly InventoryRepository _inventoryRepository;
+        private readonly IEquipmentRepository _equipmentRepository;
         
-        public SwitchEquippedWeaponUseCase(InventoryRepository inventoryRepository)
+        public SwitchEquippedWeaponUseCase(IEquipmentRepository equipmentRepository)
         {
-            _inventoryRepository = inventoryRepository;
+            _equipmentRepository = equipmentRepository;
         }
         
         public Item Execute(bool isIncrement)
         {
-            return _inventoryRepository.SwitchEquippedWeapon(isIncrement);
+            return _equipmentRepository.SwitchEquippedWeapon(isIncrement);
         }
     }
 }

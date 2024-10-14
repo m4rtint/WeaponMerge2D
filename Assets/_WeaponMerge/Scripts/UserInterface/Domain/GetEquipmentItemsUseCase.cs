@@ -5,16 +5,16 @@ namespace _WeaponMerge.Scripts.UserInterface.Domain
 {
     public class GetEquipmentItemsUseCase
     {
-        private readonly InventoryRepository _inventoryRepository;
+        private readonly IEquipmentRepository _equipmentRepository;
         
-        public GetEquipmentItemsUseCase(InventoryRepository inventoryRepository)
+        public GetEquipmentItemsUseCase(IEquipmentRepository equipmentRepository)
         {
-            _inventoryRepository = inventoryRepository;
+            _equipmentRepository = equipmentRepository;
         }
         
         public Item[] Execute()
         {
-            return _inventoryRepository.GetEquipmentItems();
+            return _equipmentRepository.GetEquipmentItems();
         }
     }
 }

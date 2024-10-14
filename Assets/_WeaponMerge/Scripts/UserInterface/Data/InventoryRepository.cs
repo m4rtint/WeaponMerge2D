@@ -9,24 +9,19 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
     {
         void MoveItem(int itemId, int toSlotIndex);
         void AddItem(Item item);
-        Item GetEquippedItem();
-        Item SwitchEquippedWeapon(bool isIncrement);
         Item[] GetInventoryItems();
-        Item[] GetEquipmentItems();
+        
     }
     
     public class InventoryRepository: IInventoryRepository
     {
-        private const int MAX_INVENTORY_ITEMS = 16;
-        private const int MAX_EQUIPPED_ITEMS = 4;
-
-        private static Item[] _items;
-        private static int _equippedSlotIndex;
+        private readonly InventoryStorage _inventoryStorage;
         
-        public InventoryRepository()
+        public InventoryRepository(InventoryStorage inventoryStorage)
         {
-            _items = new Item[MAX_INVENTORY_ITEMS + MAX_EQUIPPED_ITEMS];
-            _items[MAX_INVENTORY_ITEMS] = new Weapon(
+            _inventoryStorage = inventoryStorage;
+            _inventoryStorage.Items = new Item[InventoryStorage.MAX_INVENTORY_ITEMS + InventoryStorage.MAX_EQUIPPED_ITEMS];
+            _inventoryStorage.Items[InventoryStorage.MAX_INVENTORY_ITEMS] = new Weapon(
                 1,
                 "Pistol",
                 0.1f,
@@ -41,20 +36,20 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         
         public void AddItem(Item item)
         {
-            if (TryAddToSlots(MAX_INVENTORY_ITEMS, _items.Length, item))
+            if (TryAddToSlots(InventoryStorage.MAX_INVENTORY_ITEMS, _inventoryStorage.Items.Length, item))
             {
                 return;
             }
-            TryAddToSlots(0, MAX_INVENTORY_ITEMS, item);
+            TryAddToSlots(0, InventoryStorage.MAX_INVENTORY_ITEMS, item);
         }
 
         private bool TryAddToSlots(int start, int end, Item item)
         {
             for (int i = start; i < end; i++)
             {
-                if (_items[i] == null)
+                if (_inventoryStorage.Items[i] == null)
                 {
-                    _items[i] = item;
+                    _inventoryStorage.Items[i] = item;
                     return true;
                 }
             }
@@ -68,53 +63,29 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 return;
             }
             
-            var item = _items.FirstOrDefault(x => x?.Id == itemId);
-            var isMoveValid = item == null || toSlotIndex < 0 || toSlotIndex >= _items.Length;
+            var item = _inventoryStorage.Items.FirstOrDefault(x => x?.Id == itemId);
+            var isMoveValid = item == null || toSlotIndex < 0 || toSlotIndex >= _inventoryStorage.Items.Length;
             if (isMoveValid)
             {
                 // If item is not found or toSlotIndex is invalid, return the current items
                 return;
             }
 
-            var fromSlotIndex = Array.IndexOf(_items, item);
+            var fromSlotIndex = Array.IndexOf(_inventoryStorage.Items, item);
             if (fromSlotIndex == -1)
             {
                 // If the item is not found in the inventory, return the current items
                 return;
             }
 
-            var toSlotItem = _items[toSlotIndex];
-            _items[fromSlotIndex] = toSlotItem;
-            _items[toSlotIndex] = item;
-        }
-
-        public Item GetEquippedItem()
-        {
-            return GetEquipmentItems()[_equippedSlotIndex];
-        }
-
-        public Item SwitchEquippedWeapon(bool isIncrement)
-        {
-            if (isIncrement)
-            {
-                _equippedSlotIndex = (_equippedSlotIndex + 1) % MAX_EQUIPPED_ITEMS;
-            }
-            else
-            {
-                _equippedSlotIndex = (_equippedSlotIndex - 1 + MAX_EQUIPPED_ITEMS) % MAX_EQUIPPED_ITEMS;
-            }
-
-            return GetEquipmentItems()[_equippedSlotIndex];
+            var toSlotItem = _inventoryStorage.Items[toSlotIndex];
+            _inventoryStorage.Items[fromSlotIndex] = toSlotItem;
+            _inventoryStorage.Items[toSlotIndex] = item;
         }
 
         public Item[] GetInventoryItems()
         {
-            return _items.Take(MAX_INVENTORY_ITEMS).ToArray();
-        }
-        
-        public Item[] GetEquipmentItems()
-        {
-            return _items.Skip(MAX_INVENTORY_ITEMS).Take(MAX_EQUIPPED_ITEMS).ToArray();
+            return _inventoryStorage.Items.Take(InventoryStorage.MAX_INVENTORY_ITEMS).ToArray();
         }
     }
 }

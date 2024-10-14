@@ -10,7 +10,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
         private PickUpItemUseCase _pickUpItemUseCase;
         private void Awake()
         {
-            var inventoryRepository = new InventoryRepository();
+            var inventoryRepository = new InventoryRepository(new InventoryStorage());
             _pickUpItemUseCase = new PickUpItemUseCase(inventoryRepository);
         }
 

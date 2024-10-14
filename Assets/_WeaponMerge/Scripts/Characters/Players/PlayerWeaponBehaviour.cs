@@ -19,8 +19,9 @@ namespace _WeaponMerge.Scripts.Characters.Players
 
         private void Awake()
         {
-            _getEquippedItemUseCase = new GetEquippedWeaponUseCase(new InventoryRepository());
-            _switchEquippedWeaponUseCase = new SwitchEquippedWeaponUseCase(new InventoryRepository());
+            var equipmentRepository = new EquipmentRepository(new InventoryStorage());
+            _getEquippedItemUseCase = new GetEquippedWeaponUseCase(equipmentRepository);
+            _switchEquippedWeaponUseCase = new SwitchEquippedWeaponUseCase(equipmentRepository);
         }
 
         public void Initialize(ControlInput controlInput)
@@ -79,7 +80,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
                 for (var i = 0; i < _equippedWeapon.BulletsPerShot; i++)
                 {
                     Shoot();
-                    _elapsedCoolDownTime = _equippedWeapon.ShootRate;
+                    _elapsedCoolDownTime = _equippedWeapon.FireRate;
                 }
             }
         }

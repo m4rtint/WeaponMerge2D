@@ -51,11 +51,13 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Start()
         {
-            var inventoryRepository = new InventoryRepository();
+            var inventoryStorage = new InventoryStorage();
+            var inventoryRepository = new InventoryRepository(inventoryStorage);
+            var equipmentRepository = new EquipmentRepository(inventoryStorage);
             var moveItemUseCase = new MoveItemUseCase(inventoryRepository);
             var getInventoryItemsUseCase = new GetInventoryItemsUseCase(inventoryRepository);
-            var getEquipmentItemsUseCase = new GetEquipmentItemsUseCase(inventoryRepository);
-            var getEquippedItemsUseCase = new GetEquippedWeaponUseCase(inventoryRepository);
+            var getEquipmentItemsUseCase = new GetEquipmentItemsUseCase(equipmentRepository);
+            var getEquippedItemsUseCase = new GetEquippedWeaponUseCase(equipmentRepository);
             var inventoryViewModel = new InventoryViewModel(
                 moveItemUseCase: moveItemUseCase, 
                 getInventoryItemsUseCase: getInventoryItemsUseCase, 
