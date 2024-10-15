@@ -42,6 +42,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Merge",
+                    "type": "Button",
+                    "id": "8866bb51-c7c8-49d0-87e5-19cbb991a8a4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SwapWeapon",
                     "type": "PassThrough",
                     "id": "eb40803f-f8e6-442d-92e7-e694fedd6aee",
@@ -236,6 +245,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca9e0163-e10b-4e97-931c-7b030ea972b3",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Merge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

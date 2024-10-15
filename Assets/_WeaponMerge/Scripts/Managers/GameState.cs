@@ -9,6 +9,7 @@ namespace _WeaponMerge.Scripts.Managers
         Loading,
         InGame,
         OpenInventory,
+        OpenMerge,
         Paused,
         GameOver,
         Restarting

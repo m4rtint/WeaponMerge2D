@@ -29,6 +29,7 @@ namespace _WeaponMerge.Scripts.Managers
         
         
         private bool _isInventoryOpen = false;
+        private bool _isMergeOpen = false;
         private HUDEquipmentViewModel _hudEquipmentViewModel;
         
         private void Awake()
@@ -50,6 +51,7 @@ namespace _WeaponMerge.Scripts.Managers
         public void Initialize(ControlInput controlInput)
         {
             controlInput.OnInventoryAction += ToggleInventory;
+            controlInput.OnMergeAction += ToggleMerge;
         }
 
         public void CleanUp()
@@ -92,11 +94,28 @@ namespace _WeaponMerge.Scripts.Managers
         
         private void ToggleInventory()
         {
+            if (GameStateManager.Instance.GetState() != GameState.InGame)
+            {
+                return;
+            }
             bool isOpeningInventory = !_isInventoryOpen;
             GameStateManager.Instance.ChangeState(isOpeningInventory ? GameState.OpenInventory : GameState.InGame);
             _isInventoryOpen = isOpeningInventory;
             _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
             _hudCanvas.gameObject.SetActive(!_isInventoryOpen);
+        }
+
+        private void ToggleMerge()
+        {
+            if (GameStateManager.Instance.GetState() != GameState.InGame)
+            {
+                return;
+            }
+            bool isOpeningMerge = !_isMergeOpen;
+            GameStateManager.Instance.ChangeState(isOpeningMerge ? GameState.OpenMerge : GameState.InGame);
+            _isMergeOpen = isOpeningMerge;
+            _mergeCanvas.gameObject.SetActive(_isMergeOpen);
+            _hudCanvas.gameObject.SetActive(!_isMergeOpen);
         }
     }
 }
