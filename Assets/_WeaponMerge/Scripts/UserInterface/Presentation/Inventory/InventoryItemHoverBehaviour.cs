@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Logger = _WeaponMerge.Tools.Logger;
 
-namespace _WeaponMerge.Scripts.UserInterface
+namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
 {
     public class InventoryItemHoverBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

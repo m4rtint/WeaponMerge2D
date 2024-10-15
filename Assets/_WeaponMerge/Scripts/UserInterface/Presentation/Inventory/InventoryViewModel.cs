@@ -3,7 +3,7 @@ using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.Domain;
 using UnityEngine.UI;
 
-namespace _WeaponMerge.Scripts.UserInterface
+namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
 {
     public struct InventoryState
     {

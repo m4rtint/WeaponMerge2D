@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace _WeaponMerge.Scripts.UserInterface
+namespace _WeaponMerge.Scripts.UserInterface.Presentation.HUD
 {
     public class HUDEquipmentView : MonoBehaviour
     {

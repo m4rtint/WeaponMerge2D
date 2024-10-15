@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _WeaponMerge.Scripts.UserInterface
+namespace _WeaponMerge.Scripts.UserInterface.Presentation.HUD
 {
     [RequireComponent(typeof(Image))]
     public class HUDEquipmentSlotView : MonoBehaviour

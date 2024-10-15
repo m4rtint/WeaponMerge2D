@@ -2,6 +2,8 @@ using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Scripts.UserInterface.Data;
 using _WeaponMerge.Scripts.UserInterface.Domain;
+using _WeaponMerge.Scripts.UserInterface.Presentation.HUD;
+using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;

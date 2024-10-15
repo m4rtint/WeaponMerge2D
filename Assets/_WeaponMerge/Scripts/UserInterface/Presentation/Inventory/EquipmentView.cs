@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _WeaponMerge.Scripts.UserInterface
+namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
 {
     public class EquipmentView : MonoBehaviour
     {
