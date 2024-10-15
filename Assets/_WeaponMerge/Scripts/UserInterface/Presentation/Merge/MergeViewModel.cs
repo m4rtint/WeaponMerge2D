@@ -1,5 +1,5 @@
 ﻿using System;
-using _WeaponMerge.Scripts.Inventory;
+using _WeaponMerge.Scripts.UserInterface.Domain.Models;
 using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
 
@@ -14,9 +14,9 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
 
     public class MergeViewModel
     {
-        private readonly SetMergeSlotUseCase _setMergeSlotUseCase;
-        private readonly GetInventoryItemsUseCase _getInventoryItemsUseCase;
-
+        private readonly MoveMergeItemUseCase _moveMergeItemUseCase;
+        private readonly GetMergeInventoryUseCase _getMergeInventoryUseCase;
+        
         private MergeViewState State
         {
             set => OnStateChanged?.Invoke(value);
@@ -25,43 +25,63 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         public event Action<MergeViewState> OnStateChanged;
 
         public MergeViewModel(
-            SetMergeSlotUseCase setMergeSlotUseCase,
-            GetInventoryItemsUseCase getInventoryItemsUseCase)
+            MoveMergeItemUseCase moveMergeItemUseCase, 
+            GetMergeInventoryUseCase getMergeInventoryUseCase)
         {
-            _setMergeSlotUseCase = setMergeSlotUseCase;
-            _getInventoryItemsUseCase = getInventoryItemsUseCase;
+            _moveMergeItemUseCase = moveMergeItemUseCase;
+            _getMergeInventoryUseCase = getMergeInventoryUseCase;
+        }
+
+        private void MoveInventoryItem(int itemIndex, int toSlotIndex)
+        {
+            _moveMergeItemUseCase.Execute(itemIndex, toSlotIndex);
+            FetchItems();
         }
 
         public void FetchItems()
         {
-            var inventoryItems = _getInventoryItemsUseCase.Execute();
-            State = MapInitialInventoryItemsToMergeViewState(inventoryItems);
+            var mergeInventory = _getMergeInventoryUseCase.Execute();
+            State = MapMergeViewState(mergeInventory);
         }
 
-        private void MoveItem(int itemIndex, int toSlotIndex)
+        private MergeViewState MapMergeViewState(MergeInventory items)
         {
-            
-        }
-
-        private MergeViewState MapInitialInventoryItemsToMergeViewState(Item[] items)
-        {
-            var inventorySlots = new SlotState[items.Length];
-            for (var i = 0; i < items.Length; i++)
+            var inventorySlots = new SlotState[items.InventoryItems.Length];
+            int slotIndex;
+            for (slotIndex = 0; slotIndex < items.InventoryItems.Length; slotIndex++)
             {
-                var item = items[i];
-                inventorySlots[i] = new SlotState(
-                    slotIndex: i,
-                    itemId: item.Id,
-                    itemImage: item.Image,
-                    name: item.Name,
-                    onMoveItem: MoveItem
+                var item = items.InventoryItems[slotIndex];
+                inventorySlots[slotIndex] = new SlotState(
+                    slotIndex: slotIndex,
+                    itemId: item?.Id ?? -1,
+                    itemImage: item?.Image,
+                    name: item?.Name,
+                    onMoveItem: MoveInventoryItem
                 );
             }
 
+            slotIndex++;
+            var primarySlot = new SlotState(
+                slotIndex: slotIndex,
+                itemId: items.PrimarySlot?.Id ?? -1,
+                itemImage: items.PrimarySlot?.Image,
+                name: items.PrimarySlot?.Name,
+                onMoveItem: MoveInventoryItem
+            );
+
+            slotIndex++;
+            var secondarySlot = new SlotState(
+                slotIndex: slotIndex,
+                itemId: items.SecondarySlot?.Id ?? -1,
+                itemImage: items.SecondarySlot?.Image,
+                name: items.SecondarySlot?.Name,
+                onMoveItem: MoveInventoryItem
+            );
+
             return new MergeViewState
             {
-                PrimarySlot = SlotState.EmptyState(),
-                SecondarySlot = SlotState.EmptyState(),
+                PrimarySlot = primarySlot,
+                SecondarySlot = secondarySlot,
                 InventorySlots = inventorySlots
             };
         }

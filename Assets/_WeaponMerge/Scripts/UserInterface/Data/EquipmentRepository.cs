@@ -40,7 +40,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         
         public Item[] GetEquipmentItems()
         {
-            return _inventoryStorage.Items.Skip(InventoryStorage.MAX_INVENTORY_ITEMS).Take(InventoryStorage.MAX_EQUIPPED_ITEMS).ToArray();
+            return _inventoryStorage.AllItems.Skip(InventoryStorage.MAX_INVENTORY_ITEMS).Take(InventoryStorage.MAX_EQUIPPED_ITEMS).ToArray();
         }
     }
 }

@@ -1,7 +1,6 @@
 using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
-using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Scripts.UserInterface.Data;
-using _WeaponMerge.Scripts.UserInterface.Domain;
+using _WeaponMerge.Scripts.UserInterface.Domain.Models;
 using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.Presentation.HUD;
 using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
@@ -73,49 +72,53 @@ namespace _WeaponMerge.Scripts.Managers
             var inventoryStorage = new InventoryStorage();
             var inventoryRepository = new InventoryRepository(inventoryStorage);
             var equipmentRepository = new EquipmentRepository(inventoryStorage);
-            var moveItemUseCase = new MoveItemUseCase(inventoryRepository);
+            var moveItemUseCase = new MoveInventoryItemUseCase(inventoryRepository);
             var getInventoryItemsUseCase = new GetInventoryItemsUseCase(inventoryRepository);
             var getEquipmentItemsUseCase = new GetEquipmentItemsUseCase(equipmentRepository);
             var getEquippedItemsUseCase = new GetEquippedWeaponUseCase(equipmentRepository);
             var inventoryViewModel = new InventoryViewModel(
-                moveItemUseCase: moveItemUseCase, 
+                moveInventoryItemUseCase: moveItemUseCase, 
                 getInventoryItemsUseCase: getInventoryItemsUseCase, 
                 getEquipmentItemsUseCase: getEquipmentItemsUseCase);
             _inventoryView.Initialize(inventoryViewModel);
             _equipmentView.Initialize(inventoryViewModel);
             
-            _hudEquipmentViewModel = new HUDEquipmentViewModel(getEquipmentItemsUseCase, getEquippedItemsUseCase);
+            _hudEquipmentViewModel = new HUDEquipmentViewModel(
+                getEquipmentItemsUseCase, 
+                getEquippedItemsUseCase);
             _hudEquipmentView.Initialize(_hudEquipmentViewModel);
             
             var mergeRepository = new MergeRepository(inventoryStorage);
-            var setMergeSlotsUseCase = new SetMergeSlotUseCase(mergeRepository);
-            _mergeView.Initialize(new MergeViewModel(setMergeSlotsUseCase, getInventoryItemsUseCase));
+            var moveMergeItemUseCase = new MoveMergeItemUseCase(mergeRepository);
+            var getMergeInventoryUseCase = new GetMergeInventoryUseCase(mergeRepository);
+            _mergeView.Initialize(new MergeViewModel(
+                moveMergeItemUseCase: moveMergeItemUseCase,
+                getMergeInventoryUseCase: getMergeInventoryUseCase));
         }
         
         private void ToggleInventory()
         {
-            if (GameStateManager.Instance.GetState() != GameState.InGame)
+            var currentState = GameStateManager.Instance.GetState();
+            if (currentState == GameState.InGame || currentState == GameState.OpenInventory)
             {
-                return;
+                _isInventoryOpen = !_isInventoryOpen;
+                GameStateManager.Instance.ChangeState(_isInventoryOpen ? GameState.OpenInventory : GameState.InGame);
+                _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
+                _hudCanvas.gameObject.SetActive(!_isInventoryOpen);
             }
-            bool isOpeningInventory = !_isInventoryOpen;
-            GameStateManager.Instance.ChangeState(isOpeningInventory ? GameState.OpenInventory : GameState.InGame);
-            _isInventoryOpen = isOpeningInventory;
-            _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
-            _hudCanvas.gameObject.SetActive(!_isInventoryOpen);
         }
 
         private void ToggleMerge()
         {
-            if (GameStateManager.Instance.GetState() != GameState.InGame)
+            var currentState = GameStateManager.Instance.GetState();
+            if (currentState == GameState.InGame || currentState == GameState.OpenMerge)
             {
-                return;
+                bool isOpeningMerge = !_isMergeOpen;
+                GameStateManager.Instance.ChangeState(isOpeningMerge ? GameState.OpenMerge : GameState.InGame);
+                _isMergeOpen = isOpeningMerge;
+                _mergeCanvas.gameObject.SetActive(_isMergeOpen);
+                _hudCanvas.gameObject.SetActive(!_isMergeOpen);
             }
-            bool isOpeningMerge = !_isMergeOpen;
-            GameStateManager.Instance.ChangeState(isOpeningMerge ? GameState.OpenMerge : GameState.InGame);
-            _isMergeOpen = isOpeningMerge;
-            _mergeCanvas.gameObject.SetActive(_isMergeOpen);
-            _hudCanvas.gameObject.SetActive(!_isMergeOpen);
         }
     }
 }

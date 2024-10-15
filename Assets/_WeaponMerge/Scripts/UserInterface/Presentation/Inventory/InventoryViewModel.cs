@@ -28,22 +28,11 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
             Name = name;
             OnMoveItem = onMoveItem;
         }
-
-        public static SlotState EmptyState()
-        {
-            return new SlotState(
-                slotIndex: -1,
-                itemId: -1,
-                itemImage: null,
-                name: null,
-                onMoveItem: null
-            );
-        }
     }
     
     public class InventoryViewModel
     {
-        private readonly MoveItemUseCase _moveItemUseCase;
+        private readonly MoveInventoryItemUseCase _moveInventoryItemUseCase;
         private readonly GetInventoryItemsUseCase _getInventoryItemsUseCase;
         private readonly GetEquipmentItemsUseCase _getEquipmentItemsUseCase;
 
@@ -55,18 +44,18 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
         public event Action<InventoryState> OnStateChanged;
         
         public InventoryViewModel(
-            MoveItemUseCase moveItemUseCase, 
+            MoveInventoryItemUseCase moveInventoryItemUseCase, 
             GetInventoryItemsUseCase getInventoryItemsUseCase,
             GetEquipmentItemsUseCase getEquipmentItemsUseCase)
         {
-            _moveItemUseCase = moveItemUseCase;
+            _moveInventoryItemUseCase = moveInventoryItemUseCase;
             _getInventoryItemsUseCase = getInventoryItemsUseCase;
             _getEquipmentItemsUseCase = getEquipmentItemsUseCase;
         }
         
         private void MoveItem(int itemId, int toSlotIndex)
         { 
-            _moveItemUseCase.Execute(itemId, toSlotIndex);
+            _moveInventoryItemUseCase.Execute(itemId, toSlotIndex);
             FetchItems();
         }
 

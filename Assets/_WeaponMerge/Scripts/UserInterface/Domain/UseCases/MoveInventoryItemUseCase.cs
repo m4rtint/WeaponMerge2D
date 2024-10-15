@@ -2,11 +2,11 @@ using _WeaponMerge.Scripts.UserInterface.Data;
 
 namespace _WeaponMerge.Scripts.UserInterface.Domain.UseCases
 {
-    public class MoveItemUseCase
+    public class MoveInventoryItemUseCase
     {
         private readonly InventoryRepository _inventoryRepository;
         
-        public MoveItemUseCase(InventoryRepository inventoryRepository)
+        public MoveInventoryItemUseCase(InventoryRepository inventoryRepository)
         {
             _inventoryRepository = inventoryRepository;
         }

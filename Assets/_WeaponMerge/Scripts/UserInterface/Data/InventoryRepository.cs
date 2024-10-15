@@ -25,7 +25,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         
         public void AddItem(Item item)
         {
-            if (TryAddToSlots(InventoryStorage.MAX_INVENTORY_ITEMS, _inventoryStorage.Items.Length, item))
+            if (TryAddToSlots(InventoryStorage.MAX_INVENTORY_ITEMS, _inventoryStorage.AllItems.Length, item))
             {
                 return;
             }
@@ -36,9 +36,9 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         {
             for (int i = start; i < end; i++)
             {
-                if (_inventoryStorage.Items[i] == null)
+                if (_inventoryStorage.AllItems[i] == null)
                 {
-                    _inventoryStorage.Items[i] = item;
+                    _inventoryStorage.AllItems[i] = item;
                     return true;
                 }
             }
@@ -52,34 +52,34 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 return;
             }
             
-            var item = _inventoryStorage.Items.FirstOrDefault(x => x?.Id == itemId);
-            var isMoveValid = item == null || toSlotIndex < 0 || toSlotIndex >= _inventoryStorage.Items.Length;
+            var item = _inventoryStorage.AllItems.FirstOrDefault(x => x?.Id == itemId);
+            var isMoveValid = item == null || toSlotIndex < 0 || toSlotIndex >= _inventoryStorage.AllItems.Length;
             if (isMoveValid)
             {
                 // If item is not found or toSlotIndex is invalid, return the current items
                 return;
             }
 
-            var fromSlotIndex = Array.IndexOf(_inventoryStorage.Items, item);
+            var fromSlotIndex = Array.IndexOf(_inventoryStorage.AllItems, item);
             if (fromSlotIndex == -1)
             {
                 // If the item is not found in the inventory, return the current items
                 return;
             }
 
-            var toSlotItem = _inventoryStorage.Items[toSlotIndex];
-            _inventoryStorage.Items[fromSlotIndex] = toSlotItem;
-            _inventoryStorage.Items[toSlotIndex] = item;
+            var toSlotItem = _inventoryStorage.AllItems[toSlotIndex];
+            _inventoryStorage.AllItems[fromSlotIndex] = toSlotItem;
+            _inventoryStorage.AllItems[toSlotIndex] = item;
         }
 
         public Item[] GetInventoryItems()
         {
-            return _inventoryStorage.Items.Take(InventoryStorage.MAX_INVENTORY_ITEMS).ToArray();
+            return _inventoryStorage.AllItems.Take(InventoryStorage.MAX_INVENTORY_ITEMS).ToArray();
         }
 
         public Item GetInventoryItem(int itemId)
         {
-            return _inventoryStorage.Items.FirstOrDefault(x => x?.Id == itemId);
+            return _inventoryStorage.AllItems.FirstOrDefault(x => x?.Id == itemId);
         }
     }
 }

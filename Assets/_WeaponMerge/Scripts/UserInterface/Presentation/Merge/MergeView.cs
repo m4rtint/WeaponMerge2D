@@ -1,4 +1,3 @@
-using System;
 using _WeaponMerge.Scripts.UserInterface.Presentation.Generic;
 using _WeaponMerge.Tools;
 using UnityEngine;
@@ -29,10 +28,6 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         {
             _viewModel = viewModel;
             _viewModel.OnStateChanged += OnStateChanged;
-        }
-        
-        private void Start()
-        {
             _viewModel.FetchItems();
         }
         
