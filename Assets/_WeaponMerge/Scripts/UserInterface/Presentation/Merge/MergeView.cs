@@ -7,16 +7,16 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
 {
     public class MergeView : MonoBehaviour
     {
-        [SerializeField] private SlotView _leftSlot;
-        [SerializeField] private SlotView _rightSlot;
+        [SerializeField] private SlotView _primarySlot;
+        [SerializeField] private SlotView _secondarySlot;
         [SerializeField] private SlotView[] _inventorySlots;
         
         private MergeViewModel _viewModel;
 
         private void Awake()
         {
-            PanicHelper.CheckAndPanicIfNull(_leftSlot, nameof(_leftSlot));
-            PanicHelper.CheckAndPanicIfNull(_rightSlot, nameof(_rightSlot));
+            PanicHelper.CheckAndPanicIfNull(_primarySlot, nameof(_primarySlot));
+            PanicHelper.CheckAndPanicIfNull(_secondarySlot, nameof(_secondarySlot));
             PanicHelper.CheckAndPanicIfNullOrEmpty(_inventorySlots, nameof(_inventorySlots));
         }
 
@@ -38,8 +38,8 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         
         private void OnStateChanged(MergeViewState state)
         {
-            _leftSlot.SetState(state.PrimarySlot);
-            _rightSlot.SetState(state.SecondarySlot);
+            _primarySlot.SetState(state.PrimarySlot);
+            _secondarySlot.SetState(state.SecondarySlot);
             for (var i = 0; i < state.InventorySlots.Length; i++)
             {
                 _inventorySlots[i].SetState(state.InventorySlots[i]);
