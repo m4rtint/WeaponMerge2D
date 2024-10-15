@@ -13,6 +13,7 @@ namespace _WeaponMerge.Scripts.UserInterface
         [SerializeField, ReadOnly]
         private int _itemId;
         private Action<int, int> _onMoveItem;
+        public int ItemId => _itemId;
         
         public void SetState(InventorySlotState state)
         {

@@ -10,7 +10,8 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         void MoveItem(int itemId, int toSlotIndex);
         void AddItem(Item item);
         Item[] GetInventoryItems();
-        
+
+        Item GetInventoryItem(int itemId);
     }
     
     public class InventoryRepository: IInventoryRepository
@@ -86,6 +87,11 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         public Item[] GetInventoryItems()
         {
             return _inventoryStorage.Items.Take(InventoryStorage.MAX_INVENTORY_ITEMS).ToArray();
+        }
+
+        public Item GetInventoryItem(int itemId)
+        {
+            return _inventoryStorage.Items.FirstOrDefault(x => x?.Id == itemId);
         }
     }
 }
