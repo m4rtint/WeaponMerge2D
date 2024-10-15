@@ -2,6 +2,7 @@ using System;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,9 @@ namespace _WeaponMerge.Scripts.Managers
     
     public class EnemySpawnerManager: MonoBehaviour
     {
+        [Title("DEBUG")]
+        [SerializeField] private bool _isTurnedOn = true;
+        
         [Header("Spawn Settings")] 
         [SerializeField] private Transform[] _spawnLocations;
         [SerializeField] private Vector2 _spawnArea;
@@ -36,6 +40,8 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Update()
         {
+            if (!_isTurnedOn) return;
+            
             _elapsedSpawnTime += Time.deltaTime;
             if (_elapsedSpawnTime >= _spawnRate)
             {

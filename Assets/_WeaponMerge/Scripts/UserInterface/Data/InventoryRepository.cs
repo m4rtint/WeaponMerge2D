@@ -21,18 +21,6 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         public InventoryRepository(InventoryStorage inventoryStorage)
         {
             _inventoryStorage = inventoryStorage;
-            _inventoryStorage.Items = new Item[InventoryStorage.MAX_INVENTORY_ITEMS + InventoryStorage.MAX_EQUIPPED_ITEMS];
-            _inventoryStorage.Items[InventoryStorage.MAX_INVENTORY_ITEMS] = new Weapon(
-                1,
-                "Pistol",
-                0.1f,
-                30f,
-                10f,
-                4,
-                0.5f,
-                10,
-                0.5f,
-                AmmoType.Pistol);
         }
         
         public void AddItem(Item item)

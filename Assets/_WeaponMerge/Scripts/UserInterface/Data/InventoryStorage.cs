@@ -25,18 +25,19 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         
         public InventoryStorage()
         {
-            Items = new Item[MAX_INVENTORY_ITEMS + MAX_EQUIPPED_ITEMS];
-            Items[MAX_INVENTORY_ITEMS] = new Weapon(
-                1,
-                "Pistol",
-                0.1f,
-                30f,
-                10f,
-                4,
-                0.5f,
-                10,
-                0.5f,
-                AmmoType.Pistol);
+            _items = new Item[MAX_INVENTORY_ITEMS + MAX_EQUIPPED_ITEMS];
+            MockItems();
+        }
+
+        private void MockItems()
+        {
+            var factory = new WeaponsFactory();
+            for(int i = 0; i < MAX_INVENTORY_ITEMS; i++)
+            {
+                _items[i] = factory.CreateWeapon(WeaponType.Pistol);
+            }
+
+            _items[MAX_INVENTORY_ITEMS] = factory.CreateWeapon(WeaponType.Pistol);
         }
     }
 }
