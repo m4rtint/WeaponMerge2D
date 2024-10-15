@@ -1,5 +1,6 @@
 using _WeaponMerge.Scripts.UserInterface.Data;
 using _WeaponMerge.Scripts.UserInterface.Domain;
+using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
 using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using TMPro;

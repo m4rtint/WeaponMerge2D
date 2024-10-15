@@ -1,3 +1,4 @@
+using _WeaponMerge.Scripts.UserInterface.Presentation.Generic;
 using _WeaponMerge.Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,7 +18,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
             Logger.Log("Pointer Enter", LogKey.Inventory, color: LogColor.Green);
             _isHovering = true;
             _hoverTime = 0f;
-            _itemId = GetComponent<InventorySlotView>().ItemId;
+            _itemId = GetComponent<SlotView>().ItemId;
         }
 
         public void OnPointerExit(PointerEventData eventData)

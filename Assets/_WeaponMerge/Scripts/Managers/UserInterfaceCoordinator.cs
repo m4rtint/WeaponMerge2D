@@ -2,8 +2,10 @@ using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Scripts.UserInterface.Data;
 using _WeaponMerge.Scripts.UserInterface.Domain;
+using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.Presentation.HUD;
 using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
+using _WeaponMerge.Scripts.UserInterface.Presentation.Merge;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,6 +17,7 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Canvas")]
         [SerializeField] private Canvas _inventoryCanvas;
         [SerializeField] private Canvas _hudCanvas;
+        [SerializeField] private Canvas _mergeCanvas;
 
         [Title("HUD")] 
         [SerializeField] private HUDEquipmentView _hudEquipmentView;
@@ -22,6 +25,7 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Views")]
         [SerializeField] private InventoryView _inventoryView;
         [SerializeField] private EquipmentView _equipmentView;
+        [SerializeField] private MergeView _mergeView;
         
         
         private bool _isInventoryOpen = false;
@@ -29,10 +33,18 @@ namespace _WeaponMerge.Scripts.Managers
         
         private void Awake()
         {
+            // Canvas
             PanicHelper.CheckAndPanicIfNull(_inventoryCanvas);
+            PanicHelper.CheckAndPanicIfNull(_hudCanvas);
+            PanicHelper.CheckAndPanicIfNull(_mergeCanvas);
+            
+            // HUD
+            PanicHelper.CheckAndPanicIfNull(_hudEquipmentView);
+            
+            // Views
             PanicHelper.CheckAndPanicIfNull(_inventoryView);
             PanicHelper.CheckAndPanicIfNull(_equipmentView);
-            PanicHelper.CheckAndPanicIfNull(_hudCanvas);
+            PanicHelper.CheckAndPanicIfNull(_mergeView);
         }
 
         public void Initialize(ControlInput controlInput)
@@ -42,13 +54,16 @@ namespace _WeaponMerge.Scripts.Managers
 
         public void CleanUp()
         {
+            _inventoryCanvas.gameObject.SetActive(false);
             _hudCanvas.gameObject.SetActive(false);
+            _mergeCanvas.gameObject.SetActive(false);
         }
 
         public void Restart()
         {
             _inventoryCanvas.gameObject.SetActive(false);
             _hudCanvas.gameObject.SetActive(true);
+            _mergeCanvas.gameObject.SetActive(false);
         }
 
         private void Start()
@@ -69,6 +84,10 @@ namespace _WeaponMerge.Scripts.Managers
             
             _hudEquipmentViewModel = new HUDEquipmentViewModel(getEquipmentItemsUseCase, getEquippedItemsUseCase);
             _hudEquipmentView.Initialize(_hudEquipmentViewModel);
+            
+            var mergeRepository = new MergeRepository(inventoryStorage);
+            var setMergeSlotsUseCase = new SetMergeSlotUseCase(mergeRepository);
+            _mergeView.Initialize(new MergeViewModel(setMergeSlotsUseCase, getInventoryItemsUseCase));
         }
         
         private void ToggleInventory()

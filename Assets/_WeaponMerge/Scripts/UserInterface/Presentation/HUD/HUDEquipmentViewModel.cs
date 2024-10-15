@@ -2,6 +2,7 @@ using System;
 using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.Domain;
+using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
 using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.UserInterface.Presentation.HUD

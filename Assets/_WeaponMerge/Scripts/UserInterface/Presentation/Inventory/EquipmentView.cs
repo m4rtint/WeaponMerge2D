@@ -1,15 +1,16 @@
+using _WeaponMerge.Scripts.UserInterface.Presentation.Generic;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
 {
     public class EquipmentView : MonoBehaviour
     {
-        private InventorySlotView[] _equipmentSlots;
+        private SlotView[] _equipmentSlots;
         private InventoryViewModel _viewModel;
         
         private void Awake()
         {
-            _equipmentSlots = GetComponentsInChildren<InventorySlotView>();
+            _equipmentSlots = GetComponentsInChildren<SlotView>();
         }
         
         public void Initialize(InventoryViewModel viewModel)

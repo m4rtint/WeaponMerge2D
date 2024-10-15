@@ -1,13 +1,14 @@
 using System;
+using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
+namespace _WeaponMerge.Scripts.UserInterface.Presentation.Generic
 {
-    public class InventorySlotView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+    public class SlotView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
         private int _slotIndex;
         [SerializeField, ReadOnly]
@@ -15,7 +16,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
         private Action<int, int> _onMoveItem;
         public int ItemId => _itemId;
         
-        public void SetState(InventorySlotState state)
+        public void SetState(SlotState state)
         {
             _slotIndex = state.SlotIndex;
             _itemId = state.ItemId;
@@ -38,7 +39,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
         
         public void OnDrop(PointerEventData eventData)
         {
-            var fromSlot = eventData.pointerDrag.GetComponent<InventorySlotView>();
+            var fromSlot = eventData.pointerDrag.GetComponent<SlotView>();
             Tools.Logger.Log("Drag Item from Slot " + fromSlot._slotIndex + " (Item ID: " + fromSlot._itemId + ") to Slot " + _slotIndex, LogKey.Inventory, color: LogColor.Green);
             _onMoveItem?.Invoke(fromSlot._itemId, _slotIndex);
         }

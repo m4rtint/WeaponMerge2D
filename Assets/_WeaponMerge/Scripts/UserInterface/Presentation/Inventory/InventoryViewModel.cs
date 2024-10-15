@@ -1,31 +1,43 @@
 using System;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.Domain;
+using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
 using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
 {
     public struct InventoryState
     {
-        public InventorySlotState[] InventoryItems;
-        public InventorySlotState[] EquipmentItems;
+        public SlotState[] InventoryItems;
+        public SlotState[] EquipmentItems;
     }
 
-    public struct InventorySlotState
+    public struct SlotState
     {
-        public readonly int SlotIndex;
-        public readonly int ItemId;
-        public readonly Image ItemImage;
-        public readonly string Name;
-        public readonly Action<int, int> OnMoveItem;
+        public int SlotIndex { get; }
+        public int ItemId { get; }
+        public Image ItemImage { get; }
+        public string Name { get; }
+        public Action<int, int> OnMoveItem { get; }
         
-        public InventorySlotState(int slotIndex, int itemId, Image itemImage, string name, Action<int, int> onMoveItem)
+        public SlotState(int slotIndex, int itemId, Image itemImage, string name, Action<int, int> onMoveItem)
         {
             SlotIndex = slotIndex;
             ItemId = itemId;
             ItemImage = itemImage;
             Name = name;
             OnMoveItem = onMoveItem;
+        }
+
+        public static SlotState EmptyState()
+        {
+            return new SlotState(
+                slotIndex: -1,
+                itemId: -1,
+                itemImage: null,
+                name: null,
+                onMoveItem: null
+            );
         }
     }
     
@@ -76,12 +88,12 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
             };
         }
         
-        private InventorySlotState[] MapToSlotsState(Item[] items, int initialSlotIndex = 0)
+        private SlotState[] MapToSlotsState(Item[] items, int initialSlotIndex = 0)
         {
-            var state = new InventorySlotState[items.Length];
+            var state = new SlotState[items.Length];
             for (var i = 0; i < items.Length; i++)
             {
-                state[i] = new InventorySlotState(
+                state[i] = new SlotState(
                     slotIndex: initialSlotIndex + i,
                     itemId: items[i]?.Id ?? -1,
                     itemImage: items[i]?.Image,
