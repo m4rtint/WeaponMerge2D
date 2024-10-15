@@ -11,11 +11,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         private static Item[] _items;
         private static int _equippedSlotIndex;
 
-        public Item[] Items
-        {
-            get => _items;
-            set => _items = value;
-        }
+        public Item[] Items => _items;
 
         public int EquippedSlotIndex
         {
