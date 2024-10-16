@@ -24,6 +24,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Domain.UseCases
 
             var weapon = _weaponMergeSystem.MergePistols(weaponOne, weaponTwo);
             _repository.AddMergedItemToInventory(weapon);
+            _repository.SyncInventory();
         }
     }
 }

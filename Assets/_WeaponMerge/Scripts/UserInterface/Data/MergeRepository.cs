@@ -48,18 +48,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             }
             
             _inventoryToMerge[^MAX_ITEMS_TO_MERGE] = null;
-        }
-
-        public void RemoveItemsFromInventory(int[] itemIds)
-        {
-            foreach (var itemId in itemIds)
-            {
-                var itemIndex = Array.FindIndex(_inventoryToMerge, item => item?.Id == itemId);
-                if (itemIndex != -1)
-                {
-                    _inventoryToMerge[itemIndex] = null;
-                }
-            }
+            _inventoryToMerge[^1] = null;
         }
 
         public void MoveItem(int itemId, int toSlotIndex)
@@ -102,10 +91,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
         
         public void SyncInventory()
         {
-            for (int i = 0; i < _storage.InventoryItems.Length; i++)
-            {
-                _storage.InventoryItems[i] = _inventoryToMerge[i];
-            }
+            _storage.CopyInventory(_inventoryToMerge);
         }
     }
 }

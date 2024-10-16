@@ -28,6 +28,14 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             MockItems();
         }
 
+        public void CopyInventory(Item[] inventoryCopy)
+        {
+            for (int i = 0; i < inventoryCopy.Length; i++)
+            {
+                _allItems[i] = inventoryCopy[i];
+            }
+        }
+  
         private void MockItems()
         {
             var factory = new WeaponsFactory();
