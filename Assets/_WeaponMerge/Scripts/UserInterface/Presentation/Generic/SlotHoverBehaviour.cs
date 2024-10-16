@@ -1,12 +1,12 @@
-using _WeaponMerge.Scripts.UserInterface.Presentation.Generic;
+using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
 using _WeaponMerge.Tools;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Logger = _WeaponMerge.Tools.Logger;
 
-namespace _WeaponMerge.Scripts.UserInterface.Presentation.Inventory
+namespace _WeaponMerge.Scripts.UserInterface.Presentation.Generic
 {
-    public class InventoryItemHoverBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class SlotHoverBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private int _itemId;
         private bool _isHovering;
