@@ -9,7 +9,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
     {
         void MoveItem(int itemId, int toSlotIndex);
         MergeInventory GetMergeInventory();
-        Item[] GetMergingItems();
+        (Item, Item) GetMergingItems();
         void AddMergedItemToInventory(Item item);
         void SyncInventory();
     }
@@ -31,9 +31,9 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             Array.Copy(_storage.InventoryItems, _inventoryToMerge, _storage.InventoryItems.Length);
         }
 
-        public Item[] GetMergingItems()
+        public (Item, Item) GetMergingItems()
         {
-            return _inventoryToMerge.Take(_inventoryToMerge.Length - MAX_ITEMS_TO_MERGE).ToArray();
+            return (_inventoryToMerge[^MAX_ITEMS_TO_MERGE], _inventoryToMerge[^1]);
         }
 
         public void AddMergedItemToInventory(Item item)

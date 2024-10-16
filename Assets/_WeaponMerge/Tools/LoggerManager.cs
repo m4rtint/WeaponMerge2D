@@ -9,6 +9,7 @@ namespace _WeaponMerge.Tools
         [InfoBox("List of Logs")]
         [SerializeField] private bool _state = false;
         [SerializeField] private bool _inventory = false;
+        [SerializeField] private bool _merge = false;
         private void Awake()
         {
             var config = new Dictionary<LogKey, bool>()
@@ -18,6 +19,9 @@ namespace _WeaponMerge.Tools
                 },
                 {
                     LogKey.Inventory, _inventory
+                },
+                {
+                    LogKey.Merge, _merge
                 }
             };
             Logger.Configure(config);

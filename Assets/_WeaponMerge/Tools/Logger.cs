@@ -9,6 +9,7 @@ namespace _WeaponMerge.Tools
     {
         State,
         Inventory,
+        Merge,
     }
 
     public enum LogColor
@@ -31,6 +32,9 @@ namespace _WeaponMerge.Tools
             },
             {
                 LogKey.Inventory, false
+            },
+            {
+                LogKey.Merge, false
             }
         };
 
