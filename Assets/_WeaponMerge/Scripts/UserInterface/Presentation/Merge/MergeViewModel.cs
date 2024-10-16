@@ -10,6 +10,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         public SlotState PrimarySlot;
         public SlotState SecondarySlot;
         public SlotState[] InventorySlots;
+        public bool IsMergeButtonEnabled;
     }
 
     public class MergeViewModel
@@ -30,6 +31,11 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         {
             _moveMergeItemUseCase = moveMergeItemUseCase;
             _getMergeInventoryUseCase = getMergeInventoryUseCase;
+        }
+
+        public void MergeItems()
+        {
+            
         }
 
         private void MoveInventoryItem(int itemIndex, int toSlotIndex)
@@ -77,12 +83,15 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
                 name: items.SecondarySlot?.Name,
                 onMoveItem: MoveInventoryItem
             );
+            
+            var isMergeButtonEnabled = items is { PrimarySlot: not null, SecondarySlot: not null };
 
             return new MergeViewState
             {
                 PrimarySlot = primarySlot,
                 SecondarySlot = secondarySlot,
-                InventorySlots = inventorySlots
+                InventorySlots = inventorySlots,
+                IsMergeButtonEnabled = isMergeButtonEnabled
             };
         }
     }

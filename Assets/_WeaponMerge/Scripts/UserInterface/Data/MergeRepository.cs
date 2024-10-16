@@ -69,7 +69,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             {
                 InventoryItems = inventoryItems,
                 PrimarySlot = _inventoryToMerge[^MAX_ITEMS_TO_MERGE],
-                SecondarySlot = _inventoryToMerge[_inventoryToMerge.Length -MAX_ITEMS_TO_MERGE + 1]
+                SecondarySlot = _inventoryToMerge[_inventoryToMerge.Length - MAX_ITEMS_TO_MERGE + 1]
             };
         }
     }
