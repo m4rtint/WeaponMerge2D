@@ -42,6 +42,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         public void MergeItems()
         {
             _mergeItemsUseCase.Execute();
+            FetchItems();
         }
 
         private void MoveInventoryItem(int itemIndex, int toSlotIndex)
