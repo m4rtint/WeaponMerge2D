@@ -10,6 +10,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Generic
 {
     public class SlotView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
+        [SerializeField, ReadOnly]
         private int _slotIndex;
         [SerializeField, ReadOnly]
         private int _itemId;

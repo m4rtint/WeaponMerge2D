@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: 0
-  _inventory: 0
+  _inventory: 1
 --- !u!4 &215715545
 Transform:
   m_ObjectHideFlags: 0

@@ -60,18 +60,18 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
                 );
             }
 
-            slotIndex++;
+            var primarySlotIndex = slotIndex;
             var primarySlot = new SlotState(
-                slotIndex: slotIndex,
+                slotIndex: primarySlotIndex,
                 itemId: items.PrimarySlot?.Id ?? -1,
                 itemImage: items.PrimarySlot?.Image,
                 name: items.PrimarySlot?.Name,
                 onMoveItem: MoveInventoryItem
             );
 
-            slotIndex++;
+            var secondarySlotIndex = slotIndex + 1;
             var secondarySlot = new SlotState(
-                slotIndex: slotIndex,
+                slotIndex: secondarySlotIndex,
                 itemId: items.SecondarySlot?.Id ?? -1,
                 itemImage: items.SecondarySlot?.Image,
                 name: items.SecondarySlot?.Name,

@@ -43,8 +43,8 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             }
             
             var item = _inventoryToMerge.FirstOrDefault(x => x?.Id == itemId);
-            var isMoveValid = item == null || toSlotIndex < 0 || toSlotIndex >= _inventoryToMerge.Length;
-            if (isMoveValid)
+            var isMoveInvalid = item == null || toSlotIndex < 0 || toSlotIndex >= _inventoryToMerge.Length;
+            if (isMoveInvalid)
             {
                 // If item is not found or toSlotIndex is invalid, return the current items
                 return;
