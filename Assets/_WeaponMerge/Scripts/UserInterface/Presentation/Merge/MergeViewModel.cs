@@ -15,8 +15,10 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
 
     public class MergeViewModel
     {
+        private readonly SyncInventoryUseCase _syncInventoryUseCase;
         private readonly MoveMergeItemUseCase _moveMergeItemUseCase;
         private readonly GetMergeInventoryUseCase _getMergeInventoryUseCase;
+        private readonly MergeItemsUseCase _mergeItemsUseCase;
         
         private MergeViewState State
         {
@@ -26,16 +28,20 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         public event Action<MergeViewState> OnStateChanged;
 
         public MergeViewModel(
+            SyncInventoryUseCase syncInventoryUseCase,
+            MergeItemsUseCase mergeItemsUseCase,
             MoveMergeItemUseCase moveMergeItemUseCase, 
             GetMergeInventoryUseCase getMergeInventoryUseCase)
         {
+            _syncInventoryUseCase = syncInventoryUseCase;
+            _mergeItemsUseCase = mergeItemsUseCase;
             _moveMergeItemUseCase = moveMergeItemUseCase;
             _getMergeInventoryUseCase = getMergeInventoryUseCase;
         }
 
         public void MergeItems()
         {
-            
+            _mergeItemsUseCase.Execute();
         }
 
         private void MoveInventoryItem(int itemIndex, int toSlotIndex)
@@ -48,6 +54,12 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         {
             var mergeInventory = _getMergeInventoryUseCase.Execute();
             State = MapMergeViewState(mergeInventory);
+        }
+
+
+        public void SyncInventory()
+        {
+            _syncInventoryUseCase.Execute();
         }
 
         private MergeViewState MapMergeViewState(MergeInventory items)

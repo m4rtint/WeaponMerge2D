@@ -2,15 +2,16 @@ using System;
 using System.Linq;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.Domain.Models;
-using _WeaponMerge.Tools;
 
 namespace _WeaponMerge.Scripts.UserInterface.Data
 {
     public interface IMergeRepository
     {
-        void AddMergedItem(Item item);
         void MoveItem(int itemId, int toSlotIndex);
         MergeInventory GetMergeInventory();
+        Item[] GetMergingItems();
+        void AddMergedItemToInventory(Item item);
+        void SyncInventory();
     }
     
     public class MergeRepository: IMergeRepository
@@ -30,9 +31,35 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
             Array.Copy(_storage.InventoryItems, _inventoryToMerge, _storage.InventoryItems.Length);
         }
 
-        public void AddMergedItem(Item item)
+        public Item[] GetMergingItems()
         {
-            PanicHelper.Panic(new Exception("Not implemented"));
+            return _inventoryToMerge.Take(_inventoryToMerge.Length - MAX_ITEMS_TO_MERGE).ToArray();
+        }
+
+        public void AddMergedItemToInventory(Item item)
+        {
+            for (int i = 0; i < _inventoryToMerge.Length; i++)
+            {
+                if (_inventoryToMerge[i] == null)
+                {
+                    _inventoryToMerge[i] = item;
+                    break;
+                }
+            }
+            
+            _inventoryToMerge[^MAX_ITEMS_TO_MERGE] = null;
+        }
+
+        public void RemoveItemsFromInventory(int[] itemIds)
+        {
+            foreach (var itemId in itemIds)
+            {
+                var itemIndex = Array.FindIndex(_inventoryToMerge, item => item?.Id == itemId);
+                if (itemIndex != -1)
+                {
+                    _inventoryToMerge[itemIndex] = null;
+                }
+            }
         }
 
         public void MoveItem(int itemId, int toSlotIndex)
@@ -71,6 +98,14 @@ namespace _WeaponMerge.Scripts.UserInterface.Data
                 PrimarySlot = _inventoryToMerge[^MAX_ITEMS_TO_MERGE],
                 SecondarySlot = _inventoryToMerge[_inventoryToMerge.Length - MAX_ITEMS_TO_MERGE + 1]
             };
+        }
+        
+        public void SyncInventory()
+        {
+            for (int i = 0; i < _storage.InventoryItems.Length; i++)
+            {
+                _storage.InventoryItems[i] = _inventoryToMerge[i];
+            }
         }
     }
 }

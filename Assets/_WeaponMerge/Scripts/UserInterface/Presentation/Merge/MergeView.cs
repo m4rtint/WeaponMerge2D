@@ -1,3 +1,4 @@
+using System;
 using _WeaponMerge.Scripts.UserInterface.Presentation.Generic;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
@@ -9,7 +10,8 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
     public class MergeView : MonoBehaviour
     {
         [Title("Buttons")]
-        private Button _mergeButton;
+        
+        [SerializeField] private Button _mergeButton;
         
         [Title("Slots")]
         [SerializeField] private SlotView _primarySlot;
@@ -20,6 +22,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
 
         private void Awake()
         {
+            PanicHelper.CheckAndPanicIfNull(_mergeButton);
             PanicHelper.CheckAndPanicIfNull(_primarySlot, nameof(_primarySlot));
             PanicHelper.CheckAndPanicIfNull(_secondarySlot, nameof(_secondarySlot));
             PanicHelper.CheckAndPanicIfNullOrEmpty(_inventorySlots, nameof(_inventorySlots));
@@ -29,7 +32,12 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
         {
             _viewModel?.FetchItems();
         }
-        
+
+        private void OnDisable()
+        {
+            _viewModel.SyncInventory();
+        }
+
         public void Initialize(MergeViewModel viewModel)
         {
             _viewModel = viewModel;
@@ -47,6 +55,8 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Merge
             {
                 _inventorySlots[i].SetState(state.InventorySlots[i]);
             }
+
+            _mergeButton.interactable = state.IsMergeButtonEnabled;
         }
     }
 }

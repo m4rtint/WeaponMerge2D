@@ -1,6 +1,6 @@
 using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.Data;
-using _WeaponMerge.Scripts.UserInterface.Domain.Models;
+using _WeaponMerge.Scripts.UserInterface.Domain;
 using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.Presentation.HUD;
 using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
@@ -91,7 +91,12 @@ namespace _WeaponMerge.Scripts.Managers
             var mergeRepository = new MergeRepository(inventoryStorage);
             var moveMergeItemUseCase = new MoveMergeItemUseCase(mergeRepository);
             var getMergeInventoryUseCase = new GetMergeInventoryUseCase(mergeRepository);
+            var weaponMergeSystem = new WeaponMergingSystem();
+            var mergeItemUseCase = new MergeItemsUseCase(mergeRepository, weaponMergeSystem);
+            var syncInventoryUseCase = new SyncInventoryUseCase(mergeRepository);
             _mergeView.Initialize(new MergeViewModel(
+                syncInventoryUseCase: syncInventoryUseCase,
+                mergeItemsUseCase: mergeItemUseCase,
                 moveMergeItemUseCase: moveMergeItemUseCase,
                 getMergeInventoryUseCase: getMergeInventoryUseCase));
         }

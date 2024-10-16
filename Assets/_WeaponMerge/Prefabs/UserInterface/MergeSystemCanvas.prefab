@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829dc1eef25474144b5bb090c6a130f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mergeButton: {fileID: 1435698638312342279}
   _primarySlot: {fileID: 558518308873417384}
   _secondarySlot: {fileID: 1238454038028043782}
   _inventorySlots:
