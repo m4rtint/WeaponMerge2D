@@ -28,10 +28,11 @@ namespace _WeaponMerge.Scripts.UserInterface.Domain
             );
         }
 
-        private float Randomize(float higherValue, float lowerValue, MergeType mergeType)
+        private float Randomize(float valueOne, float valueTwo, MergeType mergeType)
         {
-            var range = Math.Abs(higherValue - lowerValue);
-            var baseValue = range / 2;
+            var higherValue = Math.Max(valueOne, valueTwo);
+            var range = Math.Abs(valueOne - valueTwo);
+            var baseValue = higherValue / 2;
             var randomize = UnityEngine.Random.Range(0, range);
             if (mergeType == MergeType.Higher)
             {
