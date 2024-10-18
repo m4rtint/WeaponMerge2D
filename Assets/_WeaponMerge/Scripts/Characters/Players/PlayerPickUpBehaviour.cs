@@ -1,6 +1,6 @@
 using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.Inventory;
-using _WeaponMerge.Scripts.UserInterface.Data;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Data;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Players

@@ -1,10 +1,10 @@
 using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
-using _WeaponMerge.Scripts.UserInterface.Data;
-using _WeaponMerge.Scripts.UserInterface.Domain;
-using _WeaponMerge.Scripts.UserInterface.Domain.UseCases;
-using _WeaponMerge.Scripts.UserInterface.Presentation.HUD;
-using _WeaponMerge.Scripts.UserInterface.Presentation.Inventory;
-using _WeaponMerge.Scripts.UserInterface.Presentation.Merge;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Data;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;

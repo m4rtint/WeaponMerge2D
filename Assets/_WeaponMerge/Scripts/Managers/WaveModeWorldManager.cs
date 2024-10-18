@@ -6,14 +6,10 @@ using UnityEngine.InputSystem;
 
 namespace _WeaponMerge.Scripts.Managers
 {
-    public enum WaveModeState
-    {
-        Transitioning,
-        WaveInProgress,
-    }
-
     public class WaveModeWorldManager : MonoBehaviour
     {
+        private readonly GameStateManager _gameStateManager = GameStateManager.Instance;
+
         [Title("Configuration")] [SerializeField]
         private InputActionAsset _actionAsset = null;
 
@@ -25,8 +21,8 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("User Interface / HUD")] [SerializeField]
         private UserInterfaceCoordinator _userInterfaceCoordinator = null;
 
-        private readonly GameStateManager _gameStateManager = GameStateManager.Instance;
-
+        private WaveModeSystem _waveModeSystem;
+        
         [Button]
         public void SetState(GameState state)
         {
@@ -74,12 +70,12 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Start()
         {
+            _waveModeSystem = new WaveModeSystem(_enemySpawnerManager);
             var controlInput = new ControlInput(_actionAsset);
             _playerBehaviour.Initialize(controlInput);
             var playerPositionProvider = new PlayerPositionProvider(_playerBehaviour.transform);
             _enemySpawnerManager.Initialize(playerPositionProvider);
             _userInterfaceCoordinator.Initialize(controlInput);
-
             _gameStateManager.ChangeState(GameState.Loading);
         }
 
@@ -111,8 +107,10 @@ namespace _WeaponMerge.Scripts.Managers
             _playerBehaviour.Restart();
             _enemySpawnerManager.Restart();
             _prefabPoolCoordinator.Restart();
-            _gameStateManager.ChangeState(GameState.InGame);
             _userInterfaceCoordinator.Restart();
+            _gameStateManager.ChangeState(GameState.InGame);
+            // Start Waves
+            _waveModeSystem.Start();
         }
 
         private void CleanUp()

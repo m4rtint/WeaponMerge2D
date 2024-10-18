@@ -1,9 +1,12 @@
+using System;
+using System.Collections.Generic;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Logger = _WeaponMerge.Tools.Logger;
+using Random = UnityEngine.Random;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -15,25 +18,36 @@ namespace _WeaponMerge.Scripts.Managers
     
     public class EnemySpawnerManager: MonoBehaviour
     {
+        private readonly Queue<EnemyType> _enemyQueue = new Queue<EnemyType>();
+        private PlayerPositionProvider _playerPositionProvider = null;
+
         [Title("DEBUG")]
         [SerializeField] private bool _isTurnedOn = true;
         
         [Header("Spawn Settings")] 
         [SerializeField] private Transform[] _spawnLocations;
         [SerializeField] private Vector2 _spawnArea;
-        [SerializeField] private float _spawnRate;
-        [SerializeField] private int _spawnAmount;
+        [SerializeField] private float _spawnRate = 0.5f;
         
         private IRandomness _randomness;
-        private float _elapsedSpawnTime = 0f;
+        private float _elapsedSpawnTime;
+        private List<GameObject> _activeEnemies;
         
-        private PlayerPositionProvider _playerPositionProvider = null;
-        
+        public event Action OnClearAllEnemies;
 
         public void Initialize(PlayerPositionProvider playerPositionProvider)
         {
             _playerPositionProvider = playerPositionProvider;
             _randomness = new Randomness(GetInstanceID().GetHashCode());
+        }
+        
+        public void SetEnemiesToSpawn(EnemyType[] enemies)
+        {
+            _enemyQueue.Clear();
+            foreach (var enemy in enemies)
+            {
+                _enemyQueue.Enqueue(enemy);
+            }
         }
 
         private void Awake()
@@ -43,28 +57,44 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Update()
         {
-            if (!_isTurnedOn) return;
+            if (!_isTurnedOn && _enemyQueue.Count == 0) return;
             
             _elapsedSpawnTime += Time.deltaTime;
             if (_elapsedSpawnTime >= _spawnRate)
             {
                 _elapsedSpawnTime = 0f;
-                Spawn();
+                Spawn(_enemyQueue.Dequeue());
+            }
+
+            CheckIfAllEnemiesAreDead();
+        }
+        
+        private void CheckIfAllEnemiesAreDead()
+        {
+            for (int i = _activeEnemies.Count - 1; i >= 0; i--)
+            {
+                if (!_activeEnemies[i].activeInHierarchy)
+                {
+                    _activeEnemies.RemoveAt(i);
+                }
+            }
+            
+            if (_activeEnemies.Count == 0 && _enemyQueue.Count == 0)
+            {
+                OnClearAllEnemies?.Invoke();
             }
         }
 
-        private void Spawn()
+        private void Spawn(EnemyType spawnTypes)
         {
-            for (int i = 0; i < _spawnAmount; i++)
+            switch (spawnTypes)
             {
-                if (_randomness.CoinFlip())
-                {
+                case EnemyType.Simple:
                     SpawnSimpleEnemy();
-                }
-                else
-                {
+                    break;
+                case EnemyType.Ranged:
                     SpawnRangedEnemy();
-                }
+                    break;
             }
         }
 
@@ -80,6 +110,7 @@ namespace _WeaponMerge.Scripts.Managers
                 0);
             enemy.transform.position = randomizedPosition;
             enemy.Initialize(_playerPositionProvider);
+            _activeEnemies.Add(enemy.gameObject);
         }
 
         private void SpawnRangedEnemy()
@@ -93,6 +124,7 @@ namespace _WeaponMerge.Scripts.Managers
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
                 0);
             enemy.Initialize(_playerPositionProvider);
+            _activeEnemies.Add(enemy.gameObject);
         }
 
         private void OnDrawGizmos()
@@ -107,11 +139,14 @@ namespace _WeaponMerge.Scripts.Managers
         public void Restart()
         {
             _elapsedSpawnTime = 0f;
+            _activeEnemies = new List<GameObject>();
         }
 
         public void CleanUp()
         {
             _elapsedSpawnTime = 0f;
+            _activeEnemies.Clear();
+            _activeEnemies = null;
         }
     }
 }

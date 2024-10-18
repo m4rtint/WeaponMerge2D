@@ -1,5 +1,5 @@
 using _WeaponMerge.Scripts.Inventory;
-using _WeaponMerge.Scripts.UserInterface.Data;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Data;
 
 namespace _WeaponMerge.Scripts.Characters.Players.Domain.UseCases
 {

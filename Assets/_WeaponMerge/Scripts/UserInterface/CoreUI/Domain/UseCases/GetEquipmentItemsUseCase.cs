@@ -1,20 +1,20 @@
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Data;
 
-namespace _WeaponMerge.Scripts.Characters.Players.Domain.UseCases
+namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases
 {
-    public class GetEquippedWeaponUseCase
+    public class GetEquipmentItemsUseCase
     {
         private readonly IEquipmentRepository _equipmentRepository;
         
-        public GetEquippedWeaponUseCase(IEquipmentRepository equipmentRepository)
+        public GetEquipmentItemsUseCase(IEquipmentRepository equipmentRepository)
         {
             _equipmentRepository = equipmentRepository;
         }
         
-        public Item Execute()
+        public Item[] Execute()
         {
-            return _equipmentRepository.GetEquippedItem();
+            return _equipmentRepository.GetEquipmentItems();
         }
     }
 }

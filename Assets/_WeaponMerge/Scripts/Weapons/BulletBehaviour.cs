@@ -1,5 +1,6 @@
 using _WeaponMerge.Scripts.Characters.General;
 using _WeaponMerge.Scripts.UserInterface;
+using _WeaponMerge.Scripts.UserInterface.CoreUI;
 using _WeaponMerge.Tools;
 using UnityEngine;
 
