@@ -84,6 +84,10 @@ namespace _WeaponMerge.Tools
             }
             _allCreatedObjects.Clear();
             _poolDictionary.Clear();
+            foreach (Transform child in transform)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 }

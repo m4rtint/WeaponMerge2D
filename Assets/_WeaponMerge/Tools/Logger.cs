@@ -10,6 +10,7 @@ namespace _WeaponMerge.Tools
         State,
         Inventory,
         Merge,
+        EnemySpawner
     }
 
     public enum LogColor
@@ -35,6 +36,9 @@ namespace _WeaponMerge.Tools
             },
             {
                 LogKey.Merge, false
+            },
+            {
+                LogKey.EnemySpawner, false
             }
         };
 

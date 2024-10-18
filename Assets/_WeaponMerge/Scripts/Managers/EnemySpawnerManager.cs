@@ -3,6 +3,7 @@ using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Logger = _WeaponMerge.Tools.Logger;
 using Random = UnityEngine.Random;
 
 namespace _WeaponMerge.Scripts.Managers
@@ -70,6 +71,10 @@ namespace _WeaponMerge.Scripts.Managers
         {
             EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
             var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
+            if (enemy == null)
+            {
+                Logger.Log("Enemy is null", LogKey.EnemySpawner, gameObject, LogColor.Yellow);
+            }
             enemy.transform.position = new Vector3(
                 position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
                 position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
