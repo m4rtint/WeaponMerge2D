@@ -25,7 +25,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Domain.UseCases
                 return;
             }
 
-            Logger.Log("Successfully Merged", LogKey.Merge, color: LogColor.Yellow);
+            Logger.Log("Successfully Merged", LogKey.Merge);
             var weapon = _weaponMergeSystem.MergePistols(weaponOne, weaponTwo);
             _repository.AddMergedItemToInventory(weapon);
             _repository.SyncInventory();
@@ -35,18 +35,18 @@ namespace _WeaponMerge.Scripts.UserInterface.Domain.UseCases
         {
             if (item1 == null || item2 == null)
             {
-                Logger.Log("Less than 2 items to merge", LogKey.Merge, color: LogColor.Yellow);
+                Logger.Log("Less than 2 items to merge", LogKey.Merge);
                 return;
             }
 
             if (item1 is not Weapon)
             {
-                Logger.Log("First item is not a weapon", LogKey.Merge, color: LogColor.Yellow);
+                Logger.Log("First item is not a weapon", LogKey.Merge);
             }
 
             if (item2 is not Weapon)
             {
-                Logger.Log("Second item is not a weapon", LogKey.Merge, color: LogColor.Yellow);
+                Logger.Log("Second item is not a weapon", LogKey.Merge);
             }
         }
     }

@@ -39,7 +39,7 @@ namespace _WeaponMerge.Tools
                         GameObject obj = Instantiate(prefab.gameObject);
                         obj.transform.SetParent(poolParent.transform);
                         _allCreatedObjects.Add(obj);
-                        Logger.Log($"Created new object for pool {poolKey}", LogKey.EnemySpawner, obj, LogColor.Yellow);
+                        Logger.Log($"Created new object for pool {poolKey} of type {poolKey.GetType().Name}", LogKey.ObjectPool);
                         return obj;
                     },
                     actionOnGet: (obj) => obj.SetActive(true),
@@ -59,7 +59,14 @@ namespace _WeaponMerge.Tools
             if (_poolDictionary.TryGetValue(poolKey, out var value))
             {
                 var pooledObject = value.Get();
-                return pooledObject.GetComponent<T>();
+                var component = pooledObject.GetComponent<T>();
+                if (component == null)
+                {
+                    Logger.Log($"Component is null. PoolKey: {poolKey.GetType().Name} {poolKey}, GameObject: {pooledObject.name}", LogKey.ObjectPool, pooledObject);
+                    throw new Exception("Component is null. Check Create and Release methods");
+                }
+
+                return component;
             }
 
             throw new Exception("No pool exists for the provided key.");
@@ -69,10 +76,12 @@ namespace _WeaponMerge.Tools
         {
             if (_poolDictionary.TryGetValue(poolKey, out var value))
             {
+                Logger.Log($"Returned object to pool {poolKey.GetType().Name} {poolKey}, GameObject: {obj.name}", LogKey.ObjectPool, obj);
                 value.Release(obj);
             }
             else
             {
+                Logger.Log($"No pool exists for the provided key. PoolKey: {poolKey.GetType().Name} {poolKey}, GameObject: {obj.name}", LogKey.ObjectPool, obj);
                 Destroy(obj);
             }
         }

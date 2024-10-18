@@ -71,8 +71,9 @@ namespace _WeaponMerge.Scripts.Managers
         private void SpawnSimpleEnemy()
         {
             EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
-            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
+            Logger.Log($"Spawned Simple Enemy", LogKey.EnemySpawner, enemy.gameObject);
 
+            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
             var randomizedPosition = new Vector3(
                 position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
@@ -84,6 +85,8 @@ namespace _WeaponMerge.Scripts.Managers
         private void SpawnRangedEnemy()
         {
             RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
+            Logger.Log($"Spawned Ranged Enemy", LogKey.EnemySpawner, enemy.gameObject);
+
             var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
             enemy.transform.position = new Vector3(
                 position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),

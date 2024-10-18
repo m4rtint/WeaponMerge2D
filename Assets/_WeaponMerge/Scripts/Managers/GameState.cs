@@ -37,7 +37,7 @@ namespace _WeaponMerge.Scripts.Managers
         {
             if (_currentState != newState)
             {
-                Logger.Log($"Changing state from {_currentState} to {newState}", LogKey.State, color: LogColor.Red);
+                Logger.Log($"Changing state from {_currentState} to {newState}", LogKey.State);
                 _currentState = newState;
                 OnGameStateChanged?.Invoke(_currentState);
             }

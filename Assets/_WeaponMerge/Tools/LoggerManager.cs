@@ -11,6 +11,7 @@ namespace _WeaponMerge.Tools
         [SerializeField] private bool _inventory = false;
         [SerializeField] private bool _merge = false;
         [SerializeField] private bool _enemySpawner = false;
+        [SerializeField] private bool _objectPool = false;
         private void Awake()
         {
             var config = new Dictionary<LogKey, bool>()
@@ -26,6 +27,9 @@ namespace _WeaponMerge.Tools
                 },
                 {
                     LogKey.EnemySpawner, _enemySpawner
+                },
+                {
+                    LogKey.ObjectPool,_objectPool
                 }
             };
             Logger.Configure(config);

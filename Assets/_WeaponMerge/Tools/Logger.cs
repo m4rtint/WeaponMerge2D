@@ -10,7 +10,8 @@ namespace _WeaponMerge.Tools
         State,
         Inventory,
         Merge,
-        EnemySpawner
+        EnemySpawner,
+        ObjectPool
     }
 
     public enum LogColor
@@ -20,7 +21,7 @@ namespace _WeaponMerge.Tools
         Blue,
         Red,
         Yellow,
-        Green
+        Green,
     }
     
     public static class Logger
@@ -39,6 +40,9 @@ namespace _WeaponMerge.Tools
             },
             {
                 LogKey.EnemySpawner, false
+            },
+            {
+                LogKey.ObjectPool, false
             }
         };
 
@@ -47,7 +51,7 @@ namespace _WeaponMerge.Tools
             _configuration = setup;
         }
         
-        public static void Log(string message, LogKey key, GameObject gameObject = null, LogColor color = LogColor.Black)
+        public static void Log(string message, LogKey key, GameObject gameObject = null, LogColor color = LogColor.None)
         {
             if (_configuration.TryGetValue(key, out var shouldLog) && shouldLog)
             {
@@ -67,9 +71,29 @@ namespace _WeaponMerge.Tools
                 }
                 else
                 {
-                    Debug.Log(message);
+                    Debug.Log($"<color={MapTypeToColor(key)}>{gameObjectData()}{message}</color>");
                 }
             }
+        }
+
+        private static String MapTypeToColor(LogKey key)
+        {
+            // Map the key to a color, and then MapToColor and return the color
+            switch (key) 
+            {
+                case LogKey.State:
+                    return MapToColor(LogColor.Black);
+                case LogKey.Inventory:
+                    return MapToColor(LogColor.Blue);
+                case LogKey.Merge:
+                    return MapToColor(LogColor.Red);
+                case LogKey.EnemySpawner:
+                    return MapToColor(LogColor.Yellow);
+                case LogKey.ObjectPool:
+                    return MapToColor(LogColor.Green);
+            }
+            
+            throw new Exception("Missing color mapping for key: " + key);
         }
 
         private static String MapToColor(LogColor color)

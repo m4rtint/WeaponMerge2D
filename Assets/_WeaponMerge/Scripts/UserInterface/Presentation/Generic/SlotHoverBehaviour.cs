@@ -15,7 +15,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Generic
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Logger.Log("Pointer Enter: " + name + " | Item ID: " + _itemId , LogKey.Inventory, color: LogColor.Green);
+            Logger.Log("Pointer Enter: " + name + " | Item ID: " + _itemId , LogKey.Inventory);
             _isHovering = true;
             _hoverTime = 0f;
             _itemId = GetComponent<SlotView>().ItemId;
@@ -23,7 +23,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Generic
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Logger.Log("Pointer Exit: " + name, LogKey.Inventory, color: LogColor.Green);
+            Logger.Log("Pointer Exit: " + name, LogKey.Inventory);
             _isHovering = false;
             ItemDetailView.Instance.HideItemDetailView();
         }
@@ -49,7 +49,7 @@ namespace _WeaponMerge.Scripts.UserInterface.Presentation.Generic
             {
                 Vector3 mousePos = Input.mousePosition;
                 Vector3 panelPosition = new Vector3(mousePos.x, mousePos.y - 50, 0);
-                Logger.Log("Hovering on item: " + _itemId, LogKey.Inventory, color: LogColor.Green);
+                Logger.Log("Hovering on item: " + _itemId, LogKey.Inventory);
                 ItemDetailView.Instance.ShowItemDetails(_itemId, position: panelPosition);
             }
         }
