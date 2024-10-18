@@ -1,3 +1,4 @@
+using System;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
@@ -64,26 +65,31 @@ namespace _WeaponMerge.Scripts.Managers
                 {
                     SpawnRangedEnemy();
                 }
+                
             }
         }
 
         private void SpawnSimpleEnemy()
         {
+            Logger.Log("Trying to Spawn Simple Enemy", LogKey.EnemySpawner, gameObject, LogColor.Yellow);
             EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
-            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
             if (enemy == null)
             {
                 Logger.Log("Enemy is null", LogKey.EnemySpawner, gameObject, LogColor.Yellow);
             }
-            enemy.transform.position = new Vector3(
+            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
+
+            var randomizedPosition = new Vector3(
                 position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
                 position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
                 0);
+            enemy.transform.position = randomizedPosition;
             enemy.Initialize(_playerPositionProvider);
         }
 
         private void SpawnRangedEnemy()
         {
+            Logger.Log("Trying to Spawn Ranged Enemy", LogKey.EnemySpawner, gameObject, LogColor.Yellow);
             RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
             var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
             enemy.transform.position = new Vector3(

@@ -25,7 +25,7 @@ namespace _WeaponMerge.Tools
                     LogKey.Merge, _merge
                 },
                 {
-                    LogKey.EnemySpawner, false
+                    LogKey.EnemySpawner, _enemySpawner
                 }
             };
             Logger.Configure(config);

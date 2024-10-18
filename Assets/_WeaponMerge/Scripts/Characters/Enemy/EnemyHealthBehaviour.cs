@@ -6,11 +6,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         protected override void OnHealthChanged()
         {
-            if (Health < MaxHealth)
-            {
-                // Do something
-            }
-            // Nothing here
+           
         }
     }
 }

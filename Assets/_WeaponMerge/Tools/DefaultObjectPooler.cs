@@ -39,14 +39,15 @@ namespace _WeaponMerge.Tools
                         GameObject obj = Instantiate(prefab.gameObject);
                         obj.transform.SetParent(poolParent.transform);
                         _allCreatedObjects.Add(obj);
+                        Logger.Log($"Created new object for pool {poolKey}", LogKey.EnemySpawner, obj, LogColor.Yellow);
                         return obj;
                     },
                     actionOnGet: (obj) => obj.SetActive(true),
                     actionOnRelease: (obj) => obj.SetActive(false),
                     actionOnDestroy: Destroy,
-                    collectionCheck: false,
-                    defaultCapacity: 10,
-                    maxSize: 50
+                    collectionCheck: true,
+                    defaultCapacity: 50,
+                    maxSize: 200
                 );
 
                 _poolDictionary[poolKey] = pool;
