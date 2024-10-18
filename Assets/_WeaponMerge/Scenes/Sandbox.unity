@@ -25908,6 +25908,7 @@ MonoBehaviour:
   _pistolBulletPrefab: {fileID: 7705907259105981658, guid: da42b9af37fe3f4458cdf4674b54fa4b, type: 3}
   _enemyPrefab: {fileID: 526929213370670330, guid: 7986c78a99c10e34db77a13e8cb91d96, type: 3}
   _rangedEnemyPrefab: {fileID: 7238446805343664642, guid: 31e543bda3635614d83966171ee57488, type: 3}
+  _enemyBulletPrefab: {fileID: 4738380478776870603, guid: 1ecf68edec0582048986510f8f8ccd57, type: 3}
   _weaponDropPrefab: {fileID: 5383865879885553872, guid: 28f745de5bc949d44989a4b60d869679, type: 3}
   _dropHealthPrefab: {fileID: 6083494598687291993, guid: e14675d774c46fd4b8199d893d006955, type: 3}
 --- !u!1 &1794919128

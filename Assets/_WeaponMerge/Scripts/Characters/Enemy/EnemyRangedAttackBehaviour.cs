@@ -1,5 +1,7 @@
 using System;
 using _WeaponMerge.Scripts.Characters.Players;
+using _WeaponMerge.Scripts.Weapons;
+using _WeaponMerge.Tools;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Enemy
@@ -64,6 +66,10 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         private void Shoot()
         {
             // Implement shooting logic here
+            var bullet = ObjectPooler.Instance.Get<EnemyBulletBehaviour>(EnemyAttackType.Bullet);
+            bullet.SpawnAt(
+                position: transform.position,
+                direction: (_playerPositionProvider.Get() - transform.position).normalized);
         }
         
         private void OnDrawGizmos()
