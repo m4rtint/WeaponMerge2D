@@ -1,4 +1,6 @@
 using _WeaponMerge.Scripts.Characters.Players;
+using _WeaponMerge.Scripts.Managers.Data;
+using _WeaponMerge.Scripts.Managers.Domain.UseCases;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -69,12 +71,17 @@ namespace _WeaponMerge.Scripts.Managers
         }
 
         private void Start()
-        {
-            _waveModeSystem = new WaveModeSystem(_enemySpawnerManager);
+        {   
             var controlInput = new ControlInput(_actionAsset);
-            _playerBehaviour.Initialize(controlInput);
             var playerPositionProvider = new PlayerPositionProvider(_playerBehaviour.transform);
-            _enemySpawnerManager.Initialize(playerPositionProvider);
+            var waveRepository = new WaveModeRepository();
+            var storeWaveRoundNumberUseCase = new StoreWaveRoundNumberUseCase(waveRepository);
+            _waveModeSystem = new WaveModeSystem(
+                _enemySpawnerManager, 
+                storeWaveRoundNumberUseCase);
+            _playerBehaviour.Initialize(controlInput);
+            _enemySpawnerManager.Initialize(playerPositionProvider, 
+                storeActiveEnemiesUseCase: new StoreWaveActiveEnemiesUseCase(waveRepository));
             _userInterfaceCoordinator.Initialize(controlInput);
             _gameStateManager.ChangeState(GameState.Loading);
         }

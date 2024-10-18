@@ -1,27 +1,25 @@
+using System;
 using System.Collections;
+using _WeaponMerge.Scripts.Managers.Data;
+using _WeaponMerge.Scripts.Managers.Domain;
+using _WeaponMerge.Scripts.Managers.Domain.UseCases;
 using _WeaponMerge.Tools;
 using TMPro;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.UserInterface.WaveModeUI
 {
-    public struct WaveModeData
-    {
-        public int WaveNumber;
-        
-        public WaveModeData(int waveNumber)
-        {
-            WaveNumber = waveNumber;
-        }
-    }
-    
     public class HUDWaveView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _waveNumberLabel;
         [SerializeField] private TMP_Text _waveAnnouncementLabel;
-
+        [SerializeField] private TMP_Text _remainingEnemiesLabel;
+        [SerializeField] private TMP_Text _enemiesKilledLabel;
+        
         private static HUDWaveView _instance;
         public static HUDWaveView Instance => _instance;
+        
+        private GetWaveModeDataUseCase _getWaveModeDataUseCase; 
 
         private void Awake()
         {
@@ -36,6 +34,9 @@ namespace _WeaponMerge.Scripts.UserInterface.WaveModeUI
             
             PanicHelper.CheckAndPanicIfNull(_waveNumberLabel);
             PanicHelper.CheckAndPanicIfNull(_waveAnnouncementLabel);
+            
+            var waveRepository = new WaveModeRepository();
+            _getWaveModeDataUseCase = new GetWaveModeDataUseCase(waveRepository);
         }
 
         private void Start()
@@ -43,10 +44,18 @@ namespace _WeaponMerge.Scripts.UserInterface.WaveModeUI
             _waveAnnouncementLabel.gameObject.SetActive(false);
         }
 
-        public void Set(WaveModeData modeData)
+        private void Update()
         {
-            _waveNumberLabel.text = $"Wave {modeData.WaveNumber}";
-            _waveAnnouncementLabel.text = $"Wave {modeData.WaveNumber} starting!";
+            var data = _getWaveModeDataUseCase.Execute();
+            Render(data);
+        }
+
+        private void Render(WaveModeData data)
+        {
+            _waveNumberLabel.text = $"Wave {data.RoundNumber}";
+            _waveAnnouncementLabel.text = $"Wave {data.RoundNumber} starting!";
+            _remainingEnemiesLabel.text = $"Remaining: {data.ActiveEnemies}";
+            _enemiesKilledLabel.text = $"Killed: {data.KilledEnemies}";
         }
 
         public void ShowAnnouncement()
@@ -59,7 +68,7 @@ namespace _WeaponMerge.Scripts.UserInterface.WaveModeUI
         {
             yield return new WaitForSeconds(2f);
 
-            float fadeDuration = 2f;
+            float fadeDuration = 1f;
             float elapsedTime = 0f;
             Color originalColor = _waveAnnouncementLabel.color;
 

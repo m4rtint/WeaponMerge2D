@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Players;
+using _WeaponMerge.Scripts.Managers.Domain.UseCases;
 using _WeaponMerge.Tools;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Logger = _WeaponMerge.Tools.Logger;
@@ -18,6 +20,7 @@ namespace _WeaponMerge.Scripts.Managers
     public class EnemySpawnerManager: MonoBehaviour
     {
         private readonly Queue<EnemyType> _enemyQueue = new Queue<EnemyType>();
+        [CanBeNull] private IStoreActiveEnemiesUseCase _storeActiveEnemiesUseCase;
         private PlayerPositionProvider _playerPositionProvider = null;
         
         [Title("DEBUG")]
@@ -34,9 +37,12 @@ namespace _WeaponMerge.Scripts.Managers
         
         public event Action OnClearAllEnemies;
 
-        public void Initialize(PlayerPositionProvider playerPositionProvider)
+        public void Initialize(
+            PlayerPositionProvider playerPositionProvider, 
+            [CanBeNull] IStoreActiveEnemiesUseCase storeActiveEnemiesUseCase = null)
         {
             _playerPositionProvider = playerPositionProvider;
+            _storeActiveEnemiesUseCase = storeActiveEnemiesUseCase;
             _randomness = new Randomness(GetInstanceID().GetHashCode());
         }
         
@@ -60,7 +66,7 @@ namespace _WeaponMerge.Scripts.Managers
             {
                 return;
             }
-
+            _storeActiveEnemiesUseCase?.Execute(_activeEnemies.Count);
             _elapsedSpawnTime += Time.deltaTime;
             if (_elapsedSpawnTime >= _spawnRate && 
                 _enemyQueue.Count > 0)
@@ -83,7 +89,6 @@ namespace _WeaponMerge.Scripts.Managers
             {
                 Logger.Log("All enemies are dead!", LogKey.EnemySpawner);
                 // NOTE - Currently it gets called every frame this is true
-                //TODO - Fix so it gets called once
                 OnClearAllEnemies?.Invoke();
             }
         }

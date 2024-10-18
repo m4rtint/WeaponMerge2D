@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using _WeaponMerge.Scripts.Managers.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.WaveModeUI;
 using _WeaponMerge.Tools;
 using UnityEngine;
@@ -15,22 +16,25 @@ namespace _WeaponMerge.Scripts.Managers
     public class WaveModeSystem
     {
         private readonly EnemySpawnerManager _enemySpawnerManager;
+        private readonly IStoreWaveRoundNumberUseCase _storeWaveRoundNumberUseCase;
 
         private WaveModeState State { get; set; }
         private int _roundNumber = 1;
 
-        public WaveModeSystem(EnemySpawnerManager enemySpawnerManager)
+        public WaveModeSystem(
+            EnemySpawnerManager enemySpawnerManager,
+            IStoreWaveRoundNumberUseCase storeWaveRoundNumberUseCase)
         {
             _enemySpawnerManager = enemySpawnerManager;
             _enemySpawnerManager.OnClearAllEnemies += OnClearAllEnemies;
+            _storeWaveRoundNumberUseCase = storeWaveRoundNumberUseCase;
             State = WaveModeState.Transitioning;
         }
 
         public async void Start()
         {
-            HUDWaveView.Instance.Set(new WaveModeData(waveNumber: _roundNumber));
             HUDWaveView.Instance.ShowAnnouncement();
-            await Task.Delay(2000); // Delay for 2 seconds before starting
+            await Task.Delay(3000); // Delay for 3 seconds before starting
             _enemySpawnerManager.SetEnemiesToSpawn(BuildWave(_roundNumber));
             State = WaveModeState.WaveInProgress;
             Logger.Log("Wave started!", LogKey.WaveMode);
@@ -86,7 +90,7 @@ namespace _WeaponMerge.Scripts.Managers
                 Logger.Log("Wave cleared!", LogKey.WaveMode);
                 State = WaveModeState.Transitioning;
                 _roundNumber++;
-                HUDWaveView.Instance.Set(new WaveModeData(waveNumber: _roundNumber));
+                _storeWaveRoundNumberUseCase.Execute(_roundNumber);
                 HUDWaveView.Instance.ShowAnnouncement();
                 Start();
             }
