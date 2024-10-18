@@ -6,7 +6,6 @@ using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Logger = _WeaponMerge.Tools.Logger;
-using Random = UnityEngine.Random;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -20,9 +19,9 @@ namespace _WeaponMerge.Scripts.Managers
     {
         private readonly Queue<EnemyType> _enemyQueue = new Queue<EnemyType>();
         private PlayerPositionProvider _playerPositionProvider = null;
-
+        
         [Title("DEBUG")]
-        [SerializeField] private bool _isTurnedOn = true;
+        [SerializeField] private bool _isDebugTurnedOn = true;
         
         [Header("Spawn Settings")] 
         [SerializeField] private Transform[] _spawnLocations;
@@ -57,30 +56,34 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Update()
         {
-            if (!_isTurnedOn && _enemyQueue.Count == 0) return;
-            
+            if (!_isDebugTurnedOn)
+            {
+                return;
+            }
+
             _elapsedSpawnTime += Time.deltaTime;
-            if (_elapsedSpawnTime >= _spawnRate)
+            if (_elapsedSpawnTime >= _spawnRate && 
+                _enemyQueue.Count > 0)
             {
                 _elapsedSpawnTime = 0f;
                 Spawn(_enemyQueue.Dequeue());
             }
-
-            CheckIfAllEnemiesAreDead();
+            else
+            {
+                CheckIfAllEnemiesAreDead();
+            }
         }
-        
+
+
         private void CheckIfAllEnemiesAreDead()
         {
-            for (int i = _activeEnemies.Count - 1; i >= 0; i--)
-            {
-                if (!_activeEnemies[i].activeInHierarchy)
-                {
-                    _activeEnemies.RemoveAt(i);
-                }
-            }
-            
+            _activeEnemies.RemoveAll(enemy => !enemy.activeInHierarchy);
+            Logger.Log($"Active Enemies: {_activeEnemies.Count} | Enemies in Queue: {_enemyQueue.Count}", LogKey.EnemySpawner);
             if (_activeEnemies.Count == 0 && _enemyQueue.Count == 0)
             {
+                Logger.Log("All enemies are dead!", LogKey.EnemySpawner);
+                // NOTE - Currently it gets called every frame this is true
+                //TODO - Fix so it gets called once
                 OnClearAllEnemies?.Invoke();
             }
         }
@@ -103,7 +106,7 @@ namespace _WeaponMerge.Scripts.Managers
             EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
             Logger.Log($"Spawned Simple Enemy", LogKey.EnemySpawner, enemy.gameObject);
 
-            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
+            var position = _spawnLocations[_randomness.Range(0, _spawnLocations.Length)].position;
             var randomizedPosition = new Vector3(
                 position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
@@ -118,7 +121,7 @@ namespace _WeaponMerge.Scripts.Managers
             RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
             Logger.Log($"Spawned Ranged Enemy", LogKey.EnemySpawner, enemy.gameObject);
 
-            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
+            var position = _spawnLocations[_randomness.Range(0, _spawnLocations.Length)].position;
             enemy.transform.position = new Vector3(
                 position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),

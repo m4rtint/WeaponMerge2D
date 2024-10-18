@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace _WeaponMerge.Tools
 {
-    // Add in ENUM and Dictionary
     public enum LogKey
     {
         State,
         Inventory,
         Merge,
         EnemySpawner,
-        ObjectPool
+        ObjectPool,
+        WaveMode
     }
 
     public enum LogColor
@@ -26,25 +27,14 @@ namespace _WeaponMerge.Tools
     
     public static class Logger
     {
-        // Add in ENUM and Dictionary
-        private static Dictionary<LogKey, bool> _configuration = new()
+        private static Dictionary<LogKey, bool> _configuration;
+
+        static Logger()
         {
-            {
-                LogKey.State, false
-            },
-            {
-                LogKey.Inventory, false
-            },
-            {
-                LogKey.Merge, false
-            },
-            {
-                LogKey.EnemySpawner, false
-            },
-            {
-                LogKey.ObjectPool, false
-            }
-        };
+            _configuration = Enum.GetValues(typeof(LogKey))
+                .Cast<LogKey>()
+                .ToDictionary(logKey => logKey, logKey => false);
+        }
 
         public static void Configure(Dictionary<LogKey, bool> setup)
         {
@@ -78,7 +68,6 @@ namespace _WeaponMerge.Tools
 
         private static String MapTypeToColor(LogKey key)
         {
-            // Map the key to a color, and then MapToColor and return the color
             switch (key) 
             {
                 case LogKey.State:
@@ -91,6 +80,8 @@ namespace _WeaponMerge.Tools
                     return MapToColor(LogColor.Yellow);
                 case LogKey.ObjectPool:
                     return MapToColor(LogColor.Green);
+                case LogKey.WaveMode:
+                    return MapToColor(LogColor.Black);
             }
             
             throw new Exception("Missing color mapping for key: " + key);
