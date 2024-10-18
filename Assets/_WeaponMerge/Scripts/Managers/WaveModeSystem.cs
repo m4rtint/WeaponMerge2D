@@ -31,13 +31,18 @@ namespace _WeaponMerge.Scripts.Managers
             State = WaveModeState.Transitioning;
         }
 
-        public async void Start()
+        public void Start()
         {
-            HUDWaveView.Instance.ShowAnnouncement();
-            await Task.Delay(3000); // Delay for 3 seconds before starting
-            _enemySpawnerManager.SetEnemiesToSpawn(BuildWave(_roundNumber));
-            State = WaveModeState.WaveInProgress;
-            Logger.Log("Wave started!", LogKey.WaveMode);
+            const float delay = 3f;
+            Logger.Log($"Transition {delay} second delay", LogKey.WaveMode);
+            HUDWaveView.Instance.ShowAnnouncement(
+                delayAnnouncement: delay,
+                onAnnouncementComplete: () =>
+            {
+                _enemySpawnerManager.SetEnemiesToSpawn(BuildWave(_roundNumber));
+                State = WaveModeState.WaveInProgress;
+                Logger.Log($"Wave {_roundNumber} started! Spawn Started", LogKey.WaveMode);
+            });
         }
 
         private EnemyType[] BuildWave(int roundNumber)
@@ -87,11 +92,10 @@ namespace _WeaponMerge.Scripts.Managers
         {
             if (State == WaveModeState.WaveInProgress)
             {
-                Logger.Log("Wave cleared!", LogKey.WaveMode);
+                Logger.Log($"Wave {_roundNumber} cleared!", LogKey.WaveMode);
                 State = WaveModeState.Transitioning;
                 _roundNumber++;
                 _storeWaveRoundNumberUseCase.Execute(_roundNumber);
-                HUDWaveView.Instance.ShowAnnouncement();
                 Start();
             }
         }

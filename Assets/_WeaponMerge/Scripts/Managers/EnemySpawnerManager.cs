@@ -66,7 +66,7 @@ namespace _WeaponMerge.Scripts.Managers
             {
                 return;
             }
-            _storeActiveEnemiesUseCase?.Execute(_activeEnemies.Count);
+            _storeActiveEnemiesUseCase?.Execute(_enemyQueue.Count + _activeEnemies.Count);
             _elapsedSpawnTime += Time.deltaTime;
             if (_elapsedSpawnTime >= _spawnRate && 
                 _enemyQueue.Count > 0)
