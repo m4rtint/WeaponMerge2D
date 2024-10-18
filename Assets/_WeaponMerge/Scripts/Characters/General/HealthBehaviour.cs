@@ -38,7 +38,7 @@ namespace _WeaponMerge.Scripts.Characters.General
         
         public void GainHealth(int health)
         {
-            Health += health;
+            Health = Mathf.Min(Health + health, MaxHealth);
         }
 
         protected abstract void OnHealthChanged();
