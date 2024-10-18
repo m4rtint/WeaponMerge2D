@@ -11,17 +11,14 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         private EnemyPathFindingBehaviour _pathFindingBehaviour = null;
         private EnemyHealthBehaviour _enemyHealthBehaviour = null;
-        private EnemyDropBehaviour _enemyDropBehaviour = null;
 
         private void Awake()
         {
             _pathFindingBehaviour = GetComponent<EnemyPathFindingBehaviour>();
             _enemyHealthBehaviour = GetComponent<EnemyHealthBehaviour>();
-            _enemyDropBehaviour = GetComponent<EnemyDropBehaviour>();
             
             PanicHelper.CheckAndPanicIfNull(_pathFindingBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemyHealthBehaviour);
-            PanicHelper.CheckAndPanicIfNull(_enemyDropBehaviour);
         }
         
         public void Initialize(PlayerPositionProvider playerPositionProvider, Action onDeath)
@@ -30,7 +27,6 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _enemyHealthBehaviour.Initialize(10, onDeath: () =>
             {
                 onDeath?.Invoke();
-                _enemyDropBehaviour.Drop();
                 ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject);
             });
         }

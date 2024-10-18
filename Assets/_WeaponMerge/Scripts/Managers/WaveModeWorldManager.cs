@@ -12,13 +12,14 @@ namespace _WeaponMerge.Scripts.Managers
     {
         private readonly GameStateManager _gameStateManager = GameStateManager.Instance;
 
-        [Title("Configuration")] [SerializeField]
-        private InputActionAsset _actionAsset = null;
-
+        [Title("Configuration")] 
+        [SerializeField] private InputActionAsset _actionAsset = null;
         [SerializeField] private PrefabPoolCoordinator _prefabPoolCoordinator = null;
 
-        [Title("Components")] [SerializeField] private PlayerBehaviour _playerBehaviour = null;
+        [Title("Components")] 
+        [SerializeField] private PlayerBehaviour _playerBehaviour = null;
         [SerializeField] private EnemySpawnerManager _enemySpawnerManager = null;
+        [SerializeField] private ItemDropManager _itemDropManager = null;
 
         [Title("User Interface / HUD")] [SerializeField]
         private UserInterfaceCoordinator _userInterfaceCoordinator = null;
@@ -37,6 +38,7 @@ namespace _WeaponMerge.Scripts.Managers
             PanicHelper.CheckAndPanicIfNull(_actionAsset);
             PanicHelper.CheckAndPanicIfNull(_playerBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemySpawnerManager);
+            PanicHelper.CheckAndPanicIfNull(_itemDropManager);
             PanicHelper.CheckAndPanicIfNull(_prefabPoolCoordinator);
             PanicHelper.CheckAndPanicIfNull(_userInterfaceCoordinator);
         }
@@ -80,7 +82,9 @@ namespace _WeaponMerge.Scripts.Managers
                 _enemySpawnerManager, 
                 storeWaveRoundNumberUseCase);
             _playerBehaviour.Initialize(controlInput);
-            _enemySpawnerManager.Initialize(playerPositionProvider, 
+            _enemySpawnerManager.Initialize(
+                playerPositionProvider,
+                _itemDropManager,
                 storeActiveEnemiesUseCase: new StoreWaveActiveEnemiesUseCase(waveRepository), 
                 incrementEnemiesKilledUseCase: new IncrementEnemiesKilledUseCase(waveRepository));
             _userInterfaceCoordinator.Initialize(controlInput);

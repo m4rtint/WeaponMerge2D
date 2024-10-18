@@ -17,6 +17,7 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Components")]
         [SerializeField] private PlayerBehaviour _playerBehaviour = null;
         [SerializeField] private EnemySpawnerManager _enemySpawnerManager = null;
+        [SerializeField] private ItemDropManager _itemDropManager = null;
         
         [Title("User Interface / HUD")]
         [SerializeField] private UserInterfaceCoordinator _userInterfaceCoordinator = null;
@@ -35,6 +36,7 @@ namespace _WeaponMerge.Scripts.Managers
             PanicHelper.CheckAndPanicIfNull(_actionAsset);
             PanicHelper.CheckAndPanicIfNull(_playerBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemySpawnerManager);
+            PanicHelper.CheckAndPanicIfNull(_itemDropManager);
             PanicHelper.CheckAndPanicIfNull(_prefabPoolCoordinator);
             PanicHelper.CheckAndPanicIfNull(_userInterfaceCoordinator);
         }
@@ -79,6 +81,7 @@ namespace _WeaponMerge.Scripts.Managers
             
             _enemySpawnerManager.Initialize(
                 playerPositionProvider,
+                _itemDropManager,
                 storeActiveEnemiesUseCase: storeActiveEnemiesUseCase);
             _userInterfaceCoordinator.Initialize(controlInput);
             

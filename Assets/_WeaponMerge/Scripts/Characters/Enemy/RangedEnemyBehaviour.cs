@@ -10,19 +10,16 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         private EnemyPathFindingBehaviour _pathFindingBehaviour = null;
         private EnemyHealthBehaviour _enemyHealthBehaviour = null;
-        private EnemyDropBehaviour _enemyDropBehaviour = null;
         private EnemyRangedAttackBehaviour _enemyRangedAttackBehaviour = null;
 
         private void Awake()
         {
             _pathFindingBehaviour = GetComponent<EnemyPathFindingBehaviour>();
             _enemyHealthBehaviour = GetComponent<EnemyHealthBehaviour>();
-            _enemyDropBehaviour = GetComponent<EnemyDropBehaviour>();
             _enemyRangedAttackBehaviour = GetComponent<EnemyRangedAttackBehaviour>();
             
             PanicHelper.CheckAndPanicIfNull(_pathFindingBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemyHealthBehaviour);
-            PanicHelper.CheckAndPanicIfNull(_enemyDropBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemyRangedAttackBehaviour);
         }
         
@@ -32,7 +29,6 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _enemyHealthBehaviour.Initialize(10, onDeath: () =>
             {
                 onDeath?.Invoke();
-                _enemyDropBehaviour.Drop();
                 ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject);
             });
             _enemyRangedAttackBehaviour.Initialize(

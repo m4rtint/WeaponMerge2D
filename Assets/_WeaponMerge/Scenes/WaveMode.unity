@@ -25605,7 +25605,7 @@ GameObject:
   - component: {fileID: 564587676}
   - component: {fileID: 564587677}
   m_Layer: 0
-  m_Name: ManagerCoordinator
+  m_Name: WaveManagerCoordinator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25642,6 +25642,7 @@ MonoBehaviour:
   _prefabPoolCoordinator: {fileID: 1758012840}
   _playerBehaviour: {fileID: 621995264}
   _enemySpawnerManager: {fileID: 525266808}
+  _itemDropManager: {fileID: 1177184548}
   _userInterfaceCoordinator: {fileID: 562766281}
 --- !u!114 &621995264 stripped
 MonoBehaviour:
@@ -25923,6 +25924,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949b7cf0e75e80a4098a993816647970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1177184546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177184547}
+  - component: {fileID: 1177184548}
+  m_Layer: 0
+  m_Name: ItemDropManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1177184547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177184546}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1177184548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177184546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb0363371934c35962adea4b9bcbbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropPercentage: 0.512
+  _dropHealthPercentage: 0.173
+  _dropWeaponPercentage: 0.771
 --- !u!1 &1177506390
 GameObject:
   m_ObjectHideFlags: 0
@@ -27531,6 +27579,7 @@ SceneRoots:
   - {fileID: 564587676}
   - {fileID: 1706952517583381333}
   - {fileID: 1758012839}
+  - {fileID: 1177184547}
   - {fileID: 191770925}
   - {fileID: 1794919130}
   - {fileID: 6058758832700077928}

@@ -23,6 +23,7 @@ namespace _WeaponMerge.Scripts.Managers
         [CanBeNull] private IStoreActiveEnemiesUseCase _storeActiveEnemiesUseCase;
         [CanBeNull] private IncrementEnemiesKilledUseCase _incrementEnemiesKilledUseCase;
         private PlayerPositionProvider _playerPositionProvider = null;
+        private ItemDropManager _itemDropManager = null;
         
         [Title("DEBUG")]
         [SerializeField] private bool _isDebugTurnedOn = true;
@@ -40,10 +41,12 @@ namespace _WeaponMerge.Scripts.Managers
 
         public void Initialize(
             PlayerPositionProvider playerPositionProvider, 
+            ItemDropManager itemDropManager,
             [CanBeNull] IStoreActiveEnemiesUseCase storeActiveEnemiesUseCase = null, 
             [CanBeNull] IncrementEnemiesKilledUseCase incrementEnemiesKilledUseCase = null)
         {
             _playerPositionProvider = playerPositionProvider;
+            _itemDropManager = itemDropManager;
             _storeActiveEnemiesUseCase = storeActiveEnemiesUseCase;
             _incrementEnemiesKilledUseCase = incrementEnemiesKilledUseCase;
             _randomness = new Randomness(GetInstanceID().GetHashCode());
@@ -122,6 +125,7 @@ namespace _WeaponMerge.Scripts.Managers
             enemy.transform.position = randomizedPosition;
             enemy.Initialize(_playerPositionProvider, onDeath: () =>
             {
+                _itemDropManager.DropItemIfNeeded(enemy.transform.position);
                 _incrementEnemiesKilledUseCase?.Execute();
             });
             _activeEnemies.Add(enemy.gameObject);
@@ -139,6 +143,7 @@ namespace _WeaponMerge.Scripts.Managers
                 0);
             enemy.Initialize(_playerPositionProvider, onDeath: () =>
             {
+                _itemDropManager.DropItemIfNeeded(enemy.transform.position);
                 _incrementEnemiesKilledUseCase?.Execute();
             });
             _activeEnemies.Add(enemy.gameObject);
