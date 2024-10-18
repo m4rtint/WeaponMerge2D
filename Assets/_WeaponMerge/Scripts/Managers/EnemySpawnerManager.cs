@@ -1,11 +1,9 @@
-using System;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Logger = _WeaponMerge.Tools.Logger;
-using Random = UnityEngine.Random;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -26,13 +24,16 @@ namespace _WeaponMerge.Scripts.Managers
         [SerializeField] private float _spawnRate;
         [SerializeField] private int _spawnAmount;
         
+        private IRandomness _randomness;
         private float _elapsedSpawnTime = 0f;
         
         private PlayerPositionProvider _playerPositionProvider = null;
+        
 
         public void Initialize(PlayerPositionProvider playerPositionProvider)
         {
             _playerPositionProvider = playerPositionProvider;
+            _randomness = new Randomness(GetInstanceID().GetHashCode());
         }
 
         private void Awake()
@@ -56,8 +57,7 @@ namespace _WeaponMerge.Scripts.Managers
         {
             for (int i = 0; i < _spawnAmount; i++)
             {
-                var isSimple = Random.Range(0, 10) % 2 == 0;
-                if (isSimple)
+                if (_randomness.CoinFlip())
                 {
                     SpawnSimpleEnemy();
                 }
@@ -65,23 +65,17 @@ namespace _WeaponMerge.Scripts.Managers
                 {
                     SpawnRangedEnemy();
                 }
-                
             }
         }
 
         private void SpawnSimpleEnemy()
         {
-            Logger.Log("Trying to Spawn Simple Enemy", LogKey.EnemySpawner, gameObject, LogColor.Yellow);
             EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
-            if (enemy == null)
-            {
-                Logger.Log("Enemy is null", LogKey.EnemySpawner, gameObject, LogColor.Yellow);
-            }
             var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
 
             var randomizedPosition = new Vector3(
-                position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
-                position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
+                position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
+                position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
                 0);
             enemy.transform.position = randomizedPosition;
             enemy.Initialize(_playerPositionProvider);
@@ -89,12 +83,11 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void SpawnRangedEnemy()
         {
-            Logger.Log("Trying to Spawn Ranged Enemy", LogKey.EnemySpawner, gameObject, LogColor.Yellow);
             RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
             var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
             enemy.transform.position = new Vector3(
-                position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
-                position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
+                position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
+                position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
                 0);
             enemy.Initialize(_playerPositionProvider);
         }

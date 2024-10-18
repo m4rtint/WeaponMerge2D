@@ -31,7 +31,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _enemyHealthBehaviour.Initialize(10, onDeath: () =>
             {
                 _enemyDropBehaviour.Drop();
-                ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject);
+                ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject);
             });
             _enemyRangedAttackBehaviour.Initialize(
                 pausePathFindingAction: _pathFindingBehaviour.Pause, 
