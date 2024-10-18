@@ -182,7 +182,8 @@ MonoBehaviour:
   _state: 0
   _inventory: 0
   _merge: 0
-  _enemySpawner: 1
+  _enemySpawner: 0
+  _objectPool: 0
 --- !u!4 &215715545
 Transform:
   m_ObjectHideFlags: 0
