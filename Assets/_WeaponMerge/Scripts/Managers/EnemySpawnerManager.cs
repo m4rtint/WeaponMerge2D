@@ -21,6 +21,7 @@ namespace _WeaponMerge.Scripts.Managers
     {
         private readonly Queue<EnemyType> _enemyQueue = new Queue<EnemyType>();
         [CanBeNull] private IStoreActiveEnemiesUseCase _storeActiveEnemiesUseCase;
+        [CanBeNull] private IncrementEnemiesKilledUseCase _incrementEnemiesKilledUseCase;
         private PlayerPositionProvider _playerPositionProvider = null;
         
         [Title("DEBUG")]
@@ -39,10 +40,12 @@ namespace _WeaponMerge.Scripts.Managers
 
         public void Initialize(
             PlayerPositionProvider playerPositionProvider, 
-            [CanBeNull] IStoreActiveEnemiesUseCase storeActiveEnemiesUseCase = null)
+            [CanBeNull] IStoreActiveEnemiesUseCase storeActiveEnemiesUseCase = null, 
+            [CanBeNull] IncrementEnemiesKilledUseCase incrementEnemiesKilledUseCase = null)
         {
             _playerPositionProvider = playerPositionProvider;
             _storeActiveEnemiesUseCase = storeActiveEnemiesUseCase;
+            _incrementEnemiesKilledUseCase = incrementEnemiesKilledUseCase;
             _randomness = new Randomness(GetInstanceID().GetHashCode());
         }
         
@@ -117,7 +120,10 @@ namespace _WeaponMerge.Scripts.Managers
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
                 0);
             enemy.transform.position = randomizedPosition;
-            enemy.Initialize(_playerPositionProvider);
+            enemy.Initialize(_playerPositionProvider, onDeath: () =>
+            {
+                _incrementEnemiesKilledUseCase?.Execute();
+            });
             _activeEnemies.Add(enemy.gameObject);
         }
 
@@ -131,7 +137,10 @@ namespace _WeaponMerge.Scripts.Managers
                 position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
                 0);
-            enemy.Initialize(_playerPositionProvider);
+            enemy.Initialize(_playerPositionProvider, onDeath: () =>
+            {
+                _incrementEnemiesKilledUseCase?.Execute();
+            });
             _activeEnemies.Add(enemy.gameObject);
         }
 

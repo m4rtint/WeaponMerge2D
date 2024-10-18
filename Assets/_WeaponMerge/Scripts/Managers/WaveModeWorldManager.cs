@@ -81,7 +81,8 @@ namespace _WeaponMerge.Scripts.Managers
                 storeWaveRoundNumberUseCase);
             _playerBehaviour.Initialize(controlInput);
             _enemySpawnerManager.Initialize(playerPositionProvider, 
-                storeActiveEnemiesUseCase: new StoreWaveActiveEnemiesUseCase(waveRepository));
+                storeActiveEnemiesUseCase: new StoreWaveActiveEnemiesUseCase(waveRepository), 
+                incrementEnemiesKilledUseCase: new IncrementEnemiesKilledUseCase(waveRepository));
             _userInterfaceCoordinator.Initialize(controlInput);
             _gameStateManager.ChangeState(GameState.Loading);
         }

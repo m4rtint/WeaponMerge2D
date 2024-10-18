@@ -1,3 +1,4 @@
+using System;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Scripts.Environment;
 using _WeaponMerge.Scripts.Managers;
@@ -23,11 +24,12 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             PanicHelper.CheckAndPanicIfNull(_enemyDropBehaviour);
         }
         
-        public void Initialize(PlayerPositionProvider playerPositionProvider)
+        public void Initialize(PlayerPositionProvider playerPositionProvider, Action onDeath)
         {
             _pathFindingBehaviour.Initialize(playerPositionProvider);
             _enemyHealthBehaviour.Initialize(10, onDeath: () =>
             {
+                onDeath?.Invoke();
                 _enemyDropBehaviour.Drop();
                 ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject);
             });

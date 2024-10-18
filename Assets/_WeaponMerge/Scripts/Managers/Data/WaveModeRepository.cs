@@ -18,9 +18,9 @@ namespace _WeaponMerge.Scripts.Managers.Data
             _roundNumber = roundNumber;
         }
         
-        public void StoreKilledEnemies(int killedEnemies)
+        public void IncrementEnemiesKilled()
         {
-            _killedEnemies += killedEnemies;
+            _killedEnemies++;
         }
         
         public WaveModeData GetWaveModeState()
