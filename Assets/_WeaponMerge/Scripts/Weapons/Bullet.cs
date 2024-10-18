@@ -6,6 +6,11 @@ namespace _WeaponMerge.Scripts.Weapons
         Rifle,
         Shotgun
     }
+
+    public enum EnemyAttackType
+    {
+        Bullet
+    }
     
     public class Bullet
     {

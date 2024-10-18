@@ -1,4 +1,3 @@
-using System;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
@@ -10,7 +9,8 @@ namespace _WeaponMerge.Scripts.Managers
 {
     public enum EnemyType
     {
-        Simple    
+        Simple,
+        Ranged
     }
     
     public class EnemySpawnerManager: MonoBehaviour
@@ -54,14 +54,38 @@ namespace _WeaponMerge.Scripts.Managers
         {
             for (int i = 0; i < _spawnAmount; i++)
             {
-                var enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
-                var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
-                enemy.transform.position = new Vector3(
-                    position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
-                    position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
-                    0);
-                enemy.Initialize(_playerPositionProvider);
+                var isSimple = Random.Range(0, 10) % 2 == 0;
+                if (isSimple)
+                {
+                    SpawnSimpleEnemy();
+                }
+                else
+                {
+                    SpawnRangedEnemy();
+                }
             }
+        }
+
+        private void SpawnSimpleEnemy()
+        {
+            EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
+            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
+            enemy.transform.position = new Vector3(
+                position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
+                position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
+                0);
+            enemy.Initialize(_playerPositionProvider);
+        }
+
+        private void SpawnRangedEnemy()
+        {
+            RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
+            var position = _spawnLocations[Random.Range(0, _spawnLocations.Length)].position;
+            enemy.transform.position = new Vector3(
+                position.x + UnityEngine.Random.Range(-_spawnArea.x, _spawnArea.x),
+                position.y + UnityEngine.Random.Range(-_spawnArea.y, _spawnArea.y),
+                0);
+            enemy.Initialize(_playerPositionProvider);
         }
 
         private void OnDrawGizmos()

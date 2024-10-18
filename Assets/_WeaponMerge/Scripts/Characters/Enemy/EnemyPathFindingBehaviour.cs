@@ -8,6 +8,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         private PlayerPositionProvider _playerPositionProvider = null;
         [SerializeField]
         private float _speed = 4f; // Speed at which the enemy follows the player
+        private bool _canMove = true;
         
         public void Initialize(PlayerPositionProvider playerPositionProvider)
         {
@@ -16,13 +17,23 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         
         private void Update()
         {
-            if (_playerPositionProvider == null)
+            if (_playerPositionProvider == null || !_canMove)
             {
                 return;
             }
             
             Vector3 playerPosition = _playerPositionProvider.Get();
             transform.position = Vector3.MoveTowards(transform.position, playerPosition, _speed * Time.deltaTime);
+        }
+
+        public void Pause()
+        {
+            _canMove = false;
+        }
+        
+        public void Resume()
+        {
+            _canMove = true;
         }
     }
 }
