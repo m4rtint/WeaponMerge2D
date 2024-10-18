@@ -15,13 +15,19 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         private Action _pausePathFindingAction;
         private Action _resumePathFindingAction;
         private PlayerPositionProvider _playerPositionProvider;
+        private int _damage;
         private float _shootCooldownTimer = 0f;
 
-        public void Initialize(Action pausePathFindingAction, Action resumePathFindingAction, PlayerPositionProvider playerPositionProvider)
+        public void Initialize(
+            Action pausePathFindingAction, 
+            Action resumePathFindingAction, 
+            PlayerPositionProvider playerPositionProvider,
+            int damage)
         {
             _pausePathFindingAction = pausePathFindingAction;
             _resumePathFindingAction = resumePathFindingAction;
             _playerPositionProvider = playerPositionProvider;
+            _damage = damage;
         }
 
         private void Update()
@@ -69,7 +75,8 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             var bullet = ObjectPooler.Instance.Get<EnemyBulletBehaviour>(EnemyAttackType.Bullet);
             bullet.SpawnAt(
                 position: transform.position,
-                direction: (_playerPositionProvider.Get() - transform.position).normalized);
+                direction: (_playerPositionProvider.Get() - transform.position).normalized, 
+                damage: _damage);
         }
         
         private void OnDrawGizmos()

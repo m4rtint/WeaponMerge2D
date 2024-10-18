@@ -25968,7 +25968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb0363371934c35962adea4b9bcbbda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dropPercentage: 0.512
+  _dropPercentage: 0.212
   _dropHealthPercentage: 0.173
   _dropWeaponPercentage: 0.771
 --- !u!1 &1177506390

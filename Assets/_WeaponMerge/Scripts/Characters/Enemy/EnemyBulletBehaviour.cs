@@ -1,6 +1,7 @@
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Enemy
@@ -10,8 +11,8 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         [SerializeField] private float _speed = 10f;
         [SerializeField] private float _timeToLive = 5f;
-        [SerializeField] private int _damage = 10;
-
+        [SerializeField, ReadOnly] private int _damage;
+        
         private Rigidbody2D _rigidbody = null;
         private float _elapsedTimeToLive;
         private Vector2 _direction = Vector2.zero;
@@ -30,12 +31,13 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             }
         }
         
-        public void SpawnAt(Vector2 position, Vector2 direction)
+        public void SpawnAt(Vector2 position, Vector2 direction, int damage)
         {
             transform.position = position;
             _direction = direction;
             _elapsedTimeToLive = _timeToLive;
             _rigidbody.linearVelocity = _direction.normalized * _speed;
+            _damage = damage;
         }
 
         private void FixedUpdate()

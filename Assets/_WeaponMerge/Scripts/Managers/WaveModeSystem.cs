@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using _WeaponMerge.Scripts.Characters.Enemy.Domain.Model;
 using _WeaponMerge.Scripts.Managers.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.WaveModeUI;
 using _WeaponMerge.Tools;
@@ -45,48 +45,57 @@ namespace _WeaponMerge.Scripts.Managers
             });
         }
 
-        private EnemyType[] BuildWave(int roundNumber)
+        private EnemyData[] BuildWave(int roundNumber)
         {
-            // Adjustable difficulty parameters
-            float simpleEnemyBase = 3f;  // Base number of simple enemies in round 1
-            float shootingEnemyBase = 1f;  // Base number of shooting enemies in round 1
-    
-            // Difficulty scaling factor
-            float difficultyScaling = 1.1f;
+            int meleeHealth = CalculateEnemyStat(20, 1.1f, roundNumber);
+            int rangedHealth = CalculateEnemyStat(15, 1.1f, roundNumber);
+            int meleeDamage = CalculateEnemyStat(10, 1.1f, roundNumber);
+            int rangedDamage = CalculateEnemyStat(12, 1.1f, roundNumber);
 
-            // Cap the scaling factor to prevent excessive difficulty
-            float scalingFactor = Mathf.Min(Mathf.Pow(difficultyScaling, roundNumber - 1), 10f);
+            int simpleEnemies = CalculateEnemyCount(3f, 1.1f, roundNumber);
+            int shootingEnemies = CalculateEnemyCount(1f, 1.1f, roundNumber);
 
-            // Calculate number of enemies for this round
-            int simpleEnemies = Mathf.RoundToInt(simpleEnemyBase * scalingFactor);
-            int shootingEnemies = Mathf.RoundToInt(shootingEnemyBase * scalingFactor);
+            return CreateWave(simpleEnemies, shootingEnemies, meleeHealth, rangedHealth, meleeDamage, rangedDamage);
+        }
 
-            // Add some random variation to the enemy counts (optional)
-            simpleEnemies += Random.Range(-1, 2);  // Varies by -1 to +1 enemies
-            shootingEnemies += Random.Range(0, 2);  // Varies by 0 to +1 enemies
+        private int CalculateEnemyStat(int baseStat, float scalingFactor, int roundNumber)
+        {
+            return Mathf.RoundToInt(baseStat * Mathf.Pow(scalingFactor, roundNumber - 1));
+        }
 
-            // Ensure minimum values for the number of enemies
-            simpleEnemies = Mathf.Max(simpleEnemies, 1);
-            shootingEnemies = Mathf.Max(shootingEnemies, 0);
+        private int CalculateEnemyCount(float baseCount, float scalingFactor, int roundNumber)
+        {
+            int count = Mathf.RoundToInt(baseCount * Mathf.Pow(scalingFactor, roundNumber - 1));
+            count += Random.Range(-1, 2);  // Add some random variation
+            return Mathf.Max(count, 1);    // Ensure minimum value
+        }
 
-            // Create an array to hold all enemies for this round
-            EnemyType[] wave = new EnemyType[simpleEnemies + shootingEnemies];
+        private EnemyData[] CreateWave(int simpleEnemies, int shootingEnemies, int meleeHealth, int rangedHealth, int meleeDamage, int rangedDamage)
+        {
+            EnemyData[] wave = new EnemyData[simpleEnemies + shootingEnemies];
 
-            // Fill the wave array with simple enemies first
             for (int i = 0; i < simpleEnemies; i++)
             {
-                wave[i] = EnemyType.Simple;
+                wave[i] = new EnemyData
+                {
+                    EnemyType = EnemyType.Simple,
+                    Health = meleeHealth,
+                    Damage = meleeDamage
+                };
             }
 
-            // Then fill the rest of the wave array with ranged (shooting) enemies
             for (int i = simpleEnemies; i < simpleEnemies + shootingEnemies; i++)
             {
-                wave[i] = EnemyType.Ranged;
+                wave[i] = new EnemyData
+                {
+                    EnemyType = EnemyType.Ranged,
+                    Health = rangedHealth,
+                    Damage = rangedDamage
+                };
             }
 
             return wave;
         }
-
 
         private void OnClearAllEnemies()
         {

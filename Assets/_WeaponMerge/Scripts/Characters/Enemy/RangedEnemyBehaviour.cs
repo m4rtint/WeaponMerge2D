@@ -1,4 +1,5 @@
 using System;
+using _WeaponMerge.Scripts.Characters.Enemy.Domain.Model;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Scripts.Managers;
 using _WeaponMerge.Tools;
@@ -23,10 +24,13 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             PanicHelper.CheckAndPanicIfNull(_enemyRangedAttackBehaviour);
         }
         
-        public void Initialize(PlayerPositionProvider playerPositionProvider, Action onDeath)
+        public void Initialize(
+            PlayerPositionProvider playerPositionProvider,
+            EnemyData data,
+            Action onDeath)
         {
             _pathFindingBehaviour.Initialize(playerPositionProvider);
-            _enemyHealthBehaviour.Initialize(10, onDeath: () =>
+            _enemyHealthBehaviour.Initialize(data.Health, onDeath: () =>
             {
                 onDeath?.Invoke();
                 ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject);
@@ -34,7 +38,8 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _enemyRangedAttackBehaviour.Initialize(
                 pausePathFindingAction: _pathFindingBehaviour.Pause, 
                 resumePathFindingAction: _pathFindingBehaviour.Resume, 
-                playerPositionProvider: playerPositionProvider
+                playerPositionProvider: playerPositionProvider,
+                damage: data.Damage
             );        
         }
     }

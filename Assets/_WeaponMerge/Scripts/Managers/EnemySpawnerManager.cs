@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _WeaponMerge.Scripts.Characters.Enemy;
+using _WeaponMerge.Scripts.Characters.Enemy.Domain.Model;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Scripts.Managers.Domain.UseCases;
 using _WeaponMerge.Tools;
@@ -16,33 +17,33 @@ namespace _WeaponMerge.Scripts.Managers
         Simple,
         Ranged
     }
-    
-    public class EnemySpawnerManager: MonoBehaviour
+
+    public class EnemySpawnerManager : MonoBehaviour
     {
-        private readonly Queue<EnemyType> _enemyQueue = new Queue<EnemyType>();
+        private readonly Queue<EnemyData> _enemyQueue = new Queue<EnemyData>();
         [CanBeNull] private IStoreActiveEnemiesUseCase _storeActiveEnemiesUseCase;
         [CanBeNull] private IncrementEnemiesKilledUseCase _incrementEnemiesKilledUseCase;
         private PlayerPositionProvider _playerPositionProvider = null;
         private ItemDropManager _itemDropManager = null;
-        
-        [Title("DEBUG")]
-        [SerializeField] private bool _isDebugTurnedOn = true;
-        
-        [Header("Spawn Settings")] 
-        [SerializeField] private Transform[] _spawnLocations;
+
+        [Title("DEBUG")] [SerializeField] private bool _isDebugTurnedOn = true;
+
+        [Header("Spawn Settings")] [SerializeField]
+        private Transform[] _spawnLocations;
+
         [SerializeField] private Vector2 _spawnArea;
         [SerializeField] private float _spawnRate = 0.5f;
-        
+
         private IRandomness _randomness;
         private float _elapsedSpawnTime;
         private List<GameObject> _activeEnemies;
-        
+
         public event Action OnClearAllEnemies;
 
         public void Initialize(
-            PlayerPositionProvider playerPositionProvider, 
+            PlayerPositionProvider playerPositionProvider,
             ItemDropManager itemDropManager,
-            [CanBeNull] IStoreActiveEnemiesUseCase storeActiveEnemiesUseCase = null, 
+            [CanBeNull] IStoreActiveEnemiesUseCase storeActiveEnemiesUseCase = null,
             [CanBeNull] IncrementEnemiesKilledUseCase incrementEnemiesKilledUseCase = null)
         {
             _playerPositionProvider = playerPositionProvider;
@@ -51,11 +52,11 @@ namespace _WeaponMerge.Scripts.Managers
             _incrementEnemiesKilledUseCase = incrementEnemiesKilledUseCase;
             _randomness = new Randomness(GetInstanceID().GetHashCode());
         }
-        
-        public void SetEnemiesToSpawn(EnemyType[] enemies)
+
+        public void SetEnemiesToSpawn(EnemyData[] data)
         {
             _enemyQueue.Clear();
-            foreach (var enemy in enemies)
+            foreach (var enemy in data)
             {
                 _enemyQueue.Enqueue(enemy);
             }
@@ -72,9 +73,10 @@ namespace _WeaponMerge.Scripts.Managers
             {
                 return;
             }
+
             _storeActiveEnemiesUseCase?.Execute(_enemyQueue.Count + _activeEnemies.Count);
             _elapsedSpawnTime += Time.deltaTime;
-            if (_elapsedSpawnTime >= _spawnRate && 
+            if (_elapsedSpawnTime >= _spawnRate &&
                 _enemyQueue.Count > 0)
             {
                 _elapsedSpawnTime = 0f;
@@ -90,7 +92,8 @@ namespace _WeaponMerge.Scripts.Managers
         private void CheckIfAllEnemiesAreDead()
         {
             _activeEnemies.RemoveAll(enemy => !enemy.activeInHierarchy);
-            Logger.Log($"Active Enemies: {_activeEnemies.Count} | Enemies in Queue: {_enemyQueue.Count}", LogKey.EnemySpawner);
+            Logger.Log($"Active Enemies: {_activeEnemies.Count} | Enemies in Queue: {_enemyQueue.Count}",
+                LogKey.EnemySpawner);
             if (_activeEnemies.Count == 0 && _enemyQueue.Count == 0)
             {
                 Logger.Log("All enemies are dead!", LogKey.EnemySpawner);
@@ -99,20 +102,20 @@ namespace _WeaponMerge.Scripts.Managers
             }
         }
 
-        private void Spawn(EnemyType spawnTypes)
+        private void Spawn(EnemyData data)
         {
-            switch (spawnTypes)
+            switch (data.EnemyType)
             {
                 case EnemyType.Simple:
-                    SpawnSimpleEnemy();
+                    SpawnSimpleEnemy(data);
                     break;
                 case EnemyType.Ranged:
-                    SpawnRangedEnemy();
+                    SpawnRangedEnemy(data);
                     break;
             }
         }
 
-        private void SpawnSimpleEnemy()
+        private void SpawnSimpleEnemy(EnemyData data)
         {
             EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
             Logger.Log($"Spawned Simple Enemy", LogKey.EnemySpawner, enemy.gameObject);
@@ -123,15 +126,18 @@ namespace _WeaponMerge.Scripts.Managers
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
                 0);
             enemy.transform.position = randomizedPosition;
-            enemy.Initialize(_playerPositionProvider, onDeath: () =>
-            {
-                _itemDropManager.DropItemIfNeeded(enemy.transform.position);
-                _incrementEnemiesKilledUseCase?.Execute();
-            });
+            enemy.Initialize(
+                _playerPositionProvider,
+                data: data,
+                onDeath: () =>
+                {
+                    _itemDropManager.DropItemIfNeeded(enemy.transform.position);
+                    _incrementEnemiesKilledUseCase?.Execute();
+                });
             _activeEnemies.Add(enemy.gameObject);
         }
 
-        private void SpawnRangedEnemy()
+        private void SpawnRangedEnemy(EnemyData data)
         {
             RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
             Logger.Log($"Spawned Ranged Enemy", LogKey.EnemySpawner, enemy.gameObject);
@@ -141,11 +147,14 @@ namespace _WeaponMerge.Scripts.Managers
                 position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
                 position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
                 0);
-            enemy.Initialize(_playerPositionProvider, onDeath: () =>
-            {
-                _itemDropManager.DropItemIfNeeded(enemy.transform.position);
-                _incrementEnemiesKilledUseCase?.Execute();
-            });
+            enemy.Initialize(
+                _playerPositionProvider,
+                data: data,
+                onDeath: () =>
+                {
+                    _itemDropManager.DropItemIfNeeded(enemy.transform.position);
+                    _incrementEnemiesKilledUseCase?.Execute();
+                });
             _activeEnemies.Add(enemy.gameObject);
         }
 
@@ -157,7 +166,7 @@ namespace _WeaponMerge.Scripts.Managers
                 Gizmos.DrawCube(spawnLocation.position, new Vector3(_spawnArea.x, _spawnArea.y, 0));
             }
         }
-        
+
         public void Restart()
         {
             _elapsedSpawnTime = 0f;

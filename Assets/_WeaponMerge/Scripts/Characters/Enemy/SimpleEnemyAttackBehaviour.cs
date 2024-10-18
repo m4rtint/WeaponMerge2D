@@ -1,15 +1,21 @@
 using _WeaponMerge.Scripts.Characters.Players;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Enemy
 {
     public class SimpleEnemyAttackBehaviour: MonoBehaviour
     {
-        [SerializeField] private int _damage = 10;
+        [SerializeField, ReadOnly] private int _damage;
         [SerializeField] private float _attackRateInSeconds = 1f;
         private float _attackCoolDown = 0f;
         
         private bool CanAttack => _attackCoolDown <= 0f;
+
+        public void Initialize(int damage)
+        {
+            _damage = damage;
+        }
         
         private void OnCollisionEnter2D(Collision2D other)
         {
