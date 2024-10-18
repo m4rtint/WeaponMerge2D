@@ -39,7 +39,7 @@ namespace _WeaponMerge.Tools
                         GameObject obj = Instantiate(prefab.gameObject);
                         obj.transform.SetParent(poolParent.transform);
                         _allCreatedObjects.Add(obj);
-                        Logger.Log($"Created new object for pool {poolKey} of type {poolKey.GetType().Name}", LogKey.ObjectPool);
+                        Logger.Log($"Created new object for pool {poolKey.GetType().Name} {poolKey}", LogKey.ObjectPool);
                         return obj;
                     },
                     actionOnGet: (obj) => obj.SetActive(true),
