@@ -22,6 +22,13 @@ namespace _WeaponMerge.Scripts.Managers.Data
         {
             _killedEnemies++;
         }
+
+        public void CleanUp()
+        {
+            _activeEnemies = 0;
+            _killedEnemies = 0;
+            _roundNumber = 1;
+        }
         
         public WaveModeData GetWaveModeState()
         {

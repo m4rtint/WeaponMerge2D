@@ -25,6 +25,7 @@ namespace _WeaponMerge.Scripts.Managers
         private UserInterfaceCoordinator _userInterfaceCoordinator = null;
 
         private WaveModeSystem _waveModeSystem;
+        private WaveModeRepository _waveRepository;
         
         [Button]
         public void SetState(GameState state)
@@ -76,8 +77,8 @@ namespace _WeaponMerge.Scripts.Managers
         {   
             var controlInput = new ControlInput(_actionAsset);
             var playerPositionProvider = new PlayerPositionProvider(_playerBehaviour.transform);
-            var waveRepository = new WaveModeRepository();
-            var storeWaveRoundNumberUseCase = new StoreWaveRoundNumberUseCase(waveRepository);
+            _waveRepository = new WaveModeRepository();
+            var storeWaveRoundNumberUseCase = new StoreWaveRoundNumberUseCase(_waveRepository);
             _waveModeSystem = new WaveModeSystem(
                 _enemySpawnerManager, 
                 storeWaveRoundNumberUseCase);
@@ -85,8 +86,8 @@ namespace _WeaponMerge.Scripts.Managers
             _enemySpawnerManager.Initialize(
                 playerPositionProvider,
                 _itemDropManager,
-                storeActiveEnemiesUseCase: new StoreWaveActiveEnemiesUseCase(waveRepository), 
-                incrementEnemiesKilledUseCase: new IncrementEnemiesKilledUseCase(waveRepository));
+                storeActiveEnemiesUseCase: new StoreWaveActiveEnemiesUseCase(_waveRepository), 
+                incrementEnemiesKilledUseCase: new IncrementEnemiesKilledUseCase(_waveRepository));
             _userInterfaceCoordinator.Initialize(controlInput);
             _gameStateManager.ChangeState(GameState.Loading);
         }
@@ -133,6 +134,8 @@ namespace _WeaponMerge.Scripts.Managers
             _enemySpawnerManager.CleanUp();
             ObjectPooler.Instance.CleanUp();
             _userInterfaceCoordinator.CleanUp();
+            _waveRepository.CleanUp();
+            _waveModeSystem.CleanUp();
             _gameStateManager.ChangeState(GameState.Loading);
         }
     }

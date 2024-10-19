@@ -184,7 +184,7 @@ MonoBehaviour:
   _merge: 0
   _enemySpawner: 0
   _objectPool: 0
-  _waveMode: 1
+  _waveMode: 0
 --- !u!4 &215715545
 Transform:
   m_ObjectHideFlags: 0

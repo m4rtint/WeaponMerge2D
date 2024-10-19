@@ -20,6 +20,7 @@ namespace _WeaponMerge.Scripts.Managers
 
         private WaveModeState State { get; set; }
         private int _roundNumber = 1;
+        private readonly IRandomness _randomness;
 
         public WaveModeSystem(
             EnemySpawnerManager enemySpawnerManager,
@@ -29,6 +30,7 @@ namespace _WeaponMerge.Scripts.Managers
             _enemySpawnerManager.OnClearAllEnemies += OnClearAllEnemies;
             _storeWaveRoundNumberUseCase = storeWaveRoundNumberUseCase;
             State = WaveModeState.Transitioning;
+            _randomness = new Randomness();
         }
 
         public void Start()
@@ -47,13 +49,14 @@ namespace _WeaponMerge.Scripts.Managers
 
         private EnemyData[] BuildWave(int roundNumber)
         {
-            int meleeHealth = CalculateEnemyStat(20, 1.1f, roundNumber);
-            int rangedHealth = CalculateEnemyStat(15, 1.1f, roundNumber);
-            int meleeDamage = CalculateEnemyStat(10, 1.1f, roundNumber);
-            int rangedDamage = CalculateEnemyStat(12, 1.1f, roundNumber);
+            var scalingFactor = 1.3f;
+            int meleeHealth = CalculateEnemyStat(20, scalingFactor, roundNumber);
+            int rangedHealth = CalculateEnemyStat(15, scalingFactor, roundNumber);
+            int meleeDamage = CalculateEnemyStat(10, scalingFactor, roundNumber);
+            int rangedDamage = CalculateEnemyStat(12, scalingFactor, roundNumber);
 
-            int simpleEnemies = CalculateEnemyCount(3f, 1.1f, roundNumber);
-            int shootingEnemies = CalculateEnemyCount(1f, 1.1f, roundNumber);
+            int simpleEnemies = CalculateEnemyCount(3f, scalingFactor, roundNumber);
+            int shootingEnemies = CalculateEnemyCount(1f, scalingFactor, roundNumber);
 
             return CreateWave(simpleEnemies, shootingEnemies, meleeHealth, rangedHealth, meleeDamage, rangedDamage);
         }
@@ -66,7 +69,7 @@ namespace _WeaponMerge.Scripts.Managers
         private int CalculateEnemyCount(float baseCount, float scalingFactor, int roundNumber)
         {
             int count = Mathf.RoundToInt(baseCount * Mathf.Pow(scalingFactor, roundNumber - 1));
-            count += Random.Range(-1, 2);  // Add some random variation
+            count += _randomness.Range(-1, 2);  // Add some random variation
             return Mathf.Max(count, 1);    // Ensure minimum value
         }
 
@@ -107,6 +110,12 @@ namespace _WeaponMerge.Scripts.Managers
                 _storeWaveRoundNumberUseCase.Execute(_roundNumber);
                 Start();
             }
+        }
+
+        public void CleanUp()
+        {
+            _roundNumber = 1;
+            State = WaveModeState.Transitioning;
         }
     }
 }

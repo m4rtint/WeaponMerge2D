@@ -20,7 +20,6 @@ namespace _WeaponMerge.Scripts.Managers
 
     public class EnemySpawnerManager : MonoBehaviour
     {
-        private readonly Queue<EnemyData> _enemyQueue = new Queue<EnemyData>();
         [CanBeNull] private IStoreActiveEnemiesUseCase _storeActiveEnemiesUseCase;
         [CanBeNull] private IncrementEnemiesKilledUseCase _incrementEnemiesKilledUseCase;
         private PlayerPositionProvider _playerPositionProvider = null;
@@ -37,6 +36,7 @@ namespace _WeaponMerge.Scripts.Managers
         private IRandomness _randomness;
         private float _elapsedSpawnTime;
         private List<GameObject> _activeEnemies;
+        private Queue<EnemyData> _enemyQueue = null;
 
         public event Action OnClearAllEnemies;
 
@@ -171,10 +171,12 @@ namespace _WeaponMerge.Scripts.Managers
         {
             _elapsedSpawnTime = 0f;
             _activeEnemies = new List<GameObject>();
+            _enemyQueue = new Queue<EnemyData>();
         }
 
         public void CleanUp()
         {
+            _enemyQueue.Clear();
             _elapsedSpawnTime = 0f;
             _activeEnemies.Clear();
             _activeEnemies = null;

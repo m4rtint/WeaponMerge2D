@@ -15,8 +15,12 @@ namespace _WeaponMerge.Tools
     {
         private readonly Random _random;
 
-        public Randomness(int seed)
+        public Randomness(int seed = -1)
         {
+            if (seed == -1)
+            {
+                seed = new Random().Next();
+            }
             _random = new Random(seed);
         }
 
