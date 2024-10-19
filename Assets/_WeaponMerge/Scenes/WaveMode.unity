@@ -27385,6 +27385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MergeSystemCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3939131268070749244, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7002088795762846799, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -27481,6 +27485,10 @@ PrefabInstance:
     - target: {fileID: 8675384897582664735, guid: aac9513a15bb4e74b803b041950c867c, type: 3}
       propertyPath: m_Name
       value: HUDCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675384897582664735, guid: aac9513a15bb4e74b803b041950c867c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8920177109725133176, guid: aac9513a15bb4e74b803b041950c867c, type: 3}
       propertyPath: m_Pivot.x
