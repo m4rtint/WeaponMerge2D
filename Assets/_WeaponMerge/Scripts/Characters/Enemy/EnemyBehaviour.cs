@@ -12,12 +12,14 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         private EnemyPathFindingBehaviour _pathFindingBehaviour = null;
         private EnemyHealthBehaviour _enemyHealthBehaviour = null;
         private SimpleEnemyAttackBehaviour _simpleEnemyAttackBehaviour = null;
+        private Animator _animator = null;
 
         private void Awake()
         {
             _pathFindingBehaviour = GetComponent<EnemyPathFindingBehaviour>();
             _enemyHealthBehaviour = GetComponent<EnemyHealthBehaviour>();
             _simpleEnemyAttackBehaviour = GetComponent<SimpleEnemyAttackBehaviour>();
+            _animator = GetComponentInChildren<Animator>();
             
             PanicHelper.CheckAndPanicIfNull(_pathFindingBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemyHealthBehaviour);
@@ -30,11 +32,19 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             Action onDeath)
         {
             _pathFindingBehaviour.Initialize(playerPositionProvider);
-            _enemyHealthBehaviour.Initialize(data.Health, onDeath: () =>
-            {
-                onDeath?.Invoke();
-                ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject);
-            });
+            _enemyHealthBehaviour.Initialize(data.Health);
+            _enemyHealthBehaviour.SetDeathActions(
+                onDeathDelay: 2f, 
+                onDeath: () =>
+                {
+                    _pathFindingBehaviour.Pause();
+                    _animator.SetBool("IsDeath", true);
+                    onDeath?.Invoke();
+                }, 
+                onCleanUp: () => 
+                {
+                    ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject); 
+                });
             _simpleEnemyAttackBehaviour.Initialize(damage: data.Damage);
         }
     }

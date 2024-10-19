@@ -12,12 +12,14 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         private EnemyPathFindingBehaviour _pathFindingBehaviour = null;
         private EnemyHealthBehaviour _enemyHealthBehaviour = null;
         private EnemyRangedAttackBehaviour _enemyRangedAttackBehaviour = null;
+        private Animator _animator = null;
 
         private void Awake()
         {
             _pathFindingBehaviour = GetComponent<EnemyPathFindingBehaviour>();
             _enemyHealthBehaviour = GetComponent<EnemyHealthBehaviour>();
             _enemyRangedAttackBehaviour = GetComponent<EnemyRangedAttackBehaviour>();
+            _animator = GetComponentInChildren<Animator>();
             
             PanicHelper.CheckAndPanicIfNull(_pathFindingBehaviour);
             PanicHelper.CheckAndPanicIfNull(_enemyHealthBehaviour);
@@ -30,11 +32,20 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             Action onDeath)
         {
             _pathFindingBehaviour.Initialize(playerPositionProvider);
-            _enemyHealthBehaviour.Initialize(data.Health, onDeath: () =>
-            {
-                onDeath?.Invoke();
-                ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject);
-            });
+            _enemyHealthBehaviour.Initialize(data.Health);
+            _enemyHealthBehaviour.SetDeathActions(data.Health, 
+                onDeath: () =>
+                {
+                    _animator?.SetBool("IsDeath", true);
+                    onDeath?.Invoke();
+                    _pathFindingBehaviour.Pause();
+                    _enemyRangedAttackBehaviour.enabled = false;
+                }, 
+                onCleanUp: () => 
+                {
+                    _enemyRangedAttackBehaviour.enabled = true;
+                    ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject); 
+                });
             _enemyRangedAttackBehaviour.Initialize(
                 pausePathFindingAction: _pathFindingBehaviour.Pause, 
                 resumePathFindingAction: _pathFindingBehaviour.Resume, 

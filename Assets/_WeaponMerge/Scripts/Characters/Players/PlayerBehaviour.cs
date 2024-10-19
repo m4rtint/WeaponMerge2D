@@ -24,10 +24,17 @@ namespace _WeaponMerge.Scripts.Characters.Players
         {
             _playerMovementBehaviour.Initialize(controlInput);
             _playerWeaponBehaviour.Initialize(controlInput);
-            _playerHealthBehaviour.Initialize(100, onDeath: () =>
-            {
-                GameStateManager.Instance.ChangeState(GameState.Restarting);
-            });
+            _playerHealthBehaviour.Initialize(100);
+            
+            _playerHealthBehaviour.SetDeathActions(0, 
+                onDeath: () =>
+                {
+                    
+                }, 
+                onCleanUp: () =>
+                {
+                    GameStateManager.Instance.ChangeState(GameState.Restarting);
+                });
         }
 
         public void Restart()
