@@ -131,8 +131,11 @@ namespace _WeaponMerge.Scripts.Managers
                 data: data,
                 onDeath: () =>
                 {
-                    _itemDropManager.DropItemIfNeeded(enemy.transform.position);
                     _incrementEnemiesKilledUseCase?.Execute();
+                },
+                onCleanUp: () =>
+                {
+                    _itemDropManager.DropItemIfNeeded(enemy.transform.position);
                 });
             _activeEnemies.Add(enemy.gameObject);
         }
@@ -152,8 +155,11 @@ namespace _WeaponMerge.Scripts.Managers
                 data: data,
                 onDeath: () =>
                 {
-                    _itemDropManager.DropItemIfNeeded(enemy.transform.position);
                     _incrementEnemiesKilledUseCase?.Execute();
+                }, 
+                onCleanUp: () =>
+                {
+                    _itemDropManager.DropItemIfNeeded(enemy.transform.position);
                 });
             _activeEnemies.Add(enemy.gameObject);
         }

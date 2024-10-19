@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: f4bc5559e403def4688f2400f7bd909a
+guid: ffa57d591a46eda4884b6a1b6d786586
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8085143833605022259
-    second: spr_Blue_slime_walk_0
+      213: 3571635775238715396
+    second: HURT_0
   - first:
-      213: -1213376895010643947
-    second: spr_Blue_slime_walk_1
+      213: -6552392919759675800
+    second: HURT_1
   - first:
-      213: -3036810995338415006
-    second: spr_Blue_slime_walk_2
+      213: -4191814458887339610
+    second: HURT_2
   - first:
-      213: -7013142190536670755
-    second: spr_Blue_slime_walk_3
-  - first:
-      213: 6179986714681800415
-    second: spr_Blue_slime_walk_4
-  - first:
-      213: -2305282644430848052
-    second: spr_Blue_slime_walk_5
+      213: -5703626821815436037
+    second: HURT_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_0
+      name: HURT_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 22
-        width: 19
-        height: 17
+        x: 7
+        y: 1
+        width: 66
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 332a7ffca73343070800000000000000
-      internalID: 8085143833605022259
+      spriteID: 4083e2270dff09130800000000000000
+      internalID: 3571635775238715396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_1
+      name: HURT_1
       rect:
         serializedVersion: 2
         x: 87
-        y: 22
-        width: 19
-        height: 16
+        y: 7
+        width: 65
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 510693a8428392fe0800000000000000
-      internalID: -1213376895010643947
+      spriteID: 86e90f40b593115a0800000000000000
+      internalID: -6552392919759675800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_2
+      name: HURT_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 22
-        width: 19
-        height: 17
+        x: 168
+        y: 7
+        width: 65
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2647adc4d741bd5d0800000000000000
-      internalID: -3036810995338415006
+      spriteID: 6a18ca575fea3d5c0800000000000000
+      internalID: -4191814458887339610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_3
+      name: HURT_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 22
-        width: 19
-        height: 17
+        x: 249
+        y: 1
+        width: 65
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,52 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd1c1cdb5505cae90800000000000000
-      internalID: -7013142190536670755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Blue_slime_walk_4
-      rect:
-        serializedVersion: 2
-        x: 279
-        y: 22
-        width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fd6fd3d8c29b3c550800000000000000
-      internalID: 6179986714681800415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Blue_slime_walk_5
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 22
-        width: 19
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ccf73d716adf100e0800000000000000
-      internalID: -2305282644430848052
+      spriteID: bfcfc4aef95a8d0b0800000000000000
+      internalID: -5703626821815436037
       vertices: []
       indices: 
       edges: []
@@ -260,12 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Blue_slime_walk_0: 8085143833605022259
-      spr_Blue_slime_walk_1: -1213376895010643947
-      spr_Blue_slime_walk_2: -3036810995338415006
-      spr_Blue_slime_walk_3: -7013142190536670755
-      spr_Blue_slime_walk_4: 6179986714681800415
-      spr_Blue_slime_walk_5: -2305282644430848052
+      HURT_0: 3571635775238715396
+      HURT_1: -6552392919759675800
+      HURT_2: -4191814458887339610
+      HURT_3: -5703626821815436037
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

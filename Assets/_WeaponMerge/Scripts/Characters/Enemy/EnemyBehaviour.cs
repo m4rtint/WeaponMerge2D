@@ -29,7 +29,8 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         public void Initialize(
             PlayerPositionProvider playerPositionProvider,
             EnemyData data,
-            Action onDeath)
+            Action onDeath, 
+            Action onCleanUp)
         {
             _pathFindingBehaviour.Initialize(playerPositionProvider);
             _enemyHealthBehaviour.Initialize(data.Health);
@@ -38,11 +39,12 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 onDeath: () =>
                 {
                     _pathFindingBehaviour.Pause();
-                    _animator.SetBool("IsDeath", true);
+                    _animator.SetBool("IsDead", true);
                     onDeath?.Invoke();
                 }, 
                 onCleanUp: () => 
                 {
+                    onCleanUp?.Invoke();
                     ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject); 
                 });
             _simpleEnemyAttackBehaviour.Initialize(damage: data.Damage);

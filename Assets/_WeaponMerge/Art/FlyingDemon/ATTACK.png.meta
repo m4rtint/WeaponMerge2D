@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: f4bc5559e403def4688f2400f7bd909a
+guid: 7e52321ab70a05446956b01f73a246e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8085143833605022259
-    second: spr_Blue_slime_walk_0
+      213: -252343562717082310
+    second: ATTACK_0
   - first:
-      213: -1213376895010643947
-    second: spr_Blue_slime_walk_1
+      213: -210908623516531236
+    second: ATTACK_1
   - first:
-      213: -3036810995338415006
-    second: spr_Blue_slime_walk_2
+      213: -1884070897103218386
+    second: ATTACK_2
   - first:
-      213: -7013142190536670755
-    second: spr_Blue_slime_walk_3
+      213: -5421470884539877244
+    second: ATTACK_3
   - first:
-      213: 6179986714681800415
-    second: spr_Blue_slime_walk_4
+      213: -637045071952103482
+    second: ATTACK_4
   - first:
-      213: -2305282644430848052
-    second: spr_Blue_slime_walk_5
+      213: -8222471432525534737
+    second: ATTACK_5
+  - first:
+      213: -5060464365741366859
+    second: ATTACK_6
+  - first:
+      213: 2732036489171911614
+    second: ATTACK_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_0
+      name: ATTACK_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 22
-        width: 19
-        height: 17
+        x: 7
+        y: 1
+        width: 66
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 332a7ffca73343070800000000000000
-      internalID: 8085143833605022259
+      spriteID: a3d44eeddde7f7cf0800000000000000
+      internalID: -252343562717082310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_1
+      name: ATTACK_1
       rect:
         serializedVersion: 2
         x: 87
-        y: 22
-        width: 19
-        height: 16
+        y: 1
+        width: 65
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 510693a8428392fe0800000000000000
-      internalID: -1213376895010643947
+      spriteID: cd50b3f69b3b21df0800000000000000
+      internalID: -210908623516531236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_2
+      name: ATTACK_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 22
-        width: 19
-        height: 17
+        x: 168
+        y: 2
+        width: 64
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2647adc4d741bd5d0800000000000000
-      internalID: -3036810995338415006
+      spriteID: e29d286508f6ad5e0800000000000000
+      internalID: -1884070897103218386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_3
+      name: ATTACK_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 22
-        width: 19
-        height: 17
+        x: 243
+        y: 1
+        width: 80
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd1c1cdb5505cae90800000000000000
-      internalID: -7013142190536670755
+      spriteID: 488b0e664f013c4b0800000000000000
+      internalID: -5421470884539877244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_4
+      name: ATTACK_4
       rect:
         serializedVersion: 2
-        x: 279
-        y: 22
-        width: 19
-        height: 16
+        x: 331
+        y: 2
+        width: 66
+        height: 67
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd6fd3d8c29b3c550800000000000000
-      internalID: 6179986714681800415
+      spriteID: 6c7b16cd1e2c827f0800000000000000
+      internalID: -637045071952103482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_5
+      name: ATTACK_5
       rect:
         serializedVersion: 2
-        x: 343
-        y: 22
-        width: 19
-        height: 17
+        x: 411
+        y: 4
+        width: 70
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,8 +246,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ccf73d716adf100e0800000000000000
-      internalID: -2305282644430848052
+      spriteID: fe9a480fbc9e3ed80800000000000000
+      internalID: -8222471432525534737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_6
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 3
+        width: 69
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1a679887e95c9b0800000000000000
+      internalID: -5060464365741366859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ATTACK_7
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 2
+        width: 80
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb34f7246b42ae520800000000000000
+      internalID: 2732036489171911614
       vertices: []
       indices: 
       edges: []
@@ -260,12 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Blue_slime_walk_0: 8085143833605022259
-      spr_Blue_slime_walk_1: -1213376895010643947
-      spr_Blue_slime_walk_2: -3036810995338415006
-      spr_Blue_slime_walk_3: -7013142190536670755
-      spr_Blue_slime_walk_4: 6179986714681800415
-      spr_Blue_slime_walk_5: -2305282644430848052
+      ATTACK_0: -252343562717082310
+      ATTACK_1: -210908623516531236
+      ATTACK_2: -1884070897103218386
+      ATTACK_3: -5421470884539877244
+      ATTACK_4: -637045071952103482
+      ATTACK_5: -8222471432525534737
+      ATTACK_6: -5060464365741366859
+      ATTACK_7: 2732036489171911614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

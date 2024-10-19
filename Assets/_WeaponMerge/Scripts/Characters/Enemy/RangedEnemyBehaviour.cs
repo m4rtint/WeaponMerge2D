@@ -29,20 +29,23 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         public void Initialize(
             PlayerPositionProvider playerPositionProvider,
             EnemyData data,
-            Action onDeath)
+            Action onDeath, 
+            Action onCleanUp)
         {
             _pathFindingBehaviour.Initialize(playerPositionProvider);
             _enemyHealthBehaviour.Initialize(data.Health);
-            _enemyHealthBehaviour.SetDeathActions(data.Health, 
+            _enemyHealthBehaviour.SetDeathActions(
+                onDeathDelay: 2f, 
                 onDeath: () =>
                 {
-                    _animator?.SetBool("IsDeath", true);
+                    _animator?.SetTrigger("IsDead");
                     onDeath?.Invoke();
                     _pathFindingBehaviour.Pause();
                     _enemyRangedAttackBehaviour.enabled = false;
                 }, 
                 onCleanUp: () => 
                 {
+                    onCleanUp?.Invoke();
                     _enemyRangedAttackBehaviour.enabled = true;
                     ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject); 
                 });

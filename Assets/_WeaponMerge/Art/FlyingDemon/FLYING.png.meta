@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: f4bc5559e403def4688f2400f7bd909a
+guid: 3df82422310f48a439bd2d611ca70f00
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8085143833605022259
-    second: spr_Blue_slime_walk_0
+      213: 6772775923325811741
+    second: FLYING_0
   - first:
-      213: -1213376895010643947
-    second: spr_Blue_slime_walk_1
+      213: 5941632107932350943
+    second: FLYING_1
   - first:
-      213: -3036810995338415006
-    second: spr_Blue_slime_walk_2
+      213: -2846053855543560624
+    second: FLYING_2
   - first:
-      213: -7013142190536670755
-    second: spr_Blue_slime_walk_3
-  - first:
-      213: 6179986714681800415
-    second: spr_Blue_slime_walk_4
-  - first:
-      213: -2305282644430848052
-    second: spr_Blue_slime_walk_5
+      213: -6678637041112908962
+    second: FLYING_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_0
+      name: FLYING_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 22
-        width: 19
-        height: 17
+        x: 0
+        y: 5
+        width: 80
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 332a7ffca73343070800000000000000
-      internalID: 8085143833605022259
+      spriteID: d1c372d81dbbdfd50800000000000000
+      internalID: 6772775923325811741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_1
+      name: FLYING_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 22
-        width: 19
-        height: 16
+        x: 88
+        y: 1
+        width: 66
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 510693a8428392fe0800000000000000
-      internalID: -1213376895010643947
+      spriteID: fd9fc5b0ceae47250800000000000000
+      internalID: 5941632107932350943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_2
+      name: FLYING_2
       rect:
         serializedVersion: 2
-        x: 151
-        y: 22
-        width: 19
-        height: 17
+        x: 168
+        y: 5
+        width: 70
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2647adc4d741bd5d0800000000000000
-      internalID: -3036810995338415006
+      spriteID: 056f1b0f819c088d0800000000000000
+      internalID: -2846053855543560624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_Blue_slime_walk_3
+      name: FLYING_3
       rect:
         serializedVersion: 2
-        x: 215
-        y: 22
-        width: 19
-        height: 17
+        x: 249
+        y: 5
+        width: 69
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,52 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd1c1cdb5505cae90800000000000000
-      internalID: -7013142190536670755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Blue_slime_walk_4
-      rect:
-        serializedVersion: 2
-        x: 279
-        y: 22
-        width: 19
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fd6fd3d8c29b3c550800000000000000
-      internalID: 6179986714681800415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_Blue_slime_walk_5
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 22
-        width: 19
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ccf73d716adf100e0800000000000000
-      internalID: -2305282644430848052
+      spriteID: e5bf2bcfef6b053a0800000000000000
+      internalID: -6678637041112908962
       vertices: []
       indices: 
       edges: []
@@ -260,12 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spr_Blue_slime_walk_0: 8085143833605022259
-      spr_Blue_slime_walk_1: -1213376895010643947
-      spr_Blue_slime_walk_2: -3036810995338415006
-      spr_Blue_slime_walk_3: -7013142190536670755
-      spr_Blue_slime_walk_4: 6179986714681800415
-      spr_Blue_slime_walk_5: -2305282644430848052
+      FLYING_0: 6772775923325811741
+      FLYING_1: 5941632107932350943
+      FLYING_2: -2846053855543560624
+      FLYING_3: -6678637041112908962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
