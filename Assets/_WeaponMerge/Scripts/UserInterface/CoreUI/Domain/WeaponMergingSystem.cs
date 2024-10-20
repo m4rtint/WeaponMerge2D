@@ -32,7 +32,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain
         {
             var higherValue = Math.Max(valueOne, valueTwo);
             var range = Math.Abs(valueOne - valueTwo);
-            var baseValue = higherValue / 2;
+            var baseValue = higherValue;
             var randomize = UnityEngine.Random.Range(0, range);
             if (mergeType == MergeType.Higher)
             {
