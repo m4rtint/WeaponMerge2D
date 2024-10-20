@@ -35,16 +35,19 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _pathFindingBehaviour.Initialize(playerPositionProvider);
             _enemyHealthBehaviour.Initialize(data.Health);
             _enemyHealthBehaviour.SetDeathActions(
-                onDeathDelay: 2f, 
+                onDeathDelay: 1f, 
                 onDeath: () =>
                 {
+                    _simpleEnemyAttackBehaviour.StopAttack();
                     _pathFindingBehaviour.Pause();
-                    _animator.SetBool("IsDead", true);
+                    _animator.SetBool(AnimatorKey.IsDead, true);
                     onDeath?.Invoke();
                 }, 
                 onCleanUp: () => 
                 {
                     onCleanUp?.Invoke();
+                    _simpleEnemyAttackBehaviour.CleanUp();
+                    _pathFindingBehaviour.CleanUp();
                     ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject); 
                 });
             _simpleEnemyAttackBehaviour.Initialize(damage: data.Damage);

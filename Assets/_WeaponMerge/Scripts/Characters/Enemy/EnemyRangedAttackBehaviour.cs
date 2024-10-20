@@ -18,6 +18,8 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         private int _damage;
         private float _shootCooldownTimer = 0f;
 
+        private bool _canAttack = true;
+
         public void Initialize(
             Action pausePathFindingAction, 
             Action resumePathFindingAction, 
@@ -30,9 +32,20 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _damage = damage;
         }
 
+        public void CleanUp()
+        {
+            _canAttack = true;
+            _shootCooldownTimer = 0f;
+        }
+
+        public void StopAttack()
+        {
+            _canAttack = false;
+        }
+
         private void Update()
         {
-            if (_playerPositionProvider == null)
+            if (_playerPositionProvider == null && !_canAttack)
             {
                 return;
             }

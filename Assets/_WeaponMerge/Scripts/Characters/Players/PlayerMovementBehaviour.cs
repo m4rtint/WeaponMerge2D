@@ -31,12 +31,12 @@ namespace _WeaponMerge.Scripts.Characters.Players
             _moveVelocity = move;
             if (move == Vector2.zero)
             {
-                _animator.SetInteger("Direction", 0);
+                _animator.SetInteger(AnimatorKey.Direction, 0);
             }
             else
             {
                 var dir = move.x > 0 ? 1 : (move.x < 0 ? -1 : (move.y != 0 ? 1 : 0));
-                _animator.SetInteger("Direction", dir);
+                _animator.SetInteger(AnimatorKey.Direction, dir);
             }
             
         }

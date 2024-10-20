@@ -35,18 +35,19 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _pathFindingBehaviour.Initialize(playerPositionProvider);
             _enemyHealthBehaviour.Initialize(data.Health);
             _enemyHealthBehaviour.SetDeathActions(
-                onDeathDelay: 2f, 
+                onDeathDelay: 1f, 
                 onDeath: () =>
                 {
-                    _animator?.SetTrigger("IsDead");
+                    _animator?.SetTrigger(AnimatorKey.IsDead);
                     onDeath?.Invoke();
                     _pathFindingBehaviour.Pause();
-                    _enemyRangedAttackBehaviour.enabled = false;
+                    _enemyRangedAttackBehaviour.StopAttack();
                 }, 
                 onCleanUp: () => 
                 {
                     onCleanUp?.Invoke();
-                    _enemyRangedAttackBehaviour.enabled = true;
+                    _pathFindingBehaviour.CleanUp();
+                    _enemyRangedAttackBehaviour.CleanUp();
                     ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject); 
                 });
             _enemyRangedAttackBehaviour.Initialize(

@@ -9,12 +9,24 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         [SerializeField, ReadOnly] private int _damage;
         [SerializeField] private float _attackRateInSeconds = 1f;
         private float _attackCoolDown = 0f;
+        private bool _canAttack = true;
         
-        private bool CanAttack => _attackCoolDown <= 0f;
+        private bool CanAttack => _attackCoolDown <= 0f && _canAttack;
 
         public void Initialize(int damage)
         {
             _damage = damage;
+        }
+
+        public void StopAttack()
+        {
+            _canAttack = false;
+        }
+
+        public void CleanUp()
+        {
+            _attackCoolDown = 0f;
+            _canAttack = true;
         }
         
         private void OnCollisionEnter2D(Collision2D other)
