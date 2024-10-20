@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using _WeaponMerge.Scripts.Characters.Enemy;
 using _WeaponMerge.Scripts.Characters.Enemy.Domain.Model;
 using _WeaponMerge.Scripts.Characters.Players;
@@ -115,15 +116,26 @@ namespace _WeaponMerge.Scripts.Managers
             }
         }
 
+        private Vector3 GetSpawnArea()
+        {
+            var playerPosition = _playerPositionProvider.Get();
+            return _spawnLocations
+                .Where(loc => Vector3.Distance(loc.position, playerPosition) > 1.0f) // Filter out positions too close to the player
+                .OrderBy(loc => Vector3.Distance(loc.position, playerPosition)) // Order by distance to the player
+                .Skip(1) // Skip the closest position
+                .OrderBy(_ => _randomness.Percentage()) // Randomly pick one of the remaining locations
+                .FirstOrDefault()?.position ?? _spawnLocations[0].position; // Default to the first spawn location if none are found
+        }
+
         private void SpawnSimpleEnemy(EnemyData data)
         {
             EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
             Logger.Log($"Spawned Simple Enemy", LogKey.EnemySpawner, enemy.gameObject);
 
-            var position = _spawnLocations[_randomness.Range(0, _spawnLocations.Length)].position;
+            var spawnArea = GetSpawnArea();    
             var randomizedPosition = new Vector3(
-                position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
-                position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
+                spawnArea.x + _randomness.Range(-spawnArea.x, spawnArea.x),
+                spawnArea.y + _randomness.Range(-spawnArea.y, spawnArea.y),
                 0);
             enemy.transform.position = randomizedPosition;
             enemy.Initialize(
@@ -145,10 +157,10 @@ namespace _WeaponMerge.Scripts.Managers
             RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
             Logger.Log($"Spawned Ranged Enemy", LogKey.EnemySpawner, enemy.gameObject);
 
-            var position = _spawnLocations[_randomness.Range(0, _spawnLocations.Length)].position;
+            var spawnArea = GetSpawnArea();    
             enemy.transform.position = new Vector3(
-                position.x + _randomness.Range(-_spawnArea.x, _spawnArea.x),
-                position.y + _randomness.Range(-_spawnArea.y, _spawnArea.y),
+                spawnArea.x + _randomness.Range(-spawnArea.x, spawnArea.x),
+                spawnArea.y + _randomness.Range(-spawnArea.y, spawnArea.y),
                 0);
             enemy.Initialize(
                 _playerPositionProvider,
