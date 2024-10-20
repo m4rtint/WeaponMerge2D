@@ -1,5 +1,6 @@
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
+using Pathfinding;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Enemy
@@ -8,19 +9,22 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         private PlayerPositionProvider _playerPositionProvider = null;
         private SpriteRenderer _spriteRenderer = null;
+        private FollowerEntity _followerEntity = null;
         [SerializeField]
         private float _speed = 4f; // Speed at which the enemy follows the player
-        private bool _canMove = true;
 
         private void Awake()
         {
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _followerEntity = GetComponent<FollowerEntity>();
             PanicHelper.CheckAndPanicIfNull(_spriteRenderer);
+            PanicHelper.CheckAndPanicIfNull(_followerEntity);
         }
 
         public void Initialize(PlayerPositionProvider playerPositionProvider)
         {
             _playerPositionProvider = playerPositionProvider;
+            _followerEntity.maxSpeed = _speed;
         }
         
         private void Update()
@@ -31,28 +35,24 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 return;
             }
             _spriteRenderer.flipX = _playerPositionProvider.Get().x > transform.position.x;
-            if (!_canMove)
-            {
-                return;
-            }
             
             Vector3 playerPosition = _playerPositionProvider.Get();
-            transform.position = Vector3.MoveTowards(transform.position, playerPosition, _speed * Time.deltaTime);
+            _followerEntity.destination = playerPosition;
         }
 
         public void Pause()
         {
-            _canMove = false;
+            _followerEntity.isStopped = true;
         }
         
         public void Resume()
         {
-            _canMove = true;
+            _followerEntity.isStopped = false;
         }
 
         public void CleanUp()
         {
-            _canMove = true;
+            _followerEntity.isStopped = true;
         }
     }
 }
