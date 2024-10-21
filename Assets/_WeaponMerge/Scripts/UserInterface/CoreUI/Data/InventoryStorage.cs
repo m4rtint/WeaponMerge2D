@@ -19,13 +19,12 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
             get => _equippedSlotIndex;
             set => _equippedSlotIndex = value;
         }
-        
-        public Item[] InventoryItems => _allItems.Take(MAX_INVENTORY_ITEMS).ToArray();       
-        
+
+        public Item[] InventoryItems => _allItems.Take(MAX_INVENTORY_ITEMS).ToArray();
+
         public InventoryStorage()
         {
             _allItems = new Item[MAX_INVENTORY_ITEMS + MAX_EQUIPPED_ITEMS];
-            MockItems();
         }
 
         public void CopyInventory(Item[] inventoryCopy)
@@ -34,19 +33,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
             {
                 _allItems[i] = inventoryCopy[i];
             }
-        }
-  
-        private void MockItems()
-        {
-            var factory = new WeaponsFactory();
-            for(int i = 0; i < MAX_INVENTORY_ITEMS / 2; i++)
-            {
-                //Inventory
-                _allItems[i] = factory.CreateWeapon(WeaponType.Pistol);
-            }
-
-            //Equipment
-            _allItems[MAX_INVENTORY_ITEMS] = factory.CreateWeapon(WeaponType.Pistol);
         }
     }
 }

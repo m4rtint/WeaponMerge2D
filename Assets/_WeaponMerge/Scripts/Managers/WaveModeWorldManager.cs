@@ -1,6 +1,8 @@
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Scripts.Managers.Data;
 using _WeaponMerge.Scripts.Managers.Domain.UseCases;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Data;
+using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -90,6 +92,14 @@ namespace _WeaponMerge.Scripts.Managers
                 incrementEnemiesKilledUseCase: new IncrementEnemiesKilledUseCase(_waveRepository));
             _userInterfaceCoordinator.Initialize(controlInput);
             _gameStateManager.ChangeState(GameState.Loading);
+
+            AddStartingPistol();
+        }
+
+        private void AddStartingPistol()
+        {
+            var inventory = new InventoryRepository(new InventoryStorage());
+            inventory.AddItem(new WeaponsFactory().CreateWeapon(WeaponType.Pistol));
         }
 
         private void Pause()

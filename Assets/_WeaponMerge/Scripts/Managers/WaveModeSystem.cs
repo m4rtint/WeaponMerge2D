@@ -55,8 +55,8 @@ namespace _WeaponMerge.Scripts.Managers
             int meleeDamage = CalculateEnemyStat(10, scalingFactor, roundNumber);
             int rangedDamage = CalculateEnemyStat(12, scalingFactor, roundNumber);
 
-            int simpleEnemies = CalculateEnemyCount(3f, scalingFactor, roundNumber);
-            int shootingEnemies = CalculateEnemyCount(1f, scalingFactor, roundNumber);
+            int simpleEnemies = CalculateEnemyCount(15f, scalingFactor, roundNumber);
+            int shootingEnemies = CalculateEnemyCount(3f, scalingFactor, roundNumber);
 
             return CreateWave(simpleEnemies, shootingEnemies, meleeHealth, rangedHealth, meleeDamage, rangedDamage);
         }
