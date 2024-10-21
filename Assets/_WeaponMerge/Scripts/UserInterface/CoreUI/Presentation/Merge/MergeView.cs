@@ -32,11 +32,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
             _viewModel?.FetchItems();
         }
 
-        private void OnDisable()
-        {
-            _viewModel?.SyncInventory();
-        }
-
         public void Initialize(MergeViewModel viewModel)
         {
             _viewModel = viewModel;

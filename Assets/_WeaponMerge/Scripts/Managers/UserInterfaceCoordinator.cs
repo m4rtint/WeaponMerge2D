@@ -30,6 +30,7 @@ namespace _WeaponMerge.Scripts.Managers
         private bool _isInventoryOpen = false;
         private bool _isMergeOpen = false;
         private HUDEquipmentViewModel _hudEquipmentViewModel;
+        private SyncInventoryUseCase _syncInventoryUseCase;
         
         private void Awake()
         {
@@ -93,9 +94,8 @@ namespace _WeaponMerge.Scripts.Managers
             var getMergeInventoryUseCase = new GetMergeInventoryUseCase(mergeRepository);
             var weaponMergeSystem = new WeaponMergingSystem();
             var mergeItemUseCase = new MergeItemsUseCase(mergeRepository, weaponMergeSystem);
-            var syncInventoryUseCase = new SyncInventoryUseCase(mergeRepository);
+            _syncInventoryUseCase = new SyncInventoryUseCase(mergeRepository);
             _mergeView.Initialize(new MergeViewModel(
-                syncInventoryUseCase: syncInventoryUseCase,
                 mergeItemsUseCase: mergeItemUseCase,
                 moveMergeItemUseCase: moveMergeItemUseCase,
                 getMergeInventoryUseCase: getMergeInventoryUseCase));
@@ -123,6 +123,10 @@ namespace _WeaponMerge.Scripts.Managers
                 _isMergeOpen = isOpeningMerge;
                 _mergeCanvas.gameObject.SetActive(_isMergeOpen);
                 _hudCanvas.gameObject.SetActive(!_isMergeOpen);
+                if (_isMergeOpen)
+                {
+                    _syncInventoryUseCase.Execute();
+                }
             }
         }
     }

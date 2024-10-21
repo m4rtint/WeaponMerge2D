@@ -15,7 +15,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
 
     public class MergeViewModel
     {
-        private readonly SyncInventoryUseCase _syncInventoryUseCase;
         private readonly MoveMergeItemUseCase _moveMergeItemUseCase;
         private readonly GetMergeInventoryUseCase _getMergeInventoryUseCase;
         private readonly MergeItemsUseCase _mergeItemsUseCase;
@@ -28,12 +27,10 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
         public event Action<MergeViewState> OnStateChanged;
 
         public MergeViewModel(
-            SyncInventoryUseCase syncInventoryUseCase,
             MergeItemsUseCase mergeItemsUseCase,
             MoveMergeItemUseCase moveMergeItemUseCase, 
             GetMergeInventoryUseCase getMergeInventoryUseCase)
         {
-            _syncInventoryUseCase = syncInventoryUseCase;
             _mergeItemsUseCase = mergeItemsUseCase;
             _moveMergeItemUseCase = moveMergeItemUseCase;
             _getMergeInventoryUseCase = getMergeInventoryUseCase;
@@ -56,13 +53,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
             var mergeInventory = _getMergeInventoryUseCase.Execute();
             State = MapMergeViewState(mergeInventory);
         }
-
-
-        public void SyncInventory()
-        {
-            _syncInventoryUseCase.Execute();
-        }
-
+        
         private MergeViewState MapMergeViewState(MergeInventory items)
         {
             var inventorySlots = new SlotState[items.InventoryItems.Length];

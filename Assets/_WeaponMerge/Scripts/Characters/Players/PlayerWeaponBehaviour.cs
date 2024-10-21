@@ -44,7 +44,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
         {
             if (direction != Vector2.zero)
             {
-                var equippedItem = _switchEquippedWeaponUseCase.Execute(direction.y > 0);
+                var equippedItem = _switchEquippedWeaponUseCase.Execute(direction.y < 0);
                 _equippedWeapon = (Weapon)equippedItem;
             }
         }

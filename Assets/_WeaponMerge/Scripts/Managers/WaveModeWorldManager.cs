@@ -92,8 +92,6 @@ namespace _WeaponMerge.Scripts.Managers
                 incrementEnemiesKilledUseCase: new IncrementEnemiesKilledUseCase(_waveRepository));
             _userInterfaceCoordinator.Initialize(controlInput);
             _gameStateManager.ChangeState(GameState.Loading);
-
-            AddStartingPistol();
         }
 
         private void AddStartingPistol()
@@ -125,6 +123,8 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Restart()
         {
+            AddStartingPistol();
+
             // Populate the world 
             _playerBehaviour.transform.position = Vector3.zero;
             _playerBehaviour.Restart();
