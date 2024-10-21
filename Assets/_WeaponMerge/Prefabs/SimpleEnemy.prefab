@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -2916384684203831240}
   - component: {fileID: 6972884009668041668}
   - component: {fileID: 656077218221533734}
+  - component: {fileID: 2336151457379661966}
   m_Layer: 0
   m_Name: SimpleEnemy
   m_TagString: Untagged
@@ -184,6 +185,22 @@ MonoBehaviour:
   movementPlaneSourceBacking: 0
   syncPosition: 1
   syncRotation: 1
+--- !u!114 &2336151457379661966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870583015611416667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd490669bd16fc4bab5cd103415a535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1073741824
+  velocitySmoothing: 1
+  naturalSpeed: 5
+  rotationMode: 1
 --- !u!1 &5889581751972785769
 GameObject:
   m_ObjectHideFlags: 0
