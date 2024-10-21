@@ -180,12 +180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: 0
-  _inventory: 0
+  _inventory: 1
   _merge: 0
   _enemySpawner: 0
   _objectPool: 0
   _waveMode: 0
-  _enemy: 1
+  _enemy: 0
 --- !u!4 &215715545
 Transform:
   m_ObjectHideFlags: 0
