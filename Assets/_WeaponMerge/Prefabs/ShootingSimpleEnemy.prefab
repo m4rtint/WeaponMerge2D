@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 7238446805343664642}
   - component: {fileID: 1039207838179124995}
   - component: {fileID: 2753671828322291207}
-  - component: {fileID: 705459029915245623}
   m_Layer: 0
   m_Name: ShootingSimpleEnemy
   m_TagString: Untagged
@@ -306,19 +305,3 @@ MonoBehaviour:
   movementPlaneSourceBacking: 0
   syncPosition: 1
   syncRotation: 1
---- !u!114 &705459029915245623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3748097212532204039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd490669bd16fc4bab5cd103415a535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1073741824
-  velocitySmoothing: 1
-  naturalSpeed: 5
-  rotationMode: 1

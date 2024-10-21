@@ -12,7 +12,8 @@ namespace _WeaponMerge.Tools
         Merge,
         EnemySpawner,
         ObjectPool,
-        WaveMode
+        WaveMode,
+        Enemy
     }
 
     public enum LogColor
@@ -82,6 +83,8 @@ namespace _WeaponMerge.Tools
                     return MapToColor(LogColor.Green);
                 case LogKey.WaveMode:
                     return MapToColor(LogColor.Black);
+                case LogKey.Enemy:
+                    return MapToColor(LogColor.Blue);
             }
             
             throw new Exception("Missing color mapping for key: " + key);

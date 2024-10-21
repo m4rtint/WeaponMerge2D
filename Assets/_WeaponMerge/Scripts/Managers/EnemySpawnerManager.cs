@@ -9,6 +9,7 @@ using _WeaponMerge.Tools;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Logger = _WeaponMerge.Tools.Logger;
 
 namespace _WeaponMerge.Scripts.Managers
@@ -28,10 +29,10 @@ namespace _WeaponMerge.Scripts.Managers
 
         [Title("DEBUG")] [SerializeField] private bool _isDebugTurnedOn = true;
 
-        [Header("Spawn Settings")] [SerializeField]
-        private Transform[] _spawnLocations;
+        [Header("Spawn Settings")] 
+        [SerializeField] private Transform[] _spawnLocations;
 
-        [SerializeField] private Vector2 _spawnArea;
+        [SerializeField] private Vector2 _spawnAreaSize;
         [SerializeField] private float _spawnRate = 0.5f;
 
         private IRandomness _randomness;
@@ -134,9 +135,10 @@ namespace _WeaponMerge.Scripts.Managers
 
             var spawnArea = GetSpawnArea();    
             var randomizedPosition = new Vector3(
-                spawnArea.x + _randomness.Range(-spawnArea.x, spawnArea.x),
-                spawnArea.y + _randomness.Range(-spawnArea.y, spawnArea.y),
+                spawnArea.x + _randomness.Range(-_spawnAreaSize.x / 2, _spawnAreaSize.x / 2),
+                spawnArea.y + _randomness.Range(-_spawnAreaSize.y / 2, _spawnAreaSize.y / 2),
                 0);
+            Logger.Log($"Spawned Simple Enemy at: {randomizedPosition}", LogKey.Enemy, enemy.gameObject);
             enemy.transform.position = randomizedPosition;
             enemy.Initialize(
                 _playerPositionProvider,
@@ -155,13 +157,14 @@ namespace _WeaponMerge.Scripts.Managers
         private void SpawnRangedEnemy(EnemyData data)
         {
             RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
-            Logger.Log($"Spawned Ranged Enemy", LogKey.EnemySpawner, enemy.gameObject);
 
             var spawnArea = GetSpawnArea();    
-            enemy.transform.position = new Vector3(
-                spawnArea.x + _randomness.Range(-spawnArea.x, spawnArea.x),
-                spawnArea.y + _randomness.Range(-spawnArea.y, spawnArea.y),
+            var randomizedPosition = new Vector3(
+                spawnArea.x + _randomness.Range(-_spawnAreaSize.x / 2, _spawnAreaSize.x /2),
+                spawnArea.y + _randomness.Range(-_spawnAreaSize.y / 2, _spawnAreaSize.y / 2),
                 0);
+            Logger.Log($"Spawned Ranged Enemy: {randomizedPosition}", LogKey.Enemy, enemy.gameObject);
+            enemy.transform.position = randomizedPosition;
             enemy.Initialize(
                 _playerPositionProvider,
                 data: data,
@@ -181,7 +184,7 @@ namespace _WeaponMerge.Scripts.Managers
             Gizmos.color = new Color(0, 1, 1, 0.5f);
             foreach (var spawnLocation in _spawnLocations)
             {
-                Gizmos.DrawCube(spawnLocation.position, new Vector3(_spawnArea.x, _spawnArea.y, 0));
+                Gizmos.DrawCube(spawnLocation.position, new Vector3(_spawnAreaSize.x, _spawnAreaSize.y, 0));
             }
         }
 

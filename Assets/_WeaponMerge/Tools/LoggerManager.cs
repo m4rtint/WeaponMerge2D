@@ -17,6 +17,8 @@ namespace _WeaponMerge.Tools
         [SerializeField] private bool _objectPool = false;
         [Title("Game Mode")]
         [SerializeField] private bool _waveMode = false;
+        [Title("Components")]
+        [SerializeField] private bool _enemy = false;
         private void Awake()
         {
             var config = new Dictionary<LogKey, bool>()
@@ -38,6 +40,9 @@ namespace _WeaponMerge.Tools
                 },
                 {
                     LogKey.WaveMode, _waveMode
+                },
+                {
+                    LogKey.Enemy, _enemy
                 }
             };
             Logger.Configure(config);

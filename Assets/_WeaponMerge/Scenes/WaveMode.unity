@@ -185,6 +185,7 @@ MonoBehaviour:
   _enemySpawner: 0
   _objectPool: 0
   _waveMode: 0
+  _enemy: 1
 --- !u!4 &215715545
 Transform:
   m_ObjectHideFlags: 0
@@ -91412,6 +91413,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: _spawnAreaSize.x
+      value: 10.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: _spawnAreaSize.y
+      value: 13.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4201632431640181016, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -58.9

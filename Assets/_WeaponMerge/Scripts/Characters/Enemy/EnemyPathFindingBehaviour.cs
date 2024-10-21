@@ -25,7 +25,10 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         {
             _playerPositionProvider = playerPositionProvider;
             _followerEntity.maxSpeed = _speed;
+            _followerEntity.enabled = true;
+            Resume();
         }
+
         
         private void Update()
         {
@@ -38,6 +41,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             
             Vector3 playerPosition = _playerPositionProvider.Get();
             _followerEntity.destination = playerPosition;
+            _followerEntity.updateRotation = false;
         }
 
         public void Pause()
@@ -53,6 +57,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
         public void CleanUp()
         {
             _followerEntity.isStopped = true;
+            _followerEntity.enabled = false;
         }
     }
 }

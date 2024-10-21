@@ -50,6 +50,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                     _pathFindingBehaviour.CleanUp();
                     ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject); 
                 });
+            
             _simpleEnemyAttackBehaviour.Initialize(damage: data.Damage);
         }
     }
