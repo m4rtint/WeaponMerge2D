@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_Blue_slime_idle_0: -2431324439429015123
+      spr_Blue_slime_idle_1: 4790929059473589353
+      spr_Blue_slime_idle_2: 5033143574008915852
+      spr_Blue_slime_idle_3: 7395003766207570404
+      spr_Blue_slime_idle_4: 739003766399583020
+      spr_Blue_slime_idle_5: -5808409036815140552
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
