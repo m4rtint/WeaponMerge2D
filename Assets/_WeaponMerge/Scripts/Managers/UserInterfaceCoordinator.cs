@@ -17,6 +17,7 @@ namespace _WeaponMerge.Scripts.Managers
         [SerializeField] private Canvas _inventoryCanvas;
         [SerializeField] private Canvas _hudCanvas;
         [SerializeField] private Canvas _mergeCanvas;
+        [SerializeField] private Canvas _itemDetailCanvas;
 
         [Title("HUD")] 
         [SerializeField] private HUDEquipmentView _hudEquipmentView;
@@ -109,6 +110,7 @@ namespace _WeaponMerge.Scripts.Managers
                 _isInventoryOpen = !_isInventoryOpen;
                 GameStateManager.Instance.ChangeState(_isInventoryOpen ? GameState.OpenInventory : GameState.InGame);
                 _inventoryCanvas.gameObject.SetActive(_isInventoryOpen);
+                _itemDetailCanvas.gameObject.SetActive(_isInventoryOpen);
                 _hudCanvas.gameObject.SetActive(!_isInventoryOpen);
             }
         }
@@ -122,6 +124,7 @@ namespace _WeaponMerge.Scripts.Managers
                 GameStateManager.Instance.ChangeState(isOpeningMerge ? GameState.OpenMerge : GameState.InGame);
                 _isMergeOpen = isOpeningMerge;
                 _mergeCanvas.gameObject.SetActive(_isMergeOpen);
+                _itemDetailCanvas.gameObject.SetActive(_isMergeOpen);
                 _hudCanvas.gameObject.SetActive(!_isMergeOpen);
                 if (_isMergeOpen)
                 {

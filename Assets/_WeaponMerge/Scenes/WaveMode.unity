@@ -61954,6 +61954,7 @@ MonoBehaviour:
   _inventoryCanvas: {fileID: 402034095}
   _hudCanvas: {fileID: 2091610021}
   _mergeCanvas: {fileID: 1527614223}
+  _itemDetailCanvas: {fileID: 1181350727}
   _hudEquipmentView: {fileID: 257926981}
   _inventoryView: {fileID: 1052536574}
   _equipmentView: {fileID: 1160083280}
