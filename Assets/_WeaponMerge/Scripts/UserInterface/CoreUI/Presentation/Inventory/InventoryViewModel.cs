@@ -1,6 +1,7 @@
 using System;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
@@ -15,11 +16,11 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
     {
         public int SlotIndex { get; }
         public int ItemId { get; }
-        public Image ItemImage { get; }
+        public Sprite ItemImage { get; }
         public string Name { get; }
         public Action<int, int> OnMoveItem { get; }
         
-        public SlotState(int slotIndex, int itemId, Image itemImage, string name, Action<int, int> onMoveItem)
+        public SlotState(int slotIndex, int itemId, Sprite itemImage, string name, Action<int, int> onMoveItem)
         {
             SlotIndex = slotIndex;
             ItemId = itemId;
@@ -84,7 +85,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
                 state[i] = new SlotState(
                     slotIndex: initialSlotIndex + i,
                     itemId: items[i]?.Id ?? -1,
-                    itemImage: items[i]?.Image,
+                    itemImage: items[i]?.Sprite,
                     name: items[i]?.Name,
                     onMoveItem: MoveItem
                 );

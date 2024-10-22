@@ -2,6 +2,7 @@ using System;
 using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
@@ -16,7 +17,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
     public struct HUDEquipmentSlotState
     {
         public HUDEquipmentSlotType Type;
-        public Image Icon;
+        public Sprite Icon;
     }
     
     public struct HUDEquipmentState
@@ -69,7 +70,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
                 var item = items[i];
                 var slotState = new HUDEquipmentSlotState
                 {
-                    Icon = item?.Image,
+                    Icon = item?.Sprite,
                     Type = GetSlotType(item, equippedItem)
                 };
                 slotStates[i] = slotState;

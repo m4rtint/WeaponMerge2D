@@ -15,12 +15,12 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
 
         public void SetState(HUDEquipmentSlotState state)
         {
-            _icon.sprite = state.Icon?.sprite;
+            _icon.sprite = state.Icon;
             _icon.color = state.Type switch
             {
-                HUDEquipmentSlotType.Filled => Color.red,
-                HUDEquipmentSlotType.Empty => Color.white,
-                HUDEquipmentSlotType.Equipped => Color.green,
+                HUDEquipmentSlotType.Filled => Color.white,
+                HUDEquipmentSlotType.Empty => Color.black,
+                HUDEquipmentSlotType.Equipped => Color.white,
                 _ => Color.clear
             };
         }

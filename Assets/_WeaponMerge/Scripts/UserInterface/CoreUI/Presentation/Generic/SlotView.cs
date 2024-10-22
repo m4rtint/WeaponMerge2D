@@ -22,8 +22,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
             _slotIndex = state.SlotIndex;
             _itemId = state.ItemId;
             _onMoveItem = state.OnMoveItem;
-            //Placeholder
-            GetComponent<Image>().color = _itemId == -1 ? Color.grey : Color.green;
+            GetComponent<Image>().sprite = state.ItemImage;
         }
 
         public void OnBeginDrag(PointerEventData eventData)

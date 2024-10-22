@@ -64,7 +64,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                 inventorySlots[slotIndex] = new SlotState(
                     slotIndex: slotIndex,
                     itemId: item?.Id ?? -1,
-                    itemImage: item?.Image,
+                    itemImage: item?.Sprite,
                     name: item?.Name,
                     onMoveItem: MoveInventoryItem
                 );
@@ -74,7 +74,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
             var primarySlot = new SlotState(
                 slotIndex: primarySlotIndex,
                 itemId: items.PrimarySlot?.Id ?? -1,
-                itemImage: items.PrimarySlot?.Image,
+                itemImage: items.PrimarySlot?.Sprite,
                 name: items.PrimarySlot?.Name,
                 onMoveItem: MoveInventoryItem
             );
@@ -83,7 +83,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
             var secondarySlot = new SlotState(
                 slotIndex: secondarySlotIndex,
                 itemId: items.SecondarySlot?.Id ?? -1,
-                itemImage: items.SecondarySlot?.Image,
+                itemImage: items.SecondarySlot?.Sprite,
                 name: items.SecondarySlot?.Name,
                 onMoveItem: MoveInventoryItem
             );

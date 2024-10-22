@@ -18,7 +18,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain
             return new Weapon(
                 id: id, // Randomized id between 10000 and 99999
                 name: WeaponDataProvider.Instance.GetWeaponName(id.GetHashCode()),
-                image:  WeaponDataProvider.Instance.GetWeaponIcon(id.GetHashCode()), // Assuming image is not provided
+                sprite:  WeaponDataProvider.Instance.GetWeaponIcon(id.GetHashCode()), // Assuming image is not provided
                 fireRate: (weaponOne.FireRate + weaponTwo.FireRate) / 2,
                 spreadAngle: Randomize(weaponOne.SpreadAngle, weaponTwo.SpreadAngle, MergeType.Higher),
                 bulletSpeed: Randomize(weaponOne.BulletSpeed, weaponTwo.BulletSpeed, MergeType.Higher),

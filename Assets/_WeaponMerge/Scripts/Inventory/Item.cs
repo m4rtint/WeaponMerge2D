@@ -1,4 +1,4 @@
-using UnityEngine.UI;
+using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Inventory
 {
@@ -6,13 +6,13 @@ namespace _WeaponMerge.Scripts.Inventory
     {
         public readonly int Id;
         public readonly string Name;
-        public readonly Image Image;
+        public readonly Sprite Sprite;
 
-        protected Item(int id, string name, Image image)
+        protected Item(int id, string name, Sprite sprite)
         {
             Id = id;
             Name = name;
-            Image = image;
+            Sprite = sprite;
         }
 
         protected Item(int id, string name)

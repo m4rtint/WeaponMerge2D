@@ -6,7 +6,7 @@ namespace _WeaponMerge.Scripts.Managers.Data
 {
     public class WeaponDataProvider : MonoBehaviour
     {
-        [SerializeField] private Image[] _weaponIcons;
+        [SerializeField] private Sprite[] _weaponIcons;
 
         private static WeaponDataProvider _instance;
         public static WeaponDataProvider Instance
@@ -290,7 +290,7 @@ namespace _WeaponMerge.Scripts.Managers.Data
             "FAMAE FN-750 Match"
         };
 
-        public Image GetWeaponIcon(int hashCode)
+        public Sprite GetWeaponIcon(int hashCode)
         {
             var index = hashCode % _weaponIcons.Length;
             return _weaponIcons[index];

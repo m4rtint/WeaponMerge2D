@@ -67,7 +67,8 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
 
         private string MapToPresentation(Weapon weapon)
         {
-            return $"Fire Rate: {weapon.FireRate}\n" +
+            return $"Name: {weapon.Name}\n" +
+                   $"Fire Rate: {weapon.FireRate}\n" +
                    $"Spread Angle: {weapon.SpreadAngle}\n" +
                    $"Bullet Speed: {weapon.BulletSpeed}\n" +
                    $"Bullets Per Shot: {weapon.BulletsPerShot}\n" +

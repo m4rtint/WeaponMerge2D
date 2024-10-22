@@ -15,7 +15,7 @@ namespace _WeaponMerge.Scripts.Weapons
                     return new Weapon(
                         id: 1,
                         name: "Rifle",
-                        image: null,
+                        sprite: null,
                         fireRate: 0.1f,
                         spreadAngle: 1f,
                         bulletSpeed: 20f,
@@ -28,7 +28,7 @@ namespace _WeaponMerge.Scripts.Weapons
                     return new Weapon(
                         id: 2,
                         name: "Shotgun",
-                        image: null,
+                        sprite: null,
                         fireRate: 1f,
                         spreadAngle: 10f,
                         bulletSpeed: 10f,
@@ -57,7 +57,7 @@ namespace _WeaponMerge.Scripts.Weapons
             return new Weapon(
                 id: id,
                 name: WeaponDataProvider.Instance.GetWeaponName(id.GetHashCode()),
-                image: WeaponDataProvider.Instance.GetWeaponIcon(id.GetHashCode()), 
+                sprite: WeaponDataProvider.Instance.GetWeaponIcon(id.GetHashCode()), 
                 fireRate: fireRate,
                 spreadAngle: spreadAngle,
                 bulletSpeed: bulletSpeed,
