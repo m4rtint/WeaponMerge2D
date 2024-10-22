@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: e0402f8f4f1ae3a43991786717783d9a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3495714898511044826
+    second: Pistol_Modern_Yellow_0
+  - first:
+      213: 4869952034899384196
+    second: Pistol_Modern_Yellow_1
+  - first:
+      213: -4524190065185392071
+    second: Pistol_Modern_Yellow_2
+  - first:
+      213: 3202417475282624399
+    second: Pistol_Modern_Yellow_3
+  - first:
+      213: -7854579799814285659
+    second: Pistol_Modern_Yellow_4
+  - first:
+      213: -4084155417636267827
+    second: Pistol_Modern_Yellow_5
+  - first:
+      213: 5147281771284786908
+    second: Pistol_Modern_Yellow_6
+  - first:
+      213: 8791209809404418402
+    second: Pistol_Modern_Yellow_7
+  - first:
+      213: 4262256137941875150
+    second: Pistol_Modern_Yellow_8
+  - first:
+      213: 2869639307904293954
+    second: Pistol_Modern_Yellow_9
+  - first:
+      213: 8424134265049842465
+    second: Pistol_Modern_Yellow_10
+  - first:
+      213: 981985182620090223
+    second: Pistol_Modern_Yellow_11
+  - first:
+      213: 3953486683297185331
+    second: Pistol_Modern_Yellow_12
+  - first:
+      213: 4650312196532539913
+    second: Pistol_Modern_Yellow_13
+  - first:
+      213: 7874335244128505554
+    second: Pistol_Modern_Yellow_14
+  - first:
+      213: -5884065129720624094
+    second: Pistol_Modern_Yellow_15
+  - first:
+      213: -5780843785069042634
+    second: Pistol_Modern_Yellow_16
+  - first:
+      213: -3854687980271643546
+    second: Pistol_Modern_Yellow_17
+  - first:
+      213: 5026504250178101974
+    second: Pistol_Modern_Yellow_18
+  - first:
+      213: -2284478491941907208
+    second: Pistol_Modern_Yellow_19
+  - first:
+      213: -8488614631792926622
+    second: Pistol_Modern_Yellow_20
+  - first:
+      213: -6684188075419446740
+    second: Pistol_Modern_Yellow_21
+  - first:
+      213: -3787725172901331848
+    second: Pistol_Modern_Yellow_22
+  - first:
+      213: 7262049143413783050
+    second: Pistol_Modern_Yellow_23
+  - first:
+      213: -3595401465957220433
+    second: Pistol_Modern_Yellow_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 262
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad0aac9dd26438030800000000000000
+      internalID: 3495714898511044826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 262
+        width: 53
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4875e59d29b859340800000000000000
+      internalID: 4869952034899384196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 262
+        width: 54
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93af54c1b19d631c0800000000000000
+      internalID: -4524190065185392071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 263
+        width: 52
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f59b40ab5417c20800000000000000
+      internalID: 3202417475282624399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_4
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 262
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a65c14994deef290800000000000000
+      internalID: -7854579799814285659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_5
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 198
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc89d44594a2257c0800000000000000
+      internalID: -4084155417636267827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_6
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 198
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdee540ef71de6740800000000000000
+      internalID: 5147281771284786908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_7
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 198
+        width: 54
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 269da7b6eb6a00a70800000000000000
+      internalID: 8791209809404418402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_8
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 200
+        width: 55
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec9f0c30063962b30800000000000000
+      internalID: 4262256137941875150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_9
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 199
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c122d1fb103d720800000000000000
+      internalID: 2869639307904293954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_10
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 137
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1230e782b7988e470800000000000000
+      internalID: 8424134265049842465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 137
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f74c02256b0ad00800000000000000
+      internalID: 981985182620090223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_12
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 137
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e7a26213b9dd630800000000000000
+      internalID: 3953486683297185331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_13
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 137
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9021df8ed4a398040800000000000000
+      internalID: 4650312196532539913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_14
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 136
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de4e9c3f22474d60800000000000000
+      internalID: 7874335244128505554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_15
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 72
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22c4dbb80f9975ea0800000000000000
+      internalID: -5884065129720624094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_16
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 72
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6346fe8a43156cfa0800000000000000
+      internalID: -5780843785069042634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_17
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 72
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664d0f774b5618ac0800000000000000
+      internalID: -3854687980271643546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 72
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d26bd5ebfab1c540800000000000000
+      internalID: 5026504250178101974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_19
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 72
+        width: 55
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f458ce4ae6eb40e0800000000000000
+      internalID: -2284478491941907208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 9
+        width: 55
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 260accc87f1623a80800000000000000
+      internalID: -8488614631792926622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_21
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 8
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c22d8b81c5efc33a0800000000000000
+      internalID: -6684188075419446740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_22
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 9
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c3962060c4f6bc0800000000000000
+      internalID: -3787725172901331848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_23
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 8
+        width: 55
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0abb9e483bf7c460800000000000000
+      internalID: 7262049143413783050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Yellow_24
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 8
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf73bc7a619a1ec0800000000000000
+      internalID: -3595401465957220433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pistol_Modern_Yellow_0: 3495714898511044826
+      Pistol_Modern_Yellow_1: 4869952034899384196
+      Pistol_Modern_Yellow_10: 8424134265049842465
+      Pistol_Modern_Yellow_11: 981985182620090223
+      Pistol_Modern_Yellow_12: 3953486683297185331
+      Pistol_Modern_Yellow_13: 4650312196532539913
+      Pistol_Modern_Yellow_14: 7874335244128505554
+      Pistol_Modern_Yellow_15: -5884065129720624094
+      Pistol_Modern_Yellow_16: -5780843785069042634
+      Pistol_Modern_Yellow_17: -3854687980271643546
+      Pistol_Modern_Yellow_18: 5026504250178101974
+      Pistol_Modern_Yellow_19: -2284478491941907208
+      Pistol_Modern_Yellow_2: -4524190065185392071
+      Pistol_Modern_Yellow_20: -8488614631792926622
+      Pistol_Modern_Yellow_21: -6684188075419446740
+      Pistol_Modern_Yellow_22: -3787725172901331848
+      Pistol_Modern_Yellow_23: 7262049143413783050
+      Pistol_Modern_Yellow_24: -3595401465957220433
+      Pistol_Modern_Yellow_3: 3202417475282624399
+      Pistol_Modern_Yellow_4: -7854579799814285659
+      Pistol_Modern_Yellow_5: -4084155417636267827
+      Pistol_Modern_Yellow_6: 5147281771284786908
+      Pistol_Modern_Yellow_7: 8791209809404418402
+      Pistol_Modern_Yellow_8: 4262256137941875150
+      Pistol_Modern_Yellow_9: 2869639307904293954
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

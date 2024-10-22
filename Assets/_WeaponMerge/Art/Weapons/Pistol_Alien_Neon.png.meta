@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: dea2cb27a7e715141942d3e67e9c5d28
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6692626385107006234
+    second: Pistol_Alien_Neon_0
+  - first:
+      213: -8689883492094578371
+    second: Pistol_Alien_Neon_1
+  - first:
+      213: 3653073569960583685
+    second: Pistol_Alien_Neon_2
+  - first:
+      213: 8411592758092710357
+    second: Pistol_Alien_Neon_3
+  - first:
+      213: 2248451080185587254
+    second: Pistol_Alien_Neon_4
+  - first:
+      213: 6220318982424339514
+    second: Pistol_Alien_Neon_5
+  - first:
+      213: -5345281860781528354
+    second: Pistol_Alien_Neon_6
+  - first:
+      213: 1674220630875097329
+    second: Pistol_Alien_Neon_7
+  - first:
+      213: 1932289899432100944
+    second: Pistol_Alien_Neon_8
+  - first:
+      213: 5929616278258289253
+    second: Pistol_Alien_Neon_9
+  - first:
+      213: 1309960457604863714
+    second: Pistol_Alien_Neon_10
+  - first:
+      213: -6505088435737978778
+    second: Pistol_Alien_Neon_11
+  - first:
+      213: -8163342226922684201
+    second: Pistol_Alien_Neon_12
+  - first:
+      213: -4176208328966090142
+    second: Pistol_Alien_Neon_13
+  - first:
+      213: -4748078117756845060
+    second: Pistol_Alien_Neon_14
+  - first:
+      213: 7483636439056586754
+    second: Pistol_Alien_Neon_15
+  - first:
+      213: -1333535501028167405
+    second: Pistol_Alien_Neon_16
+  - first:
+      213: -4525267520529248741
+    second: Pistol_Alien_Neon_17
+  - first:
+      213: -94035887345437024
+    second: Pistol_Alien_Neon_18
+  - first:
+      213: 5419886685506635497
+    second: Pistol_Alien_Neon_19
+  - first:
+      213: -6291472538925686408
+    second: Pistol_Alien_Neon_20
+  - first:
+      213: -5073213955275633440
+    second: Pistol_Alien_Neon_21
+  - first:
+      213: 3215414258320917093
+    second: Pistol_Alien_Neon_22
+  - first:
+      213: -3047922041943966225
+    second: Pistol_Alien_Neon_23
+  - first:
+      213: 6896027328042072591
+    second: Pistol_Alien_Neon_24
+  - first:
+      213: 6796808853400306578
+    second: Pistol_Alien_Neon_25
+  - first:
+      213: 7367009245640286826
+    second: Pistol_Alien_Neon_26
+  - first:
+      213: 1917828152508250862
+    second: Pistol_Alien_Neon_27
+  - first:
+      213: 4061766030345533891
+    second: Pistol_Alien_Neon_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 264
+        width: 53
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec4a4503c30f13a0800000000000000
+      internalID: -6692626385107006234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 264
+        width: 53
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d31fb224105576780800000000000000
+      internalID: -8689883492094578371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 264
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5026edb9e0352b230800000000000000
+      internalID: 3653073569960583685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 264
+        width: 54
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d14d550c0bfbb470800000000000000
+      internalID: 8411592758092710357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_4
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 262
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6362e49385a143f10800000000000000
+      internalID: 2248451080185587254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 264
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34a5096823035650800000000000000
+      internalID: 6220318982424339514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 198
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda27c7d77eb1d5b0800000000000000
+      internalID: -5345281860781528354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_7
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 201
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f8c0fa1bc60c3710800000000000000
+      internalID: 1674220630875097329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_8
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 198
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054c9b20d6fd0da10800000000000000
+      internalID: 1932289899432100944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_9
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 199
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56a85ffa69a3a4250800000000000000
+      internalID: 5929616278258289253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_10
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 198
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e69851881aed2210800000000000000
+      internalID: 1309960457604863714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_11
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 199
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 668165b788849b5a0800000000000000
+      internalID: -6505088435737978778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 134
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0c350fe7bf5be80800000000000000
+      internalID: -8163342226922684201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_13
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 133
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 262d2fbb6a02b06c0800000000000000
+      internalID: -4176208328966090142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 134
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf34c49bb107b1eb0800000000000000
+      internalID: -4748078117756845060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_15
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 135
+        width: 59
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 208132af0b73bd760800000000000000
+      internalID: 7483636439056586754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_16
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 136
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311f7d5f6845e7de0800000000000000
+      internalID: -1333535501028167405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_17
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 134
+        width: 58
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1ecd3d7a250331c0800000000000000
+      internalID: -4525267520529248741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_18
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 70
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a6f2a2dbdae1bef0800000000000000
+      internalID: -94035887345437024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 72
+        width: 57
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e60e74893e473b40800000000000000
+      internalID: 5419886685506635497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_20
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 70
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871a53b3f0330b8a0800000000000000
+      internalID: -6291472538925686408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_21
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 77
+        width: 54
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eccd3669c25899b0800000000000000
+      internalID: -5073213955275633440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_22
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 71
+        width: 60
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 562c1f06b327f9c20800000000000000
+      internalID: 3215414258320917093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_23
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 71
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedb8da2d0b93b5d0800000000000000
+      internalID: -3047922041943966225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_24
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a7551715c93bf50800000000000000
+      internalID: 6896027328042072591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_25
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 6
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 293c72124ad135e50800000000000000
+      internalID: 6796808853400306578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_26
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 5
+        width: 61
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a62686770efdc3660800000000000000
+      internalID: 7367009245640286826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 8
+        width: 54
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea7f7a2b8e7d9a10800000000000000
+      internalID: 1917828152508250862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Neon_28
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 5
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c97e773faa4e5830800000000000000
+      internalID: 4061766030345533891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pistol_Alien_Neon_0: -6692626385107006234
+      Pistol_Alien_Neon_1: -8689883492094578371
+      Pistol_Alien_Neon_10: 1309960457604863714
+      Pistol_Alien_Neon_11: -6505088435737978778
+      Pistol_Alien_Neon_12: -8163342226922684201
+      Pistol_Alien_Neon_13: -4176208328966090142
+      Pistol_Alien_Neon_14: -4748078117756845060
+      Pistol_Alien_Neon_15: 7483636439056586754
+      Pistol_Alien_Neon_16: -1333535501028167405
+      Pistol_Alien_Neon_17: -4525267520529248741
+      Pistol_Alien_Neon_18: -94035887345437024
+      Pistol_Alien_Neon_19: 5419886685506635497
+      Pistol_Alien_Neon_2: 3653073569960583685
+      Pistol_Alien_Neon_20: -6291472538925686408
+      Pistol_Alien_Neon_21: -5073213955275633440
+      Pistol_Alien_Neon_22: 3215414258320917093
+      Pistol_Alien_Neon_23: -3047922041943966225
+      Pistol_Alien_Neon_24: 6896027328042072591
+      Pistol_Alien_Neon_25: 6796808853400306578
+      Pistol_Alien_Neon_26: 7367009245640286826
+      Pistol_Alien_Neon_27: 1917828152508250862
+      Pistol_Alien_Neon_28: 4061766030345533891
+      Pistol_Alien_Neon_3: 8411592758092710357
+      Pistol_Alien_Neon_4: 2248451080185587254
+      Pistol_Alien_Neon_5: 6220318982424339514
+      Pistol_Alien_Neon_6: -5345281860781528354
+      Pistol_Alien_Neon_7: 1674220630875097329
+      Pistol_Alien_Neon_8: 1932289899432100944
+      Pistol_Alien_Neon_9: 5929616278258289253
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

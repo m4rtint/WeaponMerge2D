@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 2c379c29b6dada44f8d7a1d688bcac00
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4922976014395140519
+    second: Pistol_Modern_Regular_0
+  - first:
+      213: 5984554003089436406
+    second: Pistol_Modern_Regular_1
+  - first:
+      213: -4728529811077362674
+    second: Pistol_Modern_Regular_2
+  - first:
+      213: 1781153470102338599
+    second: Pistol_Modern_Regular_3
+  - first:
+      213: 7808445135229089595
+    second: Pistol_Modern_Regular_4
+  - first:
+      213: 8686805847931721245
+    second: Pistol_Modern_Regular_5
+  - first:
+      213: -1243772971070524484
+    second: Pistol_Modern_Regular_6
+  - first:
+      213: 6255787678702626171
+    second: Pistol_Modern_Regular_7
+  - first:
+      213: -9086353830125443753
+    second: Pistol_Modern_Regular_8
+  - first:
+      213: -4165425961416100167
+    second: Pistol_Modern_Regular_9
+  - first:
+      213: 34319510677534361
+    second: Pistol_Modern_Regular_10
+  - first:
+      213: -4885483174672717352
+    second: Pistol_Modern_Regular_11
+  - first:
+      213: 3652674287076561610
+    second: Pistol_Modern_Regular_12
+  - first:
+      213: 7855592279846944272
+    second: Pistol_Modern_Regular_13
+  - first:
+      213: -3814092735814133645
+    second: Pistol_Modern_Regular_14
+  - first:
+      213: -3258894489215141463
+    second: Pistol_Modern_Regular_15
+  - first:
+      213: 6769792282407717594
+    second: Pistol_Modern_Regular_16
+  - first:
+      213: 2253887432137986935
+    second: Pistol_Modern_Regular_17
+  - first:
+      213: 6497612373527567156
+    second: Pistol_Modern_Regular_18
+  - first:
+      213: -3995742764568221878
+    second: Pistol_Modern_Regular_19
+  - first:
+      213: 3313395542818582483
+    second: Pistol_Modern_Regular_20
+  - first:
+      213: -3862796962576934085
+    second: Pistol_Modern_Regular_21
+  - first:
+      213: -2319269389956727014
+    second: Pistol_Modern_Regular_22
+  - first:
+      213: -7117028275400250926
+    second: Pistol_Modern_Regular_23
+  - first:
+      213: 1753773421433816622
+    second: Pistol_Modern_Regular_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 261
+        width: 55
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a96acf1a9ce15440800000000000000
+      internalID: 4922976014395140519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 262
+        width: 57
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fea94588286d0350800000000000000
+      internalID: 5984554003089436406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 263
+        width: 57
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c83ec8033e06eb0800000000000000
+      internalID: -4728529811077362674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 266
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72c77e3e4ade7b810800000000000000
+      internalID: 1781153470102338599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_4
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 262
+        width: 57
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b37f475ca7b2d5c60800000000000000
+      internalID: 7808445135229089595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 199
+        width: 58
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1691ced4ebbd8870800000000000000
+      internalID: 8686805847931721245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_6
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 201
+        width: 52
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb3fb16921b3dbee0800000000000000
+      internalID: -1243772971070524484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_7
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 198
+        width: 57
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b75e55bcfb501d650800000000000000
+      internalID: 6255787678702626171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_8
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 199
+        width: 55
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 755ecd34559c6e180800000000000000
+      internalID: -9086353830125443753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_9
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 200
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b67a9f482f6136c0800000000000000
+      internalID: -4165425961416100167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_10
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 135
+        width: 57
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 996bcc2c96de97000800000000000000
+      internalID: 34319510677534361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 133
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d92c71efe6433cb0800000000000000
+      internalID: -4885483174672717352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_12
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 134
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac2d66159e7e0b230800000000000000
+      internalID: 3652674287076561610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_13
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 134
+        width: 54
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ef39cce8ba40d60800000000000000
+      internalID: 7855592279846944272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_14
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 135
+        width: 57
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378966d5dde911bc0800000000000000
+      internalID: -3814092735814133645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_15
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 69
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a97ad97ab416c2d0800000000000000
+      internalID: -3258894489215141463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_16
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 70
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adac714863223fd50800000000000000
+      internalID: 6769792282407717594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_17
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 71
+        width: 54
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7735d4c8daa674f10800000000000000
+      internalID: 2253887432137986935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 72
+        width: 56
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43b1b4427082c2a50800000000000000
+      internalID: 6497612373527567156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_19
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 72
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47e21040254c88c0800000000000000
+      internalID: -3995742764568221878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_20
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 7
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df601ae0bb8bfd20800000000000000
+      internalID: 3313395542818582483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_21
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 7
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3bd426e0a6946ac0800000000000000
+      internalID: -3862796962576934085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_22
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 8
+        width: 53
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f313127cc40dfd0800000000000000
+      internalID: -2319269389956727014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_23
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 6
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d96b5cbd7c3b3d90800000000000000
+      internalID: -7117028275400250926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Modern_Regular_24
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 9
+        width: 52
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26851982a7a65810800000000000000
+      internalID: 1753773421433816622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pistol_Modern_Regular_0: 4922976014395140519
+      Pistol_Modern_Regular_1: 5984554003089436406
+      Pistol_Modern_Regular_10: 34319510677534361
+      Pistol_Modern_Regular_11: -4885483174672717352
+      Pistol_Modern_Regular_12: 3652674287076561610
+      Pistol_Modern_Regular_13: 7855592279846944272
+      Pistol_Modern_Regular_14: -3814092735814133645
+      Pistol_Modern_Regular_15: -3258894489215141463
+      Pistol_Modern_Regular_16: 6769792282407717594
+      Pistol_Modern_Regular_17: 2253887432137986935
+      Pistol_Modern_Regular_18: 6497612373527567156
+      Pistol_Modern_Regular_19: -3995742764568221878
+      Pistol_Modern_Regular_2: -4728529811077362674
+      Pistol_Modern_Regular_20: 3313395542818582483
+      Pistol_Modern_Regular_21: -3862796962576934085
+      Pistol_Modern_Regular_22: -2319269389956727014
+      Pistol_Modern_Regular_23: -7117028275400250926
+      Pistol_Modern_Regular_24: 1753773421433816622
+      Pistol_Modern_Regular_3: 1781153470102338599
+      Pistol_Modern_Regular_4: 7808445135229089595
+      Pistol_Modern_Regular_5: 8686805847931721245
+      Pistol_Modern_Regular_6: -1243772971070524484
+      Pistol_Modern_Regular_7: 6255787678702626171
+      Pistol_Modern_Regular_8: -9086353830125443753
+      Pistol_Modern_Regular_9: -4165425961416100167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

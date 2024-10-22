@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: 1fe1650ec0beeba4884d9cea4ff0865c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4309615791108676648
+    second: Pistol_Space_Blue_0
+  - first:
+      213: 4537441430839619473
+    second: Pistol_Space_Blue_1
+  - first:
+      213: 1278470805807447419
+    second: Pistol_Space_Blue_2
+  - first:
+      213: 8467126805451881398
+    second: Pistol_Space_Blue_3
+  - first:
+      213: 7725954057747700779
+    second: Pistol_Space_Blue_4
+  - first:
+      213: 5263352987880715624
+    second: Pistol_Space_Blue_5
+  - first:
+      213: -8922021152431238518
+    second: Pistol_Space_Blue_6
+  - first:
+      213: -2870047108586806839
+    second: Pistol_Space_Blue_7
+  - first:
+      213: 4818852480182910272
+    second: Pistol_Space_Blue_8
+  - first:
+      213: 804559634279344521
+    second: Pistol_Space_Blue_9
+  - first:
+      213: 7993042531387992470
+    second: Pistol_Space_Blue_10
+  - first:
+      213: -1979322164579029532
+    second: Pistol_Space_Blue_11
+  - first:
+      213: -6690615402102584649
+    second: Pistol_Space_Blue_12
+  - first:
+      213: -2339260441414711588
+    second: Pistol_Space_Blue_13
+  - first:
+      213: 8306594516914602957
+    second: Pistol_Space_Blue_14
+  - first:
+      213: -2627864129318895438
+    second: Pistol_Space_Blue_15
+  - first:
+      213: 7928934646252395027
+    second: Pistol_Space_Blue_16
+  - first:
+      213: 3479781824713632015
+    second: Pistol_Space_Blue_17
+  - first:
+      213: 5006271828833983323
+    second: Pistol_Space_Blue_18
+  - first:
+      213: -194268030767149883
+    second: Pistol_Space_Blue_19
+  - first:
+      213: 2374103057569334043
+    second: Pistol_Space_Blue_20
+  - first:
+      213: 9045716404177473924
+    second: Pistol_Space_Blue_21
+  - first:
+      213: 2475611616734957498
+    second: Pistol_Space_Blue_22
+  - first:
+      213: -9097508087122775710
+    second: Pistol_Space_Blue_23
+  - first:
+      213: -4971972204756375886
+    second: Pistol_Space_Blue_24
+  - first:
+      213: -2758869466769955483
+    second: Pistol_Space_Blue_25
+  - first:
+      213: -6439389839207230586
+    second: Pistol_Space_Blue_26
+  - first:
+      213: 7744032466294178908
+    second: Pistol_Space_Blue_27
+  - first:
+      213: -7569036345537752684
+    second: Pistol_Space_Blue_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 263
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d3ad84754b2134c0800000000000000
+      internalID: -4309615791108676648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 264
+        width: 57
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19fe552e0fa38fe30800000000000000
+      internalID: 4537441430839619473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_2
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 266
+        width: 55
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d3cdb9c6a0eb110800000000000000
+      internalID: 1278470805807447419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 265
+        width: 56
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbb52308f6418570800000000000000
+      internalID: 8467126805451881398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 264
+        width: 55
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2c1a0b184a183b60800000000000000
+      internalID: 7725954057747700779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 263
+        width: 59
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865fe12f7af2b0940800000000000000
+      internalID: 5263352987880715624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 203
+        width: 51
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8290d2680d9e2480800000000000000
+      internalID: -8922021152431238518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_7
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 198
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1eb046c5b8b28d0800000000000000
+      internalID: -2870047108586806839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_8
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 202
+        width: 50
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04dff42acc000e240800000000000000
+      internalID: 4818852480182910272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_9
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 197
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989a6d189be5a2b00800000000000000
+      internalID: 804559634279344521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_10
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 198
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69968f555ddfcee60800000000000000
+      internalID: 7993042531387992470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_11
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 200
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eda53c6af80884e0800000000000000
+      internalID: -1979322164579029532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 138
+        width: 50
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba0bec7db82623a0800000000000000
+      internalID: -6690615402102584649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_13
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 134
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd64a50c507498fd0800000000000000
+      internalID: -2339260441414711588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_14
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 134
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc307e1f3b3f64370800000000000000
+      internalID: 8306594516914602957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_15
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 134
+        width: 54
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0c4f55f73f78bd0800000000000000
+      internalID: -2627864129318895438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_16
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 134
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a592d2d0c390e60800000000000000
+      internalID: 7928934646252395027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_17
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 136
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09aae5022baa4030800000000000000
+      internalID: 3479781824713632015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 70
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5bd1b634b9d97540800000000000000
+      internalID: 5006271828833983323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_19
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 75
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ccc8ea5142dd4df0800000000000000
+      internalID: -194268030767149883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_20
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 70
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13c69ef62282f020800000000000000
+      internalID: 2374103057569334043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_21
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 80
+        width: 51
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4811ce1b427d88d70800000000000000
+      internalID: 9045716404177473924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_22
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 73
+        width: 54
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf415926a32b5220800000000000000
+      internalID: 2475611616734957498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_23
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 72
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261bdcd68982fb180800000000000000
+      internalID: -9097508087122775710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_24
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 10
+        width: 47
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b661665f91000bb0800000000000000
+      internalID: -4971972204756375886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_25
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 10
+        width: 57
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565618b46d686b9d0800000000000000
+      internalID: -2758869466769955483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_26
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 10
+        width: 56
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6831bcffe01b2a6a0800000000000000
+      internalID: -6439389839207230586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 7
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c548e8a9f74587b60800000000000000
+      internalID: 7744032466294178908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Space_Blue_28
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 6
+        width: 61
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4919334db8165f690800000000000000
+      internalID: -7569036345537752684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pistol_Space_Blue_0: -4309615791108676648
+      Pistol_Space_Blue_1: 4537441430839619473
+      Pistol_Space_Blue_10: 7993042531387992470
+      Pistol_Space_Blue_11: -1979322164579029532
+      Pistol_Space_Blue_12: -6690615402102584649
+      Pistol_Space_Blue_13: -2339260441414711588
+      Pistol_Space_Blue_14: 8306594516914602957
+      Pistol_Space_Blue_15: -2627864129318895438
+      Pistol_Space_Blue_16: 7928934646252395027
+      Pistol_Space_Blue_17: 3479781824713632015
+      Pistol_Space_Blue_18: 5006271828833983323
+      Pistol_Space_Blue_19: -194268030767149883
+      Pistol_Space_Blue_2: 1278470805807447419
+      Pistol_Space_Blue_20: 2374103057569334043
+      Pistol_Space_Blue_21: 9045716404177473924
+      Pistol_Space_Blue_22: 2475611616734957498
+      Pistol_Space_Blue_23: -9097508087122775710
+      Pistol_Space_Blue_24: -4971972204756375886
+      Pistol_Space_Blue_25: -2758869466769955483
+      Pistol_Space_Blue_26: -6439389839207230586
+      Pistol_Space_Blue_27: 7744032466294178908
+      Pistol_Space_Blue_28: -7569036345537752684
+      Pistol_Space_Blue_3: 8467126805451881398
+      Pistol_Space_Blue_4: 7725954057747700779
+      Pistol_Space_Blue_5: 5263352987880715624
+      Pistol_Space_Blue_6: -8922021152431238518
+      Pistol_Space_Blue_7: -2870047108586806839
+      Pistol_Space_Blue_8: 4818852480182910272
+      Pistol_Space_Blue_9: 804559634279344521
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

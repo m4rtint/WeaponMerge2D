@@ -1,6 +1,6 @@
 ﻿using System;
+using _WeaponMerge.Scripts.Managers.Data;
 using _WeaponMerge.Scripts.Weapons;
-using _WeaponMerge.Tools;
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain
 {
@@ -14,9 +14,11 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain
 
         public Weapon MergePistols(Weapon weaponOne, Weapon weaponTwo)
         {
+            var id = UnityEngine.Random.Range(10000, 100000);
             return new Weapon(
-                id: UnityEngine.Random.Range(10000, 100000), // Randomized id between 10000 and 99999
-                name: PlaceholderWeaponNames.GetRandomPistolName(),
+                id: id, // Randomized id between 10000 and 99999
+                name: WeaponDataProvider.Instance.GetWeaponName(id.GetHashCode()),
+                image:  WeaponDataProvider.Instance.GetWeaponIcon(id.GetHashCode()), // Assuming image is not provided
                 fireRate: (weaponOne.FireRate + weaponTwo.FireRate) / 2,
                 spreadAngle: Randomize(weaponOne.SpreadAngle, weaponTwo.SpreadAngle, MergeType.Higher),
                 bulletSpeed: Randomize(weaponOne.BulletSpeed, weaponTwo.BulletSpeed, MergeType.Higher),

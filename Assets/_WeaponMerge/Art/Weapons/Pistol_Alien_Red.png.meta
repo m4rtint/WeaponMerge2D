@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 275ff0446b7fd2e469e7117d698932ab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1424526210333977187
+    second: Pistol_Alien_Red_0
+  - first:
+      213: -9061428018821344774
+    second: Pistol_Alien_Red_1
+  - first:
+      213: 4399536585794367202
+    second: Pistol_Alien_Red_2
+  - first:
+      213: 1172881722213382477
+    second: Pistol_Alien_Red_3
+  - first:
+      213: 5829331643360317768
+    second: Pistol_Alien_Red_4
+  - first:
+      213: -5869416483536034454
+    second: Pistol_Alien_Red_5
+  - first:
+      213: 8257957925895802965
+    second: Pistol_Alien_Red_6
+  - first:
+      213: 489487951167070840
+    second: Pistol_Alien_Red_7
+  - first:
+      213: 7884320268420100864
+    second: Pistol_Alien_Red_8
+  - first:
+      213: 661441689945657378
+    second: Pistol_Alien_Red_9
+  - first:
+      213: 7384746271564751944
+    second: Pistol_Alien_Red_10
+  - first:
+      213: -4670133760635259689
+    second: Pistol_Alien_Red_11
+  - first:
+      213: -4595444762845458135
+    second: Pistol_Alien_Red_12
+  - first:
+      213: 8336326726065035379
+    second: Pistol_Alien_Red_13
+  - first:
+      213: -1233668689212825809
+    second: Pistol_Alien_Red_14
+  - first:
+      213: 1556256674175839923
+    second: Pistol_Alien_Red_15
+  - first:
+      213: 8300390987584521985
+    second: Pistol_Alien_Red_16
+  - first:
+      213: 6507391265049600584
+    second: Pistol_Alien_Red_17
+  - first:
+      213: 6829758035315784199
+    second: Pistol_Alien_Red_18
+  - first:
+      213: 9093475915521789353
+    second: Pistol_Alien_Red_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 199
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36aa0347a0fe4c310800000000000000
+      internalID: 1424526210333977187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 200
+        width: 58
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af1d164f9375f3280800000000000000
+      internalID: -9061428018821344774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 197
+        width: 58
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eeab9c073b4e0d30800000000000000
+      internalID: 4399536585794367202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 201
+        width: 52
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49b31056b9e64010800000000000000
+      internalID: 1172881722213382477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 202
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8419f689e32f5e050800000000000000
+      internalID: 5829331643360317768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_5
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 140
+        width: 51
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6523044ec4ab8ea0800000000000000
+      internalID: -5869416483536034454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 139
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55014272bf82a9270800000000000000
+      internalID: 8257957925895802965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_7
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 139
+        width: 57
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 872a52bb2b20bc600800000000000000
+      internalID: 489487951167070840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_8
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 139
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 003b79ed28bba6d60800000000000000
+      internalID: 7884320268420100864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_9
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 138
+        width: 51
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22058d866b9ed2900800000000000000
+      internalID: 661441689945657378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 71
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844e101ab93eb7660800000000000000
+      internalID: 7384746271564751944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_11
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 69
+        width: 59
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d4b6cf861a503fb0800000000000000
+      internalID: -4670133760635259689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_12
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 71
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921daadf553b930c0800000000000000
+      internalID: -4595444762845458135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_13
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 70
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37893b65df490b370800000000000000
+      internalID: 8336326726065035379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_14
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 73
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f92f80dd021eee0800000000000000
+      internalID: -1233668689212825809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 6
+        width: 56
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bee493233fe89510800000000000000
+      internalID: 1556256674175839923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_16
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 8
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10744d730a9e03370800000000000000
+      internalID: 8300390987584521985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_17
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 8
+        width: 55
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842e2cfb0e5ee4a50800000000000000
+      internalID: 6507391265049600584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 6
+        width: 55
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70afddc5fbc28ce50800000000000000
+      internalID: 6829758035315784199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Alien_Red_19
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 7
+        width: 56
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad0f367a24823e70800000000000000
+      internalID: 9093475915521789353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Pistol_Alien_Red_0: 1424526210333977187
+      Pistol_Alien_Red_1: -9061428018821344774
+      Pistol_Alien_Red_10: 7384746271564751944
+      Pistol_Alien_Red_11: -4670133760635259689
+      Pistol_Alien_Red_12: -4595444762845458135
+      Pistol_Alien_Red_13: 8336326726065035379
+      Pistol_Alien_Red_14: -1233668689212825809
+      Pistol_Alien_Red_15: 1556256674175839923
+      Pistol_Alien_Red_16: 8300390987584521985
+      Pistol_Alien_Red_17: 6507391265049600584
+      Pistol_Alien_Red_18: 6829758035315784199
+      Pistol_Alien_Red_19: 9093475915521789353
+      Pistol_Alien_Red_2: 4399536585794367202
+      Pistol_Alien_Red_3: 1172881722213382477
+      Pistol_Alien_Red_4: 5829331643360317768
+      Pistol_Alien_Red_5: -5869416483536034454
+      Pistol_Alien_Red_6: 8257957925895802965
+      Pistol_Alien_Red_7: 489487951167070840
+      Pistol_Alien_Red_8: 7884320268420100864
+      Pistol_Alien_Red_9: 661441689945657378
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

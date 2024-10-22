@@ -1,4 +1,5 @@
 using _WeaponMerge.Scripts.Inventory;
+using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.Weapons
 {
@@ -23,6 +24,7 @@ namespace _WeaponMerge.Scripts.Weapons
         public Weapon(
             int id,
             string name,
+            Image image,
             float fireRate,
             float spreadAngle,
             float bulletSpeed,
@@ -30,7 +32,7 @@ namespace _WeaponMerge.Scripts.Weapons
             float bulletTimeToLive,
             int damage,
             float penetrateDamageFalloff,
-            AmmoType ammoType) : base(id, name)
+            AmmoType ammoType) : base(id, name, image)
         {
             FireRate = fireRate;
             SpreadAngle = spreadAngle;

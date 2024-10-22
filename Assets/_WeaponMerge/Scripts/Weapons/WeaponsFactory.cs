@@ -1,3 +1,4 @@
+using _WeaponMerge.Scripts.Managers.Data;
 using Random = UnityEngine.Random;
 
 namespace _WeaponMerge.Scripts.Weapons
@@ -12,28 +13,30 @@ namespace _WeaponMerge.Scripts.Weapons
                     return CreatePistol();
                 case WeaponType.Rifle:
                     return new Weapon(
-                        1,
-                        "Rifle",
-                        0.1f,
-                        1f,
-                        20f,
-                        1,
-                        2f,
-                        20,
-                        0.5f,
-                        AmmoType.Rifle);
+                        id: 1,
+                        name: "Rifle",
+                        image: null,
+                        fireRate: 0.1f,
+                        spreadAngle: 1f,
+                        bulletSpeed: 20f,
+                        bulletsPerShot: 1,
+                        bulletTimeToLive: 2f,
+                        damage: 20,
+                        penetrateDamageFalloff: 0.5f,
+                        ammoType: AmmoType.Rifle);
                 case WeaponType.Shotgun:
                     return new Weapon(
-                        2,
-                        "Shotgun",
-                        1f,
-                        10f,
-                        10f,
-                        5,
-                        2f,
-                        5,
-                        0.5f,
-                        AmmoType.Shotgun);
+                        id: 2,
+                        name: "Shotgun",
+                        image: null,
+                        fireRate: 1f,
+                        spreadAngle: 10f,
+                        bulletSpeed: 10f,
+                        bulletsPerShot: 5,
+                        bulletTimeToLive: 2f,
+                        damage: 5,
+                        penetrateDamageFalloff: 0.5f,
+                        ammoType: AmmoType.Shotgun);
                 default:
                     return null;
             }
@@ -50,18 +53,19 @@ namespace _WeaponMerge.Scripts.Weapons
             float bulletTimeToLive = Random.Range(1f, 5f); // Example range for bullet time to live
             int damage = Random.Range(5, 20); // Example range for damage
             float penetrateDamageFalloff = Random.Range(0.1f, 1f); // Example range for penetrate damage falloff
-
+            
             return new Weapon(
-                id,
-                "Pistol",
-                fireRate,
-                spreadAngle,
-                bulletSpeed,
-                bulletsPerShot,
-                bulletTimeToLive,
-                damage,
-                penetrateDamageFalloff,
-                AmmoType.Pistol);
+                id: id,
+                name: WeaponDataProvider.Instance.GetWeaponName(id.GetHashCode()),
+                image: WeaponDataProvider.Instance.GetWeaponIcon(id.GetHashCode()), 
+                fireRate: fireRate,
+                spreadAngle: spreadAngle,
+                bulletSpeed: bulletSpeed,
+                bulletsPerShot: bulletsPerShot,
+                bulletTimeToLive: bulletTimeToLive,
+                damage: damage,
+                penetrateDamageFalloff: penetrateDamageFalloff,
+                ammoType: AmmoType.Pistol);
         }
     }
 }
