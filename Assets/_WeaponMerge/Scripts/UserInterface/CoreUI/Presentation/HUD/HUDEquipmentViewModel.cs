@@ -54,11 +54,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
         {
             var equipmentItems = _getEquipmentItemsUseCase.Execute();
             var equippedItem = _getEquippedWeaponUseCase.Execute();
-            var newState = MapToSlotStates(equipmentItems, equippedItem);
-            if (State.Equals(newState))
-            {
-                State = newState;
-            }
             State = MapToSlotStates(equipmentItems, equippedItem);
         }
 
