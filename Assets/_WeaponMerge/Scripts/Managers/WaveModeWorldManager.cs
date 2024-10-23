@@ -7,7 +7,6 @@ using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -18,7 +17,6 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Configuration")] 
         [SerializeField] private InputActionAsset _actionAsset = null;
         [SerializeField] private PrefabPoolCoordinator _prefabPoolCoordinator = null;
-        [FormerlySerializedAs("_weaponIconProvider")] [SerializeField] private WeaponDataProvider _weaponDataProvider = null;
         
         [Title("Components")] 
         [SerializeField] private PlayerBehaviour _playerBehaviour = null;
