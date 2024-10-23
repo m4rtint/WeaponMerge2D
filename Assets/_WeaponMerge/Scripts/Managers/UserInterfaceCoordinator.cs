@@ -128,7 +128,7 @@ namespace _WeaponMerge.Scripts.Managers
                 _mergeCanvas.gameObject.SetActive(_isMergeOpen);
                 _itemDetailCanvas.gameObject.SetActive(_isMergeOpen);
                 _hudCanvas.gameObject.SetActive(!_isMergeOpen);
-                if (_isMergeOpen)
+                if (!_isMergeOpen)
                 {
                     _syncInventoryUseCase.Execute();
                 }

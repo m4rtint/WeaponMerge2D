@@ -16,8 +16,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
     
     public class MergeRepository: IMergeRepository
     {
-        private const int MAX_ITEMS_TO_MERGE = 2;
-        
         // Inventory
         private readonly InventoryStorage _storage;
         
@@ -27,13 +25,13 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
         public MergeRepository(InventoryStorage storage)
         {
             _storage = storage;
-            _inventoryToMerge = new Item[_storage.InventoryItems.Length + MAX_ITEMS_TO_MERGE];
+            _inventoryToMerge = new Item[_storage.InventoryItems.Length + InventoryStorage.MAX_MERGE_SLOTS];
             Array.Copy(_storage.InventoryItems, _inventoryToMerge, _storage.InventoryItems.Length);
         }
 
         public (Item, Item) GetMergingItems()
         {
-            return (_inventoryToMerge[^MAX_ITEMS_TO_MERGE], _inventoryToMerge[^1]);
+            return (_inventoryToMerge[^InventoryStorage.MAX_MERGE_SLOTS], _inventoryToMerge[^1]);
         }
 
         public void AddMergedItemToInventory(Item item)
@@ -47,7 +45,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
                 }
             }
             
-            _inventoryToMerge[^MAX_ITEMS_TO_MERGE] = null;
+            _inventoryToMerge[^InventoryStorage.MAX_MERGE_SLOTS] = null;
             _inventoryToMerge[^1] = null;
         }
 
@@ -80,18 +78,36 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
 
         public MergeInventory GetMergeInventory()
         {
-            var inventoryItems = _inventoryToMerge.Take(_inventoryToMerge.Length - MAX_ITEMS_TO_MERGE).ToArray();
+            var inventoryItems = _inventoryToMerge.Take(_inventoryToMerge.Length - InventoryStorage.MAX_MERGE_SLOTS).ToArray();
             return new MergeInventory
             {
                 InventoryItems = inventoryItems,
-                PrimarySlot = _inventoryToMerge[^MAX_ITEMS_TO_MERGE],
-                SecondarySlot = _inventoryToMerge[_inventoryToMerge.Length - MAX_ITEMS_TO_MERGE + 1]
+                PrimarySlot = _inventoryToMerge[^InventoryStorage.MAX_MERGE_SLOTS],
+                SecondarySlot = _inventoryToMerge[_inventoryToMerge.Length - InventoryStorage.MAX_MERGE_SLOTS + 1]
             };
         }
         
         public void SyncInventory()
         {
+            var primaryMergeSlot = _inventoryToMerge[^InventoryStorage.MAX_MERGE_SLOTS];
+            var secondaryMergeSlot = _inventoryToMerge[^1];
+
+            AddItemToFirstEmptySlot(primaryMergeSlot);
+            AddItemToFirstEmptySlot(secondaryMergeSlot);
+
             _storage.CopyInventory(_inventoryToMerge);
+        }
+
+        private void AddItemToFirstEmptySlot(Item item)
+        {
+            for (int index = 0; index < _inventoryToMerge.Length; index++)
+            {
+                if (_inventoryToMerge[index] == null)
+                {
+                    _inventoryToMerge[index] = item;
+                    break;
+                }
+            }
         }
     }
 }
