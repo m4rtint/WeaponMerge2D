@@ -8,19 +8,48 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
 {
     public abstract class EnemyBehaviour: MonoBehaviour
     {
-        protected EnemyPathFindingBehaviour _pathFindingBehaviour = null;
-        private EnemyHealthBehaviour _enemyHealthBehaviour = null;
-        private Animator _animator = null;
-        
-        private void Awake()
+        private EnemyPathFindingBehaviour _pathFindingBehaviour;
+        private EnemyHealthBehaviour _enemyHealthBehaviour;
+        private Animator _animator;
+
+        protected EnemyPathFindingBehaviour PathFindingBehaviour
         {
-            _pathFindingBehaviour = GetComponent<EnemyPathFindingBehaviour>();
-            _enemyHealthBehaviour = GetComponent<EnemyHealthBehaviour>();
-            _animator = GetComponentInChildren<Animator>();
-            
-            
-            PanicHelper.CheckAndPanicIfNull(_pathFindingBehaviour);
-            PanicHelper.CheckAndPanicIfNull(_enemyHealthBehaviour);
+            get
+            {
+                if (_pathFindingBehaviour == null && !TryGetComponent(out _pathFindingBehaviour))
+                {
+                    PanicHelper.CheckAndPanicIfNull(_pathFindingBehaviour);
+                }
+                return _pathFindingBehaviour;
+            }
+        }
+
+        protected EnemyHealthBehaviour EnemyHealthBehaviour
+        {
+            get
+            {
+                if (_enemyHealthBehaviour == null && !TryGetComponent(out _enemyHealthBehaviour))
+                {
+                    PanicHelper.CheckAndPanicIfNull(_enemyHealthBehaviour);
+                }
+                return _enemyHealthBehaviour;
+            }
+        }
+
+        protected Animator Animator
+        {
+            get
+            {
+                if (_animator == null)
+                {
+                    _animator = GetComponentInChildren<Animator>();
+                    if (_animator == null)
+                    {
+                        PanicHelper.Panic(new Exception($"{nameof(Animator)} is not set"));
+                    }
+                }
+                return _animator;
+            }
         }
 
         public virtual void Initialize(
@@ -29,14 +58,14 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             Action onDeath,
             Action onCleanUp)
         {
-            _pathFindingBehaviour.Initialize(playerPositionProvider);
-            _enemyHealthBehaviour.Initialize(enemyData.Health);
-            _enemyHealthBehaviour.SetDeathActions(
+            PathFindingBehaviour.Initialize(playerPositionProvider);
+            EnemyHealthBehaviour.Initialize(enemyData.Health);
+            EnemyHealthBehaviour.SetDeathActions(
                 onDeathDelay: 1f,
                 onDeath: () =>
                 {
-                    _pathFindingBehaviour.Pause();
-                    _animator.SetBool(AnimatorKey.IsDead, true);
+                    PathFindingBehaviour.Pause();
+                    Animator.SetBool(AnimatorKey.IsDead, true);
                     onDeath?.Invoke();
                     HandleOnDeath();
                 },
@@ -44,8 +73,8 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 {
                     onCleanUp?.Invoke();
                     HandleOnCleanUp();
-                    _pathFindingBehaviour.CleanUp();
-                    _animator.SetBool(AnimatorKey.IsDead, false);
+                    PathFindingBehaviour.CleanUp();
+                    Animator.SetBool(AnimatorKey.IsDead, false);
                     ObjectPooler.Instance.ReturnToPool(enemyData.EnemyType, gameObject);
                 });
         }

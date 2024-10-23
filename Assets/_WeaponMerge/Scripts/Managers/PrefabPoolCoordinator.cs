@@ -15,8 +15,8 @@ namespace _WeaponMerge.Scripts.Managers
         
         [FormerlySerializedAs("_enemyPrefab")]
         [Title("Enemy")]
-        [SerializeField] private SimpleEnemyBehaviour _simpleEnemyPrefab;
-        [SerializeField] private RangedEnemyBehaviour _rangedEnemyPrefab;
+        [SerializeField] private EnemyBehaviour _simpleEnemyPrefab;
+        [SerializeField] private EnemyBehaviour _rangedEnemyPrefab;
         [SerializeField] private EnemyBulletBehaviour _enemyBulletPrefab;
         
         [Title("Drops")]

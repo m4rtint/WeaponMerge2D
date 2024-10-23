@@ -28,8 +28,8 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 onDeath: onDeath,
                 onCleanUp: onCleanUp);
             _enemyRangedAttackBehaviour.Initialize(
-                pausePathFindingAction: _pathFindingBehaviour.Pause, 
-                resumePathFindingAction: _pathFindingBehaviour.Resume, 
+                pausePathFindingAction: PathFindingBehaviour.Pause, 
+                resumePathFindingAction: PathFindingBehaviour.Resume, 
                 playerPositionProvider: playerPositionProvider,
                 damage: data.Damage
             );        

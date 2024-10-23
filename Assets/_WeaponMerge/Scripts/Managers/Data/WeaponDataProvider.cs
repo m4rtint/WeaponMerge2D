@@ -1,6 +1,5 @@
 using _WeaponMerge.Tools;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.Managers.Data
 {

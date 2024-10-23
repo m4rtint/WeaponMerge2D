@@ -9,7 +9,6 @@ using _WeaponMerge.Tools;
 using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Logger = _WeaponMerge.Tools.Logger;
 
 namespace _WeaponMerge.Scripts.Managers
@@ -106,77 +105,48 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void Spawn(EnemyData data)
         {
-            switch (data.EnemyType)
+            EnemyBehaviour enemy = data.EnemyType switch
             {
-                case EnemyType.Simple:
-                    SpawnSimpleEnemy(data);
-                    break;
-                case EnemyType.Ranged:
-                    SpawnRangedEnemy(data);
-                    break;
-            }
+                EnemyType.Simple => SpawnEnemy(EnemyType.Simple, data),
+                EnemyType.Ranged => SpawnEnemy(EnemyType.Ranged, data),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+            _activeEnemies.Add(enemy.gameObject);
         }
 
-        private Vector3 GetSpawnArea()
+        private Vector3 GetSpawnPosition()
         {
             var playerPosition = _playerPositionProvider.Get();
-            return _spawnLocations
+            var spawnArea = _spawnLocations
                 .Where(loc => Vector3.Distance(loc.position, playerPosition) > 1.0f) // Filter out positions too close to the player
                 .OrderBy(loc => Vector3.Distance(loc.position, playerPosition)) // Order by distance to the player
                 .Skip(1) // Skip the closest position
                 .OrderBy(_ => _randomness.Percentage()) // Randomly pick one of the remaining locations
                 .FirstOrDefault()?.position ?? _spawnLocations[0].position; // Default to the first spawn location if none are found
-        }
-
-        private void SpawnSimpleEnemy(EnemyData data)
-        {
-            SimpleEnemyBehaviour simpleEnemy = ObjectPooler.Instance.Get<SimpleEnemyBehaviour>(EnemyType.Simple);
-            Logger.Log($"Spawned Simple Enemy", LogKey.EnemySpawner, simpleEnemy.gameObject);
-
-            var spawnArea = GetSpawnArea();    
-            var randomizedPosition = new Vector3(
+            return new Vector3(
                 spawnArea.x + _randomness.Range(-_spawnAreaSize.x / 2, _spawnAreaSize.x / 2),
                 spawnArea.y + _randomness.Range(-_spawnAreaSize.y / 2, _spawnAreaSize.y / 2),
                 0);
-            Logger.Log($"Spawned Simple Enemy at: {randomizedPosition}", LogKey.Enemy, simpleEnemy.gameObject);
-            simpleEnemy.transform.position = randomizedPosition;
-            simpleEnemy.Initialize(
+        }
+
+        private EnemyBehaviour SpawnEnemy(EnemyType type, EnemyData data)
+        {
+            EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(type);
+            var randomizedPosition = GetSpawnPosition();
+            Logger.Log($"Spawned {type} Enemy at: {randomizedPosition}", LogKey.Enemy, enemy.gameObject);
+            enemy.transform.position = randomizedPosition;
+            enemy.Initialize(
                 _playerPositionProvider,
-                data: data,
+                enemyData: data,
                 onDeath: () =>
                 {
                     _incrementEnemiesKilledUseCase?.Execute();
                 },
                 onCleanUp: () =>
                 {
-                    _itemDropManager.DropItemIfNeeded(simpleEnemy.transform.position);
-                });
-            _activeEnemies.Add(simpleEnemy.gameObject);
-        }
-
-        private void SpawnRangedEnemy(EnemyData data)
-        {
-            RangedEnemyBehaviour enemy = ObjectPooler.Instance.Get<RangedEnemyBehaviour>(EnemyType.Ranged);
-
-            var spawnArea = GetSpawnArea();    
-            var randomizedPosition = new Vector3(
-                spawnArea.x + _randomness.Range(-_spawnAreaSize.x / 2, _spawnAreaSize.x /2),
-                spawnArea.y + _randomness.Range(-_spawnAreaSize.y / 2, _spawnAreaSize.y / 2),
-                0);
-            Logger.Log($"Spawned Ranged Enemy: {randomizedPosition}", LogKey.Enemy, enemy.gameObject);
-            enemy.transform.position = randomizedPosition;
-            enemy.Initialize(
-                _playerPositionProvider,
-                data: data,
-                onDeath: () =>
-                {
-                    _incrementEnemiesKilledUseCase?.Execute();
-                }, 
-                onCleanUp: () =>
-                {
                     _itemDropManager.DropItemIfNeeded(enemy.transform.position);
                 });
-            _activeEnemies.Add(enemy.gameObject);
+            return enemy;
         }
 
         private void OnDrawGizmos()
