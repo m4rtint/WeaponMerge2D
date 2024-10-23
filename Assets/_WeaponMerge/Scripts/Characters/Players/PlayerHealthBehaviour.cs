@@ -1,3 +1,4 @@
+using System;
 using _WeaponMerge.Scripts.Characters.General;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,11 @@ namespace _WeaponMerge.Scripts.Characters.Players
         protected override void OnHealthChanged()
         {
             _healthBar.fillAmount = (float)Health / MaxHealth;
+        }
+
+        protected void LateUpdate()
+        {
+            _healthBar.transform.position = transform.position + (Vector3)Vector2.down * 1.1f;
         }
 
         public void Restart()
