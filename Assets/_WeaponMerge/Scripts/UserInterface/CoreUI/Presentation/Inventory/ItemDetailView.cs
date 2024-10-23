@@ -4,11 +4,16 @@ using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
 {
     public class ItemDetailView : MonoBehaviour
     {
+        [SerializeField] private TMP_Text _itemDetailText = null;
+        [SerializeField] private TMP_Text _bulletDataText = null;
+        [SerializeField] private Image _itemImage = null;
+        
         private GetInventoryItemUseCase _getInventoryItemUseCase;
         
         private static ItemDetailView _instance;
@@ -28,9 +33,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
                 return _instance;
             }
         }
-
-        private TMP_Text _itemDetailText = null;
-
+        
         private void Awake()
         {
             if (_instance != null && _instance != this)
@@ -56,6 +59,8 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
             }
             var item = _getInventoryItemUseCase.Execute(itemId);
             _itemDetailText.text = MapToPresentation((Weapon)item);
+            _bulletDataText.text = MapToBulletDataPresentation((Weapon)item);
+            _itemImage.sprite = item.Sprite;
             transform.position = position;
             gameObject.SetActive(true);
         }
@@ -65,17 +70,23 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
             gameObject.SetActive(false);
         }
 
-        private string MapToPresentation(Weapon weapon)
+         private string MapToPresentation(Weapon weapon)
         {
-            return $"Name: {weapon.Name}\n" +
-                   $"Fire Rate: {weapon.FireRate}\n" +
-                   $"Spread Angle: {weapon.SpreadAngle}\n" +
-                   $"Bullet Speed: {weapon.BulletSpeed}\n" +
-                   $"Bullets Per Shot: {weapon.BulletsPerShot}\n" +
-                   $"Bullet Time To Live: {weapon.BulletTimeToLive}\n" +
-                   $"Damage: {weapon.Damage}\n" +
-                   $"Penetrate Damage Falloff: {weapon.PenetrateDamageFalloff}\n" +
-                   $"Ammo Type: {weapon.AmmoType}";
+            return $"{weapon.Name}\n" +
+                   $"{FormatNumber(weapon.Damage)}\n" +
+                   $"{FormatNumber(weapon.Damage / weapon.FireRate)}";
+        }
+
+        private string MapToBulletDataPresentation(Weapon weapon)
+        {
+            return $"{FormatNumber(weapon.SpreadAngle)}\n" +
+                   $"{FormatNumber(weapon.BulletTimeToLive)}\n" +
+                   $"{FormatNumber(weapon.BulletSpeed)}";
+        }
+
+        private string FormatNumber(float number)
+        {
+            return number.ToString("F2");
         }
     }
 }

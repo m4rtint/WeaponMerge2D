@@ -16,25 +16,22 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
             PanicHelper.CheckAndPanicIfNull(_icon);
         }
 
-        public void SetState(HUDEquipmentSlotState state)
+        public void SetState(HUDEquipmentSlotState state, bool isSelected)
         {
+            _selectionIcon.color = isSelected ? Color.white : Color.clear;
             _icon.sprite = state.Icon;
             switch (state.Type)
             {
                 case HUDEquipmentSlotType.Filled:
-                    _selectionIcon.color = Color.clear;
                     _icon.color = Color.white;
                     break;
                 case HUDEquipmentSlotType.Empty:
-                    _selectionIcon.color = Color.clear;
                     _icon.color = Color.clear;
                     break;
                 case HUDEquipmentSlotType.Equipped:
-                    _selectionIcon.color = Color.white;
                     _icon.color = Color.white;
                     break;
                 default:
-                    _selectionIcon.color = Color.clear;
                     _icon.color = Color.clear;
                     break;
             }

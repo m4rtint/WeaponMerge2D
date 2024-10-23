@@ -78,6 +78,7 @@ namespace _WeaponMerge.Scripts.Managers
             var getInventoryItemsUseCase = new GetInventoryItemsUseCase(inventoryRepository);
             var getEquipmentItemsUseCase = new GetEquipmentItemsUseCase(equipmentRepository);
             var getEquippedItemsUseCase = new GetEquippedWeaponUseCase(equipmentRepository);
+            var getEquippedSlotIndexUseCase = new GetEquippedSlotIndexUseCase(equipmentRepository);
             var inventoryViewModel = new InventoryViewModel(
                 moveInventoryItemUseCase: moveItemUseCase, 
                 getInventoryItemsUseCase: getInventoryItemsUseCase, 
@@ -87,7 +88,8 @@ namespace _WeaponMerge.Scripts.Managers
             
             _hudEquipmentViewModel = new HUDEquipmentViewModel(
                 getEquipmentItemsUseCase, 
-                getEquippedItemsUseCase);
+                getEquippedItemsUseCase, 
+                getEquippedSlotIndexUseCase);
             _hudEquipmentView.Initialize(_hudEquipmentViewModel);
             
             var mergeRepository = new MergeRepository(inventoryStorage);

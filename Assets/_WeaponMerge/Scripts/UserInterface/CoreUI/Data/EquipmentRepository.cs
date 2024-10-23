@@ -8,6 +8,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
         Item GetEquippedItem();
         Item SwitchEquippedWeapon(bool isIncrement);
         Item[] GetEquipmentItems();
+        int EquippedSlotIndex { get; }
     }
     
     public class EquipmentRepository: IEquipmentRepository
@@ -42,5 +43,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
         {
             return _inventoryStorage.AllItems.Skip(InventoryStorage.MAX_INVENTORY_ITEMS).Take(InventoryStorage.MAX_EQUIPPED_ITEMS).ToArray();
         }
+
+        public int EquippedSlotIndex => _inventoryStorage.EquippedSlotIndex;
     }
 }

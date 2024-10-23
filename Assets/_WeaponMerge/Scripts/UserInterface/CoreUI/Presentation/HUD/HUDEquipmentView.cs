@@ -27,7 +27,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
         {
             for (var i = 0; i < state.Slots.Length; i++)
             {
-                _equipmentSlots[i].SetState(state.Slots[i]);
+                _equipmentSlots[i].SetState(state.Slots[i] ,i == state.EquippedSlotIndex);
             }
         }
     }

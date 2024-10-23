@@ -73538,10 +73538,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1181350728}
     m_Modifications:
-    - target: {fileID: 3208312921573301976, guid: 7e1289d9af23d96428ba3ccdc9fa7168, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 9208272423462431891, guid: 1ce53dd397b476248964767e1a14ee94, type: 3}
     - target: {fileID: 4988802049877272266, guid: 7e1289d9af23d96428ba3ccdc9fa7168, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -73568,7 +73564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4988802049877272266, guid: 7e1289d9af23d96428ba3ccdc9fa7168, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4988802049877272266, guid: 7e1289d9af23d96428ba3ccdc9fa7168, type: 3}
       propertyPath: m_SizeDelta.y
@@ -92078,42 +92074,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2789779023374966079, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2411578527227497110, guid: 12d92e8e064d3b2408df5534f0c264cf, type: 3}
-    - target: {fileID: 2789779023374966079, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2789779023374966079, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2789779023374966079, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3406169244510436185, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7422953997657109525, guid: 2548a386db5fbfc469c6cc9d4f92b6d5, type: 3}
-    - target: {fileID: 3410806937538819760, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2411578527227497110, guid: 12d92e8e064d3b2408df5534f0c264cf, type: 3}
-    - target: {fileID: 3410806937538819760, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3410806937538819760, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3410806937538819760, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3939131268070749244, guid: 99d6e024a3cae1f44b2f2498fd4c8328, type: 3}
       propertyPath: m_Name
       value: MergeSystemCanvas

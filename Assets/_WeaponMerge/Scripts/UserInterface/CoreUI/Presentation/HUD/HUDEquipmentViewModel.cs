@@ -3,7 +3,6 @@ using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
 {
@@ -23,41 +22,40 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
     public struct HUDEquipmentState
     {
         public HUDEquipmentSlotState[] Slots;
+        public int EquippedSlotIndex;
     }
     
     public class HUDEquipmentViewModel
     {
         private readonly GetEquipmentItemsUseCase _getEquipmentItemsUseCase;
         private readonly GetEquippedWeaponUseCase _getEquippedWeaponUseCase;
-        private HUDEquipmentState _state;
+        private readonly GetEquippedSlotIndexUseCase _getEquippedSlotIndex;
         private HUDEquipmentState State
         {
-            get => _state;
-            set
-            {
-                _state = value;
-                OnStateChanged?.Invoke(value);
-            }
+            set => OnStateChanged?.Invoke(value);
         }
 
         public event Action<HUDEquipmentState> OnStateChanged;
         
         public HUDEquipmentViewModel(
             GetEquipmentItemsUseCase getEquipmentItemsUseCase, 
-            GetEquippedWeaponUseCase getEquippedWeaponUseCase)
+            GetEquippedWeaponUseCase getEquippedWeaponUseCase,
+            GetEquippedSlotIndexUseCase getEquippedSlotIndex)
         {
             _getEquipmentItemsUseCase = getEquipmentItemsUseCase;
             _getEquippedWeaponUseCase = getEquippedWeaponUseCase;
+            _getEquippedSlotIndex = getEquippedSlotIndex;
         }
         
         public void FetchItems()
         {
+            var index = _getEquippedSlotIndex.Execute();
             var equipmentItems = _getEquipmentItemsUseCase.Execute();
             var equippedItem = _getEquippedWeaponUseCase.Execute();
-            State = MapToSlotStates(equipmentItems, equippedItem);
+            State = MapToSlotStates(equipmentItems, equippedItem, index);
         }
 
-        private HUDEquipmentState MapToSlotStates(Item[] items, Item equippedItem)
+        private HUDEquipmentState MapToSlotStates(Item[] items, Item equippedItem, int equippedSlotIndex)
         {
             HUDEquipmentSlotState[] slotStates = new HUDEquipmentSlotState[items.Length];
             for (var i = 0; i < items.Length; i++)
@@ -72,7 +70,8 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD
             }
             var state = new HUDEquipmentState
             {
-                Slots = slotStates
+                Slots = slotStates,
+                EquippedSlotIndex = equippedSlotIndex
             };
 
             return state;
