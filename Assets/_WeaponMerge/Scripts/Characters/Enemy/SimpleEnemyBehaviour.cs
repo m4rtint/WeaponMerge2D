@@ -5,15 +5,14 @@ using _WeaponMerge.Tools;
 
 namespace _WeaponMerge.Scripts.Characters.Enemy
 {
-    public class RangedEnemyBehaviour : EnemyBehaviour
+    public class SimpleEnemyBehaviour : EnemyBehaviour
     {
-
-        private EnemyRangedAttackBehaviour _enemyRangedAttackBehaviour = null;
+        private SimpleEnemyAttackBehaviour _simpleEnemyAttackBehaviour = null;
 
         private void Awake()
         {
-            _enemyRangedAttackBehaviour = GetComponent<EnemyRangedAttackBehaviour>();
-            PanicHelper.CheckAndPanicIfNull(_enemyRangedAttackBehaviour);
+            _simpleEnemyAttackBehaviour = GetComponent<SimpleEnemyAttackBehaviour>();
+            PanicHelper.CheckAndPanicIfNull(_simpleEnemyAttackBehaviour);
         }
         
         public override void Initialize(
@@ -27,22 +26,17 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 enemyData: data,
                 onDeath: onDeath,
                 onCleanUp: onCleanUp);
-            _enemyRangedAttackBehaviour.Initialize(
-                pausePathFindingAction: _pathFindingBehaviour.Pause, 
-                resumePathFindingAction: _pathFindingBehaviour.Resume, 
-                playerPositionProvider: playerPositionProvider,
-                damage: data.Damage
-            );        
+            _simpleEnemyAttackBehaviour.Initialize(damage: data.Damage);
         }
 
         protected override void HandleOnDeath()
         {
-            _enemyRangedAttackBehaviour.StopAttack();
+            _simpleEnemyAttackBehaviour.StopAttack();
         }
 
         protected override void HandleOnCleanUp()
         {
-            _enemyRangedAttackBehaviour.CleanUp();
+            _simpleEnemyAttackBehaviour.CleanUp();
         }
     }
 }

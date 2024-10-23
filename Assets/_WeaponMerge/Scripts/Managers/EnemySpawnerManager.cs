@@ -130,17 +130,17 @@ namespace _WeaponMerge.Scripts.Managers
 
         private void SpawnSimpleEnemy(EnemyData data)
         {
-            EnemyBehaviour enemy = ObjectPooler.Instance.Get<EnemyBehaviour>(EnemyType.Simple);
-            Logger.Log($"Spawned Simple Enemy", LogKey.EnemySpawner, enemy.gameObject);
+            SimpleEnemyBehaviour simpleEnemy = ObjectPooler.Instance.Get<SimpleEnemyBehaviour>(EnemyType.Simple);
+            Logger.Log($"Spawned Simple Enemy", LogKey.EnemySpawner, simpleEnemy.gameObject);
 
             var spawnArea = GetSpawnArea();    
             var randomizedPosition = new Vector3(
                 spawnArea.x + _randomness.Range(-_spawnAreaSize.x / 2, _spawnAreaSize.x / 2),
                 spawnArea.y + _randomness.Range(-_spawnAreaSize.y / 2, _spawnAreaSize.y / 2),
                 0);
-            Logger.Log($"Spawned Simple Enemy at: {randomizedPosition}", LogKey.Enemy, enemy.gameObject);
-            enemy.transform.position = randomizedPosition;
-            enemy.Initialize(
+            Logger.Log($"Spawned Simple Enemy at: {randomizedPosition}", LogKey.Enemy, simpleEnemy.gameObject);
+            simpleEnemy.transform.position = randomizedPosition;
+            simpleEnemy.Initialize(
                 _playerPositionProvider,
                 data: data,
                 onDeath: () =>
@@ -149,9 +149,9 @@ namespace _WeaponMerge.Scripts.Managers
                 },
                 onCleanUp: () =>
                 {
-                    _itemDropManager.DropItemIfNeeded(enemy.transform.position);
+                    _itemDropManager.DropItemIfNeeded(simpleEnemy.transform.position);
                 });
-            _activeEnemies.Add(enemy.gameObject);
+            _activeEnemies.Add(simpleEnemy.gameObject);
         }
 
         private void SpawnRangedEnemy(EnemyData data)

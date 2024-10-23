@@ -4,6 +4,7 @@ using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -12,8 +13,9 @@ namespace _WeaponMerge.Scripts.Managers
         [Title("Weapons")]
         [SerializeField] private PistolBulletBehaviour _pistolBulletPrefab = null;
         
+        [FormerlySerializedAs("_enemyPrefab")]
         [Title("Enemy")]
-        [SerializeField] private EnemyBehaviour _enemyPrefab;
+        [SerializeField] private SimpleEnemyBehaviour _simpleEnemyPrefab;
         [SerializeField] private RangedEnemyBehaviour _rangedEnemyPrefab;
         [SerializeField] private EnemyBulletBehaviour _enemyBulletPrefab;
         
@@ -26,7 +28,7 @@ namespace _WeaponMerge.Scripts.Managers
             PanicHelper.CheckAndPanicIfNull(_pistolBulletPrefab);
 
             // Enemy
-            PanicHelper.CheckAndPanicIfNull(_enemyPrefab);
+            PanicHelper.CheckAndPanicIfNull(_simpleEnemyPrefab);
             PanicHelper.CheckAndPanicIfNull(_rangedEnemyPrefab);
             PanicHelper.CheckAndPanicIfNull(_enemyBulletPrefab);
             
@@ -42,7 +44,7 @@ namespace _WeaponMerge.Scripts.Managers
             ObjectPooler.Instance.CreatePool(AmmoType.Pistol, _pistolBulletPrefab);
             
             // Enemy
-            ObjectPooler.Instance.CreatePool(EnemyType.Simple, _enemyPrefab);
+            ObjectPooler.Instance.CreatePool(EnemyType.Simple, _simpleEnemyPrefab);
             ObjectPooler.Instance.CreatePool(EnemyType.Ranged, _rangedEnemyPrefab);
             ObjectPooler.Instance.CreatePool(EnemyAttackType.Bullet, _enemyBulletPrefab);
             
