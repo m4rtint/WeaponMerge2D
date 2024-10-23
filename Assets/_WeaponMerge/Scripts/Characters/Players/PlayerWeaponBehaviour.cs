@@ -16,6 +16,8 @@ namespace _WeaponMerge.Scripts.Characters.Players
         private SwitchEquippedWeaponUseCase _switchEquippedWeaponUseCase;
         private bool _isShootActionPressed = false;
         private float _elapsedCoolDownTime = 0f;
+        
+        private IPlayerVisualEffects _playerVisualEffects;
 
         private void Awake()
         {
@@ -24,11 +26,12 @@ namespace _WeaponMerge.Scripts.Characters.Players
             _switchEquippedWeaponUseCase = new SwitchEquippedWeaponUseCase(equipmentRepository);
         }
 
-        public void Initialize(ControlInput controlInput)
+        public void Initialize(ControlInput controlInput, IPlayerVisualEffects playerVisualEffects)
         {
             controlInput.OnShootAction += HandleShootAction;
             controlInput.OnScrollWeaponAction += ScrollWeapon;
             GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
+            _playerVisualEffects = playerVisualEffects;
         }
 
         private void OnGameStateChanged(GameState state)
@@ -79,6 +82,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
             {
                 for (var i = 0; i < _equippedWeapon.BulletsPerShot; i++)
                 {
+                    _playerVisualEffects.ShootVisualEffects();
                     Shoot();
                     _elapsedCoolDownTime = _equippedWeapon.FireRate;
                 }

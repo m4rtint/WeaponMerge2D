@@ -1,15 +1,30 @@
+using _WeaponMerge.Tools;
+using DG.Tweening;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Players
 {
-    public class PlayerWeaponSpriteAimBehaviour : MonoBehaviour
+    public interface IPlayerVisualEffects
     {
+        void ShootVisualEffects();
+    }
+    
+    public class PlayerWeaponSpriteBehaviour : MonoBehaviour, IPlayerVisualEffects
+    {
+        [SerializeField] private SpriteRenderer _muzzleFlashSpriteRenderer = null;
         [SerializeField] private Transform _weaponPivot = null;
         private SpriteRenderer _weaponSpriteRenderer = null;
 
         private void Awake()
         {
             _weaponSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            PanicHelper.CheckAndPanicIfNull(_weaponSpriteRenderer);
+            PanicHelper.CheckAndPanicIfNull(_weaponPivot);
+        }
+
+        private void Start()
+        {
+            _muzzleFlashSpriteRenderer.color = Color.clear;
         }
 
         private void Update()
@@ -28,5 +43,17 @@ namespace _WeaponMerge.Scripts.Characters.Players
             // Flip the weapon sprite when aiming to the left
             _weaponSpriteRenderer.flipY = aimDirection.x < 0;
         }
+
+        public void ShootVisualEffects()
+        {
+            // Make the color appear for 1 second using DOColor
+            _muzzleFlashSpriteRenderer.DOColor(Color.white, 0.1f) // Flash the color to white
+                .OnComplete(() =>
+                {
+                    // Return to the original color (assuming it's transparent)
+                    _muzzleFlashSpriteRenderer.DOColor(Color.clear, 0.1f);
+                });
+        }
+
     }
 }

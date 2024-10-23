@@ -62020,7 +62020,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionAsset: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   _prefabPoolCoordinator: {fileID: 1758012840}
-  _weaponDataProvider: {fileID: 1630249864}
   _playerBehaviour: {fileID: 621995264}
   _enemySpawnerManager: {fileID: 525266808}
   _itemDropManager: {fileID: 1177184548}
@@ -91753,6 +91752,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
+      propertyPath: _isDebugTurnedOn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
       propertyPath: _spawnAreaSize.x
       value: 10.6

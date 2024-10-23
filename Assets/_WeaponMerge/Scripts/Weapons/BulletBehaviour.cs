@@ -49,14 +49,14 @@ namespace _WeaponMerge.Scripts.Weapons
             if (hit.collider != null &&
                 hit.collider.gameObject.GetInstanceID() != _ownerInstanceId)
             {
-                
                 // Check if the hit object has a HealthBehaviour component and apply damage
                 if (hit.collider.TryGetComponent<HealthBehaviour>(out var enemyHealth))
                 {
                     enemyHealth.TakeDamage(_bullet.Damage);
-                    ObjectPooler.Instance.ReturnToPool(AmmoType, gameObject);
                     DamageNumbersObjectPool.Instance.ShowDamageNumber(_bullet.Damage, enemyHealth.transform.position);
                 }
+                
+                ObjectPooler.Instance.ReturnToPool(AmmoType, gameObject);
             }
         }
     }
