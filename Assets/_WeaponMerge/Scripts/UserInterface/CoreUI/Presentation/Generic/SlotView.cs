@@ -10,19 +10,27 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
 {
     public class SlotView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
+        [SerializeField] 
+        private Image _itemImage;
         [SerializeField, ReadOnly]
         private int _slotIndex;
         [SerializeField, ReadOnly]
         private int _itemId;
         private Action<int, int> _onMoveItem;
         public int ItemId => _itemId;
-        
+
+        private void Awake()
+        {
+            PanicHelper.CheckAndPanicIfNull(_itemImage);
+        }
+
         public void SetState(SlotState state)
         {
             _slotIndex = state.SlotIndex;
             _itemId = state.ItemId;
             _onMoveItem = state.OnMoveItem;
-            GetComponent<Image>().sprite = state.ItemImage;
+            _itemImage.color = state.ItemImage == null ? Color.clear : Color.white;
+            _itemImage.sprite = state.ItemImage;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
