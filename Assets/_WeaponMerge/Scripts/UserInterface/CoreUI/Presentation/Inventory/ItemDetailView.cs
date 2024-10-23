@@ -10,6 +10,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
 {
     public class ItemDetailView : MonoBehaviour
     {
+        [SerializeField] private TMP_Text _titleText = null;
         [SerializeField] private TMP_Text _itemDetailText = null;
         [SerializeField] private TMP_Text _bulletDataText = null;
         [SerializeField] private Image _itemImage = null;
@@ -44,7 +45,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
             _instance = this;
 
             _getInventoryItemUseCase = new GetInventoryItemUseCase(new InventoryRepository(new InventoryStorage()));
-            _itemDetailText = GetComponentInChildren<TMP_Text>();
             PanicHelper.CheckAndPanicIfNull(_itemDetailText, nameof(_itemDetailText));
             gameObject.SetActive(false);
         }
@@ -58,6 +58,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
                 return;
             }
             var item = _getInventoryItemUseCase.Execute(itemId);
+            _titleText.text = item.Name;
             _itemDetailText.text = MapToPresentation((Weapon)item);
             _bulletDataText.text = MapToBulletDataPresentation((Weapon)item);
             _itemImage.sprite = item.Sprite;
@@ -72,9 +73,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
 
          private string MapToPresentation(Weapon weapon)
         {
-            return $"{weapon.Name}\n" +
+            return $"{FormatNumber(weapon.Damage / weapon.FireRate)}\n" +
                    $"{FormatNumber(weapon.Damage)}\n" +
-                   $"{FormatNumber(weapon.Damage / weapon.FireRate)}";
+                   $"{FormatNumber(weapon.FireRate)}";
         }
 
         private string MapToBulletDataPresentation(Weapon weapon)
