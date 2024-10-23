@@ -38,14 +38,15 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 onDeathDelay: 1f, 
                 onDeath: () =>
                 {
-                    _animator?.SetTrigger(AnimatorKey.IsDead);
                     onDeath?.Invoke();
+                    _animator?.SetBool(AnimatorKey.IsDead, true);
                     _pathFindingBehaviour.Pause();
                     _enemyRangedAttackBehaviour.StopAttack();
                 }, 
                 onCleanUp: () => 
                 {
                     onCleanUp?.Invoke();
+                    _animator?.SetBool(AnimatorKey.IsDead, false);
                     _pathFindingBehaviour.CleanUp();
                     _enemyRangedAttackBehaviour.CleanUp();
                     ObjectPooler.Instance.ReturnToPool(EnemyType.Ranged, gameObject); 

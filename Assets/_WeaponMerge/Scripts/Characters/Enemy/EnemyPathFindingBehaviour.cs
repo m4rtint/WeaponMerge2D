@@ -19,6 +19,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
             _followerEntity = GetComponent<FollowerEntity>();
             PanicHelper.CheckAndPanicIfNull(_spriteRenderer);
             PanicHelper.CheckAndPanicIfNull(_followerEntity);
+            _followerEntity.enabled = false;
         }
 
         public void Initialize(PlayerPositionProvider playerPositionProvider)

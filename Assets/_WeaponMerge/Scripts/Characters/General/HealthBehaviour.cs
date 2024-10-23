@@ -70,6 +70,7 @@ namespace _WeaponMerge.Scripts.Characters.General
                 {
                     _isDying = false;
                     _onCleanUp?.Invoke();
+                    _elapsedDyingTime = 0f;
                 }
             }
         }

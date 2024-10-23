@@ -48,6 +48,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                     onCleanUp?.Invoke();
                     _simpleEnemyAttackBehaviour.CleanUp();
                     _pathFindingBehaviour.CleanUp();
+                    _animator.SetBool(AnimatorKey.IsDead, false);
                     ObjectPooler.Instance.ReturnToPool(EnemyType.Simple, gameObject); 
                 });
             
