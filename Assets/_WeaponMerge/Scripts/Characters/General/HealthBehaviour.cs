@@ -29,7 +29,6 @@ namespace _WeaponMerge.Scripts.Characters.General
         {
             MaxHealth = health;
             Health = health;
-            
         }
 
         public void SetDeathActions(float onDeathDelay, Action onDeath, Action onCleanUp)

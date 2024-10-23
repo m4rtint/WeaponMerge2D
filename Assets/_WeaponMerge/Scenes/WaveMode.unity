@@ -91754,7 +91754,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
       propertyPath: _isDebugTurnedOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22352465402690315, guid: 2a45ef344c8c8dc40957335fa71e340d, type: 3}
       propertyPath: _spawnAreaSize.x
