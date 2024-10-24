@@ -2,6 +2,11 @@
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases
 {
+    public enum SyncType
+    {
+        ToInventory,
+        ToMerge
+    }
     public class SyncInventoryUseCase
     {
         private readonly IMergeRepository _repository;
@@ -11,9 +16,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases
             _repository = repository;
         }
         
-        public void Execute()
+        public void Execute(SyncType type)
         {
-            _repository.SyncInventory();    
+            _repository.SyncInventory(type);    
         }
     }
 }

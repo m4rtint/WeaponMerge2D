@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.Models;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
 {
@@ -11,7 +12,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
         MergeInventory GetMergeInventory();
         (Item, Item) GetMergingItems();
         void AddMergedItemToInventory(Item item);
-        void SyncInventory();
+        void SyncInventory(SyncType type);
     }
     
     public class MergeRepository: IMergeRepository
@@ -77,7 +78,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
 
         public MergeInventory GetMergeInventory()
         {
-            Array.Copy(_storage.InventoryItems, _inventoryToMerge, InventoryStorage.MAX_INVENTORY_ITEMS);
             var inventoryItems = _inventoryToMerge.Take(_inventoryToMerge.Length - InventoryStorage.MAX_MERGE_SLOTS).ToArray();
             return new MergeInventory
             {
@@ -87,7 +87,20 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
             };
         }
         
-        public void SyncInventory()
+        public void SyncInventory(SyncType type)
+        {
+            switch (type)
+            {
+                case SyncType.ToInventory:
+                    SyncToInventory();
+                    break;
+                case SyncType.ToMerge:
+                    SyncToMergeInventory();
+                    break;
+            }
+        }
+
+        private void SyncToInventory()
         {
             var primaryMergeSlot = _inventoryToMerge[^InventoryStorage.MAX_MERGE_SLOTS];
             var secondaryMergeSlot = _inventoryToMerge[^1];
@@ -98,6 +111,11 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
             _storage.CopyInventory(_inventoryToMerge);
         }
 
+        private void SyncToMergeInventory()
+        {
+            Array.Copy(_storage.InventoryItems, _inventoryToMerge, InventoryStorage.MAX_INVENTORY_ITEMS);
+        }
+        
         private void AddItemToFirstEmptySlot(Item item)
         {
             for (int index = 0; index < _inventoryToMerge.Length; index++)

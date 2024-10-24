@@ -1,3 +1,4 @@
+using System;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
@@ -29,7 +30,12 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
 
         private void OnEnable()
         {
-            _viewModel?.FetchItems();
+            _viewModel?.LoadMergeItems();
+        }
+
+        private void OnDisable()
+        {
+            _viewModel?.SyncToInventory();
         }
 
         public void Initialize(MergeViewModel viewModel)

@@ -20,6 +20,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
         private readonly MoveMergeItemUseCase _moveMergeItemUseCase;
         private readonly GetMergeInventoryUseCase _getMergeInventoryUseCase;
         private readonly MergeItemsUseCase _mergeItemsUseCase;
+        private readonly SyncInventoryUseCase _syncInventoryUseCase;
         private readonly IDragAndDrop _dragAndDrop;
 
         private MergeViewState State
@@ -33,11 +34,13 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
             MergeItemsUseCase mergeItemsUseCase,
             MoveMergeItemUseCase moveMergeItemUseCase, 
             GetMergeInventoryUseCase getMergeInventoryUseCase, 
+            SyncInventoryUseCase syncInventoryUseCase,
             IDragAndDrop dragAndDrop)
         {
             _mergeItemsUseCase = mergeItemsUseCase;
             _moveMergeItemUseCase = moveMergeItemUseCase;
             _getMergeInventoryUseCase = getMergeInventoryUseCase;
+            _syncInventoryUseCase = syncInventoryUseCase;
             _dragAndDrop = dragAndDrop;
         }
 
@@ -45,6 +48,17 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
         {
             _mergeItemsUseCase.Execute();
             FetchItems();
+        }
+
+        public void LoadMergeItems()
+        {
+            _syncInventoryUseCase.Execute(SyncType.ToMerge);
+            FetchItems();
+        }
+
+        public void SyncToInventory()
+        {
+            _syncInventoryUseCase.Execute(SyncType.ToInventory);
         }
 
         public void FetchItems()

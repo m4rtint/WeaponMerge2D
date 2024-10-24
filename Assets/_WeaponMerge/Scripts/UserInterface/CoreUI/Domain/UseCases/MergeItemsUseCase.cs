@@ -28,7 +28,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases
             Logger.Log("Successfully Merged", LogKey.Merge);
             var weapon = _weaponMergeSystem.MergePistols(weaponOne, weaponTwo);
             _repository.AddMergedItemToInventory(weapon);
-            _repository.SyncInventory();
+            _repository.SyncInventory(SyncType.ToInventory);
         }
 
         private void Log(Item item1, Item item2)
