@@ -9,25 +9,25 @@ namespace _WeaponMerge.Scripts.Characters.Players
         private PlayerMovementBehaviour _playerMovementBehaviour = null;
         private PlayerWeaponBehaviour _playerWeaponBehaviour = null;
         private PlayerHealthBehaviour _playerHealthBehaviour = null;
-        private PlayerWeaponSpriteBehaviour _playerWeaponSpriteBehaviour = null;
+        private PlayerFeedbackEffectBehaviour _playerFeedbackEffectBehaviour = null;
         
         private void Awake()
         {
             _playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
             _playerWeaponBehaviour = GetComponent<PlayerWeaponBehaviour>();
             _playerHealthBehaviour = GetComponent<PlayerHealthBehaviour>();
-            _playerWeaponSpriteBehaviour = GetComponentInChildren<PlayerWeaponSpriteBehaviour>();
+            _playerFeedbackEffectBehaviour = GetComponentInChildren<PlayerFeedbackEffectBehaviour>();
             
             PanicHelper.CheckAndPanicIfNull(_playerMovementBehaviour);
             PanicHelper.CheckAndPanicIfNull(_playerWeaponBehaviour);
             PanicHelper.CheckAndPanicIfNull(_playerHealthBehaviour);
-            PanicHelper.CheckAndPanicIfNull(_playerWeaponSpriteBehaviour);
+            PanicHelper.CheckAndPanicIfNull(_playerFeedbackEffectBehaviour);
         }
     
         public void Initialize(ControlInput controlInput)
         {
             _playerMovementBehaviour.Initialize(controlInput);
-            _playerWeaponBehaviour.Initialize(controlInput, _playerWeaponSpriteBehaviour);
+            _playerWeaponBehaviour.Initialize(controlInput, _playerFeedbackEffectBehaviour);
             _playerHealthBehaviour.Initialize(100);
             
             _playerHealthBehaviour.SetDeathActions(0, 

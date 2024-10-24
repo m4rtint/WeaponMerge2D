@@ -1,25 +1,35 @@
 using _WeaponMerge.Tools;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Players
 {
-    public interface IPlayerVisualEffects
+    public interface IPlayerFeedbackEffects
     {
         void ShootVisualEffects();
+        void ShootAudioEffects(AudioClip clip);
     }
     
-    public class PlayerWeaponSpriteBehaviour : MonoBehaviour, IPlayerVisualEffects
+    public class PlayerFeedbackEffectBehaviour : MonoBehaviour, IPlayerFeedbackEffects
     {
+        [Title("Weapon Visuals")]
         [SerializeField] private SpriteRenderer _muzzleFlashSpriteRenderer = null;
         [SerializeField] private Transform _weaponPivot = null;
+        
+        [Title("Weapon Audio")]
+        [SerializeField] private AudioSource _audioSource = null;
+        
         private SpriteRenderer _weaponSpriteRenderer = null;
+         
 
         private void Awake()
         {
+            _audioSource = GetComponent<AudioSource>();
             _weaponSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
             PanicHelper.CheckAndPanicIfNull(_weaponSpriteRenderer);
             PanicHelper.CheckAndPanicIfNull(_weaponPivot);
+            PanicHelper.CheckAndPanicIfNull(_audioSource);
         }
 
         private void Start()
@@ -55,5 +65,9 @@ namespace _WeaponMerge.Scripts.Characters.Players
                 });
         }
 
+        public void ShootAudioEffects(AudioClip clip)
+        {
+            _audioSource.PlayOneShot(clip);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.Managers;
+using _WeaponMerge.Scripts.Managers.Data;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Data;
 using _WeaponMerge.Scripts.Weapons;
 using _WeaponMerge.Tools;
@@ -17,7 +18,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
         private bool _isShootActionPressed = false;
         private float _elapsedCoolDownTime = 0f;
         
-        private IPlayerVisualEffects _playerVisualEffects;
+        private IPlayerFeedbackEffects _playerFeedbackEffects;
 
         private void Awake()
         {
@@ -26,12 +27,12 @@ namespace _WeaponMerge.Scripts.Characters.Players
             _switchEquippedWeaponUseCase = new SwitchEquippedWeaponUseCase(equipmentRepository);
         }
 
-        public void Initialize(ControlInput controlInput, IPlayerVisualEffects playerVisualEffects)
+        public void Initialize(ControlInput controlInput, IPlayerFeedbackEffects playerVisualEffects)
         {
             controlInput.OnShootAction += HandleShootAction;
             controlInput.OnScrollWeaponAction += ScrollWeapon;
             GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
-            _playerVisualEffects = playerVisualEffects;
+            _playerFeedbackEffects = playerVisualEffects;
         }
 
         private void OnGameStateChanged(GameState state)
@@ -82,7 +83,8 @@ namespace _WeaponMerge.Scripts.Characters.Players
             {
                 for (var i = 0; i < _equippedWeapon.BulletsPerShot; i++)
                 {
-                    _playerVisualEffects.ShootVisualEffects();
+                    _playerFeedbackEffects.ShootVisualEffects();
+                    _playerFeedbackEffects.ShootAudioEffects(WeaponDataProvider.Instance.GetWeaponAudio(_equippedWeapon.Id.GetHashCode()));
                     Shoot();
                     _elapsedCoolDownTime = _equippedWeapon.FireRate;
                 }
