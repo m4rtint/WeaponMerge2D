@@ -1,7 +1,9 @@
 ﻿using System;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.Models;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory;
+using UnityEngine;
 
 namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
 {
@@ -18,7 +20,8 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
         private readonly MoveMergeItemUseCase _moveMergeItemUseCase;
         private readonly GetMergeInventoryUseCase _getMergeInventoryUseCase;
         private readonly MergeItemsUseCase _mergeItemsUseCase;
-        
+        private readonly IDragAndDrop _dragAndDrop;
+
         private MergeViewState State
         {
             set => OnStateChanged?.Invoke(value);
@@ -29,22 +32,18 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
         public MergeViewModel(
             MergeItemsUseCase mergeItemsUseCase,
             MoveMergeItemUseCase moveMergeItemUseCase, 
-            GetMergeInventoryUseCase getMergeInventoryUseCase)
+            GetMergeInventoryUseCase getMergeInventoryUseCase, 
+            IDragAndDrop dragAndDrop)
         {
             _mergeItemsUseCase = mergeItemsUseCase;
             _moveMergeItemUseCase = moveMergeItemUseCase;
             _getMergeInventoryUseCase = getMergeInventoryUseCase;
+            _dragAndDrop = dragAndDrop;
         }
 
         public void MergeItems()
         {
             _mergeItemsUseCase.Execute();
-            FetchItems();
-        }
-
-        private void MoveInventoryItem(int itemIndex, int toSlotIndex)
-        {
-            _moveMergeItemUseCase.Execute(itemIndex, toSlotIndex);
             FetchItems();
         }
 
@@ -67,9 +66,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                     itemImage: item?.Sprite,
                     name: item?.Name,
                     onMoveItem: MoveInventoryItem,
-                    onBeginDrag: null,
-                    onDragging: null,
-                    onEndDrag: null
+                    onBeginDrag: BeginDrag,
+                    onDragging: Dragging,
+                    onEndDrag: EndDrag
                 );
             }
 
@@ -80,9 +79,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                 itemImage: items.PrimarySlot?.Sprite,
                 name: items.PrimarySlot?.Name,
                 onMoveItem: MoveInventoryItem,
-                onBeginDrag: null,
-                onDragging: null,
-                onEndDrag: null
+                onBeginDrag: BeginDrag,
+                onDragging: Dragging,
+                onEndDrag: EndDrag
             );
 
             var secondarySlotIndex = slotIndex + 1;
@@ -92,9 +91,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                 itemImage: items.SecondarySlot?.Sprite,
                 name: items.SecondarySlot?.Name,
                 onMoveItem: MoveInventoryItem,
-                onBeginDrag: null,
-                onDragging: null,
-                onEndDrag: null
+                onBeginDrag: BeginDrag,
+                onDragging: Dragging,
+                onEndDrag: EndDrag
             );
             
             var isMergeButtonEnabled = items is { PrimarySlot: not null, SecondarySlot: not null };
@@ -107,5 +106,28 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                 IsMergeButtonEnabled = isMergeButtonEnabled
             };
         }
+        
+        #region SlotActions
+        private void MoveInventoryItem(int itemIndex, int toSlotIndex)
+        {
+            _moveMergeItemUseCase.Execute(itemIndex, toSlotIndex);
+            FetchItems();
+        }
+
+        private void BeginDrag(Sprite sprite)
+        {
+            _dragAndDrop.OnBeginDrag(sprite);
+        }
+
+        private void Dragging()
+        {
+            _dragAndDrop.Dragging();
+        }
+
+        private void EndDrag(SlotView fromSlotView, bool isOverSlot)
+        {
+            _dragAndDrop.OnEndDrag(fromSlotView, isOverSlot);
+        }
+        #endregion
     }
 }

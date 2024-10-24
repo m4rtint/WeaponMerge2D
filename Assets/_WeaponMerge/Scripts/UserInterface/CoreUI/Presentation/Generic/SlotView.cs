@@ -1,6 +1,8 @@
+using System;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -68,6 +70,12 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
         private void HideIcon()
         {
             _itemImage.transform.localScale = Vector3.zero;
+        }
+
+        private void OnDrawGizmos()
+        {
+            GUI.color = Color.red;
+            Handles.Label(transform.position - Vector3.right * 20, "Slot " + _slotIndex + "\nItem ID: " + _itemId);
         }
     }
 }

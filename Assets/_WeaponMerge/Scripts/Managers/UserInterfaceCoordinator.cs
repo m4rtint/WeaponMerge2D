@@ -106,7 +106,8 @@ namespace _WeaponMerge.Scripts.Managers
             _mergeView.Initialize(new MergeViewModel(
                 mergeItemsUseCase: mergeItemUseCase,
                 moveMergeItemUseCase: moveMergeItemUseCase,
-                getMergeInventoryUseCase: getMergeInventoryUseCase));
+                getMergeInventoryUseCase: getMergeInventoryUseCase, 
+                dragAndDrop: _dragAndDropBehaviour));
         }
         
         private void ToggleInventory()

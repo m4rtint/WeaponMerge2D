@@ -26,7 +26,6 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
         {
             _storage = storage;
             _inventoryToMerge = new Item[_storage.InventoryItems.Length + InventoryStorage.MAX_MERGE_SLOTS];
-            Array.Copy(_storage.InventoryItems, _inventoryToMerge, _storage.InventoryItems.Length);
         }
 
         public (Item, Item) GetMergingItems()
@@ -78,6 +77,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Data
 
         public MergeInventory GetMergeInventory()
         {
+            Array.Copy(_storage.InventoryItems, _inventoryToMerge, InventoryStorage.MAX_INVENTORY_ITEMS);
             var inventoryItems = _inventoryToMerge.Take(_inventoryToMerge.Length - InventoryStorage.MAX_MERGE_SLOTS).ToArray();
             return new MergeInventory
             {
