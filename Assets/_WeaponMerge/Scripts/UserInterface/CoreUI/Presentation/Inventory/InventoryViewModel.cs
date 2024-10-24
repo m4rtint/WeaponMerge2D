@@ -20,8 +20,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
         public Sprite ItemImage { get; }
         public string Name { get; }
         public Action<int, int> OnMoveItem { get; }
-        public Action<Vector3, Sprite> OnBeginDrag { get; }
+        public Action<Sprite> OnBeginDrag { get; }
         public Action OnDragging { get; }
+        public Action<SlotView, bool> OnEndDrag { get; }
         
         public SlotState(
             int slotIndex,
@@ -29,8 +30,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
             Sprite itemImage,
             string name,
             Action<int, int> onMoveItem, 
-            Action<Vector3, Sprite> onBeginDrag,
-            Action onDragging)
+            Action<Sprite> onBeginDrag,
+            Action onDragging, 
+            Action<SlotView, bool> onEndDrag)
         {
             SlotIndex = slotIndex;
             ItemId = itemId;
@@ -39,6 +41,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
             OnMoveItem = onMoveItem;
             OnBeginDrag = onBeginDrag;
             OnDragging = onDragging;
+            OnEndDrag = onEndDrag;
         }
     }
     
@@ -99,7 +102,8 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
                     name: items[i]?.Name,
                     onMoveItem: MoveItem,
                     onBeginDrag: BeginDrag,
-                    onDragging: Dragging
+                    onDragging: Dragging,
+                    onEndDrag: EndDrag
                 );
             }
 
@@ -114,9 +118,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
             FetchItems();
         }
 
-        private void BeginDrag(Vector3 position, Sprite sprite)
+        private void BeginDrag(Sprite sprite)
         {
-            _dragAndDrop.OnBeginDrag(position, sprite);
+            _dragAndDrop.OnBeginDrag(sprite);
         }
 
         private void Dragging()
@@ -124,9 +128,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
             _dragAndDrop.Dragging();
         }
 
-        private void OnDropDragging()
+        private void EndDrag(SlotView fromSlotView, bool isOverSlot)
         {
-            _dragAndDrop.OnDropDragging();
+            _dragAndDrop.OnEndDrag(fromSlotView, isOverSlot);
         }
         #endregion
     }

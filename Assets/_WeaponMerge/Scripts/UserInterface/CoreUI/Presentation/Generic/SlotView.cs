@@ -1,4 +1,3 @@
-using System;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
@@ -30,25 +29,28 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
             _slotIndex = state.SlotIndex;
             _itemId = state.ItemId;
             _state = state;
-            _itemImage.color = state.ItemImage == null ? Color.clear : Color.white;
+            _itemImage.transform.localScale = state.ItemImage == null ? Vector3.zero : Vector3.one;
             _itemImage.sprite = state.ItemImage;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             Tools.Logger.Log("Begin Drag", LogKey.Inventory);
-            _state.OnBeginDrag?.Invoke(eventData.position, _itemImage.sprite);
+            HideIcon();
+            _state.OnBeginDrag?.Invoke(_itemImage.sprite);
         }
         
         public void OnDrag(PointerEventData eventData)
         {
-            Tools.Logger.Log("On Drag", LogKey.Inventory);
             _state.OnDragging?.Invoke();
         }
         
         public void OnEndDrag(PointerEventData eventData)
         {
-            Tools.Logger.Log("End Drag", LogKey.Inventory);
+            var isEndingOverSlot = eventData.pointerEnter.GetComponent<SlotView>() != null;
+            _state.OnEndDrag?.Invoke(this, isEndingOverSlot);
+            Tools.Logger.Log("End Drag over GameObject: " + eventData.pointerDrag.name, LogKey.Inventory);
+            Tools.Logger.Log("End Drag isOverSlot: " + isEndingOverSlot, LogKey.Inventory);
         }
         
         public void OnDrop(PointerEventData eventData)
@@ -56,6 +58,16 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
             var fromSlot = eventData.pointerDrag.GetComponent<SlotView>();
             Tools.Logger.Log("Drop Item from Slot " + fromSlot._slotIndex + " (Item ID: " + fromSlot._itemId + ") to Slot " + _slotIndex, LogKey.Inventory);
             _state.OnMoveItem?.Invoke(fromSlot._itemId, _slotIndex);
+        }
+
+        public void ShowIcon()
+        {
+            _itemImage.transform.localScale = Vector3.one;
+        }
+
+        private void HideIcon()
+        {
+            _itemImage.transform.localScale = Vector3.zero;
         }
     }
 }

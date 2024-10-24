@@ -1,4 +1,5 @@
 using _WeaponMerge.Tools;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -7,15 +8,14 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
 {
     public interface IDragAndDrop
     {
-        void OnBeginDrag(Vector3 position, Sprite sprite);
+        void OnBeginDrag(Sprite sprite);
         void Dragging();
-        void OnDropDragging();
+        void OnEndDrag(SlotView fromSlotView, bool isOverSlot);
     }
     
     public class DragAndDropBehaviour: MonoBehaviour, IDragAndDrop
     {
         private Image _image;
-        private Vector3 _initialPosition = Vector3.zero;
 
         private void Awake()
         {
@@ -24,9 +24,8 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
             transform.localScale = Vector3.zero;
         }
 
-        public void OnBeginDrag(Vector3 position, Sprite sprite)
+        public void OnBeginDrag(Sprite sprite)
         {
-            _initialPosition = position;
             transform.localScale = Vector3.one;
             _image.sprite = sprite;
         }
@@ -36,9 +35,28 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic
             _image.transform.position = Mouse.current.position.ReadValue();
         }
 
-        public void OnDropDragging()
+        public void OnEndDrag(SlotView fromSlotView, bool isOverSlot)
         {
-            
+            if (isOverSlot)
+            {
+                transform.localScale = Vector3.zero;
+            }
+            else
+            {
+                AnimateBackToOriginalPosition(fromSlotView);
+            }
+        }
+        
+        private void AnimateBackToOriginalPosition(SlotView fromSlowView)
+        {
+            transform.DOMove(fromSlowView.transform.position, 0.25f)
+                .SetUpdate(true)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() =>
+                {
+                    fromSlowView.ShowIcon();
+                    transform.localScale = Vector3.zero;
+                });
         }
     }
 }
