@@ -39,6 +39,7 @@ namespace _WeaponMerge.Tools
             // Print the exception
             Debug.LogException(exception);
             // Quit the app
+            EditorApplication.isPlaying = false;
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
 #else

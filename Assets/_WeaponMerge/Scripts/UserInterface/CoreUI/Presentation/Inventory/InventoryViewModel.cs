@@ -1,6 +1,7 @@
 using System;
 using _WeaponMerge.Scripts.Inventory;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,14 +20,25 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
         public Sprite ItemImage { get; }
         public string Name { get; }
         public Action<int, int> OnMoveItem { get; }
+        public Action<Vector3, Sprite> OnBeginDrag { get; }
+        public Action OnDragging { get; }
         
-        public SlotState(int slotIndex, int itemId, Sprite itemImage, string name, Action<int, int> onMoveItem)
+        public SlotState(
+            int slotIndex,
+            int itemId,
+            Sprite itemImage,
+            string name,
+            Action<int, int> onMoveItem, 
+            Action<Vector3, Sprite> onBeginDrag,
+            Action onDragging)
         {
             SlotIndex = slotIndex;
             ItemId = itemId;
             ItemImage = itemImage;
             Name = name;
             OnMoveItem = onMoveItem;
+            OnBeginDrag = onBeginDrag;
+            OnDragging = onDragging;
         }
     }
     
@@ -35,6 +47,7 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
         private readonly MoveInventoryItemUseCase _moveInventoryItemUseCase;
         private readonly GetInventoryItemsUseCase _getInventoryItemsUseCase;
         private readonly GetEquipmentItemsUseCase _getEquipmentItemsUseCase;
+        private readonly IDragAndDrop _dragAndDrop;
 
         private InventoryState State
         {
@@ -46,18 +59,15 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
         public InventoryViewModel(
             MoveInventoryItemUseCase moveInventoryItemUseCase, 
             GetInventoryItemsUseCase getInventoryItemsUseCase,
-            GetEquipmentItemsUseCase getEquipmentItemsUseCase)
+            GetEquipmentItemsUseCase getEquipmentItemsUseCase, 
+            IDragAndDrop dragAndDrop)
         {
             _moveInventoryItemUseCase = moveInventoryItemUseCase;
             _getInventoryItemsUseCase = getInventoryItemsUseCase;
             _getEquipmentItemsUseCase = getEquipmentItemsUseCase;
+            _dragAndDrop = dragAndDrop;
         }
-        
-        private void MoveItem(int itemId, int toSlotIndex)
-        { 
-            _moveInventoryItemUseCase.Execute(itemId, toSlotIndex);
-            FetchItems();
-        }
+
 
         public void FetchItems()
         {
@@ -87,11 +97,37 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory
                     itemId: items[i]?.Id ?? -1,
                     itemImage: items[i]?.Sprite,
                     name: items[i]?.Name,
-                    onMoveItem: MoveItem
+                    onMoveItem: MoveItem,
+                    onBeginDrag: BeginDrag,
+                    onDragging: Dragging
                 );
             }
 
             return state;
         }
+        
+        
+        #region SlotActions
+        private void MoveItem(int itemId, int toSlotIndex)
+        { 
+            _moveInventoryItemUseCase.Execute(itemId, toSlotIndex);
+            FetchItems();
+        }
+
+        private void BeginDrag(Vector3 position, Sprite sprite)
+        {
+            _dragAndDrop.OnBeginDrag(position, sprite);
+        }
+
+        private void Dragging()
+        {
+            _dragAndDrop.Dragging();
+        }
+
+        private void OnDropDragging()
+        {
+            _dragAndDrop.OnDropDragging();
+        }
+        #endregion
     }
 }

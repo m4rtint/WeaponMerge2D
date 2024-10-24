@@ -66,7 +66,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                     itemId: item?.Id ?? -1,
                     itemImage: item?.Sprite,
                     name: item?.Name,
-                    onMoveItem: MoveInventoryItem
+                    onMoveItem: MoveInventoryItem,
+                    onBeginDrag: null,
+                    onDragging: null
                 );
             }
 
@@ -76,7 +78,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                 itemId: items.PrimarySlot?.Id ?? -1,
                 itemImage: items.PrimarySlot?.Sprite,
                 name: items.PrimarySlot?.Name,
-                onMoveItem: MoveInventoryItem
+                onMoveItem: MoveInventoryItem,
+                onBeginDrag: null,
+                onDragging: null
             );
 
             var secondarySlotIndex = slotIndex + 1;
@@ -85,7 +89,9 @@ namespace _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge
                 itemId: items.SecondarySlot?.Id ?? -1,
                 itemImage: items.SecondarySlot?.Sprite,
                 name: items.SecondarySlot?.Name,
-                onMoveItem: MoveInventoryItem
+                onMoveItem: MoveInventoryItem,
+                onBeginDrag: null,
+                onDragging: null
             );
             
             var isMergeButtonEnabled = items is { PrimarySlot: not null, SecondarySlot: not null };

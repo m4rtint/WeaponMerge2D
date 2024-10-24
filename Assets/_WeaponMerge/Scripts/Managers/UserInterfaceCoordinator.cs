@@ -2,12 +2,14 @@ using _WeaponMerge.Scripts.Characters.Players.Domain.UseCases;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Data;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Domain.UseCases;
+using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Generic;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.HUD;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Inventory;
 using _WeaponMerge.Scripts.UserInterface.CoreUI.Presentation.Merge;
 using _WeaponMerge.Tools;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _WeaponMerge.Scripts.Managers
 {
@@ -27,6 +29,8 @@ namespace _WeaponMerge.Scripts.Managers
         [SerializeField] private EquipmentView _equipmentView;
         [SerializeField] private MergeView _mergeView;
         
+        [Title("Drag And Drop")]
+        [SerializeField] private DragAndDropBehaviour _dragAndDropBehaviour;
         
         private bool _isInventoryOpen = false;
         private bool _isMergeOpen = false;
@@ -82,7 +86,8 @@ namespace _WeaponMerge.Scripts.Managers
             var inventoryViewModel = new InventoryViewModel(
                 moveInventoryItemUseCase: moveItemUseCase, 
                 getInventoryItemsUseCase: getInventoryItemsUseCase, 
-                getEquipmentItemsUseCase: getEquipmentItemsUseCase);
+                getEquipmentItemsUseCase: getEquipmentItemsUseCase, 
+                dragAndDrop: _dragAndDropBehaviour);
             _inventoryView.Initialize(inventoryViewModel);
             _equipmentView.Initialize(inventoryViewModel);
             

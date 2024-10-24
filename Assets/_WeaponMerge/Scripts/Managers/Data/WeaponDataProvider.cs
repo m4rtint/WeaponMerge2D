@@ -14,11 +14,10 @@ namespace _WeaponMerge.Scripts.Managers.Data
             {
                 if (_instance == null)
                 {
-                    _instance = FindObjectOfType<WeaponDataProvider>();
+                    _instance = FindAnyObjectByType<WeaponDataProvider>();
                     if (_instance == null)
                     {
-                        GameObject singletonObject = new GameObject(typeof(WeaponDataProvider).Name);
-                        _instance = singletonObject.AddComponent<WeaponDataProvider>();
+                        PanicHelper.CheckAndPanicIfNull(_instance);
                     }
                 }
                 return _instance;
