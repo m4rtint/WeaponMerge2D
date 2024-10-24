@@ -1,11 +1,16 @@
 using _WeaponMerge.Tools;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Managers.Data
 {
     public class WeaponDataProvider : MonoBehaviour
     {
+        [Title("Image Icon")]
         [SerializeField] private Sprite[] _weaponIcons;
+        [Space]
+        [Title("Audio Clips")]
+        [SerializeField] private AudioClip[] _pistolAudioClips;
 
         private static WeaponDataProvider _instance;
         public static WeaponDataProvider Instance
@@ -298,6 +303,12 @@ namespace _WeaponMerge.Scripts.Managers.Data
         {
             var index = hashCode % _pistolNames.Length;
             return _pistolNames[index];
+        }
+
+        public AudioClip GetWeaponAudio(int hashCode)
+        {
+            var index = hashCode % _pistolAudioClips.Length;
+            return _pistolAudioClips[index];
         }
     }
 }
