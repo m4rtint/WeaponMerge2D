@@ -9,6 +9,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
     {
         void ShootVisualEffects();
         void ShootAudioEffects(AudioClip clip);
+        void HealthPickUpAudioEffects(AudioClip clip);
     }
     
     public class PlayerFeedbackEffectBehaviour : MonoBehaviour, IPlayerFeedbackEffects
@@ -16,17 +17,13 @@ namespace _WeaponMerge.Scripts.Characters.Players
         [Title("Weapon Visuals")]
         [SerializeField] private SpriteRenderer _muzzleFlashSpriteRenderer = null;
         [SerializeField] private Transform _weaponPivot = null;
-        
-        [Title("Weapon Audio")]
-        [SerializeField] private AudioSource _audioSource = null;
-        
-        private SpriteRenderer _weaponSpriteRenderer = null;
-         
+        [SerializeField] private SpriteRenderer _weaponSpriteRenderer = null;
+
+        private AudioSource _audioSource = null;
 
         private void Awake()
         {
-            _audioSource = GetComponent<AudioSource>();
-            _weaponSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _audioSource = GetComponentInChildren<AudioSource>();
             PanicHelper.CheckAndPanicIfNull(_weaponSpriteRenderer);
             PanicHelper.CheckAndPanicIfNull(_weaponPivot);
             PanicHelper.CheckAndPanicIfNull(_audioSource);
@@ -66,6 +63,11 @@ namespace _WeaponMerge.Scripts.Characters.Players
         }
 
         public void ShootAudioEffects(AudioClip clip)
+        {
+            _audioSource.PlayOneShot(clip);
+        }
+
+        public void HealthPickUpAudioEffects(AudioClip clip)
         {
             _audioSource.PlayOneShot(clip);
         }

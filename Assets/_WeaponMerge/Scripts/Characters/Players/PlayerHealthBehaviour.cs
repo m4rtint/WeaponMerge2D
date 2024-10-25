@@ -1,4 +1,3 @@
-using System;
 using _WeaponMerge.Scripts.Characters.General;
 using UnityEngine;
 using UnityEngine.UI;

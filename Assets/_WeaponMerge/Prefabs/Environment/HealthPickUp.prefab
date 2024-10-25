@@ -193,3 +193,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 40
+  _healthPickUpAudioClip: {fileID: 8300000, guid: cbfc809cc498c8f4284de36728a7d75b, type: 3}

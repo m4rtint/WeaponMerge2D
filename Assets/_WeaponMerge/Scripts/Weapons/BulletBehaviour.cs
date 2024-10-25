@@ -1,4 +1,5 @@
 using _WeaponMerge.Scripts.Characters.General;
+using _WeaponMerge.Scripts.Environment;
 using _WeaponMerge.Scripts.UserInterface;
 using _WeaponMerge.Scripts.UserInterface.CoreUI;
 using _WeaponMerge.Tools;
@@ -49,6 +50,12 @@ namespace _WeaponMerge.Scripts.Weapons
             if (hit.collider != null &&
                 hit.collider.gameObject.GetInstanceID() != _ownerInstanceId)
             {
+                if (hit.collider.TryGetComponent<DropItemBehaviour>(out _) || 
+                    hit.collider.TryGetComponent<DropHealthBehaviour>(out _))
+                {
+                    return;
+                }
+                
                 // Check if the hit object has a HealthBehaviour component and apply damage
                 if (hit.collider.TryGetComponent<HealthBehaviour>(out var enemyHealth))
                 {

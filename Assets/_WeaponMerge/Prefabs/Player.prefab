@@ -326,7 +326,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6657177441004143996}
-  - component: {fileID: 4540330684678800554}
   - component: {fileID: 5513586706587421034}
   m_Layer: 0
   m_Name: Weapon
@@ -351,21 +350,6 @@ Transform:
   - {fileID: 3773883714135354240}
   m_Father: {fileID: 8290392371374614673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4540330684678800554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5048359094660863309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eac5c8caed98d340aece62845b617f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _muzzleFlashSpriteRenderer: {fileID: 3145103810814329778}
-  _weaponPivot: {fileID: 3773883714135354240}
-  _audioSource: {fileID: 0}
 --- !u!82 &5513586706587421034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -479,6 +463,7 @@ GameObject:
   - component: {fileID: 2101358034054743615}
   - component: {fileID: 3472274675633377344}
   - component: {fileID: 3150573387912819217}
+  - component: {fileID: 4673328671287358158}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -630,6 +615,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85454a296d8645a3be13a66ab442f223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4673328671287358158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915159141590259325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eac5c8caed98d340aece62845b617f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzleFlashSpriteRenderer: {fileID: 3145103810814329778}
+  _weaponPivot: {fileID: 3773883714135354240}
+  _weaponSpriteRenderer: {fileID: 4535519300747340908}
 --- !u!1 &8000204312224395168
 GameObject:
   m_ObjectHideFlags: 0

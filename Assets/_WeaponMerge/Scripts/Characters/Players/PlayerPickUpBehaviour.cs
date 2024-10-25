@@ -8,6 +8,7 @@ namespace _WeaponMerge.Scripts.Characters.Players
     public class PlayerPickUpBehaviour: MonoBehaviour
     {
         private PickUpItemUseCase _pickUpItemUseCase;
+        
         private void Awake()
         {
             var inventoryRepository = new InventoryRepository(new InventoryStorage());
