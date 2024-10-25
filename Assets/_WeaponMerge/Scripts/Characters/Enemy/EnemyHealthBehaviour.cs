@@ -5,18 +5,18 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
 {
     public class EnemyHealthBehaviour : HealthBehaviour
     {
-        private EnemyVisualDamageFlashBehaviour _enemyVisualDamageFlashBehaviour = null;
+        private EnemyFeedbackEffectBehaviour _enemyFeedbackEffectBehaviour = null;
 
-        private EnemyVisualDamageFlashBehaviour VisualBehaviour
+        private EnemyFeedbackEffectBehaviour VisualBehaviour
         {
             get
             {
-                if (_enemyVisualDamageFlashBehaviour == null)
+                if (_enemyFeedbackEffectBehaviour == null)
                 {
-                    _enemyVisualDamageFlashBehaviour = GetComponent<EnemyVisualDamageFlashBehaviour>();
+                    _enemyFeedbackEffectBehaviour = GetComponent<EnemyFeedbackEffectBehaviour>();
                 }
 
-                return _enemyVisualDamageFlashBehaviour;
+                return _enemyFeedbackEffectBehaviour;
             }
         }
         

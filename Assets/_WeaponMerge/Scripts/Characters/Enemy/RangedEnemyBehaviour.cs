@@ -2,16 +2,20 @@ using System;
 using _WeaponMerge.Scripts.Characters.Enemy.Domain.Model;
 using _WeaponMerge.Scripts.Characters.Players;
 using _WeaponMerge.Tools;
+using UnityEngine;
 
 namespace _WeaponMerge.Scripts.Characters.Enemy
 {
     public class RangedEnemyBehaviour : EnemyBehaviour
     {
-
+        [SerializeField] AudioClip _attackAudioClip = null;
+        [SerializeField] AudioClip[] _deathAudioClips = null;
+        private IEnemyFeedbackEffect _enemyFeedbackEffect;
         private EnemyRangedAttackBehaviour _enemyRangedAttackBehaviour = null;
 
         private void Awake()
         {
+            _enemyFeedbackEffect = GetComponent<EnemyFeedbackEffectBehaviour>();
             _enemyRangedAttackBehaviour = GetComponent<EnemyRangedAttackBehaviour>();
             PanicHelper.CheckAndPanicIfNull(_enemyRangedAttackBehaviour);
         }
@@ -37,6 +41,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
 
         protected override void HandleOnDeath()
         {
+            _enemyFeedbackEffect?.DeathAudioEffects(_deathAudioClips, volume: 0.75f);
             _enemyRangedAttackBehaviour.StopAttack();
         }
 

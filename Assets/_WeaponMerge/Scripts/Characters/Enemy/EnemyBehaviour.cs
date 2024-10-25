@@ -10,7 +10,20 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
     {
         private EnemyPathFindingBehaviour _pathFindingBehaviour;
         private EnemyHealthBehaviour _enemyHealthBehaviour;
+        private Collider2D _collider2D;
         private Animator _animator;
+        
+        private Collider2D Collider2D
+        {
+            get
+            {
+                if (_collider2D == null && !TryGetComponent(out _collider2D))
+                {
+                    PanicHelper.CheckAndPanicIfNull(_collider2D);
+                }
+                return _collider2D;
+            }
+        }
 
         protected EnemyPathFindingBehaviour PathFindingBehaviour
         {
@@ -64,6 +77,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 onDeathDelay: 1f,
                 onDeath: () =>
                 {
+                    Collider2D.enabled = false;
                     PathFindingBehaviour.Pause();
                     Animator.SetBool(AnimatorKey.IsDead, true);
                     onDeath?.Invoke();
@@ -73,6 +87,7 @@ namespace _WeaponMerge.Scripts.Characters.Enemy
                 {
                     onCleanUp?.Invoke();
                     HandleOnCleanUp();
+                    Collider2D.enabled = true;
                     PathFindingBehaviour.CleanUp();
                     Animator.SetBool(AnimatorKey.IsDead, false);
                     ObjectPooler.Instance.ReturnToPool(enemyData.EnemyType, gameObject);

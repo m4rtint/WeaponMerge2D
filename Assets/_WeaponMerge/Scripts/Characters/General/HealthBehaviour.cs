@@ -41,7 +41,7 @@ namespace _WeaponMerge.Scripts.Characters.General
         public void TakeDamage(int damage)
         {
             Health -= damage;
-            if (_health <= 0)
+            if (_health <= 0 && !_isDying)
             {
                 OnDeath();
             }
